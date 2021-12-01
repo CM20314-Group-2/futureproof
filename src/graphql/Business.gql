@@ -1,0 +1,34 @@
+input BusinessInput {
+  name: String!
+  owner: ID
+  type: BusinessType
+  primaryLocation: ID!
+  locations: [ID!]!
+  profilePicture: String
+  profileText: String
+}
+
+type Business {
+  id: ID!
+  name: String!
+  owner: User
+  type: BusinessType!
+  locations: [Location!]!
+  primaryLocation: Location!
+  sustainabilityScore: Float
+  customerScore: Float
+  profilePicture: String
+  profileText: String
+  comments: [Comment!]!
+  reviews: [Review!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  # Sustainability Data
+}
+
+enum BusinessType {
+  RESTAURANT
+  BAR
+  CAFE
+  OTHER
+}

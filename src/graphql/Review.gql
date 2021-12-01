@@ -1,0 +1,15 @@
+input ReviewInput {
+  user: ID!
+  business: ID!
+  # Sustainability Data
+}
+
+type Review {
+  id: ID!
+  user: User!
+  business: Business!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  reputation: Int!
+  # Sustainability Data
+}

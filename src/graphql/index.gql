@@ -1,0 +1,39 @@
+scalar DateTime
+
+type Query {
+  users: [User]
+  user(id: ID!): User
+  userByEmail(email: String!): User
+  businesses: [Business]
+  business(id: ID!): Business
+  businessByName(name: String!): Business
+  reviews: [Review]
+  review(id: ID!): Review
+  reviewsByBusiness(businessId: ID!): [Review]
+  reviewsByUser(userId: ID!): [Review]
+  comments: [Comment]
+  comment(id: ID!): Comment
+  commentsByBusiness(businessId: ID!): [Comment]
+  commentsByUser(userId: ID!): [Comment]
+  locations: [Location]
+  location(id: ID!): Location
+  locationsByBusiness(businessId: ID!): [Location]
+}
+
+type Mutation {
+  createUser(input: UserInput): User
+  updateUser(id: ID!, input: UserInput): User
+  deleteUser(id: ID!): User
+  createBusiness(input: BusinessInput): Business
+  updateBusiness(id: ID!, input: BusinessInput): Business
+  deleteBusiness(id: ID!): Business
+  createReview(input: ReviewInput): Review
+  updateReview(id: ID!, input: ReviewInput): Review
+  deleteReview(id: ID!): Review
+  createComment(input: CommentInput): Comment
+  updateComment(id: ID!, input: CommentInput): Comment
+  deleteComment(id: ID!): Comment
+  createLocation(input: LocationInput): Location
+  updateLocation(id: ID!, input: LocationInput): Location
+  deleteLocation(id: ID!): Location
+}

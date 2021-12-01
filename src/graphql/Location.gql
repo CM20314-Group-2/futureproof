@@ -1,0 +1,18 @@
+input LocationInput {
+  business: ID!
+  name: String!
+  address: String!
+  latitude: Float!
+  longitude: Float!
+}
+
+type Location {
+  id: ID!
+  business: Business!
+  name: String!
+  address: String!
+  latitude: Float!
+  longitude: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
