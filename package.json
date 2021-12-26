@@ -8,8 +8,15 @@
     "url": "https://github.com/CM20314-Group-2/typings"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate": "graphql-codegen --config src/codegen.yml"
   },
   "author": "bridgeswood",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^16.2.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.3.0",
+    "@graphql-codegen/typescript": "^2.4.1"
+  }
 }
