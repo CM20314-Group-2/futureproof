@@ -1,0 +1,13 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@typings/*": ["typings/*"]
+    },
+  },
+  "include": ["**/*.ts", "**/*/tsx"],
+  "exclude": ["node_modules"]
+}
