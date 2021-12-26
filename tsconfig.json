@@ -5,7 +5,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./src",
     "paths": {
-      "@typings/*": ["typings/*"]
+      "@typings/*": ["typings/src/ts/*"],
+      "@components/*": ["components/*"]
     },
   },
   "include": ["**/*.ts", "**/*/tsx"],
