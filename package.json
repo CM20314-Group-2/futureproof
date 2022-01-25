@@ -1,1 +1,7 @@
-
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "description": "Backend for FutureProof",
+  "repository": "https://github.com/CM20314-Group-2/backend",
+  "private": true
+}
