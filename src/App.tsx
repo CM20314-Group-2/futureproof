@@ -6,7 +6,7 @@ const App = () => {
     <View style={styles.container}>
       <MapView/>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-});
+})
 
 export default App
