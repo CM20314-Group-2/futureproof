@@ -5,7 +5,6 @@ import Map from 'react-native-maps'
 
 const MapView = () => {
   const [location, setLocation] = useState<Location.LocationObject | null>(null)
-  
 
   useEffect(() => {
     (async () => {

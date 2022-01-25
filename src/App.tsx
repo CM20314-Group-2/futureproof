@@ -1,11 +1,22 @@
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import MapView from '@components/MapView'
 import { StyleSheet, View } from 'react-native'
-import MapView from './components/MapView'
+
+// Initialise Apollo Client
+const client = new ApolloClient({
+  uri: 'https://api.spacex.land/graphql/',
+  cache: new InMemoryCache()
+})
 
 const App = () => {
+  
+
   return (
-    <View style={styles.container}>
-      <MapView/>
-    </View>
+    <ApolloProvider client={client}>
+      <View style={styles.container}>
+        <MapView/>
+      </View>
+    </ApolloProvider>
   );
 }
 
