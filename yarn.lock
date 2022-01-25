@@ -797,6 +797,13 @@
   dependencies:
     tslib "~2.3.0"
 
+"@graphql-tools/utils@^8.6.1":
+  version "8.6.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.6.1.tgz#52c7eb108f2ca2fd01bdba8eef85077ead1bf882"
+  integrity sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg==
+  dependencies:
+    tslib "~2.3.0"
+
 "@graphql-tools/wrap@^8.3.1":
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-8.3.2.tgz#d3bcecb7529d071e4ecc4dfc75b9566e3da79d4f"
@@ -3180,6 +3187,11 @@ type-fest@^0.21.3:
   version "0.21.3"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.21.3.tgz#d260a24b0198436e133fa26a524a6d65fa3b2e37"
   integrity sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==
+
+typescript@^4.5.5:
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
+  integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
 
 ua-parser-js@^0.7.30:
   version "0.7.31"
