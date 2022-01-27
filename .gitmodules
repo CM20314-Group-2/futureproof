@@ -3,4 +3,4 @@
 	url = https://github.com/CM20314-Group-2/typings.git
 [submodule "src/server"]
 	path = src/server
-	url = https://github.com/CM20314-Group-2/backend
+	url = https://github.com/CM20314-Group-2/backend.git
