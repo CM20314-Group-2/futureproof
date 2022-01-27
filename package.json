@@ -8,7 +8,7 @@
     "ios": "expo start --ios -c",
     "web": "expo start --web -c",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest",
     "lint": "eslint . --ext .ts,.tsx",
     "precommit": "yarn lint"
   },
@@ -29,13 +29,13 @@
     "@types/jest": "^27.4.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
-    "babel-plugin-module-resolver": "^4.1.0",
-    "jest": "^27.4.7",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^8.7.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-native": "^4.0.0",
+    "jest": "^27.4.7",
     "typescript": "~4.3.5"
   },
   "private": true,
