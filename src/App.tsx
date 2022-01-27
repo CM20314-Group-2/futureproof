@@ -15,7 +15,7 @@ const App = () => {
         <MapView/>
       </View>
     </ApolloProvider>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
