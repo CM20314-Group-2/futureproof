@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "start": "expo start --tunnel -c",
+    "start": "expo start --tunnel  -c",
     "android": "expo start --android -c",
     "ios": "expo start --ios -c",
     "web": "expo start --web -c",
     "eject": "expo eject",
     "test": "jest",
     "lint": "eslint . --ext .ts,.tsx",
-    "precommit": "yarn lint"
+    "build": "lerna run build"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
@@ -36,6 +36,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-native": "^4.0.0",
     "jest": "^27.4.7",
+    "lerna": "^4.0.0",
     "typescript": "~4.3.5"
   },
   "private": true,
