@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 import MapView from './components/MapView'
+import SearchView from './components/SearchView'
 
 const App = () => {
   return (
