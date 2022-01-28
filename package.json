@@ -8,8 +8,8 @@
     "url": "https://github.com/CM20314-Group-2/typings"
   },
   "scripts": {
-    "pregenerate": "tsc",
-    "generate": "graphql-codegen --config src/codegen.yml"
+    "prebuild": "tsc",
+    "build": "graphql-codegen --config src/codegen.yml"
   },
   "author": "bridgeswood",
   "license": "ISC",
