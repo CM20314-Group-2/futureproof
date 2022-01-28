@@ -1,15 +1,35 @@
 # FutureProof
 
+## Prerequisites
+- Ensure that you have lerna installed globally:
+```
+npm install -g lerna
+```
+
 ## Installation
 - Create a new directory and clone the repository into it using the following command:
 ```
 git clone --recurse-submodules https://github.com/CM20314-Group-2/futureproof.git
 ```
-- Run the following command:
+- Install the client dependencies:
 ```
 npm install
 ```
-- Run the following command:
+- Then, install all of the dependencies of the child packages:
+```
+lerna bootstrap
+```
+
+## Running Locally
+- Ensure that all build steps have been run:
+```
+lerna run build
+```
+- Start the GraphQL server:
+```
+lerna run --stream dev
+```
+- In a new terminal windo start the client with:
 ```
 npm start
 ```
