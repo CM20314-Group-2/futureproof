@@ -1,13 +1,7 @@
 import React, {Component} from "react"
 import { SafeAreaView, View, FlatList, Text, Image, StyleSheet } from "react-native"
 
-type Business = {
-  id: string;
-  businessName: string;
-  distance: string;
-};
-
-const TEST_BUSINESSES_DATA: Business[] = [
+const TEST_BUSINESSES_DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     businessName: 'Starbucks Coffee',
@@ -33,7 +27,7 @@ const DisplayBusinessLogo = () => {
   );
 }
 
-const SearchItem = ({ businessName, distance }: {businessName: String, distance: String}) => (
+const SearchItem = ({ businessName, distance }) => (
   <View
     style={{
       backgroundColor: '#FAF9F9',
@@ -50,13 +44,13 @@ const SearchItem = ({ businessName, distance }: {businessName: String, distance:
 );
 
 const SearchView = () => {
-  const renderSearchItem = ({ item } : { item : Business}) => (
+  const renderSearchItem = ({ item }) => (
     <SearchItem businessName={item.businessName} distance={item.distance} />
   );
   return (
     <SafeAreaView style={styles.searchList}>
       <FlatList
-        data={TEST_BUSINESSES_DATA}
+        data={TEST_DATA}
         renderItem={renderSearchItem}
         keyExtractor={(item) => item.id}
       />
@@ -91,3 +85,33 @@ const styles = StyleSheet.create({
 })
 
 export default SearchView
+
+class SearchList extends Component {
+
+  renderItem = ({item}) => (
+    <View
+    style={{
+      backgroundColor: '#FAF9F9',
+      flexDirection: "column",
+      height: 100,
+      padding: 20
+    }}
+  >
+    <Text style={styles.businessTitleText}>{item.businessName}</Text>
+    <Text>{item.distance + "miles"}</Text>
+    <Text>FutureProof Rating:</Text>
+    <Text>User Rating:</Text>
+  </View>
+  );
+
+  render() {
+    return (
+      <FlatList
+        data={TEST_BUSINESSES_DATA}
+        testID="posts-list"
+        keyExtractor={(item) => item.id}
+        renderItem={this.renderItem}
+      />
+    );
+  }
+}
