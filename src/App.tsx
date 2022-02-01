@@ -10,7 +10,9 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SearchView/>
+    <MapView/>
+    //<BusinessView/>
+    //<SearchView/>
   );
 }
 

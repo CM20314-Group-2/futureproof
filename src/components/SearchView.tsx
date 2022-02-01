@@ -94,7 +94,7 @@ const SearchItemStats = ({business}: {business: Business}) => (
         <RatingCapsule ratingValue={business.futureProofRating}/>
       </View>
       <View style = {{flexDirection: "row", justifyContent: "flex-end", paddingVertical: 2}}>
-        <Text style={styles.ratingText}>User Rating:</Text>
+        <Text style={styles.ratingText}>Consumer Rating:</Text>
         <RatingCapsule ratingValue={business.userRating}/>
       </View>
   </View>
