@@ -15,10 +15,17 @@ const businesses : Pick<Business, 'name' | 'sustainabilityScore' | 'customerScor
 
 const resolvers = {
   Query: {
+    users: () =>{
+      return
+    },
     businesses: () => businesses,
+
+<<<<<<< Updated upstream
+=======
   },
 }
 
+>>>>>>> Stashed changes
 
 const server = new ApolloServer({typeDefs, resolvers})
 
