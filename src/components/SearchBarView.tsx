@@ -20,10 +20,16 @@ const COMPANY_TILE_DATA = gql` {
 
 
 const SearchBar = () => {
+    // Search field
     const [value, onChangeText] = React.useState('');
+    
+    // Query
     const [executeSearch, {loading, error, data}] = useLazyQuery(
         COMPANY_TILE_DATA
       );
+
+
+    // MAYBE USE THIS: https://github.com/slorber/awesome-debounce-promise
 
     // Debounce query
     React.useEffect(() => {
@@ -38,7 +44,7 @@ const SearchBar = () => {
       }, [value])
 
     
-
+    
     const updateSearch = (text : string) => {
         onChangeText(text);
     };
@@ -80,16 +86,17 @@ const SearchBar = () => {
 const styles = StyleSheet.create({
     safeAreaView: {
         flex:1,
-        padding:20,
-        flexDirection: 'column'
+        padding:20,     // Screen padding
+        flexDirection: 'column'     // order objets going in the column direction
     },
     searchInput: {
         borderRadius:10,
         borderWidth:2,
-        borderColor:'#FFFFFF',
-        backgroundColor:'#FFFFFF',
+        borderColor:'#FFFFFF',  // white border colour
+        backgroundColor:'#FFFFFF',  // white background colour
     },
     searchBarView:{
+        // Send search bar to the bottom
         marginTop: 'auto',
         marginBottom:'10%',
     }
@@ -99,21 +106,30 @@ export default SearchBar;
 
 
 /*
-
-// Query 
-//      (hasMore field indicates whether there are additional launches beyond the list returned by the server.)
-//      (cursor field indicates the client's current position within the list of launches. We can execute the query again and provide our most recent cursor as the value of the $after variable to fetch the next set of launches in the list.)
-export const GET_LAUNCHES = gql`
-  query GetLaunchList($after: String) {
-    launches(after: $after) {
-      cursor
-      hasMore 
-      launches {
-        ...LaunchTile
-      }
+/////////////// USING PROMISES
+// Promise; used for query
+    const handleReturnedData = () => {
+        console.log(data);
     }
-  }
-  ${COMPANY_TILE_DATA}
-`;
+
+    const handleError = () => {
+        console.log("An error occured. Maybe it took too long to load?");
+    }
+
+    // Debounce query
+    React.useEffect(() => {
+        const delayDebounceFn = setTimeout(() => {
+            const searchPromise = new Promise((executeSearch) => {
+                setTimeout(() => {
+                    executeSearch({
+                        variables: {String: value}
+                    });
+                }, 200);
+            });
+            searchPromise.then(handleReturnedData, handleError);
+        }, 400)
+      
+        return () => clearTimeout(delayDebounceFn)
+      }, [value])
 
 */
