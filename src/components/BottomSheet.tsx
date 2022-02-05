@@ -37,7 +37,7 @@ const BottomSheet = (
 
   return (
     <React.Fragment>
-      {show && (<Pressable onPress={ onOuterClick } style={ [styles.background, { height: screenHeight }] }/>)}
+      {show && (<Pressable onPress={ onOuterClick } style={ [styles.background, { height: screenHeight, top: -screenHeight }] }/>)}
       <Animated.View style={ [styles.bottomSheet, { height, bottom }] }>
         { children }
       </Animated.View>
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: '100%',
     zIndex: 1,
+    elevation: 1,
     backgroundColor: "#000000",
     opacity: 0.5
   },
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     zIndex: 1,
+    elevation: 1,
     backgroundColor: "#ffffff"
   }
 });

@@ -1,6 +1,7 @@
-import {InMemoryCache} from '@apollo/client'
+import {InMemoryCache, makeVar} from '@apollo/client'
+import {SortOptions} from '@typings/Search'
 
 const cache = new InMemoryCache()
-const
+export const sortOption = makeVar<SortOptions>('name_asc')
 
 export default cache
