@@ -1,7 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import MapView from '@components/MapView'
 import { StyleSheet, View } from 'react-native'
-import SearchResultSorter from "@components/SearchResultSorter"
+import SearchResultSorter from '@components/SearchResultSorter'
 
 // Initialise Apollo Client
 const client = new ApolloClient({

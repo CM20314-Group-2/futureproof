@@ -1,19 +1,20 @@
-import React, {useState} from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import {SortOptions as SortOptionsType} from '@typings/Search'
 
-const SortOptions = ({ options, initial, onChange } : { options: { label: string; value: string }[], initial?: number | null, onChange: (value: any) => void }) => {
-  let initialOption = null;
+const SortOptions = ({ options, initial, onChange } : { options: {label: string, value: SortOptionsType}[], initial?: number | null, onChange: React.Dispatch<React.SetStateAction<{label: string, value: SortOptionsType}>>}) => {
+  let initialOption = null
 
   if (initial !== undefined  && initial !== null) {
-    initialOption = (initial >= 0 && initial < options.length) ? options[initial] : null;
+    initialOption = (initial >= 0 && initial < options.length) ? options[initial] : null
   }
 
-  const [userOption, setUserOption] = useState<{ label: string, value: string } | null>(initialOption);
+  const [userOption, setUserOption] = useState<{label: string, value: SortOptionsType} | null>(initialOption)
 
-  const updateOptionChoice = (option: React.SetStateAction<{ label: string, value: string } | null>) => {
-    onChange(option);
-    setUserOption(option);
-  };
+  const updateOptionChoice = (option: {label: string, value: SortOptionsType}) => {
+    onChange(option)
+    setUserOption(option)
+  }
 
   return (
     <View style={styles.container}>
@@ -23,7 +24,7 @@ const SortOptions = ({ options, initial, onChange } : { options: { label: string
             key={option.value}
             style={({ pressed }) => [
               {
-                backgroundColor: pressed ? "#ededed" : "#ffffff",
+                backgroundColor: pressed ? '#ededed' : '#ffffff',
                 opacity: pressed ? 0.5 : 1
               },
               styles.option,
@@ -40,18 +41,18 @@ const SortOptions = ({ options, initial, onChange } : { options: { label: string
               {option.label}
             </Text>
           </Pressable>
-        );
+        )
       })}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: "60%",
+    width: '60%',
     marginTop: 10,
     marginBottom: 15,
-    justifyContent: "space-evenly"
+    justifyContent: 'space-evenly'
   },
   option: {
     borderRadius: 10,
@@ -60,22 +61,22 @@ const styles = StyleSheet.create({
   },
   selected_option: {
     backgroundColor: '#1ea853',
-    borderColor: "#1ea853"
+    borderColor: '#1ea853'
   },
   selected_text: {
-    color: "#ffffff",
+    color: '#ffffff',
   },
   text: {
     fontSize: 15,
-    textAlign: "center",
+    textAlign: 'center',
     padding: 5
   },
   unselected_option: {
-    borderColor: "#ededed"
+    borderColor: '#ededed'
   },
   unselected_text: {
-    color: "#000000"
+    color: '#000000'
   }
-});
+})
 
 export default SortOptions
