@@ -17,11 +17,22 @@ const options: {label: string, value: SortOptionsType}[] = [
 
 const INITIAL_OPTION_INDEX = 4
 
+/**
+ * SearchResultSorter Component -
+ *
+ * A button that, when pressed, reveals the different options that a user can use to sort, and applies the selected
+ * sorting method to the search results. The button text updates with the label of the users chosen option whenever
+ * the sorting method is changed.
+ *
+ * @param buttonStyle the styling for the button
+ * @param buttonTextStyle the styling for the text of the button
+ * @returns the button and bottom sheet that contains the sorting options
+ */
 const SearchResultSorter = ({ buttonStyle, buttonTextStyle }: { buttonStyle?: ViewStyle, buttonTextStyle?: TextStyle}) => {
   const [sortOption, setSortOption] = useState<{label: string, value: SortOptionsType}>(options[INITIAL_OPTION_INDEX])
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
-  const hide = () => {
+  const hideSortingOptions = () => {
     setShowBottomSheet(false)
   }
 
@@ -30,7 +41,7 @@ const SearchResultSorter = ({ buttonStyle, buttonTextStyle }: { buttonStyle?: Vi
       <Pressable style={buttonStyle} onPress={ () => {setShowBottomSheet(true)} }>
         <Text style={buttonTextStyle}>Sorting by - {sortOption.label}</Text>
       </Pressable>
-      <BottomSheet show={showBottomSheet} height={400} onOuterClick={hide}>
+      <BottomSheet show={showBottomSheet} height={400} onOuterClick={hideSortingOptions}>
         <SafeAreaView style={styles.container}>
           <Text style={styles.title}>Sort Results</Text>
           <SortOptions
@@ -43,7 +54,7 @@ const SearchResultSorter = ({ buttonStyle, buttonTextStyle }: { buttonStyle?: Vi
               sortBy(sortOption.value)
               console.log(sortBy())
 
-              hide()
+              hideSortingOptions()
             } }
             text={'Apply'}
           />

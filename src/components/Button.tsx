@@ -1,10 +1,23 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text} from 'react-native'
+import { Pressable, StyleSheet, Text, TextStyle, ViewStyle} from 'react-native'
 
-const Button = ({ onPress, text } : {onPress: () => void; text: string}) => {
+/**
+ * Button Component -
+ *
+ * A custom, reusable button component that has an opacity effect when pressed.
+ *
+ * @param onPress the function that gets called when the button is pressed
+ * @param text the text that appears om the button
+ * @param style the styling for the button, if not passed as an argument, a default is used
+ * @param textStyle the styling for the text of the button, if not passed as an argument, a default is used
+ * @returns the button component
+ */
+const Button = ({ onPress, text, style, textStyle } : {onPress: () => void; text: string,  style?: ViewStyle, textStyle?: TextStyle} ) => {
+  const buttonStyle = style !== null ? style : styles.button;
+  const buttonTextStyle = textStyle !== null ? textStyle : styles.text;
   return (
-    <Pressable style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, styles.button]} onPress={onPress}>
-      <Text style={styles.text}>{text}</Text>
+    <Pressable style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, buttonStyle]} onPress={onPress}>
+      <Text style={buttonTextStyle}>{text}</Text>
     </Pressable>
   )
 }
