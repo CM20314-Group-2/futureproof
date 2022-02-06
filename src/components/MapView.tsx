@@ -1,21 +1,20 @@
 import * as Location from 'expo-location'
-import React, { useEffect, useState } from "react"
-import { StyleSheet } from "react-native"
+import React, { useEffect, useState } from 'react'
+import { StyleSheet } from 'react-native'
 import Map from 'react-native-maps'
 
 const MapView = () => {
   const [location, setLocation] = useState<Location.LocationObject | null>(null)
-  
 
   useEffect(() => {
     (async () => {
-      let {status} = await Location.requestForegroundPermissionsAsync()
+      const {status} = await Location.requestForegroundPermissionsAsync()
       if (status !== 'granted') {
         console.error('Failed to get permissions.')
         return
       }
 
-      let location = await Location.getCurrentPositionAsync({});
+      const location = await Location.getCurrentPositionAsync({})
       setLocation(location)
     })()
   }, [])
@@ -23,7 +22,7 @@ const MapView = () => {
   return (
     <React.Fragment>
       {location ? <Map
-      style={styles.map}
+        style={styles.map}
         region={{
           latitude: location.coords.latitude,
           longitude: location.coords.longitude,
@@ -38,9 +37,9 @@ const MapView = () => {
 }
 
 const styles = StyleSheet.create({
-map: {
-  ...StyleSheet.absoluteFillObject
-}
+  map: {
+    ...StyleSheet.absoluteFillObject
+  }
 })
 
 export default MapView
