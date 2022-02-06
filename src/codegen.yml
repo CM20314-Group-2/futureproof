@@ -4,6 +4,6 @@ generates:
   src/ts/types.ts:
     plugins:
       - '@graphql-codegen/typescript'
-  src/ts/apollo.ts:
+  src/ts/schema.ts:
     plugins:
       - "dist/plugins/index.js"
