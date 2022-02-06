@@ -20,8 +20,8 @@ interface ComponentProps {
  * @returns the button component
  */
 const Button = ({ onPress, text, style, textStyle } : ComponentProps) => {
-  const buttonStyle = style !== null && style !== undefined ? style : styles.button;
-  const buttonTextStyle = textStyle !== null && textStyle !== undefined ? textStyle : styles.text;
+  const buttonStyle = style !== null && style !== undefined ? style : styles.button
+  const buttonTextStyle = textStyle !== null && textStyle !== undefined ? textStyle : styles.text
   return (
     <Pressable style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, buttonStyle]} onPress={onPress}>
       <Text style={buttonTextStyle}>{text}</Text>
