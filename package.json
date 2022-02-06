@@ -13,12 +13,9 @@
     "build": "lerna run build"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@react-navigation/native": "^6.0.7",
     "@react-navigation/native-stack": "^6.3.0",
-=======
     "@apollo/client": "^3.5.8",
->>>>>>> origin/sprint-1
     "expo": "~44.0.0",
     "expo-location": "~14.0.1",
     "expo-status-bar": "~1.2.0",
