@@ -20,12 +20,9 @@ const resolvers = {
     },
     businesses: () => businesses,
 
-<<<<<<< Updated upstream
-=======
   },
 }
 
->>>>>>> Stashed changes
 
 const server = new ApolloServer({typeDefs, resolvers})
 
