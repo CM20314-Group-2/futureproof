@@ -1,23 +1,12 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import MapView from '@components/MapView'
+//import SearchView from '@components/SearchView'
+//import BusinessView from '@components/BusinessView'
 import { StyleSheet, View } from 'react-native'
-<<<<<<< HEAD
-import MapView from './components/MapView'
-import SearchView from './components/SearchView'
-import BusinessView from './components/BusinessView'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
-
-const App = () => {
-  return (
-    <MapView/>
-    //<BusinessView/>
-    //<SearchView/>
-  );
-=======
 
 // Initialise Apollo Client
 const client = new ApolloClient({
@@ -33,7 +22,6 @@ const App = () => {
       </View>
     </ApolloProvider>
   )
->>>>>>> origin/sprint-1
 }
 
 const styles = StyleSheet.create({
