@@ -1,6 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import { Animated, Easing, Pressable, StyleSheet, useWindowDimensions } from 'react-native'
 
+interface ComponentProps {
+  children: React.ReactNode,
+  show: boolean,
+  height: number,
+  onOuterClick?: () => void
+}
+
 /**
  * BottomSheet Component -
  *
@@ -14,7 +21,7 @@ import { Animated, Easing, Pressable, StyleSheet, useWindowDimensions } from 're
  * @param onOuterClick the function that gets called when the user clicks off of the bottom sheet
  * @returns the bottom sheet component
  */
-const BottomSheet = ({ children, show, height, onOuterClick }: { children: React.ReactNode, show: boolean, height: number, onOuterClick?: () => void }) => {
+const BottomSheet = ({ children, show, height, onOuterClick }: ComponentProps) => {
 
   const useAnimatedBottom = (show: boolean, height: number) => {
     const animatedValue = useRef(new Animated.Value(0))

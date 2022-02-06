@@ -2,6 +2,12 @@ import React, {useState} from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import {SortOptions as SortOptionsType} from '@typings/Search'
 
+interface ComponentProps {
+  options: {label: string, value: SortOptionsType}[],
+  initial?: number | null,
+  onChange: React.Dispatch<React.SetStateAction<{label: string, value: SortOptionsType}>>
+}
+
 /**
  * SortOptions Component -
  *
@@ -13,12 +19,14 @@ import {SortOptions as SortOptionsType} from '@typings/Search'
  * @param onChange the function that is called when the user clicks on an option
  * @returns a styled component that contains all of the sorting options
  */
-const SortOptions = ({ options, initial, onChange } : { options: {label: string, value: SortOptionsType}[], initial?: number | null, onChange: React.Dispatch<React.SetStateAction<{label: string, value: SortOptionsType}>>}) => {
+const SortOptions = ({ options, initial, onChange } : ComponentProps) => {
   let initialOption = null
 
   if (initial !== undefined  && initial !== null) {
     initialOption = (initial >= 0 && initial < options.length) ? options[initial] : null
   }
+
+  // const io = !initial ? ((initial >= 0 && initial < options.length) ? options[initial] : null) : null
 
   const [userOption, setUserOption] = useState<{label: string, value: SortOptionsType} | null>(initialOption)
 

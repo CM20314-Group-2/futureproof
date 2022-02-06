@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Platform, Pressable, SafeAreaView, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native'
-import BottomSheet from './BottomSheet'
-import Button from './Button'
-import SortOptions from './SortOptions'
+import BottomSheet from '@components/BottomSheet'
+import Button from '@components/Button'
+import SortOptions from '@components/SortOptions'
 import {SortOptions as SortOptionsType} from '@typings/Search'
 import {sortOption as sortBy} from '../cache'
+
+const INITIAL_OPTION_INDEX = 4 // config variable
 
 const options: {label: string, value: SortOptionsType}[] = [
   { label: 'Name: A to Z', value: 'name_asc' },
@@ -15,7 +17,10 @@ const options: {label: string, value: SortOptionsType}[] = [
   { label: 'Rating: Low to High', value: 'rating_desc' }
 ]
 
-const INITIAL_OPTION_INDEX = 4
+interface ComponentProps {
+  buttonStyle?: ViewStyle,
+  buttonTextStyle?: TextStyle
+}
 
 /**
  * SearchResultSorter Component -
@@ -28,7 +33,7 @@ const INITIAL_OPTION_INDEX = 4
  * @param buttonTextStyle the styling for the text of the button
  * @returns the button and bottom sheet that contains the sorting options
  */
-const SearchResultSorter = ({ buttonStyle, buttonTextStyle }: { buttonStyle?: ViewStyle, buttonTextStyle?: TextStyle}) => {
+const SearchResultSorter = ({ buttonStyle, buttonTextStyle }: ComponentProps) => {
   const [sortOption, setSortOption] = useState<{label: string, value: SortOptionsType}>(options[INITIAL_OPTION_INDEX])
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
@@ -38,7 +43,7 @@ const SearchResultSorter = ({ buttonStyle, buttonTextStyle }: { buttonStyle?: Vi
 
   return (
     <View style={styles.view}>
-      <Pressable style={buttonStyle} onPress={ () => {setShowBottomSheet(true)} }>
+      <Pressable style={buttonStyle} onPress={ () => setShowBottomSheet(true) }>
         <Text style={buttonTextStyle}>Sorting by - {sortOption.label}</Text>
       </Pressable>
       <BottomSheet show={showBottomSheet} height={400} onOuterClick={hideSortingOptions}>
@@ -47,13 +52,11 @@ const SearchResultSorter = ({ buttonStyle, buttonTextStyle }: { buttonStyle?: Vi
           <SortOptions
             options={options}
             initial={INITIAL_OPTION_INDEX}
-            onChange={ (option: React.SetStateAction<{label: string, value: SortOptionsType}>) => {setSortOption(option)} }
+            onChange={ (option: React.SetStateAction<{label: string, value: SortOptionsType}>) => setSortOption(option) }
           />
           <Button
             onPress={ () => {
               sortBy(sortOption.value)
-              console.log(sortBy())
-
               hideSortingOptions()
             } }
             text={'Apply'}
@@ -70,6 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     justifyContent: 'flex-end',
     alignItems: 'center',
+    // needed so that there is a margin at the bottom on android phones
     marginBottom: Platform.OS === 'android' ? 35 : 0
   },
   title: {
