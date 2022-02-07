@@ -1,42 +1,56 @@
-import { typeDefs } from '@typings/apollo'
-import { ApolloServer } from 'apollo-server'
 import {Business} from '@typings/types'
-import { context, Context } from './context'
+import { typeDefs as schema } from '@typings/schema'
+import Fastify from 'fastify'
+import mercurius from 'mercurius'
+import { PrismaClient } from '@prisma/client'
 
-// Simple Data for resolver
+const app = Fastify()
+const prisma = new PrismaClient()
+
 const businesses : Pick<Business, 'name' | 'sustainabilityScore' | 'customerScore' | 'profilePicture' | 'profileText'>[] = [
-  {
-    name: "John",
-    sustainabilityScore: 1.078,
-    customerScore: 5.955,
-    profilePicture: "Sample.JPEG",
-    profileText: "John",
-  }
-]
+    {
+      name: "John",
+      sustainabilityScore: 1.078,
+      customerScore: 5.955,
+      profilePicture: "Sample.JPEG",
+      profileText: "John",
+    }
+  ]
 
 const resolvers = {
   Query: {
-    users: (_parent, _args, context:Context) => {
-      return context.prisma.user.findMany()
+    users: () =>{
+      return
     },
-    businesses: (_parent, _args, context:Context) => {
-      return context.prisma.business.findMany();
-    },
-    comments: (_parent, _args, context:Context) => {
-      return context.prisma.comment.findMany();
-    },
-    locations: (_parent, _args, context:Context) => {
-      return context.prisma.location.findMany();
-    },
-    reviews: (_parent, _args, context:Context) => {
-      return context.prisma.userReview.findMany();
-    },
+    businesses: () => businesses,
+
   },
 }
 
-
-const server = new ApolloServer({typeDefs, resolvers, context: context})
-
-server.listen().then(({url}) => {
-  console.log(`🚀 Server ready at ${url}`)
+app.register(mercurius, {
+  schema,
+  resolvers,
+  context: (request, reply) => {
+    return { prisma }
+  },
+  graphiql: true
 })
+
+/*
+app.get('/', async function (req, reply) {
+  // Get the query from the request body
+  const query = '{ add(x: 2, y: 2) }'
+  return reply.graphql(query)
+})
+*/
+
+const start = async () => {
+  try {
+    await app.listen(3000)
+    console.log('Listening on 3000...')
+  } catch (err) {
+    app.log.error(err)
+    process.exit(1)
+  }
+}
+start()
