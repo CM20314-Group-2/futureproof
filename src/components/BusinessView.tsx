@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import { SafeAreaView, View, FlatList, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from "react-native"
-import Business from './Business'
+import Business from '../typings/types'
 
 const ExampleBusiness: Business = {
   id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',

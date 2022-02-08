@@ -1,7 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import MapView from '@components/MapView'
-//import SearchView from '@components/SearchView'
-//import BusinessView from '@components/BusinessView'
+import SearchView from '@components/SearchView'
+import BusinessView from '@components/BusinessView'
 import { StyleSheet, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
