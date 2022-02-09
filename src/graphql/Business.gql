@@ -26,6 +26,16 @@ type Business {
   # Sustainability Data
 }
 
+type DisplayableBusiness {
+  id: ID!
+  name: String!
+  type: BusinessType!
+  sustainabilityScore: Float
+  customerScore: Float
+  profilePicture: String
+  profileText: String
+}
+
 enum BusinessType {
   RESTAURANT
   BAR
