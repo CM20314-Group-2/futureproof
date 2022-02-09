@@ -1,22 +1,14 @@
 import React, {useState} from "react"
 import { SafeAreaView, View, FlatList, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from "react-native"
-import Business from '../typings/types'
+import {Business} from '@typings/types'
 
-const ExampleBusiness: Business = {
-  id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-  businessName: 'Starbucks Coffee',
-  distance: '1.2',
-  futureProofRating: 75,
-  userRating: 62,
-  logoURL: '../../assets/icon.png'
-}
-
-const ExampleBusinessDescription = "Starbucks Corporation is an American multinational chain of coffeehouses and roastery reserves headquartered in Seattle, Washington. It is the world's largest coffeehouse chain."
+// PLACEHOLDER BUSINESS -> Update to fetch graphQL
+var ExampleBusiness: Business
 
 const TitleView = ({business}: {business: Business}) => (
   <View style={{alignItems: "center"}}>
     <Image source={require('../../assets/icon.png')} style={{width: 90, height: 90, borderRadius: 10}} resizeMode="contain"/>
-    <Text style={styles.titleText}>{business.businessName}</Text>
+    <Text style={styles.titleText}>{business.name}</Text>
     <Text style={styles.subtitleText}>{"2 Bath Street, Bath, BA1 1AA"}</Text>
   </View>
 );
@@ -64,8 +56,8 @@ const BusinessView = () => {
     <SafeAreaView style={styles.businessViewStyle}>
       <ScrollView>
         <TitleView business={ExampleBusiness}/>
-        <DescriptionView descriptionText={ExampleBusinessDescription}/>
-        <RatingsView futureProofRating={ExampleBusiness.futureProofRating} userRating={ExampleBusiness.userRating}/>
+        <DescriptionView descriptionText={ExampleBusiness.profileText || ""}/>
+        <RatingsView futureProofRating={ExampleBusiness.sustainabilityScore || 0} userRating={ExampleBusiness.customerScore || 0}/>
         <ImagesCarousel/>
       </ScrollView>
     </SafeAreaView>
