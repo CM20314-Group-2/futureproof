@@ -1,13 +1,11 @@
-import * as React from 'react';
+import {useState, useEffect} from 'react';
 import { SafeAreaView, View, StyleSheet} from "react-native"
 import { Icon, Input } from 'react-native-elements';
 import { gql, useLazyQuery} from '@apollo/client'
-import * as GetTypes from '../typings/src/ts/types'
 
 // GraphQL fragment
 const COMPANY_TILE_DATA = gql` {
     fragment CompanyTile on Business{
-        __typename
         id
         name
         profilePicture
@@ -15,33 +13,26 @@ const COMPANY_TILE_DATA = gql` {
         customerScore
     }
 }
-`
-;
-
+`;
 
 const SearchBar = () => {
     // Search field
-    const [value, onChangeText] = React.useState('');
+    const [value, onChangeText] = useState('');
     
     // Query
     const [executeSearch, {loading, error, data}] = useLazyQuery(
         COMPANY_TILE_DATA
-      );
-
-
-    // MAYBE USE THIS: https://github.com/slorber/awesome-debounce-promise
+    );
 
     // Debounce query
-    React.useEffect(() => {
+    useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
-          executeSearch({
-              variables: {String: value}
-          })
-          console.log(data)
-        }, 400)
-      
+            executeSearch({
+                variables: {String: value}
+            }).then(data => console.log(data), _err => console.error(error));
+        }, 300);    
         return () => clearTimeout(delayDebounceFn)
-      }, [value])
+    }, [value]);
 
     
     
@@ -62,7 +53,6 @@ const SearchBar = () => {
                         <Icon
                         name='search'
                         size={25}
-                        onPress={() => console.log('Pressed')}
                         />
                     }
                     leftIconContainerStyle = {{marginLeft:'2%'}}
@@ -72,7 +62,7 @@ const SearchBar = () => {
                         name='options-outline'
                         type='ionicon'
                         size={25}
-                        onPress={() => console.log('Pressed')}
+                        onPress={() => console.error('Not implemented.')}
                         />
                     }
                     value={value}
@@ -86,50 +76,19 @@ const SearchBar = () => {
 const styles = StyleSheet.create({
     safeAreaView: {
         flex:1,
-        padding:20,     // Screen padding
-        flexDirection: 'column'     // order objets going in the column direction
+        padding:20,
+        flexDirection: 'column'
     },
     searchInput: {
         borderRadius:10,
         borderWidth:2,
-        borderColor:'#FFFFFF',  // white border colour
-        backgroundColor:'#FFFFFF',  // white background colour
+        borderColor:'#FFFFFF',
+        backgroundColor:'#FFFFFF',
     },
     searchBarView:{
-        // Send search bar to the bottom
         marginTop: 'auto',
         marginBottom:'10%',
     }
 })
 
 export default SearchBar;
-
-
-/*
-/////////////// USING PROMISES
-// Promise; used for query
-    const handleReturnedData = () => {
-        console.log(data);
-    }
-
-    const handleError = () => {
-        console.log("An error occured. Maybe it took too long to load?");
-    }
-
-    // Debounce query
-    React.useEffect(() => {
-        const delayDebounceFn = setTimeout(() => {
-            const searchPromise = new Promise((executeSearch) => {
-                setTimeout(() => {
-                    executeSearch({
-                        variables: {String: value}
-                    });
-                }, 200);
-            });
-            searchPromise.then(handleReturnedData, handleError);
-        }, 400)
-      
-        return () => clearTimeout(delayDebounceFn)
-      }, [value])
-
-*/
