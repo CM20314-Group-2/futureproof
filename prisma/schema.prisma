@@ -8,49 +8,66 @@ datasource db {
 }
 
 model Business {
-  BusinessID        Int
-  UserID            Int?
-  Name              String
-  BusinessType      String
-  LocationID        Int
-  FutureproofRating Float
-  UserRating        Float
-  ProfileText       String?
-  ProfilePicture    Bytes?
+  id                  Int             @map("BusinessID")
+  UserID              Int?
+  name                String
+  sustainabilityScore Float           @map("FutureproofRating")
+  customerScore       Float           @map("UserRating")
+  ProfileText         String?
+  ProfilePicture      Bytes?
+  type                BusinessType? @map("BusinessType")
 
-  @@id([BusinessID, Name])
+  @@id([id, name])
 }
 
 model Comment {
-  CommentID   Int      @id
-  BusinessID  Int
-  LocationID  Int
-  UserID      Int
-  CommentText String
-  DateCreated DateTime @db.Date
+  CommentID  Int      @id
+  BusinessID Int
+  LocationID Int
+  UserID     Int
+  text       String   @map("CommentText")
+  createdAt  DateTime @map("DateCreated") @db.Date
 }
 
 model Location {
-  LocationID Int    @id
+  id         Int    @id @map("LocationID")
   BusinessID Int
-  Location   String
-  Name       String
+  address    String @map("Location")
+  longitude  Int?   @map("Longitude")
+  latitude   Int?   @map("Latitude")
 }
 
 model User {
-  UserID      Int    @id
-  FirstName   String
-  LastName    String
-  Email       String
-  Password    String
-  AccountType String @default(dbgenerated("USER"))
-  ProfilePic  Bytes?
+  id           Int         @id @map("UserID")
+  firstName    String      @map("FirstName")
+  lastName     String      @map("LastName")
+  email        String      @map("Email")
+  Password     String
+  profilePhoto Bytes?      @map("ProfilePic")
+  roles        user_types? @map("AccountType")
 }
 
 model UserReview {
-  ReviewID    Int      @id
-  BusinessID  Int
-  UserID      Int
-  DateCreated DateTime @db.Date
-  ReviewData  String
+  ReviewID   Int      @id
+  BusinessID Int
+  UserID     Int
+  createdAt  DateTime @map("DateCreated") @db.Date
+  ReviewData String
+}
+
+enum BusinessType {
+  Restuarant
+  Cafe
+  Bar
+  Other
+  Retail
+  Supermarket
+  Health_and_Beauty  @map("Health and Beauty")
+  @@map("business_types")
+}
+
+enum user_types {
+  User
+  Admin
+  Business
 }

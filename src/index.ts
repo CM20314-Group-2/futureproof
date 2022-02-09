@@ -19,11 +19,22 @@ const businesses : Pick<Business, 'name' | 'sustainabilityScore' | 'customerScor
 
 const resolvers = {
   Query: {
-    users: () =>{
-      return
+    users: () => {
+      return prisma.user.findMany(
+      )
     },
-    businesses: () => businesses,
-
+    businesses: () => {
+      return prisma.business.findMany();
+    },
+    comments: () => {
+      return prisma.comment.findMany();
+    },
+    locations: () => {
+      return prisma.location.findMany();
+    },
+    reviews: () => {
+      return prisma.userReview.findMany();
+    },
   },
 }
 
