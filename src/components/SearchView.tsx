@@ -3,7 +3,7 @@ import { SafeAreaView, View, FlatList, Text, Image, StyleSheet, TouchableOpacity
 import {Business} from '@typings/types'
 import SearchItem from './Search_Components/SearchItem'
 
-var TEST_BUSINESSES_DATA: Business[]
+var TEST_BUSINESSES_DATA: Business[] = []
 
 const SearchView = () => {
   const [selectedId, setSelectedId] = useState(null);

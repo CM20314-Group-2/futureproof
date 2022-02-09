@@ -7,7 +7,7 @@ var ExampleBusiness: Business
 
 const TitleView = ({business}: {business: Business}) => (
   <View style={{alignItems: "center"}}>
-    <Image source={require('../../assets/icon.png')} style={{width: 90, height: 90, borderRadius: 10}} resizeMode="contain"/>
+    <Image source={require("")} style={{width: 90, height: 90, borderRadius: 10}} resizeMode="contain"/>
     <Text style={styles.titleText}>{business.name}</Text>
     <Text style={styles.subtitleText}>{"2 Bath Street, Bath, BA1 1AA"}</Text>
   </View>

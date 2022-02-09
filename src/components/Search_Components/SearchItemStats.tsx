@@ -12,8 +12,8 @@ const SearchItemStats = ({business}: {business: Business}) => (
   <View style={styles.searchItemStats}>
       <Text style={styles.businessTitleText}>{business.name}</Text>
       <View style = {{flexDirection: "row"}}>
-        <Image source={require('../../assets/icon_location.png')} style={{width: 20, height: 20}} resizeMode="contain"/>
-        <Text style={styles.subtitleText}>{convertLocationToDistance(business.primaryLocation) + " miles"}</Text>
+        <Image source={require('../../../assets/icon_location.png')} style={{width: 20, height: 20}} resizeMode="contain"/>
+        <Text style={styles.subtitleText}>{"0.0" + " miles"}</Text>
       </View>
       
       <View style = {{flexDirection: "row", justifyContent: "flex-end", paddingVertical: 2}}>
