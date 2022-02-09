@@ -1,12 +1,10 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import MapView from '@components/MapView'
-import SearchView from '@components/SearchView'
 import BusinessView from '@components/BusinessView'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 // Initialise Apollo Client
 const client = new ApolloClient({
@@ -18,7 +16,8 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <SearchView/>
+        {/* <SearchView/> */}
+        <BusinessView/>
       </View>
     </ApolloProvider>
   )

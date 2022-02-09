@@ -1,21 +1,31 @@
-import React, {useState} from "react"
-import { SafeAreaView, View, FlatList, Text, Image, StyleSheet, TouchableOpacity } from "react-native"
-import {Business} from '@typings/types'
-import SearchItem from './Search_Components/SearchItem'
+import SearchResult from '@components/search/SearchResult'
+import { BusinessType, DisplayableBusiness } from '@typings/types'
+import React, { useState } from 'react'
+import { FlatList, SafeAreaView, StyleSheet } from 'react-native'
 
-var TEST_BUSINESSES_DATA: Business[] = []
+const TEST_BUSINESSES_DATA: DisplayableBusiness[] = [
+  {
+    id: '1',
+    name: 'Starbucks',
+    profileText: 'This is a test business',
+    sustainabilityScore: 100,
+    customerScore: 65,
+    type: BusinessType.Cafe,
+    profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
+  }
+]
 
 const SearchView = () => {
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState(null)
 
-  const renderSearchItem = ({ item } : { item : Business}) => (
-    <SearchItem
+  const renderSearchItem = ({ item } : { item : DisplayableBusiness}) => (
+    <SearchResult
       business={item}
       onPress={() => {
         //setSelectedId(item.id)
       }}
     />
-  );
+  )
   return (
     <SafeAreaView style={styles.searchList}>
       <FlatList
@@ -24,7 +34,7 @@ const SearchView = () => {
         keyExtractor={(item) => item.id}
       />
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
