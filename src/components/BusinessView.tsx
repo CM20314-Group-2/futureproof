@@ -21,12 +21,10 @@ const BusinessView = () => {
   return (
     <SafeAreaView style={styles.businessViewStyle}>
       <ScrollView>
-        <React.Fragment>
-          <TitleView name={ExampleBusiness.name}/>
-          <DescriptionView descriptionText={ExampleBusiness.profileText || ''}/>
-          <RatingsView futureProofRating={ExampleBusiness.sustainabilityScore || 0} userRating={ExampleBusiness.customerScore || 0}/>
-          <ImagesCarousel/>
-        </React.Fragment>
+        <TitleView name={ExampleBusiness.name} profilePicture={ExampleBusiness.profilePicture}/>
+        <DescriptionView descriptionText={ExampleBusiness.profileText || ''}/>
+        <RatingsView futureProofRating={ExampleBusiness.sustainabilityScore || 0} userRating={ExampleBusiness.customerScore || 0}/>
+        <ImagesCarousel/>
       </ScrollView>
     </SafeAreaView>
   )
@@ -36,28 +34,6 @@ export const styles = StyleSheet.create({
   businessViewStyle: {
     alignSelf: 'center',
     marginHorizontal: 30
-  },
-  itemBackgroundStyle: {
-    backgroundColor: '#FAF9F9',
-    borderRadius: 10
-  },
-  titleText: {
-    fontSize: 25,
-    fontWeight: '500'
-  },
-  headingText: {
-    fontSize: 12,
-    color: '#A0A0A0',
-    paddingLeft: 20
-  },
-  subtitleText: {
-    fontSize: 10,
-    color: '#A0A0A0'
-  },
-  bodyText: {
-    fontSize: 12,
-    color: 'black',
-    padding: 10
   }
 })
 
