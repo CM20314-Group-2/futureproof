@@ -22,7 +22,7 @@ const SearchView = () => {
     <SearchResult
       business={item}
       onPress={() => {
-        //setSelectedId(item.id)
+        setSelectedId(item.id)
       }}
     />
   )

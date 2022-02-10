@@ -7,7 +7,7 @@ const RatingsView = ({ futureProofRating, userRating }: { futureProofRating: num
     <Text style={styles.headingText}>{'RATINGS'}</Text>
     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
       <RatingView ratingName="FutureProof" ratingValue={futureProofRating} />
-      <RatingView ratingName="Consumer" ratingValue={futureProofRating} />
+      <RatingView ratingName="Consumer" ratingValue={userRating} />
     </View>
   </View>
 )

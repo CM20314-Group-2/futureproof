@@ -5,6 +5,7 @@ const RatingView = ({ ratingName, ratingValue }: { ratingName: string; ratingVal
   <View style={styles.itemBackgroundStyle}>
     <View style={{ alignItems: 'center' }}>
       <Text>{ratingName + ' Rating'}</Text>
+      <Text>{ratingValue}</Text>
       <Text style={styles.subtitleText}>{'Tap for Details'}</Text>
     </View>
   </View>
