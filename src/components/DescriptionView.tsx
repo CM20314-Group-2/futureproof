@@ -7,7 +7,7 @@ type ViewProps = Pick<DisplayableBusiness, 'profileText'>
 
 const DescriptionView = ({ profileText }: ViewProps) => (
   <View>
-    <Text style={styles.headingText}>{'DESCRIPTION'}</Text>
+    <Text style={styles.headingText}>DESCRIPTION</Text>
     <View style={styles.itemBackgroundStyle}>
       <View style={styles.textAndImageContainerStyle}>
         <Image source={ParagraphIcon} style={styles.paragraphIcon} resizeMode="contain" />

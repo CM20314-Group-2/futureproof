@@ -7,7 +7,7 @@ type ViewProps = Pick<DisplayableBusiness, 'customerScore' | 'sustainabilityScor
 
 const RatingsView = ({ customerScore, sustainabilityScore}: ViewProps ) => (
   <View>
-    <Text style={styles.headingText}>{'RATINGS'}</Text>
+    <Text style={styles.headingText}>RATINGS</Text>
     <View style={styles.ratingsHorizontalStyle}>
       <RatingView ratingName={'FutureProof'} ratingValue={sustainabilityScore} />
       <RatingView ratingName={'Consumer'} ratingValue={customerScore} />

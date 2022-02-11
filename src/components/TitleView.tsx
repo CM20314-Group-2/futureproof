@@ -8,7 +8,7 @@ const TitleView = ({ name, profilePicture }: ViewProps ) => (
   <View style={styles.titleViewStyle}>
     {profilePicture ? <Image source={{uri: profilePicture}} style={styles.profilePictureStyle} resizeMode="contain" /> : null}
     <Text style={styles.titleText}>{name}</Text>
-    <Text style={styles.subtitleText}>{'Address (To be implemented)'}</Text>
+    <Text style={styles.subtitleText}>Address (To be implemented)</Text>
   </View>
 )
 
