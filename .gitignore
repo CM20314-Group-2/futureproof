@@ -2,6 +2,7 @@ node_modules/
 .expo/
 .expo-shared/
 .yarn/
+yarn.lock
 dist/
 npm-debug.*
 *.jks

@@ -11,6 +11,7 @@ const client = new ApolloClient({
 })
 
 const App = () => {
+
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
