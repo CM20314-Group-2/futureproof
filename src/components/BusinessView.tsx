@@ -22,8 +22,8 @@ const BusinessView = () => {
     <SafeAreaView style={styles.businessViewStyle}>
       <ScrollView>
         <TitleView name={ExampleBusiness.name} profilePicture={ExampleBusiness.profilePicture}/>
-        <DescriptionView descriptionText={ExampleBusiness.profileText || ''}/>
-        <RatingsView futureProofRating={ExampleBusiness.sustainabilityScore || 0} userRating={ExampleBusiness.customerScore || 0}/>
+        <DescriptionView profileText={ExampleBusiness.profileText}/>
+        <RatingsView customerScore={ExampleBusiness.customerScore} sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
         <ImagesCarousel/>
       </ScrollView>
     </SafeAreaView>
@@ -32,7 +32,6 @@ const BusinessView = () => {
 
 export const styles = StyleSheet.create({
   businessViewStyle: {
-    alignSelf: 'center',
     marginHorizontal: 30
   }
 })

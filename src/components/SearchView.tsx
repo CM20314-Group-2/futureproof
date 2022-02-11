@@ -21,8 +21,8 @@ const SearchView = () => {
   const renderSearchItem = ({ item } : { item : DisplayableBusiness}) => (
     <SearchResult
       business={item}
-      onPress={() => {
-        setSelectedId(item.id)
+      onPress={ () => {
+        // Respond to business seletion tap here
       }}
     />
   )

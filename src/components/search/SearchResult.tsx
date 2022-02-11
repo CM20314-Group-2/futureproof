@@ -1,20 +1,11 @@
+import BusinessLogo from '@components/search/BusinessLogo'
 import SearchItemStats from '@components/search/SearchItemStats'
 import { DisplayableBusiness } from '@typings/types'
 import React from 'react'
-import { Image, StyleSheet, TouchableOpacity, View, GestureResponderEvent } from 'react-native'
-
-type LogoProps = Pick<DisplayableBusiness, 'profilePicture'>
-
-const BusinessLogo = ({profilePicture}: LogoProps) => (
-  <View style={{paddingRight: 10}}>
-    <Image source={{uri: profilePicture}} style={styles.logoStyle} resizeMode="contain"/>
-  </View>
-)
+import { StyleSheet, TouchableOpacity, GestureResponderEvent } from 'react-native'
 
 const SearchResult = ({ business, onPress }: {business : DisplayableBusiness, onPress: (event: GestureResponderEvent) => void }) => (
-  <TouchableOpacity onPress={onPress}
-    style={styles.searchItemStyle}
-  >
+  <TouchableOpacity onPress={onPress} style={styles.searchItemStyle}>
     {business.profilePicture ? <BusinessLogo profilePicture={business.profilePicture}/> : null}
     <SearchItemStats business={business}/>
   </TouchableOpacity>
@@ -29,6 +20,9 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 10,
     alignItems: 'center'
+  },
+  logoContainerViewStyle: {
+    paddingRight: 10
   },
   logoStyle: {
     width: 58,

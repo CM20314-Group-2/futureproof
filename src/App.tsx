@@ -1,5 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import BusinessView from '@components/BusinessView'
+//import SearchView from '@components/SearchView'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 

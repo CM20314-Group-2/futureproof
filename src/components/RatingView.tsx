@@ -1,11 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const RatingView = ({ ratingName, ratingValue }: { ratingName: string; ratingValue: number} ) => (
+const RatingView = ({ ratingName, ratingValue = 0 }: { ratingName: string; ratingValue?: number | null} ) => (
   <View style={styles.itemBackgroundStyle}>
-    <View style={{ alignItems: 'center' }}>
+    <View style={styles.ratingContainerStyle}>
       <Text>{ratingName + ' Rating'}</Text>
-      <Text>{ratingValue}</Text>
+      <Text>{ratingValue == null ? 0 : ratingValue}</Text>
       <Text style={styles.subtitleText}>{'Tap for Details'}</Text>
     </View>
   </View>
@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#A0A0A0'
   },
+  ratingContainerStyle: {
+    alignItems: 'center'
+  }
 })
 
 export default RatingView

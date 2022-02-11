@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
 export const ratingValToColour = (ratingValue: number): string => {
   if (ratingValue > 85) return '#1EA853'
@@ -18,13 +18,25 @@ export const ratingValToText = (ratingValue: number): string => {
 
   return 'Avoid'
 }
-  
-const RatingCapsuleHeight = 18
+const RATING_CAPSULE_HEIGHT = 18
 
-const RatingCapsule = ({ratingValue = 0}: {ratingValue?: number}) => (
-  <View style={{alignItems: 'center', backgroundColor: ratingValToColour(ratingValue), width: 55, height: RatingCapsuleHeight, borderRadius: RatingCapsuleHeight/2}}>
-    <Text style={{fontSize: 11, color: 'white'}}>{ratingValToText(ratingValue)}</Text>
+const RatingCapsule = ({ratingValue = 0}: {ratingValue?: number | null}) => (
+  <View style={StyleSheet.flatten([styles.CapsuleStyle, {backgroundColor: ratingValToColour(ratingValue == null ? 0 : ratingValue)}])}>
+    <Text style={styles.RatingText}>{ratingValToText(ratingValue == null ? 0 : ratingValue)}</Text>
   </View>
 )
+
+const styles = StyleSheet.create({
+  RatingText: {
+    fontSize: 11,
+    color: 'white'
+  },
+  CapsuleStyle: {
+    alignItems: 'center',
+    width: 55,
+    height: RATING_CAPSULE_HEIGHT,
+    borderRadius: RATING_CAPSULE_HEIGHT/2
+  }
+})
 
 export default RatingCapsule
