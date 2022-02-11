@@ -1,7 +1,8 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import MapView from '@components/MapView'
+import BusinessView from '@components/BusinessView'
+//import SearchView from '@components/SearchView'
+import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import SearchResultSorter from '@components/SearchResultSorter'
 
 // Initialise Apollo Client
 const client = new ApolloClient({
@@ -14,8 +15,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <MapView/>
-        <SearchResultSorter/>
+        <BusinessView/>
       </View>
     </ApolloProvider>
   )
@@ -24,8 +24,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
 })
 
