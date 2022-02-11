@@ -1,4 +1,3 @@
-import {Business} from '@typings/types'
 import { typeDefs as schema } from '@typings/schema'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
@@ -6,16 +5,6 @@ import { PrismaClient } from '@prisma/client'
 
 const app = Fastify()
 const prisma = new PrismaClient()
-
-const businesses : Pick<Business, 'name' | 'sustainabilityScore' | 'customerScore' | 'profilePicture' | 'profileText'>[] = [
-    {
-      name: "John",
-      sustainabilityScore: 1.078,
-      customerScore: 5.955,
-      profilePicture: "Sample.JPEG",
-      profileText: "John",
-    }
-  ]
 
 const resolvers = {
   Query: {
@@ -46,14 +35,6 @@ app.register(mercurius, {
   },
   graphiql: true
 })
-
-/*
-app.get('/', async function (req, reply) {
-  // Get the query from the request body
-  const query = '{ add(x: 2, y: 2) }'
-  return reply.graphql(query)
-})
-*/
 
 const start = async () => {
   try {
