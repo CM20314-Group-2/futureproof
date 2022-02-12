@@ -1,5 +1,8 @@
 node_modules/
-src/ts/
 dist/
 .yarn/
 yarn.lock
+
+# Generated files
+index.d.ts
+schema.ts
