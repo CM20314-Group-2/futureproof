@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Business {
+  id                  Int             @map("BusinessID")
+  UserID              Int?
+  name                String
+  sustainabilityScore Float           @map("FutureproofRating")
+  customerScore       Float           @map("UserRating")
+  ProfileText         String?
+  ProfilePicture      Bytes?
+  type                BusinessType? @map("BusinessType")
+
+  @@id([id, name])
+}
+
+model Comment {
+  CommentID  Int      @id
+  BusinessID Int
+  LocationID Int
+  UserID     Int
+  text       String   @map("CommentText")
+  createdAt  DateTime @map("DateCreated") @db.Date
+}
+
+model Location {
+  id         Int    @id @map("LocationID")
+  BusinessID Int
+  address    String @map("Location")
+  longitude  Int?   @map("Longitude")
+  latitude   Int?   @map("Latitude")
+}
+
+model User {
+  id           Int         @id @map("UserID")
+  firstName    String      @map("FirstName")
+  lastName     String      @map("LastName")
+  email        String      @map("Email")
+  Password     String
+  profilePhoto Bytes?      @map("ProfilePic")
+  roles        user_types? @map("AccountType")
+}
+
+model UserReview {
+  ReviewID   Int      @id
+  BusinessID Int
+  UserID     Int
+  createdAt  DateTime @map("DateCreated") @db.Date
+  ReviewData String
+}
+
+enum BusinessType {
+  Restuarant
+  Cafe
+  Bar
+  Other
+  Retail
+  Supermarket
+  Health_and_Beauty  @map("Health and Beauty")
+  @@map("business_types")
+}
+
+enum user_types {
+  User
+  Admin
+  Business
+}
