@@ -1,7 +1,6 @@
+import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
-import ParagraphIcon from '../../assets/icon_paragraph.png'
-import { DisplayableBusiness } from '@typings/types'
 
 type ViewProps = Pick<DisplayableBusiness, 'profileText'>
 
@@ -10,7 +9,7 @@ const DescriptionView = ({ profileText }: ViewProps) => (
     <Text style={styles.headingText}>DESCRIPTION</Text>
     <View style={styles.itemBackgroundStyle}>
       <View style={styles.textAndImageContainerStyle}>
-        <Image source={ParagraphIcon} style={styles.paragraphIcon} resizeMode="contain" />
+        <Image source={require('../../assets/icon_paragraph.png')} style={styles.paragraphIcon} resizeMode="contain" />
         <Text style={styles.bodyText}>{profileText == null ? 'No description available.' : profileText}</Text>
       </View>
     </View>

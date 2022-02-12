@@ -1,8 +1,8 @@
 import BusinessLogo from '@components/search/BusinessLogo'
 import SearchItemStats from '@components/search/SearchItemStats'
-import { DisplayableBusiness } from '@typings/types'
+import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
-import { StyleSheet, TouchableOpacity, GestureResponderEvent } from 'react-native'
+import { GestureResponderEvent, StyleSheet, TouchableOpacity } from 'react-native'
 
 const SearchResult = ({ business, onPress }: {business : DisplayableBusiness, onPress: (event: GestureResponderEvent) => void }) => (
   <TouchableOpacity onPress={onPress} style={styles.searchItemStyle}>

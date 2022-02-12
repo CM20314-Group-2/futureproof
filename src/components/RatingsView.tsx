@@ -1,7 +1,7 @@
 import RatingView from '@components/RatingView'
+import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { DisplayableBusiness } from '@typings/types'
 
 type ViewProps = Pick<DisplayableBusiness, 'customerScore' | 'sustainabilityScore'>
 

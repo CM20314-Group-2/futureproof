@@ -3,11 +3,13 @@
   "compilerOptions": {
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "../",
+    "baseUrl": "src",
+    "rootDir": "src",
+    "jsx": "react-native",
     "paths": {
-      "@components/*": ["client/src/components/*"]
+      "@components/*": ["components/*"],
     },
   },
-  "include": ["**/*.ts", "**/*/.tsx"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Platform, Pressable, SafeAreaView, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native'
 import BottomSheet from '@components/BottomSheet'
 import Button from '@components/Button'
 import SortOptions from '@components/SortOptions'
-import {SortOptions as SortOptionsType} from '@typings/Search'
-import {sortOption as sortBy} from '../cache'
+import { SortOptions as SortOptionsType } from '@futureproof/typings'
+import React, { useState } from 'react'
+import { Platform, Pressable, SafeAreaView, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native'
+import { sortOption as sortBy } from '../cache'
 
 const INITIAL_OPTION_INDEX = 4 // config variable
 

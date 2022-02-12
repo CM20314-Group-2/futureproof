@@ -1,5 +1,5 @@
 import SearchResult from '@components/search/SearchResult'
-import { BusinessType, DisplayableBusiness } from '@typings/types'
+import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React, { useState } from 'react'
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native'
 

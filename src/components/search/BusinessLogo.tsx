@@ -1,12 +1,16 @@
+import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Image, StyleSheet, View } from 'react-native'
-import { DisplayableBusiness } from '@typings/types'
 
 type LogoProps = Pick<DisplayableBusiness, 'profilePicture'>
 
 const BusinessLogo = ({profilePicture}: LogoProps) => (
   <View style={styles.logoContainerViewStyle}>
-    <Image source={{uri: profilePicture == null ? '../../../assets/icon.png' : profilePicture}} style={styles.logoStyle} resizeMode="contain"/>
+    <Image
+      source={profilePicture == null ? {uri: profilePicture} : require('../../../assets/icon.png')}
+      style={styles.logoStyle}
+      resizeMode="contain"
+    />
   </View>
 )
 
