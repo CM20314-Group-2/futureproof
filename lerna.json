@@ -1,5 +1,6 @@
 {
   "packages": [
+    "packages/client",
     "packages/typings",
     "packages/server"
   ],
