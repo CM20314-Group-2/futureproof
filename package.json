@@ -1,8 +1,9 @@
 {
-  "name": "typings",
+  "name": "@futureproof/typings",
   "version": "1.1.0",
   "description": "Typings for FutureProof",
-  "main": "index.js",
+  "main": "index.d.ts",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/CM20314-Group-2/typings"
