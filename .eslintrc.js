@@ -1,5 +1,5 @@
 module.exports = {
-  'ignorePatterns': ['src/typings/src/ts/*.ts'],
+  'ignorePatterns': ['**/node_modules/**/*', '**/dist/**/*'],
   'env': {
     'browser': true,
     'es2021': true,

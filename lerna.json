@@ -1,7 +1,8 @@
 {
   "packages": [
-    "src/typings",
-    "src/server"
+    "packages/client",
+    "packages/typings",
+    "packages/server"
   ],
   "version": "0.0.0"
 }

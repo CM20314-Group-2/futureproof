@@ -1,14 +1,15 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true,
+    "target": "es2016",
+    "lib": ["dom","es6"],
+    "module": "commonjs",
+    "rootDir": "./packages",
+    "removeComments": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@typings/*": ["typings/src/ts/*"],
-      "@components/*": ["components/*"]
-    },
+    "strict": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "baseUrl": "./packages"
   },
-  "include": ["**/*.ts", "**/*/.tsx"],
-  "exclude": ["node_modules"]
 }
