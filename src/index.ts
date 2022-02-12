@@ -1,7 +1,7 @@
-import { typeDefs as schema } from '@typings/schema'
+import schema from '@futureproof/typings/schema'
+import { PrismaClient } from '@prisma/client'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
-import { PrismaClient } from '@prisma/client'
 
 const app = Fastify()
 const prisma = new PrismaClient()
@@ -33,7 +33,7 @@ app.register(mercurius, {
   context: (request, reply) => {
     return { prisma }
   },
-  graphiql: true
+  graphiql: process.env.NODE_ENV === 'development',
 })
 
 const start = async () => {

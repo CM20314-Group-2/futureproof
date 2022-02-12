@@ -1,17 +1,6 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2016",
-    "lib": ["dom","es6"],
-    "module": "commonjs",
-    "rootDir": "src",
-    "outDir": "dist",
-    "removeComments": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "skipLibCheck": true,
-    "baseUrl": "../",
     "paths": {
       "@typings/*": ["typings/src/ts/*"],
       "@components/*": ["components/*"]

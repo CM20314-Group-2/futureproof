@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "@futureproof/backend",
   "version": "0.1.0",
   "description": "Backend for FutureProof",
   "repository": "https://github.com/CM20314-Group-2/backend",
@@ -17,6 +17,7 @@
     "mercurius": "^9.3.0"
   },
   "devDependencies": {
+    "@futureproof/typings": "file:../typings",
     "@types/graphql": "^14.5.0",
     "nodemon": "^2.0.15",
     "prisma": "^3.9.1",
