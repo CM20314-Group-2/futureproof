@@ -4,9 +4,16 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "lerna run start",
-    "test": "lerna run test jest",
+    "test": "lerna run test",
     "lint": "eslint . --ext .ts,.tsx",
     "build": "lerna run build"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-native": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1"
+  }
 }
