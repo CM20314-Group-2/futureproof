@@ -13,16 +13,16 @@ const resolvers = {
       )
     },
     businesses: () => {
-      return prisma.business.findMany();
+      return prisma.business.findMany()
     },
     comments: () => {
-      return prisma.comment.findMany();
+      return prisma.comment.findMany()
     },
     locations: () => {
-      return prisma.location.findMany();
+      return prisma.location.findMany()
     },
     reviews: () => {
-      return prisma.userReview.findMany();
+      return prisma.userReview.findMany()
     },
   },
 }
