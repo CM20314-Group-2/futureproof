@@ -6,7 +6,8 @@
     "start": "lerna run start",
     "test": "lerna run test",
     "lint": "eslint . --ext .ts,.tsx",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "setup": "npm install && lerna bootstrap --force-local && npm run build"
   },
   "private": true,
   "devDependencies": {

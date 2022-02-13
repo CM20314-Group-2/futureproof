@@ -11,13 +11,9 @@ npm install -g lerna
 ```
 git clone --recurse-submodules https://github.com/CM20314-Group-2/futureproof.git
 ```
-- Install the client dependencies:
+- Setup the development environment:
 ```
-npm install
-```
-- Then, install all of the dependencies of the child packages:
-```
-lerna bootstrap
+npm run setup
 ```
 
 ## Running Locally
