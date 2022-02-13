@@ -1,7 +1,7 @@
 schema: 
   - 'src/graphql/*.gql'
 generates:
-  index.d.ts:
+  src/ts/API.d.ts:
     plugins:
       - '@graphql-codegen/typescript'
   schema.ts:

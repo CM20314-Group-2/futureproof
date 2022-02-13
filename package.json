@@ -2,15 +2,15 @@
   "name": "@futureproof/typings",
   "version": "1.1.0",
   "description": "Typings for FutureProof",
-  "main": "index.d.ts",
-  "types": "index.d.ts",
+  "main": "src/ts/index.d.ts",
+  "types": "src/ts/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/CM20314-Group-2/typings"
   },
   "scripts": {
     "prebuild": "tsc",
-    "build": "graphql-codegen --config src/codegen.yml"
+    "build": "graphql-codegen --config codegen.yml"
   },
   "author": "bridgeswood",
   "license": "ISC",

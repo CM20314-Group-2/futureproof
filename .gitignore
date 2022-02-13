@@ -4,5 +4,5 @@ dist/
 yarn.lock
 
 # Generated files
-index.d.ts
+src/ts/API.d.ts
 schema.ts
