@@ -18,7 +18,7 @@
     "mercurius": "^9.3.0"
   },
   "devDependencies": {
-    "@futureproof/typings": "file:../typings",
+    "@futureproof/typings": "^1.0.0",
     "@types/graphql": "^14.5.0",
     "nodemon": "^2.0.15",
     "prisma": "^3.9.1",
