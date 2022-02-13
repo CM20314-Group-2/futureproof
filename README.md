@@ -17,15 +17,11 @@ npm run setup
 ```
 
 ## Running Locally
-- Ensure that all build steps have been run:
-```
-lerna run build
-```
 - Start the GraphQL server:
 ```
 lerna run --stream dev
 ```
-- In a new terminal windo start the client with:
+- In a new terminal window start the client with:
 ```
 npm start
 ```
