@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import { SortOptions as SortOptionsType } from '@futureproof/typings'
+import React, { useState } from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
-import {SortOptions as SortOptionsType} from '@typings/Search'
 
 interface ComponentProps {
   options: {label: string, value: SortOptionsType}[],
