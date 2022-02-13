@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text, TextStyle, ViewStyle} from 'react-native'
+import { Pressable, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native'
 
 interface ComponentProps {
   onPress: () => void,
@@ -23,7 +23,7 @@ const Button = ({ onPress, text, style, textStyle } : ComponentProps) => {
   const buttonStyle = style !== null && style !== undefined ? style : styles.button
   const buttonTextStyle = textStyle !== null && textStyle !== undefined ? textStyle : styles.text
   return (
-    <Pressable style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, buttonStyle]} onPress={onPress}>
+    <Pressable style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1, ...buttonStyle })} onPress={onPress} testID='button'>
       <Text style={buttonTextStyle}>{text}</Text>
     </Pressable>
   )

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1644778307251" clover="3.2.0">
+  <project timestamp="1644778307251" name="All files">
+    <metrics statements="8" coveredstatements="8" conditionals="10" coveredconditionals="7" methods="2" coveredmethods="2" elements="20" coveredelements="17" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
+    <file name="Button.tsx" path="/home/max/uni/futureproof/packages/client/src/components/Button.tsx">
+      <metrics statements="8" coveredstatements="8" conditionals="10" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="cond" truecount="3" falsecount="1"/>
+      <line num="24" count="1" type="cond" truecount="3" falsecount="1"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="49" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

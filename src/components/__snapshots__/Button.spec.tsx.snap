@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "opacity": 1,
+      },
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1ea853",
+        "borderRadius": 5,
+        "justifyContent": "center",
+        "width": "75%",
+      },
+    ]
+  }
+  testID="button"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "paddingBottom": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    asd
+  </Text>
+</View>
+`;

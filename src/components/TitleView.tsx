@@ -1,4 +1,4 @@
-import { DisplayableBusiness } from '@typings/types'
+import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
