@@ -5,6 +5,7 @@
   "repository": "https://github.com/CM20314-Group-2/backend",
   "main": "src/index.ts",
   "scripts": {
+    "build": "prisma generate",
     "dev": "nodemon",
     "start": "ts-node -r tsconfig-paths/register src/index.ts"
   },
