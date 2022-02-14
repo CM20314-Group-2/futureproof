@@ -26,8 +26,6 @@ const SortOptions = ({ options, initial, onChange } : ComponentProps) => {
     initialOption = (initial >= 0 && initial < options.length) ? options[initial] : null
   }
 
-  // const io = !initial ? ((initial >= 0 && initial < options.length) ? options[initial] : null) : null
-
   const [userOption, setUserOption] = useState<{label: string, value: SortOptionsType} | null>(initialOption)
 
   const updateOptionChoice = (option: {label: string, value: SortOptionsType}) => {
