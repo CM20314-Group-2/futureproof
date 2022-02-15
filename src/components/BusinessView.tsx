@@ -19,11 +19,16 @@ const ExampleBusiness: DisplayableBusiness =  {
 
 const BusinessView = () => {
   return (
-    <SafeAreaView style={styles.businessViewStyle}>
+    <SafeAreaView style={styles.businessViewStyle1}>
       <ScrollView>
-        <TitleView name={ExampleBusiness.name} profilePicture={ExampleBusiness.profilePicture}/>
-        <DescriptionView profileText={ExampleBusiness.profileText}/>
-        <RatingsView customerScore={ExampleBusiness.customerScore} sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
+        <TitleView
+          name={ExampleBusiness.name}
+          profilePicture={ExampleBusiness.profilePicture}/>
+        <DescriptionView
+          profileText={ExampleBusiness.profileText}/>
+        <RatingsView
+          customerScore={ExampleBusiness.customerScore}
+          sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
         <ImagesCarousel/>
       </ScrollView>
     </SafeAreaView>
@@ -31,8 +36,11 @@ const BusinessView = () => {
 }
 
 export const styles = StyleSheet.create({
-  businessViewStyle: {
+  businessViewStyle1: {
     marginHorizontal: 30
+  },
+  businessViewStyle2: {
+    marginBottom: '2%'
   }
 })
 

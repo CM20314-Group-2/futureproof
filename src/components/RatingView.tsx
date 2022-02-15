@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const RatingView = ({ ratingName, ratingValue = 0 }: { ratingName: string; ratingValue?: number | null} ) => (
   <View style={styles.itemBackgroundStyle}>
     <View style={styles.ratingContainerStyle}>
-      <Text>{`${ratingName} Rating`}</Text>
+      <Text style={{fontWeight: 'bold'}}>{`${ratingName} Rating`}</Text>
       <Text>{ratingValue == null ? 0 : ratingValue}</Text>
       <Text style={styles.subtitleText}>Tap for Details</Text>
     </View>
