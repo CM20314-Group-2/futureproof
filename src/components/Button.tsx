@@ -14,7 +14,7 @@ interface ComponentProps {
  * A custom, reusable button component that has an opacity effect when pressed.
  *
  * @param onPress the function that gets called when the button is pressed
- * @param text the text that appears om the button
+ * @param text the text that appears on the button
  * @param style the styling for the button, if not passed as an argument, a default is used
  * @param textStyle the styling for the text of the button, if not passed as an argument, a default is used
  * @returns the button component
