@@ -1,21 +1,38 @@
 import React, {useState} from 'react'
 import { Image, StyleSheet, Text, View, ScrollView, TouchableHighlight, Modal, Pressable, Alert } from 'react-native'
+import ImageView from "react-native-image-viewing";
 
 
 
 const ImagesCarousel = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [visible, setModalVisible] = useState(false);
   const [modalImage, setModalImage] = useState("");
-  const Image1 = "https://picsum.photos/320/350";
-  const Image2 = "https://picsum.photos/320/350";
-  const Image3 = "https://picsum.photos/320/350";
-  const Image4 = "https://picsum.photos/320/350";
+  const [modalImageIndex, setModalImageIndex] = useState(0);
+  const Image1 = "https://cdn.vox-cdn.com/thumbor/VAkim2EiaKiIq4pUi295wH99Ces=/0x0:1100x729/1200x800/filters:focal(341x230:517x406)/cdn.vox-cdn.com/uploads/chorus_image/image/67717391/STARBUCKS.0.jpeg";
+  const Image2 = "https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-42658.jpg";
+  const Image3 = "https://cdn.vox-cdn.com/thumbor/1WVT8VSapMXbHPvsTEPxZp2gUrk=/0x0:1347x897/1200x800/filters:focal(567x342:781x556)/cdn.vox-cdn.com/uploads/chorus_image/image/62192379/starbucksredcups2015.1541431580.jpg";
+  const Image4 = "https://cdn.vox-cdn.com/thumbor/bSoWzne8VZvz8tavhebsL7DNik0=/0x0:5860x4008/1200x800/filters:focal(3243x1967:4179x2903)/cdn.vox-cdn.com/uploads/chorus_image/image/67132574/shutterstock_1410002591.0.jpg";
   
+  const images = [
+    {
+      uri: Image1,
+    },
+    {
+      uri: Image2,
+    },
+    {
+      uri: Image3,
+    },
+    {
+      uri: Image4,
+    },
+  ];
+
   return(
   <View>
     <Text style={styles.headingText}>IMAGES</Text>
     <ScrollView horizontal >
-    <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImage(Image1)}}>
+    <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImageIndex(0)}}>
         <Image 
           blurRadius = {0}
           style = {styles.imageStyle}
@@ -26,7 +43,7 @@ const ImagesCarousel = () => {
           }}
         />  
       </TouchableHighlight>
-      <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImage(Image2)}} >
+      <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImageIndex(1)}} >
         <Image 
           blurRadius = {0}
           style = {styles.imageStyle}
@@ -37,7 +54,7 @@ const ImagesCarousel = () => {
           }}
         />
       </TouchableHighlight>
-      <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImage(Image3)}} >
+      <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImageIndex(2)}} >
         <Image 
           blurRadius = {0}
           style = {styles.imageStyle}
@@ -48,7 +65,7 @@ const ImagesCarousel = () => {
           }}
         />
       </TouchableHighlight>
-      <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImage(Image4)}} >
+      <TouchableHighlight activeOpacity={0.7} underlayColor="#FFFFFF" onPress = {() => {setModalVisible(true), setModalImageIndex(3)}} >
         <Image 
           blurRadius = {0}
           style = {styles.imageStyle}
@@ -63,35 +80,12 @@ const ImagesCarousel = () => {
 
     </ScrollView>
       <Image source={{uri: 'assets/Sample_Business_Image.png'}} style={styles.imageStyle} resizeMode="contain" />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Image 
-              blurRadius = {0}
-              style = {styles.imageStyle}
-              source = {{
-                width: 320,
-                height: 350,
-                uri: modalImage,
-              }}
-            />
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+      <ImageView
+        images={images}
+        imageIndex={modalImageIndex}
+        visible={visible}
+        onRequestClose={() => setModalVisible(false)}
+      />
   </View>
   )
 }
