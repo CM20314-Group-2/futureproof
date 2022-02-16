@@ -1,2 +1,6 @@
+# JS
 lerna-debug.log
 node_modules
+
+# Workspace
+.vscode
