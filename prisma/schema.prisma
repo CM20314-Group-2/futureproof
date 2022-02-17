@@ -8,10 +8,11 @@ datasource db {
 }
 
 model Business {
-  id                  Int           @default(autoincrement()) @map("BusinessID")
+  id                  Int           @unique @default(autoincrement()) @map("BusinessID")
   owner               User          @relation(fields: [userId], references: [id])
-  primaryLocation     Location?     @relation(fields: [locationId], references: [id])
-  name                String
+  //locations           Location[]    @relation("Locations")
+  primaryLocation     Location?     @relation("PrimaryLocation")
+  name                String        @unique
   sustainabilityScore Float         @map("FutureproofRating")
   customerScore       Float         @map("UserRating")
   ProfileText         String?
@@ -21,6 +22,7 @@ model Business {
   updatedAt           DateTime
   ProfilePicture      Bytes?
   type                BusinessType? @map("BusinessType")
+
 
   userId     Int
   locationId Int? @unique
@@ -42,20 +44,21 @@ model Comment {
 }
 
 model Location {
-  id         Int        @id @default(autoincrement()) @map("LocationID")
-  address    String     @map("Location")
-  longitude  Int?       @map("Longitude")
-  latitude   Int?       @map("Latitude")
-  Business   Business   @relation(fields: [businessId, businessName], references: [id, name])
-  createdAt  DateTime
-  updatedAt  DateTime
-  Businesses Business[] @relation(fields: [businessesID, businesesName], references: [id, name])
-  Comment    Comment[]
+  id        Int       @id @default(autoincrement()) @map("LocationID")
+  address   String    @map("Location")
+  longitude Int?      @map("Longitude")
+  latitude  Int?      @map("Latitude")
+  Business  Business? @relation(name: "PrimaryLocation", fields: [businessId, businessName], references: [id, name])
+  //BusinessList Business  @relation(name: "Locations", fields: [businessesID], references: [id])
+  createdAt DateTime
+  updatedAt DateTime
+  Comment   Comment[]
 
-  businessesID Int?
+
+  businessesID   Int?
   businessesName String?
-  businessId   Int?
-  businessName String?
+  businessId     Int?
+  businessName   String?
 
 }
 
@@ -73,10 +76,10 @@ model User {
 }
 
 model UserReview {
-  id         Int      @id @default(autoincrement())
-  user       User     @relation(fields: [userId], references: [id])
-  business   Business @relation(fields: [businessId, businessName], references: [id, name])
-  createdAt  DateTime @map("DateCreated") @db.Date
+  id         Int       @id @default(autoincrement())
+  user       User      @relation(fields: [userId], references: [id])
+  Business   Business? @relation(fields: [businessId, businessName], references: [id, name])
+  createdAt  DateTime  @map("DateCreated") @db.Date
   reputation Int
   ReviewData String
 
