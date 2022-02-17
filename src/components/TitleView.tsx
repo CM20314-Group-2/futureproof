@@ -14,7 +14,9 @@ const TitleView = ({ name, profilePicture }: ViewProps ) => (
 
 export const styles = StyleSheet.create({
   titleViewStyle: {
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: '5%',
+    marginBottom: '8%'
   },
   titleText: {
     fontSize: 25,
@@ -22,7 +24,7 @@ export const styles = StyleSheet.create({
   },
   subtitleText: {
     fontSize: 10,
-    color: '#A0A0A0'
+    color: '#A0A0A0',
   },
   profilePictureStyle: {
     width: 90,

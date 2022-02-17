@@ -1,5 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import BusinessView from '@components/BusinessView'
+import MapView from '@components/MapView'
+import SearchView from '@components/SearchView'
 //import SearchView from '@components/SearchView'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
@@ -15,7 +17,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <BusinessView/>
+        <MapView/>
       </View>
     </ApolloProvider>
   )
