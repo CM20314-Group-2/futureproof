@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@futureproof/typings": "file:../typings",
+    "@futureproof/typings": "^1.0.0",
     "@types/jest": "^27.4.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
