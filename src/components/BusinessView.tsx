@@ -19,7 +19,7 @@ const ExampleBusiness: DisplayableBusiness =  {
 
 const BusinessView = () => {
   return (
-    <SafeAreaView style={styles.businessViewStyle1}>
+    <SafeAreaView style={styles.businessViewStyle}>
       <ScrollView>
         <TitleView
           name={ExampleBusiness.name}
@@ -36,11 +36,8 @@ const BusinessView = () => {
 }
 
 export const styles = StyleSheet.create({
-  businessViewStyle1: {
+  businessViewStyle: {
     marginHorizontal: 30
-  },
-  businessViewStyle2: {
-    marginBottom: '2%'
   }
 })
 
