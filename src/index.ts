@@ -172,3 +172,30 @@ const resolvers = {
   },
 }
 // When i create a user, or update, how do IDs work?
+app.register(mercurius, {
+  schema,
+  resolvers,
+  context: (request, reply) => {
+    return { prisma }
+  },
+  graphiql: true
+})
+
+/*
+app.get('/', async function (req, reply) {
+  // Get the query from the request body
+  const query = '{ add(x: 2, y: 2) }'
+  return reply.graphql(query)
+})
+*/
+
+const start = async () => {
+  try {
+    await app.listen(3000)
+    console.log('Listening on 3000...')
+  } catch (err) {
+    app.log.error(err)
+    process.exit(1)
+  }
+}
+start()
