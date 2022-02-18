@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 10
   },
+  titleText: {
+    fontWeight: 'bold'
+  },
   subtitleText: {
     fontSize: 10,
     color: '#A0A0A0'

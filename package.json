@@ -22,6 +22,7 @@
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
     "react-native-elements": "^3.4.2",
+    "react-native-image-viewing": "^0.2.1",
     "react-native-maps": "^0.29.4",
     "react-native-navigation": "^7.24.3-hotfix.1",
     "react-native-safe-area-context": "^3.3.2",
@@ -32,7 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@futureproof/typings": "file:../typings",
+    "@futureproof/typings": "^1.0.0",
     "@types/jest": "^27.4.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",

@@ -21,9 +21,14 @@ const BusinessView = () => {
   return (
     <SafeAreaView style={styles.businessViewStyle}>
       <ScrollView>
-        <TitleView name={ExampleBusiness.name} profilePicture={ExampleBusiness.profilePicture}/>
-        <DescriptionView profileText={ExampleBusiness.profileText}/>
-        <RatingsView customerScore={ExampleBusiness.customerScore} sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
+        <TitleView
+          name={ExampleBusiness.name}
+          profilePicture={ExampleBusiness.profilePicture}/>
+        <DescriptionView
+          profileText={ExampleBusiness.profileText}/>
+        <RatingsView
+          customerScore={ExampleBusiness.customerScore}
+          sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
         <ImagesCarousel/>
       </ScrollView>
     </SafeAreaView>
