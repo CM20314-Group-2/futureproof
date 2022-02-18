@@ -3,7 +3,7 @@ import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React, { useState } from 'react'
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native'
 
-const TEST_BUSINESSES_DATA: DisplayableBusiness[] = [
+const TEST_BUSINESSES_DATA : DisplayableBusiness[] = [
   {
     id: '1',
     name: 'Starbucks',
@@ -39,8 +39,8 @@ const SearchView = () => {
 
 const styles = StyleSheet.create({
   searchList: {
-    flex: 1,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
+    flex: 1
   }
 })
 

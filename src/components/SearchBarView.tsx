@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react'
-import { SafeAreaView, View, StyleSheet} from 'react-native'
+import { gql, useLazyQuery } from '@apollo/client'
+import React, { useEffect, useState } from 'react'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 import { Icon, Input } from 'react-native-elements'
-import { gql, useLazyQuery} from '@apollo/client'
 
 // GraphQL fragment
 const COMPANY_TILE_DATA = gql` {
@@ -15,30 +15,22 @@ const COMPANY_TILE_DATA = gql` {
 }
 `
 
-const SearchBar = () => {
-  // Search field
-  const [value, onChangeText] = useState('')
+const SearchBarView = () => {
+  const [searchText, onChangeText] = useState('')
     
-  // Query
-  const [executeSearch, {error}] = useLazyQuery(    // 'loading' and 'data' can also be returned (not just error)
+  const [executeSearch, { error }] = useLazyQuery(    // 'loading' and 'data' can also be returned (not just error)
     COMPANY_TILE_DATA
   )
 
-  // Debounce query
   useEffect(() => {
+    // Debounce query
     const delayDebounceFn = setTimeout(() => {
       executeSearch({
-        variables: {String: value}
+        variables: { String: searchText }
       }).then(data => console.log(data), () => console.error(error))
     }, 300) 
     return () => clearTimeout(delayDebounceFn)
-  }, [value])
-
-    
-    
-  const updateSearch = (text : string) => {
-    onChangeText(text)
-  }
+  }, [searchText])
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
@@ -46,18 +38,14 @@ const SearchBar = () => {
         <Input 
           inputContainerStyle={styles.searchInput}
           placeholder='Search here'
-          onChangeText={text => updateSearch(text)}
-
-          // Search Icon
+          onChangeText={text => onChangeText(text)}
           leftIcon = {
             <Icon
               name='search'
               size={25}
             />
           }
-          leftIconContainerStyle = {{marginLeft:'2%'}}
-
-          // Filter Icon
+          leftIconContainerStyle = {styles.leftContainerIconStyle}
           rightIcon = {<Icon
             name='options-outline'
             type='ionicon'
@@ -65,30 +53,32 @@ const SearchBar = () => {
             onPress={() => console.error('Not implemented.')}
           />
           }
-          value={value}
+          value={searchText}
         />
       </View>
     </SafeAreaView>
-        
   )
 } 
 
 const styles = StyleSheet.create({
+  leftContainerIconStyle: {
+    marginLeft:'2%'
+  },
   safeAreaView: {
     flex:1,
-    padding:20,
-    flexDirection: 'column'
-  },
-  searchInput: {
-    borderRadius:10,
-    borderWidth:2,
-    borderColor:'#FFFFFF',
-    backgroundColor:'#FFFFFF',
+    flexDirection: 'column',
+    padding:20
   },
   searchBarView:{
-    marginTop: 'auto',
     marginBottom:'10%',
+    marginTop: 'auto',
+  },
+  searchInput: {
+    backgroundColor:'#FFFFFF',
+    borderColor:'#FFFFFF',
+    borderRadius:10,
+    borderWidth:2,
   }
 })
 
-export default SearchBar
+export default SearchBarView

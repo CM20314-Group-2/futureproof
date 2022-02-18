@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test 1`] = `
+exports[`matches snapshot 1`] = `
 <View
   accessible={true}
   collapsable={false}
@@ -15,18 +15,14 @@ exports[`test 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "opacity": 1,
-      },
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#1ea853",
-        "borderRadius": 5,
-        "justifyContent": "center",
-        "width": "75%",
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1ea853",
+      "borderRadius": 5,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": "75%",
+    }
   }
   testID="button"
 >
@@ -40,8 +36,9 @@ exports[`test 1`] = `
         "paddingTop": 10,
       }
     }
+    testID="button-text"
   >
-    asd
+    TEST
   </Text>
 </View>
 `;

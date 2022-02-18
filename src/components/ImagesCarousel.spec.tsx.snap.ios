@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "#A0A0A0",
+        "fontSize": 12,
+        "paddingLeft": 20,
+      }
+    }
+  >
+    IMAGES
+  </Text>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "uri": "assets/Sample_Business_Image.png",
+      }
+    }
+    style={
+      Object {
+        "alignSelf": "center",
+        "borderRadius": 10,
+        "height": 300,
+        "width": 250,
+      }
+    }
+  />
+</View>
+`;
