@@ -55,8 +55,8 @@ model Location {
   Comment   Comment[]
 
 
-  businessesID   Int?
-  businessesName String?
+  // businessesID   Int?
+  // businessesName String?
   businessId     Int?
   businessName   String?
 
