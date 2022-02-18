@@ -46,8 +46,8 @@ model Comment {
 model Location {
   id        Int       @id @default(autoincrement()) @map("LocationID")
   address   String    @map("Location")
-  longitude Int?      @map("Longitude")
-  latitude  Int?      @map("Latitude")
+  longitude Float?    @map("Longitude")
+  latitude  Float?    @map("Latitude")
   Business  Business? @relation(name: "PrimaryLocation", fields: [businessId, businessName], references: [id, name])
   //BusinessList Business  @relation(name: "Locations", fields: [businessesID], references: [id])
   createdAt DateTime
