@@ -1,11 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import CircularRatingIndicator from './ratings/CircularRatingIndicator'
 
 const RatingView = ({ ratingName, ratingValue = 0 }: { ratingName: string; ratingValue?: number | null} ) => (
   <View style={styles.itemBackgroundStyle}>
     <View style={styles.ratingContainerStyle}>
-      <Text>{`${ratingName} Rating`}</Text>
-      <Text>{ratingValue == null ? 0 : ratingValue}</Text>
+      <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={ratingValue == null ? 0 : ratingValue} ratingName={ratingName}/>
       <Text style={styles.subtitleText}>Tap for Details</Text>
     </View>
   </View>
@@ -14,6 +14,7 @@ const RatingView = ({ ratingName, ratingValue = 0 }: { ratingName: string; ratin
 const styles = StyleSheet.create({
   itemBackgroundStyle: {
     backgroundColor: '#FAF9F9',
+    padding: 5,
     borderRadius: 10
   },
   subtitleText: {
