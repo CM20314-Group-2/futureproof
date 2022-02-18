@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
   headingText: {
     color: '#A0A0A0',
     fontSize: 12,
+    marginBottom: '1%',
+    marginLeft: '1%',
     paddingLeft: 20
   },
   itemBackgroundStyle: {

@@ -1,5 +1,4 @@
 import DescriptionView from '@components/DescriptionView'
-import ImagesCarousel from '@components/ImagesCarousel'
 import RatingsView from '@components/RatingsView'
 import TitleView from '@components/TitleView'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
@@ -32,7 +31,7 @@ const BusinessView = () => {
           customerScore={ExampleBusiness.customerScore}
           sustainabilityScore={ExampleBusiness.sustainabilityScore}
         />
-        <ImagesCarousel/>
+        {/* <ImagesCarousel/> */}
       </ScrollView>
     </SafeAreaView>
   )

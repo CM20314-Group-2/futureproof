@@ -27,7 +27,9 @@ export const styles = StyleSheet.create({
     fontWeight: '500'
   },
   titleViewStyle: {
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: '8%',
+    marginTop: '5%'
   }
 })
 

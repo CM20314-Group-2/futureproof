@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   subtitleText: {
     color: '#A0A0A0',
     fontSize: 10
-  }
+  },
 })
 
 export default RatingView
