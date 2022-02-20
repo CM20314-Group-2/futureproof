@@ -17,7 +17,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <MapView/>
+        <BusinessView/>
       </View>
     </ApolloProvider>
   )

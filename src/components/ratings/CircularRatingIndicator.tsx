@@ -1,16 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Svg, { Circle } from 'react-native-svg'
-//import ratingValToColour from '@components/search/RatingCapsule'
-
-const ratingValToColour = (ratingValue: number): string => {
-    if (ratingValue > 85) return '#1EA853'
-    if (ratingValue > 70) return '#50A75C'
-    if (ratingValue > 50) return '#BED62E'
-    if (ratingValue > 30) return '#D6C52E'
-  
-    return 'brown'
-}
+import {ratingValToColour} from '@components/search/RatingCapsule'
 
 const BACKGROUND_SECONDARY_COLOUR = '#FAF9F9'
 
