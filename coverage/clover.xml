@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1645200996946" clover="3.2.0">
+  <project timestamp="1645200996946" name="All files">
+    <metrics statements="130" coveredstatements="126" conditionals="81" coveredconditionals="78" methods="42" coveredmethods="36" elements="253" coveredelements="240" complexity="0" loc="130" ncloc="130" packages="4" files="21" classes="21"/>
+    <package name="assets">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="icon.png" path="/home/max/uni/futureproof/packages/client/assets/icon.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+      <file name="icon_location.png" path="/home/max/uni/futureproof/packages/client/assets/icon_location.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="6" type="stmt"/>
+      </file>
+      <file name="icon_paragraph.png" path="/home/max/uni/futureproof/packages/client/assets/icon_paragraph.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="cache.ts" path="/home/max/uni/futureproof/packages/client/src/cache.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="97" coveredstatements="93" conditionals="47" coveredconditionals="44" methods="36" coveredmethods="30"/>
+      <file name="BottomSheet.tsx" path="/home/max/uni/futureproof/packages/client/src/components/BottomSheet.tsx">
+        <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="31" count="30" type="stmt"/>
+        <line num="32" count="30" type="stmt"/>
+        <line num="33" count="30" type="stmt"/>
+        <line num="38" count="30" type="stmt"/>
+        <line num="39" count="26" type="stmt"/>
+        <line num="47" count="30" type="stmt"/>
+        <line num="50" count="30" type="stmt"/>
+        <line num="51" count="30" type="stmt"/>
+        <line num="53" count="30" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+      </file>
+      <file name="BusinessView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/BusinessView.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+      </file>
+      <file name="Button.tsx" path="/home/max/uni/futureproof/packages/client/src/components/Button.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="10" coveredconditionals="9" methods="2" coveredmethods="2"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="32" type="cond" truecount="4" falsecount="0"/>
+        <line num="24" count="32" type="cond" truecount="4" falsecount="0"/>
+        <line num="25" count="32" type="stmt"/>
+        <line num="27" count="32" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="4" type="stmt"/>
+      </file>
+      <file name="DescriptionView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/DescriptionView.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+      </file>
+      <file name="ImagesCarousel.tsx" path="/home/max/uni/futureproof/packages/client/src/components/ImagesCarousel.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+      </file>
+      <file name="MapView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/MapView.tsx">
+        <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+      </file>
+      <file name="RatingView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/RatingView.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="10" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+      </file>
+      <file name="RatingsView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/RatingsView.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+      </file>
+      <file name="SearchBarView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/SearchBarView.tsx">
+        <metrics statements="13" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+      </file>
+      <file name="SearchResultSorter.tsx" path="/home/max/uni/futureproof/packages/client/src/components/SearchResultSorter.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="26" type="stmt"/>
+        <line num="39" count="26" type="stmt"/>
+        <line num="41" count="26" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="81" count="2" type="stmt"/>
+      </file>
+      <file name="SearchView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/SearchView.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+      </file>
+      <file name="SortOptions.tsx" path="/home/max/uni/futureproof/packages/client/src/components/SortOptions.tsx">
+        <metrics statements="13" coveredstatements="13" conditionals="16" coveredconditionals="14" methods="5" coveredmethods="5"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="34" type="stmt"/>
+        <line num="25" count="34" type="cond" truecount="4" falsecount="0"/>
+        <line num="26" count="30" type="cond" truecount="4" falsecount="0"/>
+        <line num="29" count="34" type="stmt"/>
+        <line num="31" count="34" type="stmt"/>
+        <line num="32" count="6" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="36" count="34" type="stmt"/>
+        <line num="39" count="164" type="stmt"/>
+        <line num="42" count="164" type="stmt"/>
+        <line num="48" count="6" type="stmt"/>
+        <line num="66" count="4" type="stmt"/>
+      </file>
+      <file name="TitleView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/TitleView.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.search">
+      <metrics statements="28" coveredstatements="28" conditionals="34" coveredconditionals="34" methods="6" coveredmethods="6"/>
+      <file name="BusinessLogo.tsx" path="/home/max/uni/futureproof/packages/client/src/components/search/BusinessLogo.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="9" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+      </file>
+      <file name="RatingCapsule.tsx" path="/home/max/uni/futureproof/packages/client/src/components/search/RatingCapsule.tsx">
+        <metrics statements="18" coveredstatements="18" conditionals="29" coveredconditionals="29" methods="3" coveredmethods="3"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="6" count="58" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="42" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="54" type="cond" truecount="4" falsecount="0"/>
+        <line num="18" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="42" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="31" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="34" type="stmt"/>
+        <line num="48" count="8" type="stmt"/>
+      </file>
+      <file name="SearchItemStats.tsx" path="/home/max/uni/futureproof/packages/client/src/components/search/SearchItemStats.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+      </file>
+      <file name="SearchResult.tsx" path="/home/max/uni/futureproof/packages/client/src/components/search/SearchResult.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

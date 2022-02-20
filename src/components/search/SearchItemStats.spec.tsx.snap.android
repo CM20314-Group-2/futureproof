@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 25,
+        "fontWeight": "500",
+      }
+    }
+  >
+    Starbucks
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={1}
+      style={
+        Object {
+          "height": 20,
+          "width": 20,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#686868",
+          "fontSize": 14,
+        }
+      }
+    >
+      0.2 miles
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+        "paddingVertical": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 11,
+          "paddingRight": 10,
+        }
+      }
+    >
+      FutureProof Rating:
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#bed62e",
+          "borderRadius": 9,
+          "height": 18,
+          "width": 55,
+        }
+      }
+      testID="rating-capsule"
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 11,
+          }
+        }
+        testID="rating-text"
+      >
+        Okay
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+        "paddingVertical": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 11,
+          "paddingRight": 10,
+        }
+      }
+    >
+      Consumer Rating:
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#50a75c",
+          "borderRadius": 9,
+          "height": 18,
+          "width": 55,
+        }
+      }
+      testID="rating-capsule"
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 11,
+          }
+        }
+        testID="rating-text"
+      >
+        Good
+      </Text>
+    </View>
+  </View>
+</View>
+`;

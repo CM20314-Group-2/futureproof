@@ -1,7 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import BusinessView from '@components/BusinessView'
 import MapView from '@components/MapView'
-import SearchView from '@components/SearchView'
 //import SearchView from '@components/SearchView'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
@@ -25,8 +23,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    flex: 1
   },
 })
 
