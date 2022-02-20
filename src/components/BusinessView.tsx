@@ -34,7 +34,9 @@ const BusinessView = () => {
       <ScrollView contentContainerStyle={{flexGrow: 1, height: "100%"}}>
         <TitleView
           name={ExampleBusiness.name}
-          profilePicture={ExampleBusiness.profilePicture}/>
+          profilePicture={ExampleBusiness.profilePicture == null ? "" : ExampleBusiness.profilePicture}
+          businessAddress={ExampleBusinessLocation.address}
+          />
         <DescriptionView
           profileText={ExampleBusiness.profileText}/>
         <RatingsView
