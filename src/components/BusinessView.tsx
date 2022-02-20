@@ -59,11 +59,11 @@ export const styles = StyleSheet.create({
     backgroundColor: '#1EA853',
     borderRadius: 10,
     padding: 18,
-    width: "100%",
-    marginHorizontal: 15,
+    width: "90%",
     zIndex: 0,
     position: 'absolute',
     alignItems: 'center',
+    alignSelf: 'center',
     justifyContent: 'center',
     bottom: 40
   },
