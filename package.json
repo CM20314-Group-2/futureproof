@@ -22,15 +22,16 @@
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
     "react-native-elements": "^3.4.2",
+    "react-native-image-viewing": "^0.2.1",
     "react-native-maps": "^0.29.4",
     "react-navigation": "^4.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-typescript": "^7.16.7",
+    "@futureproof/typings": "../typings",
     "@testing-library/jest-native": "^4.0.4",
     "@testing-library/react-native": "^9.0.0",
-    "@futureproof/typings": "^1.0.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.18",
     "@types/react": "~17.0.21",
