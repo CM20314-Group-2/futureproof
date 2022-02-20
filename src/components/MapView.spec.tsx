@@ -109,7 +109,3 @@ it('defaults to showing Null Island', async () => {
   expect(map.props.region.longitude).toEqual(0)
   
 })
-
-
-
-

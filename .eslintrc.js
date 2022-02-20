@@ -43,10 +43,14 @@ module.exports = {
     'react-native/no-inline-styles': 2,
     'react-native/sort-styles': 1,
     'react-native/no-unused-styles': 1,
+    'eol-last': [
+      'error',
+      'always'
+    ],
   },
   settings: {
     react: {
       version: 'detect',
     },
   },
-};
+}
