@@ -58,8 +58,9 @@ export const styles = StyleSheet.create({
   DirectionsButtonContainer: {
     backgroundColor: '#1EA853',
     borderRadius: 10,
-    padding: 20,
+    padding: 18,
     width: "100%",
+    marginHorizontal: 15,
     zIndex: 0,
     position: 'absolute',
     alignItems: 'center',
