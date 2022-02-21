@@ -5,7 +5,7 @@ import TitleView from '@components/TitleView'
 import BusinessViewMap from '@components/BusinessViewMap'
 import { BusinessType, DisplayableBusiness, Location } from '@futureproof/typings'
 import React from 'react'
-import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
 import openMap from 'react-native-open-maps'
 
 // PLACEHOLDER BUSINESS -> Update to fetch graphQL
@@ -30,8 +30,9 @@ const ExampleBusinessLocation: ExampleLocationType = {
 
 const BusinessView = () => {
   return (
-    <SafeAreaView style={styles.businessViewStyle}>
+      <View>
       <ScrollView contentContainerStyle={{flexGrow: 1, height: "100%"}}>
+        <SafeAreaView style={styles.businessViewStyle}>
         <TitleView
           name={ExampleBusiness.name}
           profilePicture={ExampleBusiness.profilePicture == null ? "" : ExampleBusiness.profilePicture}
@@ -43,11 +44,13 @@ const BusinessView = () => {
           customerScore={ExampleBusiness.customerScore}
           sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
         <BusinessViewMap businessLocation={ExampleBusinessLocation}/>
+        
+        </SafeAreaView>
       </ScrollView>
       <TouchableOpacity onPress={() => openMap({ end: ExampleBusinessLocation.address })} style={styles.DirectionsButtonContainer}>
         <Text style={styles.DirectionsButtonText}>Get Directions</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+        </TouchableOpacity>
+      </View>
   )
 }
 
