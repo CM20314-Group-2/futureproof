@@ -8,6 +8,7 @@
 ```
 npm install -g lerna
 ```
+- Ensure that you have [ngrok](https://ngrok.com/) installed.
 
 ## Installation
 - Create a new directory and clone the repository into it using the following command:
@@ -19,16 +20,30 @@ git clone --recurse-submodules https://github.com/CM20314-Group-2/futureproof.gi
 npm run setup
 ```
 
+## Developing Locally
+- Run the development server:
+```
+lerna run --stream dev
+```
+- In the `packages/server` subdirectory, open the ngrok tunnel:
+```
+ngrok http 3000
+```
+- In `packages/client/app.config.ts`, point the `extra.ServerAddress` property to the ngrok URL:
+```typescript
+...
+extra: {
+      serverAddress: 'http://be0e-195-213-145-15.ngrok.io'
+    }
+...
+```
+
 ## Running Locally
-- Ensure that all build steps have been run:
-```
-lerna run build
-```
 - Start the GraphQL server:
 ```
 lerna run --stream dev
 ```
-- In a new terminal windo start the client with:
+- In a new terminal window start the client with:
 ```
 npm start
 ```

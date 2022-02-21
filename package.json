@@ -7,7 +7,8 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "build": "lerna run build",
-    "setup": "npm install && lerna bootstrap --force-local && npm run build"
+    "presetup": "lerna link",
+    "setup": "lerna bootstrap --force-local && npm run build"
   },
   "private": true
 }
