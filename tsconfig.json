@@ -1,11 +1,5 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "paths": {
-      "@typings/*": ["typings/src/ts/*"],
-      "@components/*": ["components/*"]
-    },
-  },
   "exclude": ["node_modules"],
   "include": ["src/**/*.ts"]
 }

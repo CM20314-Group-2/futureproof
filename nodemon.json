@@ -1,6 +1,6 @@
 {
   "ignore": ["**/*.test.ts", "node_modules"],
   "watch": ["src"],
-  "exec": "npm run start",
+  "exec": "NODE_ENV=\"development\" npm run start",
   "ext": "ts"
 }
