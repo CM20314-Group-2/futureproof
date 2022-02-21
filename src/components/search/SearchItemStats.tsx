@@ -1,61 +1,61 @@
-import RatingCapsule from '@components/Search/RatingCapsule'
-import { DisplayableBusiness } from '@futureproof/typings'
-import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import RatingCapsule from "@components/Search/RatingCapsule";
+import { DisplayableBusiness } from "@futureproof/typings";
+import React from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-const SearchItemStats = ({business}: {business: DisplayableBusiness}) => (
+const SearchItemStats = ({ business }: { business: DisplayableBusiness }) => (
   <View style={styles.searchItemStats}>
     <Text style={styles.businessTitleText}>{business.name}</Text>
-    <View style = {styles.logoAndSubtitleView}>
+    <View style={styles.logoAndSubtitleView}>
       <Image
-        source={require('../../../assets/icon_location.png')}
+        source={require("../../../assets/icon_location.png")}
         style={styles.businessLogoImageStyle}
         resizeMode="contain"
       />
-      <Text style={styles.subtitleText}>{`${  .2} miles`}</Text>
+      <Text style={styles.subtitleText}>{`${0.2} miles`}</Text>
     </View>
-      
-    <View style = {styles.ratingTextAndCapsuleView}>
+
+    <View style={styles.ratingTextAndCapsuleView}>
       <Text style={styles.ratingText}>FutureProof Rating:</Text>
-      <RatingCapsule ratingValue={business.sustainabilityScore}/>
+      <RatingCapsule ratingValue={business.sustainabilityScore} />
     </View>
-    <View style = {styles.ratingTextAndCapsuleView}>
+    <View style={styles.ratingTextAndCapsuleView}>
       <Text style={styles.ratingText}>Consumer Rating:</Text>
-      <RatingCapsule ratingValue={business.customerScore}/>
+      <RatingCapsule ratingValue={business.customerScore} />
     </View>
   </View>
-)
+);
 
 const styles = StyleSheet.create({
   searchItemStats: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: "column",
   },
   businessTitleText: {
     fontSize: 25,
-    fontWeight: '500'
+    fontWeight: "500",
   },
   subtitleText: {
     fontSize: 14,
-    color: '#686868'
+    color: "#686868",
   },
   businessLogoImageStyle: {
     width: 20,
-    height: 20
+    height: 20,
   },
   logoAndSubtitleView: {
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   ratingTextAndCapsuleView: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    paddingVertical: 2
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingVertical: 2,
   },
   ratingText: {
     fontSize: 11,
-    color: '#818181',
-    paddingRight: 10
-  }
-})
+    color: "#818181",
+    paddingRight: 10,
+  },
+});
 
-export default SearchItemStats
+export default SearchItemStats;
