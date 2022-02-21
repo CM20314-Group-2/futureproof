@@ -31,12 +31,12 @@ const resolvers = {
     },
     user: (_parent, id : number) => {
       return prisma.user.findUnique({
-        where: { UserID: id },
+        where: { id: id },
       })
     },
     business: (_parent, id : number) => {
-      return prisma.business.findFirst({
-        where: { BusinessID : id},
+      return prisma.business.findUnique({
+        where: { id: id },
       })
 
       // schema has business id not being unique - fix?
@@ -44,55 +44,53 @@ const resolvers = {
     },
     comment: (_parent, id : number) => {
       return prisma.comment.findUnique({
-        where: { CommentID: id },
+        where: { id: id },
       })
     },
     location: (_parent, id : number) => {
       return prisma.location.findUnique({
-        where: { LocationID: id },
+        where: { id: id },
       })
     },
     review: (_parent, id : number) => {
       return prisma.userReview.findUnique({
-        where: { ReviewID: id },
+        where: { id: id },
       })
     },
-    userByEmail: (_parent, email : string) => {
-      return prisma.user.findFirst({
-        where: { Email: email },
-        // findUnique seems to only work when searching for
-        // an object by its type's primary key.
+    userByEmail: (_parent, emailInput : string) => {
+      return prisma.user.findUnique({
+        where: { email: emailInput}
       })
     },
     businessByName: (_parent, name : string) => {
-      return prisma.business.findFirst({
-        where: { Name: name },
+      return prisma.business.findUnique({
+        where: { name: name }
       })
 
     },
     commentsByUser: (_parent, id : number) => {
-      return prisma.comment.findFirst({
-        where: { UserID: id },
+      return prisma.comment.findMany({
+        where: { userId: id },
       })
     },
     locationsByBusiness: (_parent, id : number) => {
-      return prisma.location.findFirst({
-        where: { BusinessID: id },
+      return prisma.location.findMany({
+        where: { businessId: id },
       })
     },
     reviewsByUser: (_parent, id : number) => {
-      return prisma.userReview.findFirst({
-        where: { UserID: id },
+      return prisma.userReview.findMany({
+        where: { userId: id },
       })
     },
     commentsByBusiness: (_parent, id : number) => {
-      return prisma.comment.findFirst({
-        where: { BusinessID: id },
+      return prisma.comment.findMany({
+        where: { businessId: id },
       })
     },
     reviewsByBusiness: (_parent, id : number) => {
-      return prisma.userReview.findFirst({
-        where: { BusinessID: id },
+      return prisma.userReview.findMany({
+        where: { businessId: id },
       })
     },
   },
@@ -100,48 +98,44 @@ const resolvers = {
   // There must be functionality to ensure that non-primary
   // keys that are still unique are not repeated
 
+  /*
   Mutation: {
     createUser: (_parent, userInput : Prisma.UserCreateInput) => {
       return prisma.user.create({
         data : {
-          UserID: userInput.UserID,
-          FirstName: userInput.FirstName,
-          LastName: userInput.LastName,
-          Email: userInput.Email,
-          Password: userInput.Password,
-          AccountType: userInput.AccountType,
-          // For above and below, how to assign default?
-          ProfilePic: userInput.ProfilePic,
+          firstName: userInput.firstName,
+          lastName: userInput.lastName,
+          email: userInput.email,
+          password: userInput.password,
+          // below here are optional (do i add)
+          roles: userInput.roles,
+          profilePhoto: userInput.profilePhoto,
         }
       })
     },
     createBusiness: (_parent, businessInput : Prisma.BusinessCreateInput) => {
       return prisma.business.create({
         data : {
-          BusinessID : businessInput.BusinessID,
-          FirstName: userInput.FirstName,
-          LastName: userInput.LastName,
-          Email: userInput.Email,
-          Password: userInput.Password,
-          AccountType: userInput.AccountType,
-          // For above and below, how to assign default?
-          ProfilePic: userInput.ProfilePic,
+          firstName: userInput.firstName,
+          lastName: userInput.lastName,
+          email: userInput.email,
+          password: userInput.password,
+          roles: userInput.roles,
+          profilePhoto: userInput.profilePhoto,
         }
       })
     },
     updateUser: (_parent, args : {id : number, userInput : Prisma.UserUpdateInput}) => {
       return prisma.user.update({
         data : {
-          UserID: args.userInput.UserID,
-          FirstName: args.userInput.FirstName,
-          LastName: args.userInput.LastName,
-          Email: args.userInput.Email,
-          Password: args.userInput.Password,
-          AccountType: args.userInput.AccountType,
-          // For above and below, how to assign default?
-          ProfilePic: args.userInput.ProfilePic,
+          firstName: args.userInput.firstName,
+          lastName: args.userInput.lastName,
+          email: args.userInput.email,
+          password: args.userInput.password,
+          roles: args.userInput.roles,
+          profilePhoto: args.userInput.profilePhoto,
         },
-        where : { UserID : args.id }
+        where : { id: args.id }
       })
     },
     deleteUser: (_parent, id : number) => {
@@ -170,6 +164,7 @@ const resolvers = {
       })
     },
   },
+  */
 }
 // When i create a user, or update, how do IDs work?
 app.register(mercurius, {
