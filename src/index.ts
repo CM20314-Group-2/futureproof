@@ -31,6 +31,7 @@ app.register(mercurius, {
   schema,
   resolvers,
   context: (request, reply) => {
+    console.log('request', request.body)
     return { prisma }
   },
   graphiql: process.env.NODE_ENV === 'development',
