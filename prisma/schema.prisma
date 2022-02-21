@@ -8,66 +8,95 @@ datasource db {
 }
 
 model Business {
-  id                  Int             @map("BusinessID")
-  UserID              Int?
-  name                String
-  sustainabilityScore Float           @map("FutureproofRating")
-  customerScore       Float           @map("UserRating")
+  id                  Int           @unique @id @default(autoincrement()) @map("BusinessID")
+  owner               User          @relation(fields: [userId], references: [id])
+  //locations           Location[]    @relation("Locations")
+  primaryLocation     Location?     @relation("PrimaryLocation")
+  name                String        @unique
+  sustainabilityScore Float         @map("FutureproofRating")
+  customerScore       Float         @map("UserRating")
   ProfileText         String?
+  comments            Comment[]
+  reviews             UserReview[]
+  createdAt           DateTime
+  updatedAt           DateTime
   ProfilePicture      Bytes?
   type                BusinessType? @map("BusinessType")
 
-  @@id([id, name])
+
+  userId     Int
+  locationId Int? @unique
+  // @@id([id, name])
 }
 
 model Comment {
-  CommentID  Int      @id
-  BusinessID Int
-  LocationID Int
-  UserID     Int
-  text       String   @map("CommentText")
-  createdAt  DateTime @map("DateCreated") @db.Date
+  id        Int       @id @unique @default(autoincrement())
+  location  Location  @relation(fields: [locationId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+  text      String    @map("CommentText")
+  createdAt DateTime  @map("DateCreated") @db.Date
+  business  Business? @relation(fields: [businessId], references: [id])
+
+  businessId   Int?
+  locationId   Int
+  userId       Int
 }
 
 model Location {
-  id         Int    @id @map("LocationID")
-  BusinessID Int
-  address    String @map("Location")
-  longitude  Int?   @map("Longitude")
-  latitude   Int?   @map("Latitude")
+  id        Int       @id @default(autoincrement()) @map("LocationID")
+  address   String    @map("Location")
+  longitude Float?    @map("Longitude")
+  latitude  Float?    @map("Latitude")
+  Business  Business? @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
+  //BusinessList Business  @relation(name: "Locations", fields: [businessesID], references: [id])
+  createdAt DateTime
+  updatedAt DateTime
+  Comment   Comment[]
+
+
+  // businessesID   Int?
+  // businessesName String?
+  businessId     Int?
+  businessName   String?
+
 }
 
 model User {
-  id           Int         @id @map("UserID")
-  firstName    String      @map("FirstName")
-  lastName     String      @map("LastName")
-  email        String      @map("Email")
-  Password     String
-  profilePhoto Bytes?      @map("ProfilePic")
-  roles        user_types? @map("AccountType")
+  id           Int          @id @default(autoincrement()) @map("UserID")
+  firstName    String       @map("FirstName")
+  lastName     String       @map("LastName")
+  email        String       @map("Email")
+  password     String
+  profilePhoto Bytes?       @map("ProfilePic")
+  roles        user_types?  @map("AccountType")
+  Business     Business[]
+  Comment      Comment[]
+  UserReview   UserReview[]
 }
 
 model UserReview {
-  ReviewID   Int      @id
-  BusinessID Int
-  UserID     Int
-  createdAt  DateTime @map("DateCreated") @db.Date
+  id         Int       @id @default(autoincrement())
+  user       User      @relation(fields: [userId], references: [id])
+  Business   Business? @relation(fields: [businessId], references: [id])
+  createdAt  DateTime  @map("DateCreated") @db.Date
+  reputation Int
   ReviewData String
+
+
+  businessId   Int?
+  businessName String?
+  userId       Int
 }
 
 enum BusinessType {
-  Restuarant
-  Cafe
-  Bar
-  Other
-  Retail
-  Supermarket
-  Health_and_Beauty  @map("Health and Beauty")
-  @@map("business_types")
+  RESTAURANT
+  BAR
+  CAFE
+  OTHER
 }
 
 enum user_types {
-  User
-  Admin
-  Business
+  ADMIN
+  CUSTOMER
+  BUSINESS
 }
