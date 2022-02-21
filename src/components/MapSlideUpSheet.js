@@ -23,7 +23,7 @@ class MapSlideUpSheet extends React.Component {
             </TouchableHighlight>
             <View style={styles.container}>
               <SearchBar/>
-              <SearchBarView/>
+              <SearchView/>
             </View>
           </View>
         </SlidingUpPanel>
