@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645200996946" clover="3.2.0">
-  <project timestamp="1645200996946" name="All files">
-    <metrics statements="130" coveredstatements="126" conditionals="81" coveredconditionals="78" methods="42" coveredmethods="36" elements="253" coveredelements="240" complexity="0" loc="130" ncloc="130" packages="4" files="21" classes="21"/>
+<coverage generated="1645459815582" clover="3.2.0">
+  <project timestamp="1645459815582" name="All files">
+    <metrics statements="143" coveredstatements="134" conditionals="81" coveredconditionals="78" methods="47" coveredmethods="36" elements="271" coveredelements="248" complexity="0" loc="143" ncloc="143" packages="4" files="21" classes="21"/>
     <package name="assets">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="icon.png" path="/home/max/uni/futureproof/packages/client/assets/icon.png">
@@ -26,7 +26,7 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="97" coveredstatements="93" conditionals="47" coveredconditionals="44" methods="36" coveredmethods="30"/>
+      <metrics statements="110" coveredstatements="101" conditionals="47" coveredconditionals="44" methods="41" coveredmethods="30"/>
       <file name="BottomSheet.tsx" path="/home/max/uni/futureproof/packages/client/src/components/BottomSheet.tsx">
         <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="12" count="4" type="stmt"/>
@@ -66,10 +66,23 @@
         <line num="30" count="4" type="stmt"/>
       </file>
       <file name="ImagesCarousel.tsx" path="/home/max/uni/futureproof/packages/client/src/components/ImagesCarousel.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="4" type="stmt"/>
+        <metrics statements="16" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
         <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="90" count="4" type="stmt"/>
       </file>
       <file name="MapView.tsx" path="/home/max/uni/futureproof/packages/client/src/components/MapView.tsx">
         <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>

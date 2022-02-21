@@ -1,12 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "marginBottom": "8%",
+    }
+  }
+>
   <Text
     style={
       Object {
         "color": "#A0A0A0",
         "fontSize": 12,
+        "marginBottom": "1%",
+        "marginLeft": "1%",
         "paddingLeft": 20,
       }
     }

@@ -5,7 +5,7 @@ import React from 'react'
 
 
 const options : Option[] = [
-  { label: 'Distance Ascending',
+  { label: 'Distance Ascending',  
     value: 'distance_asc' },
   { label: 'Distance Descending',
     value: 'distance_desc' },
