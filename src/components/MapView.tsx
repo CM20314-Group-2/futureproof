@@ -2,7 +2,6 @@ import * as Location from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet } from 'react-native'
 import Map from 'react-native-maps'
-import SearchBar from '@components/SearchBarView'
 
 const MapView = () => {
   const [location, setLocation] = useState<Location.LocationObject | null>(null)
@@ -33,7 +32,6 @@ const MapView = () => {
         showsUserLocation
         showsCompass
       /> : null}
-      <SearchBar/>
     </React.Fragment>
   )
 }

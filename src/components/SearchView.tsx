@@ -1,7 +1,7 @@
-import SearchResult from '@components/search/SearchResult'
+import SearchResult from '@components/Search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React, { useState } from 'react'
-import { FlatList, SafeAreaView, StyleSheet } from 'react-native'
+import { FlatList, ScrollView, StyleSheet } from 'react-native'
 
 const TEST_BUSINESSES_DATA: DisplayableBusiness[] = [
   {
@@ -15,7 +15,7 @@ const TEST_BUSINESSES_DATA: DisplayableBusiness[] = [
   }
 ]
 
-const SearchView = () => {
+const SearchView = ({ navigation } : {navigation:  any}) => {
   const [selectedId, setSelectedId] = useState(null)
 
   const renderSearchItem = ({ item } : { item : DisplayableBusiness}) => (
@@ -23,17 +23,20 @@ const SearchView = () => {
       business={item}
       onPress={ () => {
         // Respond to business seletion tap here
+        navigation.push("BusinessView")
       }}
     />
   )
   return (
-    <SafeAreaView style={styles.searchList}>
+    <React.Fragment>
+    <ScrollView style={styles.searchList}>
       <FlatList
         data={TEST_BUSINESSES_DATA}
         renderItem={renderSearchItem}
         keyExtractor={(item) => item.id}
       />
-    </SafeAreaView>
+    </ScrollView>
+    </React.Fragment>
   )
 }
 

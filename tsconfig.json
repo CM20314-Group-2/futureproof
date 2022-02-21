@@ -10,6 +10,6 @@
       "@components/*": ["components/*"],
     },
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/components/MapSlideUpSheet2.js"],
   "exclude": ["node_modules"]
 }

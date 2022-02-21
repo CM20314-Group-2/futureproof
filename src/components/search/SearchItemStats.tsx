@@ -1,4 +1,4 @@
-import RatingCapsule from '@components/search/RatingCapsule'
+import RatingCapsule from '@components/Search/RatingCapsule'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'

@@ -9,7 +9,7 @@ const DescriptionView = ({ profileText }: ViewProps) => (
     <Text style={styles.headingText}>DESCRIPTION</Text>
     <View style={styles.itemBackgroundStyle}>
       <View style={styles.textAndImageContainerStyle}>
-        <Image source={require('../../assets/icon_paragraph.png')} style={styles.paragraphIcon} resizeMode="center" />
+        <Image source={require('../../../assets/icon_paragraph.png')} style={styles.paragraphIcon} resizeMode="center" />
         <Text style={styles.bodyText}>{profileText == null ? 'No description available.' : profileText}</Text>
       </View>
     </View>

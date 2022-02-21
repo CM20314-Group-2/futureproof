@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import { SafeAreaView, View, StyleSheet} from 'react-native'
 import { Icon, Input } from 'react-native-elements'
 import { gql, useLazyQuery} from '@apollo/client'
@@ -41,8 +41,7 @@ const SearchBar = () => {
   }
 
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <View style={styles.searchBarView}>
+    <React.Fragment>
         <Input 
           inputContainerStyle={styles.searchInput}
           placeholder='Search here'
@@ -67,8 +66,7 @@ const SearchBar = () => {
           }
           value={value}
         />
-      </View>
-    </SafeAreaView>
+    </React.Fragment>
         
   )
 } 

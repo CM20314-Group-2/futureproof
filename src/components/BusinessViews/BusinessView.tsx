@@ -1,7 +1,7 @@
-import DescriptionView from '@components/DescriptionView'
-import ImagesCarousel from '@components/ImagesCarousel'
-import RatingsView from '@components/RatingsView'
-import TitleView from '@components/TitleView'
+import DescriptionView from '@components/BusinessViews/DescriptionView'
+import ImagesCarousel from '@components/BusinessViews/ImagesCarousel'
+import RatingsView from '@components/BusinessViews/RatingsView'
+import TitleView from '@components/BusinessViews/TitleView'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
@@ -18,6 +18,7 @@ const ExampleBusiness: DisplayableBusiness =  {
 }
 
 const BusinessView = () => {
+
   return (
     <SafeAreaView style={styles.businessViewStyle}>
       <ScrollView>
