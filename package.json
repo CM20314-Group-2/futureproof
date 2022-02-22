@@ -22,7 +22,7 @@
     "mercurius": "^9.3.0"
   },
   "devDependencies": {
-    "@futureproof/typings": "../typings",
+    "@futureproof/typings": "file:../typings",
     "@types/graphql": "^14.5.0",
     "@types/ip": "^1.1.0",
     "@types/jest": "^27.4.0",
