@@ -10,7 +10,7 @@ datasource db {
 model Business {
   id                  Int           @unique @id @default(autoincrement()) @map("BusinessID")
   owner               User          @relation(fields: [userId], references: [id])
-  //locations           Location[]    @relation("Locations")
+  locations           Location[]    @relation("Locations")
   primaryLocation     Location?     @relation("PrimaryLocation")
   name                String        @unique
   sustainabilityScore Float         @map("FutureproofRating")
@@ -35,9 +35,10 @@ model Comment {
   user      User      @relation(fields: [userId], references: [id])
   text      String    @map("CommentText")
   createdAt DateTime  @map("DateCreated") @db.Date
-  business  Business? @relation(fields: [businessId], references: [id])
+  updatedAt DateTime  @db.Date
+  // business  Business? @relation(fields: [businessId], references: [id])
 
-  businessId   Int?
+  // businessId   Int?
   locationId   Int
   userId       Int
 }
@@ -47,7 +48,7 @@ model Location {
   address   String    @map("Location")
   longitude Float?    @map("Longitude")
   latitude  Float?    @map("Latitude")
-  Business  Business? @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
+  Business  Business  @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
   //BusinessList Business  @relation(name: "Locations", fields: [businessesID], references: [id])
   createdAt DateTime
   updatedAt DateTime
@@ -69,7 +70,7 @@ model User {
   password     String
   profilePhoto Bytes?       @map("ProfilePic")
   roles        user_types?  @map("AccountType")
-  Business     Business[]
+  Business     Business?
   Comment      Comment[]
   UserReview   UserReview[]
 }
@@ -77,14 +78,12 @@ model User {
 model UserReview {
   id         Int       @id @default(autoincrement())
   user       User      @relation(fields: [userId], references: [id])
-  Business   Business? @relation(fields: [businessId], references: [id])
+  Business   Business  @relation(fields: [businessId], references: [id])
   createdAt  DateTime  @map("DateCreated") @db.Date
   reputation Int
   ReviewData String
 
-
-  businessId   Int?
-  businessName String?
+  businessId   Int
   userId       Int
 }
 
