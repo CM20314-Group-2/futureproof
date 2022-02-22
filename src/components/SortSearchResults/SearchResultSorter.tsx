@@ -57,7 +57,7 @@ const SearchResultSorter = ({
   };
 
   return (
-    <React.Fragment style={styles.view}>
+    <React.Fragment>
       <Pressable style={buttonStyle} onPress={() => setShowBottomSheet(true)}>
         <Text style={buttonTextStyle}>Sorting by - {sortOption.label}</Text>
       </Pressable>

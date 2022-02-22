@@ -41,7 +41,7 @@ const SearchBarView = () => {
   }, [searchText]);
 
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <React.Fragment>
       <View style={styles.searchBarView}>
         <Input
           inputContainerStyle={styles.searchInput}
@@ -60,13 +60,13 @@ const SearchBarView = () => {
           value={searchText}
         />
       </View>
-    </SafeAreaView>
+    </React.Fragment>
   );
 };
 
 const styles = StyleSheet.create({
   leftContainerIconStyle: {
-    marginLeft: "2%",
+    marginLeft: "5%",
   },
   safeAreaView: {
     flex: 1,
