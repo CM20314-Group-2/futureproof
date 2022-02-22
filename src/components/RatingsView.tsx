@@ -3,9 +3,9 @@ import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-type ViewProps = Pick<DisplayableBusiness, 'customerScore' | 'sustainabilityScore'>
+type ComponentProps = Pick<DisplayableBusiness, 'customerScore' | 'sustainabilityScore'>
 
-const RatingsView = ({ customerScore, sustainabilityScore}: ViewProps ) => (
+const RatingsView = ({ customerScore, sustainabilityScore } : ComponentProps ) => (
   <View style={styles.compoundStyle}>
     <Text style={styles.headingText}>RATINGS</Text>
     <View style={styles.ratingsHorizontalStyle}>
@@ -16,18 +16,19 @@ const RatingsView = ({ customerScore, sustainabilityScore}: ViewProps ) => (
 )
 
 const styles = StyleSheet.create({
+  compoundStyle: {
+    marginBottom: '8%'
+  },
   headingText: {
-    fontSize: 12,
     color: '#A0A0A0',
+    fontSize: 12,
+    marginBottom: '1%',
     marginLeft: '1%',
-    marginBottom: '1%'
+    paddingLeft: 20
   },
   ratingsHorizontalStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between'
-  },
-  compoundStyle: {
-    marginBottom: '8%'
   }
 })
 

@@ -1,5 +1,4 @@
 import DescriptionView from '@components/DescriptionView'
-import ImagesCarousel from '@components/ImagesCarousel'
 import RatingsView from '@components/RatingsView'
 import TitleView from '@components/TitleView'
 import BusinessViewMap from '@components/BusinessViewMap'
@@ -7,9 +6,10 @@ import { BusinessType, DisplayableBusiness, Location } from '@futureproof/typing
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
 import openMap from 'react-native-open-maps'
+import ImagesCarousel from '@components/ImagesCarousel'
 
-// PLACEHOLDER BUSINESS -> Update to fetch graphQL
-const ExampleBusiness: DisplayableBusiness =  {
+// TODO - Update to fetch graphQL
+const ExampleBusiness : DisplayableBusiness =  {
   id: '1',
   name: 'Starbucks',
   profileText: 'This is a test business and there is not that much to say about it.',
@@ -39,11 +39,13 @@ const BusinessView = () => {
           businessAddress={ExampleBusinessLocation.address}
           />
         <DescriptionView
-          profileText={ExampleBusiness.profileText}/>
+          profileText={ExampleBusiness.profileText}
+        />
         <RatingsView
           customerScore={ExampleBusiness.customerScore}
           sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
         <BusinessViewMap businessLocation={ExampleBusinessLocation}/>
+        <ImagesCarousel/>
         </SafeAreaView>
       </ScrollView>
       <TouchableOpacity onPress={() => openMap({ end: ExampleBusinessLocation.address })} style={styles.DirectionsButtonContainer}>

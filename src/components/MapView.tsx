@@ -2,17 +2,19 @@ import * as Location from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet } from 'react-native'
 import Map from 'react-native-maps'
-import SearchBar from '@components/SearchBarView'
 
 const MapView = () => {
   const [location, setLocation] = useState<Location.LocationObject | null>(null)
 
   useEffect(() => {
     (async () => {
-      const {status} = await Location.requestForegroundPermissionsAsync()
-      if (status !== 'granted') {
-        console.error('Failed to get permissions.')
-        return
+      try {
+        const { status } = await Location.requestForegroundPermissionsAsync()
+        if (status !== 'granted') {
+          return console.error('Permission to access location was denied.')
+        }
+      } catch (error) {
+        return console.error('Failed to get permissions.', error)
       }
 
       const location = await Location.getCurrentPositionAsync({})
@@ -22,18 +24,18 @@ const MapView = () => {
 
   return (
     <React.Fragment>
-      {location ? <Map
+      <Map
         style={styles.map}
         region={{
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
+          latitude: location?.coords.latitude || 0,
+          longitude: location?.coords.longitude || 0,
           latitudeDelta: 0.1,
           longitudeDelta: 0.1
         }}
-        showsUserLocation
-        showsCompass
-      /> : null}
-      <SearchBar/>
+        showsUserLocation={location !== null}
+        showsCompass  
+        testID='map'
+      />
     </React.Fragment>
   )
 }
