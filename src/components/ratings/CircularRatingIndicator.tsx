@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Svg, { Circle } from 'react-native-svg'
-import {ratingValToColour} from '@components/search/RatingCapsule'
+import {ratingToColour} from '@components/search/RatingCapsule'
 
 const BACKGROUND_SECONDARY_COLOUR = '#FAF9F9'
 
@@ -22,7 +22,7 @@ const CircularRatingIndicator = ({circleWidth, circleHeight, progressBarWidth, p
                 cx={(circleWidth - (progressBarWidth * 2)) / 2}
                 cy={(circleHeight - (progressBarWidth * 2)) / 2}
                 r={(circleWidth - (progressBarWidth * 2)) / 2}
-                stroke={ratingValToColour(progressValue)}
+                stroke={ratingToColour(progressValue)}
                 strokeWidth={progressBarWidth * 0.8}
                 translateX={progressBarWidth}
                 translateY={progressBarWidth}
@@ -31,8 +31,8 @@ const CircularRatingIndicator = ({circleWidth, circleHeight, progressBarWidth, p
                 strokeLinecap={'round'}
                 />
             </Svg>
-            <Text style={StyleSheet.flatten([styles.RatingValueStyle, {top: (circleHeight/2)-((progressBarWidth * 1.5) / 2) - 2, fontSize: progressBarWidth * 1.5, color: ratingValToColour(progressValue)}])}>{progressValue}</Text>
-            <Text style={StyleSheet.flatten([styles.RatingNameStyle, {top: (circleHeight/2) + ((progressBarWidth * 1.5) / 2) + 2, fontSize: 9, color: ratingValToColour(progressValue)}])}>{`${ratingName} Rating`}</Text>
+            <Text style={StyleSheet.flatten([styles.RatingValueStyle, {top: (circleHeight/2)-((progressBarWidth * 1.5) / 2) - 2, fontSize: progressBarWidth * 1.5, color: ratingToColour(progressValue)}])}>{progressValue}</Text>
+            <Text style={StyleSheet.flatten([styles.RatingNameStyle, {top: (circleHeight/2) + ((progressBarWidth * 1.5) / 2) + 2, fontSize: 9, color: ratingToColour(progressValue)}])}>{`${ratingName} Rating`}</Text>
         </View>
   )
 }

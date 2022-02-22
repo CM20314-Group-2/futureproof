@@ -24,7 +24,9 @@ const App = () => {
     <ApolloProvider client={client}>
       <View style={styles.container}>
         {/* <MapView/> */}
-        <SearchView/>
+        {/* <SearchView/> */}
+        {/* <BusinessView/> */}
+        <FutureProofRatingView/>
       </View>
     </ApolloProvider>
   )

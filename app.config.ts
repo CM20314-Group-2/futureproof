@@ -32,7 +32,6 @@ export default {
     },
     extra: {
       serverAddress: console.error('serverAddress must be specified.')
-      
     }
   }
 }
