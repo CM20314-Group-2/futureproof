@@ -31,7 +31,7 @@ const ExampleBusinessLocation: ExampleLocationType = {
 const BusinessView = () => {
   return (
       <View>
-      <ScrollView contentContainerStyle={{flexGrow: 1, height: "100%"}}>
+      <ScrollView contentContainerStyle={{flexGrow: 1, height: "100%"}} contentInsetAdjustmentBehavior="automatic">
         <SafeAreaView style={styles.businessViewStyle}>
         <TitleView
           name={ExampleBusiness.name}
@@ -44,12 +44,11 @@ const BusinessView = () => {
           customerScore={ExampleBusiness.customerScore}
           sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
         <BusinessViewMap businessLocation={ExampleBusinessLocation}/>
-        
         </SafeAreaView>
       </ScrollView>
       <TouchableOpacity onPress={() => openMap({ end: ExampleBusinessLocation.address })} style={styles.DirectionsButtonContainer}>
         <Text style={styles.DirectionsButtonText}>Get Directions</Text>
-        </TouchableOpacity>
+      </TouchableOpacity>
       </View>
   )
 }
