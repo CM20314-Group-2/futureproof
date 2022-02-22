@@ -12,12 +12,19 @@ import AccountView from "@components/AccountView";
 import AccountButton from "./components/AccountButton";
 import React from "react";
 import { StyleSheet, View, SafeAreaView, TouchableOpacity } from "react-native";
+import { Business, Location } from '@futureproof/typings'
+import Constants from 'expo-constants'
+
+
+interface LocationType extends Pick<Location, 'latitude'> {
+  business : Pick<Business, 'sustainabilityScore'>
+}
 
 // Initialise Apollo Client
 const client = new ApolloClient({
-  uri: "http//localhost:3000", // Server URL (must be absolute)
-  cache: new InMemoryCache(), // Cache
-});
+  uri: `${Constants.manifest?.extra?.serverAddress}`, // Server URL (must be absolute)
+  cache: new InMemoryCache() // Cache
+})
 
 // Initialise Stack Navigator
 const Stack = createStackNavigator();
@@ -65,8 +72,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
+    flex: 1
   },
 });
 

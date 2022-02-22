@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "src",
-    "rootDir": "src",
+    "baseUrl": "./src",
+    "rootDir": ".",
     "jsx": "react-native",
     "paths": {
       "@components/*": ["components/*"],

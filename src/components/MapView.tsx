@@ -10,10 +10,13 @@ const MapView = () => {
 
   useEffect(() => {
     (async () => {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        console.error("Failed to get permissions.");
-        return;
+      try {
+        const { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== "granted") {
+          return console.error("Permission to access location was denied.");
+        }
+      } catch (error) {
+        return console.error("Failed to get permissions.", error);
       }
 
       const location = await Location.getCurrentPositionAsync({});
@@ -23,19 +26,18 @@ const MapView = () => {
 
   return (
     <React.Fragment>
-      {location ? (
-        <Map
-          style={styles.map}
-          region={{
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
-            latitudeDelta: 0.1,
-            longitudeDelta: 0.1,
-          }}
-          showsUserLocation
-          showsCompass
-        />
-      ) : null}
+      <Map
+        style={styles.map}
+        region={{
+          latitude: location?.coords.latitude || 0,
+          longitude: location?.coords.longitude || 0,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
+        }}
+        showsUserLocation={location !== null}
+        showsCompass
+        testID="map"
+      />
     </React.Fragment>
   );
 };

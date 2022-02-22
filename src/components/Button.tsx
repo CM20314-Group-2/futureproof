@@ -32,28 +32,31 @@ const Button = ({ onPress, text, style, textStyle }: ComponentProps) => {
     textStyle !== null && textStyle !== undefined ? textStyle : styles.text;
   return (
     <Pressable
-      style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, buttonStyle]}
+      style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1, ...buttonStyle })}
       onPress={onPress}
+      testID="button"
     >
-      <Text style={buttonTextStyle}>{text}</Text>
+      <Text testID="button-text" style={buttonTextStyle}>
+        {text}
+      </Text>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
-    width: "75%",
     alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 5,
     backgroundColor: "#1ea853",
+    borderRadius: 5,
+    justifyContent: "center",
+    width: "75%",
   },
   text: {
+    color: "#ffffff",
     fontSize: 16,
     fontWeight: "bold",
-    color: "#ffffff",
-    paddingTop: 10,
     paddingBottom: 10,
+    paddingTop: 10,
   },
 });
 

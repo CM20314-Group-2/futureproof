@@ -43,8 +43,8 @@ const SearchView = ({ navigation }: { navigation: any }) => {
 
 const styles = StyleSheet.create({
   searchList: {
-    flex: 1,
     backgroundColor: "#FFFFFF",
+    flex: 1,
   },
 });
 

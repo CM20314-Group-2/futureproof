@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+<<<<<<< HEAD
 const SearchResult = ({
   business,
   onPress,
@@ -20,10 +21,25 @@ const SearchResult = ({
       <BusinessLogo profilePicture={business.profilePicture} />
     ) : null}
     <SearchItemStats business={business} />
+=======
+interface ComponentProps {
+  business : DisplayableBusiness,
+  onPress : (event : GestureResponderEvent) => void
+}
+
+const SearchResult = ({ business, onPress } : ComponentProps ) => (
+  <TouchableOpacity onPress={onPress} style={styles.searchItemStyle}>
+    {/* Don't use null check built in BusinessLogo to match design */}
+    {business.profilePicture
+      ? <BusinessLogo profilePicture={business.profilePicture}/>
+      : null}
+    <SearchItemStats {...business}/>
+>>>>>>> origin/sprint-2
   </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   searchItemStyle: {
     backgroundColor: "#FAF9F9",
     flexDirection: "row",
@@ -43,3 +59,24 @@ const styles = StyleSheet.create({
 });
 
 export default SearchResult;
+=======
+  logoContainerViewStyle : {
+    paddingRight : 10
+  },
+  logoStyle : {
+    height : 58,
+    width : 58
+  },
+  searchItemStyle : {
+    alignItems : 'center',
+    backgroundColor : '#FAF9F9',
+    borderRadius : 10,
+    flexDirection : 'row',
+    marginHorizontal : 25,
+    marginVertical : 10,
+    padding : 12
+  }
+})
+
+export default SearchResult
+>>>>>>> origin/sprint-2
