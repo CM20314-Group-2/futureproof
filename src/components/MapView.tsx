@@ -1,10 +1,11 @@
 import * as Location from 'expo-location'
 import React, { useEffect, useState } from 'react'
-import { StyleSheet } from 'react-native'
-import Map from 'react-native-maps'
-import SearchBar from '@components/SearchBarView'
+import { StyleSheet, View } from 'react-native'
+import Map, { Circle, Marker } from 'react-native-maps'
 
 const MapView = () => {
+  const DISTANCE = 500
+
   const [location, setLocation] = useState<Location.LocationObject | null>(null)
 
   useEffect(() => {
@@ -22,23 +23,35 @@ const MapView = () => {
 
   return (
     <React.Fragment>
-      {location ? <Map
-        style={styles.map}
-        region={{
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-          latitudeDelta: 0.1,
-          longitudeDelta: 0.1
-        }}
-        showsUserLocation
-        showsCompass
-      /> : null}
-      <SearchBar/>
+      {location ?
+        <Map
+          style={styles.map}
+          region={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.1,
+            longitudeDelta: 0.1
+          }}
+          showsUserLocation
+          showsCompass
+        >
+          <View style={styles.dropdown}/>
+          <Circle center={location.coords} radius={DISTANCE} strokeColor={'#1ea835'} strokeWidth={2}/>
+        </Map>
+       : null}
     </React.Fragment>
   )
 }
 
 const styles = StyleSheet.create({
+  dropdown: {
+    backgroundColor: 'red',
+    width: 50,
+    height: 50,
+    margin: 'auto',
+    top: 60,
+    left: 30
+  },
   map: {
     ...StyleSheet.absoluteFillObject
   }
