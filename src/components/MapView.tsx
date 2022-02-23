@@ -10,10 +10,13 @@ const MapView = () => {
 
   useEffect(() => {
     (async () => {
-      const {status} = await Location.requestForegroundPermissionsAsync()
-      if (status !== 'granted') {
-        console.error('Failed to get permissions.')
-        return
+      try {
+        const { status } = await Location.requestForegroundPermissionsAsync()
+        if (status !== 'granted') {
+          return console.error('Permission to access location was denied.')
+        }
+      } catch (error) {
+        return console.error('Failed to get permissions.', error)
       }
 
       const location = await Location.getCurrentPositionAsync({})

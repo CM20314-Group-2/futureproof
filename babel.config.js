@@ -1,9 +1,12 @@
 module.exports = function(api) {
-  api.cache(true);
+  api.cache(true)
   return {
-    presets: ['babel-preset-expo'],
+    presets: [
+      'babel-preset-expo',
+      'module:metro-react-native-babel-preset'
+    ],
     plugins: [
-      ["module-resolver", {
+      ['module-resolver', {
         // root property does not seem to work
         alias: {
           '@components': './src/components',
@@ -15,5 +18,5 @@ module.exports = function(api) {
         ]
       }]
     ]
-  };
-};
+  }
+}

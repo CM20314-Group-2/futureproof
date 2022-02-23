@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "marginBottom": "8%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#A0A0A0",
+        "fontSize": 12,
+        "marginBottom": "1%",
+        "marginLeft": "1%",
+        "paddingLeft": 20,
+      }
+    }
+  >
+    RATINGS
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FAF9F9",
+          "borderRadius": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+          }
+        }
+      >
+        <Text>
+          FutureProof Rating
+        </Text>
+        <Text
+          testID="rating-value"
+        >
+          70
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 10,
+            }
+          }
+        >
+          Tap for Details
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FAF9F9",
+          "borderRadius": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+          }
+        }
+      >
+        <Text>
+          Consumer Rating
+        </Text>
+        <Text
+          testID="rating-value"
+        >
+          50
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 10,
+            }
+          }
+        >
+          Tap for Details
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

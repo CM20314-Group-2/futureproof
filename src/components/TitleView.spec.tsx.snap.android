@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "marginBottom": "8%",
+      "marginTop": "5%",
+    }
+  }
+>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "uri": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png",
+      }
+    }
+    style={
+      Object {
+        "borderRadius": 10,
+        "height": 90,
+        "width": 90,
+      }
+    }
+    testID="profile-picture"
+  />
+  <Text
+    style={
+      Object {
+        "fontSize": 25,
+        "fontWeight": "500",
+      }
+    }
+  >
+    TEST
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#A0A0A0",
+        "fontSize": 10,
+      }
+    }
+  >
+    Address (To be implemented)
+  </Text>
+</View>
+`;
