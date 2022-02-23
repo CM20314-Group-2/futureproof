@@ -1,3 +1,4 @@
+import React from 'react'
 import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
 
 interface ComponentProps {
@@ -7,7 +8,7 @@ interface ComponentProps {
 }
 
 /**
- * Pin Component -
+ * Pin Component
  *
  * @param onPress the function that gets called when the pin is pressed
  * @param rating the rating of the business that the pin is pointing to, it is also displayed on the pin
@@ -18,12 +19,12 @@ interface ComponentProps {
 const Pin = ({onPress, rating, style}: ComponentProps) => {
 
   // if the rating is > 66 then the pin will be green, between 33 and 66 the pin will be yellow, and red if < 33
-  const colour = rating > 33 ? rating > 66 ? ['#1ea853', '#188441'] : ['#bed62e', '#a8bd29'] : ['#e2382d', '#842b18']
+  const colour = rating >= 33 ? rating > 66 ? ['#1ea853', '#188441'] : ['#bed62e', '#a8bd29'] : ['#e2382d', '#842b18']
 
   return (
-    <Pressable style={[style, {margin: 'auto'}]} onPress={onPress}>
-      <View style={[styles.circle, {backgroundColor: colour[0]}]}>
-        <View style={[styles.rating_circle, {backgroundColor: colour[1]}]}>
+    <Pressable style={[style, {margin: 'auto'}]} onPress={onPress} testID={'pin-pressable'}>
+      <View style={[styles.circle, {backgroundColor: colour[0]}]} testID={'pin'}>
+        <View style={[styles.rating_circle, {backgroundColor: colour[1]}]} testID={'rating-background'}>
           <Text style={styles.text}>{rating}</Text>
         </View>
       </View>
