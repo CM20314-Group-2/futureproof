@@ -1,30 +1,26 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-
 import MapView from "@components/MapView";
 import SearchView from "@components/SearchView";
 import MapSlideUpSheet from "@components/MapSlideUpSheet";
 import BusinessView from "@components/BusinessViews/BusinessView";
 import AccountView from "@components/AccountView";
-
 import AccountButton from "./components/AccountButton";
 import React from "react";
 import { StyleSheet, View, SafeAreaView, TouchableOpacity } from "react-native";
-import { Business, Location } from '@futureproof/typings'
-import Constants from 'expo-constants'
+import { Business, Location } from "@futureproof/typings";
+import Constants from "expo-constants";
 
-
-interface LocationType extends Pick<Location, 'latitude'> {
-  business : Pick<Business, 'sustainabilityScore'>
+interface LocationType extends Pick<Location, "latitude"> {
+  business: Pick<Business, "sustainabilityScore">;
 }
 
 // Initialise Apollo Client
 const client = new ApolloClient({
   uri: `${Constants.manifest?.extra?.serverAddress}`, // Server URL (must be absolute)
-  cache: new InMemoryCache() // Cache
-})
+  cache: new InMemoryCache(), // Cache
+});
 
 // Initialise Stack Navigator
 const Stack = createStackNavigator();
@@ -72,8 +68,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    flex: 1
+    backgroundColor: "#fff",
+    flex: 1,
   },
 });
 
