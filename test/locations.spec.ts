@@ -1,4 +1,4 @@
-import { Business, BusinessType } from "@prisma/client"
+import { Location } from "@prisma/client"
 import { createMercuriusTestClient } from "mercurius-integration-testing"
 import { Context, createMockContext, MockContext } from "../src/context"
 import { app } from "../src/index"
@@ -6,19 +6,16 @@ import { app } from "../src/index"
 let mockCtx: MockContext
 let ctx: Context
 
-const businesses: Business[] = [
+const locations: Location[] = [
   {
     id: 1,
-    name: "Business 1",
-    ProfilePicture: null,
-    ProfileText: null,
+    address: "address 1",
+    businessId: 1,
+    businessName: "business 1",
     createdAt: new Date(),
+    latitude: 0,
+    longitude: 0,
     updatedAt: new Date(),
-    customerScore: 0,
-    locationId: 1,
-    sustainabilityScore: 0,
-    type: BusinessType.BAR,
-    userId: 1,
   },
 ]
 
@@ -28,30 +25,30 @@ beforeEach(() => {
 })
 
 describe("resolvers", () => {
-  it("gets businesses", async () => {
+  it("gets locations", async () => {
     //@ts-ignore
-    mockCtx.prisma.business.findMany.mockResolvedValueOnce(businesses)
+    mockCtx.prisma.location.findMany.mockResolvedValueOnce(locations)
 
-    await expect(ctx.prisma.business.findMany()).resolves.toEqual(businesses)
+    await expect(ctx.prisma.location.findMany()).resolves.toEqual(locations)
   })
 })
 
 describe("API", () => {
   const client = createMercuriusTestClient(app)
 
-  it("gets businesses", async () => {
-    mockCtx.prisma.business.findMany.mockResolvedValueOnce(businesses)
+  it("gets locations", async () => {
+    mockCtx.prisma.location.findMany.mockResolvedValueOnce(locations)
 
     const response = await client.query(
       `query {
-          businesses {
+          locations {
             id
           }
       }`
     )
 
     expect(response.data).toEqual({
-      businesses: businesses.map((b) => ({ id: b.id.toString() })),
+      locations: locations.map((l) => ({ id: l.id.toString() })),
     })
   })
 })
