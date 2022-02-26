@@ -1,5 +1,5 @@
 
-import {PrismaClient, Prisma} from '@prisma/client'
+import {Prisma} from '@prisma/client'
 // may not need to import prisma - but idk how to make
 // sure input is valid.
 import {typeDefs as schema} from '@typings/schema'
@@ -7,89 +7,85 @@ import Fastify from 'fastify'
 import mercurius from 'mercurius'
 import {Context} from './context'
 
-const prisma = new PrismaClient()
 const app = Fastify()
 
 //_parent, _args, context: Context
 // Use this if context includes prismaclient
 const resolvers = {
   Query: {
-    users: () => {
-      return prisma.user.findMany()
+    users: (context: Context) => {
+      return context.prisma.user.findMany()
     },
-    businesses: () => {
-      return prisma.business.findMany()
+    businesses: (context: Context) => {
+      return context.prisma.business.findMany()
     },
-    comments: () => {
-      return prisma.comment.findMany()
+    comments: (context: Context) => {
+      return context.prisma.comment.findMany()
     },
-    locations: () => {
-      return prisma.location.findMany()
+    locations: (context: Context) => {
+      return context.prisma.location.findMany()
     },
-    reviews: () => {
-      return prisma.userReview.findMany()
+    reviews: (context: Context) => {
+      return context.prisma.userReview.findMany()
     },
-    user: (_parent, id: number) => {
-      return prisma.user.findUnique({
+    user: (_parent, id: number, context: Context) => {
+      return context.prisma.user.findUnique({
         where: {id: id},
       })
     },
-    business: (_parent, id: number) => {
-      return prisma.business.findUnique({
-        where: {id: id},
-      })
-
-      // schema has business id not being unique - fix?
-      // apparently primary key is combination of name and id - why?
-    },
-    comment: (_parent, id: number) => {
-      return prisma.comment.findUnique({
+    business: (_parent, id: number, context: Context) => {
+      return context.prisma.business.findUnique({
         where: {id: id},
       })
     },
-    location: (_parent, id: number) => {
-      return prisma.location.findUnique({
+    comment: (_parent, id: number, context: Context) => {
+      return context.prisma.comment.findUnique({
         where: {id: id},
       })
     },
-    review: (_parent, id: number) => {
-      return prisma.userReview.findUnique({
+    location: (_parent, id: number, context: Context) => {
+      return context.prisma.location.findUnique({
         where: {id: id},
       })
     },
-    userByEmail: (_parent, emailInput: string) => {
-      return prisma.user.findUnique({
+    review: (_parent, id: number, context: Context) => {
+      return context.prisma.userReview.findUnique({
+        where: {id: id},
+      })
+    },
+    userByEmail: (_parent, emailInput: string, context: Context) => {
+      return context.prisma.user.findUnique({
         where: {email: emailInput}
       })
     },
-    businessByName: (_parent, name: string) => {
-      return prisma.business.findUnique({
+    businessByName: (_parent, name: string, context: Context) => {
+      return context.prisma.business.findUnique({
         where: {name: name}
       })
 
     },
-    commentsByUser: (_parent, id: number) => {
-      return prisma.comment.findMany({
+    commentsByUser: (_parent, id: number, context: Context) => {
+      return context.prisma.comment.findMany({
         where: {userId: id},
       })
     },
-    locationsByBusiness: (_parent, id: number) => {
-      return prisma.location.findMany({
+    locationsByBusiness: (_parent, id: number, context: Context) => {
+      return context.prisma.location.findMany({
         where: {businessId: id},
       })
     },
-    reviewsByUser: (_parent, id: number) => {
-      return prisma.userReview.findMany({
+    reviewsByUser: (_parent, id: number, context: Context) => {
+      return context.prisma.userReview.findMany({
         where: {userId: id},
       })
     },
-    commentsByBusiness: (_parent, id: number) => {
-      return prisma.comment.findMany({
+    commentsByBusiness: (_parent, id: number, context: Context) => {
+      return context.prisma.comment.findMany({
         where: {businessId: id},
       })
     },
-    reviewsByBusiness: (_parent, id: number) => {
-      return prisma.userReview.findMany({
+    reviewsByBusiness: (_parent, id: number, context: Context) => {
+      return context.prisma.userReview.findMany({
         where: {businessId: id},
       })
     },
@@ -99,8 +95,8 @@ const resolvers = {
   // keys that are still unique are not repeated
 
   Mutation: {
-    createUser: (_parent, userInput: Prisma.UserCreateInput) => {
-      return prisma.user.create({
+    createUser: (_parent, userInput: Prisma.UserCreateInput, context: Context) => {
+      return context.prisma.user.create({
         data: {
           firstName: userInput.firstName,
           lastName: userInput.lastName,
@@ -115,8 +111,8 @@ const resolvers = {
         }
       })
     },
-    createBusiness: (_parent, businessInput: Prisma.BusinessCreateInput) => {
-      return prisma.business.create({
+    createBusiness: (_parent, businessInput: Prisma.BusinessCreateInput, context: Context) => {
+      return context.prisma.business.create({
         data: {
           name: businessInput.name,
           sustainabilityScore: businessInput.sustainabilityScore,
@@ -135,8 +131,8 @@ const resolvers = {
         }
       })
     },
-    createLocation: (_parent, locationInput: Prisma.LocationCreateInput) => {
-      return prisma.location.create({
+    createLocation: (_parent, locationInput: Prisma.LocationCreateInput, context: Context) => {
+      return context.prisma.location.create({
         data: {
           address: locationInput.address,
           createdAt: locationInput.createdAt,
@@ -150,8 +146,8 @@ const resolvers = {
         }
       })
     },
-    createComment: (_parent, commentInput: Prisma.CommentCreateInput) => {
-      return prisma.comment.create({
+    createComment: (_parent, commentInput: Prisma.CommentCreateInput, context: Context) => {
+      return context.prisma.comment.create({
         data: {
           text: commentInput.text,
           createdAt: commentInput.createdAt,
@@ -162,8 +158,8 @@ const resolvers = {
         }
       })
     },
-    createReview: (_parent, reviewInput: Prisma.UserReviewCreateInput) => {
-      return prisma.userReview.create({
+    createReview: (_parent, reviewInput: Prisma.UserReviewCreateInput, context: Context) => {
+      return context.prisma.userReview.create({
         data: {
           createdAt: reviewInput.createdAt,
           reputation: reviewInput.reputation,
@@ -173,8 +169,8 @@ const resolvers = {
         }
       })
     },
-    updateUser: (_parent, args: {id: number, userInput: Prisma.UserUpdateInput}) => {
-      return prisma.user.update({
+    updateUser: (_parent, args: {id: number, userInput: Prisma.UserUpdateInput}, context: Context) => {
+      return context.prisma.user.update({
         data: {
           firstName: args.userInput.firstName,
           lastName: args.userInput.lastName,
@@ -190,8 +186,8 @@ const resolvers = {
         where: {id: args.id}
       })
     },
-    updateBusiness: (_parent, args: {id: number, businessInput: Prisma.BusinessUpdateInput}) => {
-      return prisma.business.update({
+    updateBusiness: (_parent, args: {id: number, businessInput: Prisma.BusinessUpdateInput}, context: Context) => {
+      return context.prisma.business.update({
         data: {
           name: args.businessInput.name,
           sustainabilityScore: args.businessInput.sustainabilityScore,
@@ -211,8 +207,8 @@ const resolvers = {
         where: {id: args.id}
       })
     },
-    updateLocation: (_parent, args: {id: number, locationInput: Prisma.LocationUpdateInput}) => {
-      return prisma.location.update({
+    updateLocation: (_parent, args: {id: number, locationInput: Prisma.LocationUpdateInput}, context: Context) => {
+      return context.prisma.location.update({
         data: {
           address: args.locationInput.address,
           createdAt: args.locationInput.createdAt,
@@ -227,8 +223,8 @@ const resolvers = {
         where: {id: args.id}
       })
     },
-    updateComment: (_parent, args: {id: number, commentInput: Prisma.CommentUpdateInput}) => {
-      return prisma.comment.update({
+    updateComment: (_parent, args: {id: number, commentInput: Prisma.CommentUpdateInput}, context: Context) => {
+      return context.prisma.comment.update({
         data: {
           text: args.commentInput.text,
           createdAt: args.commentInput.createdAt,
@@ -240,8 +236,8 @@ const resolvers = {
         where: {id: args.id}
       })
     },
-    updateReview: (_parent, args: {id: number, reviewInput: Prisma.UserReviewUpdateInput}) => {
-      return prisma.userReview.update({
+    updateReview: (_parent, args: {id: number, reviewInput: Prisma.UserReviewUpdateInput}, context: Context) => {
+      return context.prisma.userReview.update({
         data: {
           createdAt: args.reviewInput.createdAt,
           reputation: args.reviewInput.reputation,
@@ -252,34 +248,34 @@ const resolvers = {
         where: {id: args.id}
       })
     },
-    deleteUser: (_parent, id: number) => {
-      return prisma.user.delete({
+    deleteUser: (_parent, id: number, context: Context) => {
+      return context.prisma.user.delete({
         where: {id: id}
       })
     },
-    deleteBusiness: (_parent, id: number) => {
-      return prisma.business.delete({
+    deleteBusiness: (_parent, id: number, context: Context) => {
+      return context.prisma.business.delete({
         where: {id: id}
       })
     },
-    deleteLocation: (_parent, id: number) => {
-      return prisma.location.delete({
+    deleteLocation: (_parent, id: number, context: Context) => {
+      return context.prisma.location.delete({
         where: {id: id}
       })
     },
-    deleteComment: (_parent, id: number) => {
-      return prisma.comment.delete({
+    deleteComment: (_parent, id: number, context: Context) => {
+      return context.prisma.comment.delete({
         where: {id: id}
       })
     },
-    deleteReview: (_parent, id: number) => {
-      return prisma.userReview.delete({
+    deleteReview: (_parent, id: number, context: Context) => {
+      return context.prisma.userReview.delete({
         where: {id: id}
       })
     },
   },
 }
-// When i create a user, or update, how do IDs work?
+
 app.register(mercurius, {
   schema,
   resolvers,
@@ -288,14 +284,6 @@ app.register(mercurius, {
   },
   graphiql: true
 })
-
-/*
-app.get('/', async function (req, reply) {
-  // Get the query from the request body
-  const query = '{add(x: 2, y: 2)}'
-  return reply.graphql(query)
-})
-*/
 
 const start = async () => {
   try {

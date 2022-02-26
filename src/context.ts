@@ -1,6 +1,5 @@
-export interface Context {
-}
+import { PrismaClient } from '@prisma/client'
 
-export const context: Context = {
-  //prisma: prisma,
+export type Context = {
+  prisma: PrismaClient
 }

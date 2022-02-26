@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Business {
-  id                  Int           @unique @id @default(autoincrement()) @map("BusinessID")
+  id                  Int           @id @default(autoincrement()) @map("BusinessID")
   owner               User          @relation(fields: [userId], references: [id])
   locations           Location[]    @relation("Locations")
   primaryLocation     Location?     @relation("PrimaryLocation")
@@ -30,7 +30,7 @@ model Business {
 }
 
 model Comment {
-  id        Int       @id @unique @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   location  Location  @relation(fields: [locationId], references: [id])
   user      User      @relation(fields: [userId], references: [id])
   text      String    @map("CommentText")
@@ -54,11 +54,9 @@ model Location {
   updatedAt DateTime
   Comment   Comment[]
 
-
   // businessesID   Int?
   // businessesName String?
-  businessId     Int?
-  businessName   String?
+  businessId     Int
 
 }
 
