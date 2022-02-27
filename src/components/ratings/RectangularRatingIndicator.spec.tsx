@@ -9,12 +9,23 @@ it('matches snapshot', () => {
 
 it('renders a rating name with given rating text', () => {
   const { getByTestId } = render(<RectangularRatingIndicator progressValue={100} ratingName={'MyRating'} />)
-
+  
   const text = getByTestId('rating-title-text')
   expect(text).toHaveTextContent('MyRating')
 })
 
-/*it('renders a green bar with text "Great" when ratingValue is greater than or equal to 85', () => {
+it('throws an error when progressValue is less than 0', () => {
+  expect(() => render(<RectangularRatingIndicator progressValue={-1} ratingName={'MyRating'} />)).toThrow()
+})
+
+it('throws an error when progressValue is greater than 100', () => {
+  expect(() => render(<RectangularRatingIndicator progressValue={101} ratingName={'MyRating'} />)).toThrow()
+})
+
+/*
+Don't currently know how to fetch SVG elements, replace below if found:
+
+it('renders a green bar with text "Great" when ratingValue is greater than or equal to 85', () => {
   const { getByTestId } = render(<RectangularRatingIndicator progressValue={85} ratingName={'MyRating'} />)
 
   const capsule = getByTestId('rating-capsule')
@@ -48,11 +59,3 @@ it('renders a brown bar with text "Avoid" when ratingValue is below 30', () => {
   const capsule = getByTestId('rating-capsule')
   expect(capsule).toHaveStyle({ backgroundColor: 'brown' })
 })*/
-
-it('throws an error when progressValue is less than 0', () => {
-  expect(() => render(<RectangularRatingIndicator progressValue={-1} ratingName={'MyRating'} />)).toThrow()
-})
-
-it('throws an error when progressValue is greater than 100', () => {
-  expect(() => render(<RectangularRatingIndicator progressValue={101} ratingName={'MyRating'} />)).toThrow()
-})
