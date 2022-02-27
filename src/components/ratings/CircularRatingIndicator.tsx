@@ -8,7 +8,7 @@ const BACKGROUND_SECONDARY_COLOUR = '#FAF9F9'
 const CircularRatingIndicator = ({ circleWidth, circleHeight, progressBarWidth, progressValue, ratingName } : { circleWidth : number, circleHeight : number, progressBarWidth : number, progressValue : number, ratingName : string }) => {
   return (
     <View style={styles.CircularRatingIndicatorStyle}>
-      <Svg style={StyleSheet.flatten([styles.IndicatorStyle, { width: circleWidth, height: circleHeight }])}>
+      <Svg style={StyleSheet.flatten([styles.IndicatorStyle, { width: circleWidth, height: circleHeight }])} testID={'circular-indicator'}>
         <Circle
           cx={(circleWidth - (progressBarWidth * 2)) / 2}
           cy={(circleHeight - (progressBarWidth * 2)) / 2}

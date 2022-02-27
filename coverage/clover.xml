@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645805213338" clover="3.2.0">
-  <project timestamp="1645805213338" name="All files">
-    <metrics statements="168" coveredstatements="158" conditionals="85" coveredconditionals="81" methods="54" coveredmethods="42" elements="307" coveredelements="281" complexity="0" loc="168" ncloc="168" packages="5" files="27" classes="27"/>
+<coverage generated="1645988052795" clover="3.2.0">
+  <project timestamp="1645988052795" name="All files">
+    <metrics statements="167" coveredstatements="157" conditionals="85" coveredconditionals="79" methods="54" coveredmethods="42" elements="306" coveredelements="278" complexity="0" loc="167" ncloc="167" packages="5" files="27" classes="27"/>
     <package name="assets">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="icon.png" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/assets/icon.png">
@@ -26,7 +26,7 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="115" coveredstatements="105" conditionals="49" coveredconditionals="45" methods="43" coveredmethods="31"/>
+      <metrics statements="115" coveredstatements="105" conditionals="49" coveredconditionals="43" methods="43" coveredmethods="31"/>
       <file name="BottomSheet.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/BottomSheet.tsx">
         <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="12" count="4" type="stmt"/>
@@ -49,14 +49,14 @@
         <line num="24" count="2" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
         <line num="32" count="2" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
         <line num="60" count="2" type="stmt"/>
       </file>
       <file name="BusinessViewMap.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/BusinessViewMap.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
       </file>
       <file name="Button.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/Button.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="10" coveredconditionals="9" methods="2" coveredmethods="2"/>
@@ -109,9 +109,9 @@
         <line num="43" count="2" type="stmt"/>
       </file>
       <file name="RatingView.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/RatingView.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="11" count="6" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="14" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="11" count="6" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="10" type="stmt"/>
         <line num="20" count="6" type="stmt"/>
       </file>
       <file name="RatingsView.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/RatingsView.tsx">
@@ -186,20 +186,20 @@
       </file>
     </package>
     <package name="src.components.ratings">
-      <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+      <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
       <file name="CertificateLabel.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/ratings/CertificateLabel.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="4" count="6" type="stmt"/>
         <line num="5" count="6" type="stmt"/>
         <line num="7" count="6" type="stmt"/>
-        <line num="8" count="18" type="stmt"/>
-        <line num="22" count="6" type="stmt"/>
+        <line num="8" count="20" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
       </file>
       <file name="CertificatesList.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/ratings/CertificatesList.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="4" type="stmt"/>
         <line num="6" count="4" type="stmt"/>
-        <line num="24" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
       </file>
       <file name="CircularRatingIndicator.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/ratings/CircularRatingIndicator.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -209,11 +209,10 @@
         <line num="48" count="10" type="stmt"/>
       </file>
       <file name="FutureProofRatingView.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/ratings/FutureProofRatingView.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
       </file>
       <file name="RectangularRatingIndicator.tsx" path="/Users/matthew/Documents/University/Computer Science/Year 2/Experimental Systems Project/FutureProof Project/FutureProof/futureproof/packages/client/src/components/ratings/RectangularRatingIndicator.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -237,10 +236,10 @@
         <line num="5" count="20" type="stmt"/>
         <line num="6" count="142" type="cond" truecount="4" falsecount="0"/>
         <line num="8" count="126" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="90" type="cond" truecount="2" falsecount="0"/>
-        <line num="10" count="56" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="30" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="24" type="stmt"/>
+        <line num="9" count="78" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="12" type="stmt"/>
         <line num="15" count="20" type="stmt"/>
         <line num="16" count="54" type="cond" truecount="4" falsecount="0"/>
         <line num="18" count="50" type="cond" truecount="2" falsecount="0"/>

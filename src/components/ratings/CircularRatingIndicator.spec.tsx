@@ -26,3 +26,15 @@ it('throws an error when progressValue is less than 0', () => {
 it('throws an error when progressValue is greater than 100', () => {
   expect(() => render(<CircularRatingIndicator circleWidth={20} circleHeight={20} progressBarWidth={5} progressValue={101} ratingName={'FutureProof'} />)).toThrow()
 })
+
+it('renders a circular indicator with width matching the given parameter', () => {
+  const { getByTestId } = render(<CircularRatingIndicator circleWidth={20} circleHeight={20} progressBarWidth={5} progressValue={100} ratingName={'FutureProof'} />)
+  const indicator = getByTestId('circular-indicator')
+  expect(indicator).toHaveStyle({ width: 20 })
+})
+
+it('renders a circular indicator with height matching the given parameter', () => {
+  const { getByTestId } = render(<CircularRatingIndicator circleWidth={20} circleHeight={20} progressBarWidth={5} progressValue={100} ratingName={'FutureProof'} />)
+  const indicator = getByTestId('circular-indicator')
+  expect(indicator).toHaveStyle({ height: 20 })
+})
