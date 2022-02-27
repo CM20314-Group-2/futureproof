@@ -21,7 +21,7 @@ const ExampleBusiness : DisplayableBusiness =  {
 // PLACEHOLDER BUSINESS LOCATION -> Update to fetch graphQL
 export type ExampleLocationType = Pick<Location, 'id' | 'address' | 'latitude' | 'longitude'>
 
-const ExampleBusinessLocation: ExampleLocationType = {
+const ExampleBusinessLocation : ExampleLocationType = {
   id: '1',
   address: 'Unit B Strahan House, Avon St, Bath BA1 1UN',
   latitude: 51.37758520597919,
@@ -30,52 +30,56 @@ const ExampleBusinessLocation: ExampleLocationType = {
 
 const BusinessView = () => {
   return (
-      <View>
-      <ScrollView contentContainerStyle={{flexGrow: 1, height: "100%"}} contentInsetAdjustmentBehavior="automatic">
+    <View>
+      <ScrollView contentContainerStyle={styles.businessViewScrollStyle} contentInsetAdjustmentBehavior='automatic'>
         <SafeAreaView style={styles.businessViewStyle}>
-        <TitleView
-          name={ExampleBusiness.name}
-          profilePicture={ExampleBusiness.profilePicture == null ? "" : ExampleBusiness.profilePicture}
-          businessAddress={ExampleBusinessLocation.address}
+          <TitleView
+            name={ExampleBusiness.name}
+            profilePicture={ExampleBusiness.profilePicture == null ? '' : ExampleBusiness.profilePicture}
+            businessAddress={ExampleBusinessLocation.address}
           />
-        <DescriptionView
-          profileText={ExampleBusiness.profileText}
-        />
-        <RatingsView
-          customerScore={ExampleBusiness.customerScore}
-          sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
-        <BusinessViewMap businessLocation={ExampleBusinessLocation}/>
-        <ImagesCarousel/>
+          <DescriptionView
+            profileText={ExampleBusiness.profileText}
+          />
+          <RatingsView
+            customerScore={ExampleBusiness.customerScore}
+            sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
+          <BusinessViewMap
+            businessLocation={ExampleBusinessLocation}
+          />
+          <ImagesCarousel/>
         </SafeAreaView>
       </ScrollView>
       <TouchableOpacity onPress={() => openMap({ end: ExampleBusinessLocation.address })} style={styles.DirectionsButtonContainer}>
         <Text style={styles.DirectionsButtonText}>Get Directions</Text>
       </TouchableOpacity>
-      </View>
+    </View>
   )
 }
 
-//<ImagesCarousel/>
-
 export const styles = StyleSheet.create({
-  businessViewStyle: {
-    marginHorizontal: 30
-  },
   DirectionsButtonContainer: {
-    backgroundColor: '#1EA853',
-    borderRadius: 10,
-    padding: 18,
-    width: "90%",
-    zIndex: 0,
-    position: 'absolute',
     alignItems: 'center',
     alignSelf: 'center',
+    backgroundColor: '#1EA853',
+    borderRadius: 10,
+    bottom: 40,
     justifyContent: 'center',
-    bottom: 40
+    padding: 18,
+    position: 'absolute',
+    width: '90%',
+    zIndex: 0
   },
   DirectionsButtonText: {
     color: 'white',
     fontSize: 16
+  },
+  businessViewScrollStyle: {
+    flexGrow: 1,
+    height: '100%'
+  },
+  businessViewStyle: {
+    marginHorizontal: 30
   }
 })
 

@@ -20,8 +20,8 @@ const RatingView = ({ ratingName, ratingValue = 0 } : ComponentProps ) => (
 const styles = StyleSheet.create({
   itemBackgroundStyle: {
     backgroundColor: '#FAF9F9',
-    padding: 5,
-    borderRadius: 10
+    borderRadius: 10,
+    padding: 5
   },
   ratingContainerStyle: {
     alignItems: 'center'
