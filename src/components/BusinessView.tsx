@@ -2,22 +2,12 @@ import DescriptionView from '@components/DescriptionView'
 import RatingsView from '@components/RatingsView'
 import TitleView from '@components/TitleView'
 import BusinessViewMap from '@components/BusinessViewMap'
-import { BusinessType, DisplayableBusiness, Location } from '@futureproof/typings'
+import { DisplayableBusiness, Location } from '@futureproof/typings'
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
 import openMap from 'react-native-open-maps'
 import ImagesCarousel from '@components/ImagesCarousel'
 
-// TODO - Update to fetch graphQL
-const ExampleBusiness : DisplayableBusiness =  {
-  id: '1',
-  name: 'Starbucks',
-  profileText: 'This is a test business and there is not that much to say about it.',
-  sustainabilityScore: 100,
-  customerScore: 65,
-  type: BusinessType.Cafe,
-  profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
-}
 // PLACEHOLDER BUSINESS LOCATION -> Update to fetch graphQL
 export type ExampleLocationType = Pick<Location, 'id' | 'address' | 'latitude' | 'longitude'>
 
@@ -28,22 +18,22 @@ const ExampleBusinessLocation : ExampleLocationType = {
   longitude: -2.3572347659685513
 }
 
-const BusinessView = () => {
+const BusinessView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness}) => {
   return (
     <View>
       <ScrollView contentContainerStyle={styles.businessViewScrollStyle} contentInsetAdjustmentBehavior='automatic'>
         <SafeAreaView style={styles.businessViewStyle}>
           <TitleView
-            name={ExampleBusiness.name}
-            profilePicture={ExampleBusiness.profilePicture == null ? '' : ExampleBusiness.profilePicture}
+            name={businessToDisplay.name}
+            profilePicture={businessToDisplay.profilePicture == null ? '' : businessToDisplay.profilePicture}
             businessAddress={ExampleBusinessLocation.address}
           />
           <DescriptionView
-            profileText={ExampleBusiness.profileText}
+            profileText={businessToDisplay.profileText}
           />
           <RatingsView
-            customerScore={ExampleBusiness.customerScore}
-            sustainabilityScore={ExampleBusiness.sustainabilityScore}/>
+            customerScore={businessToDisplay.customerScore}
+            sustainabilityScore={businessToDisplay.sustainabilityScore}/>
           <BusinessViewMap
             businessLocation={ExampleBusinessLocation}
           />
