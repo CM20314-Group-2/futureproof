@@ -5,20 +5,12 @@ import CertificatesList from '@components/ratings/CertificatesList'
 import RectangularRatingIndicator from '@components/ratings/RectangularRatingIndicator'
 import { DisplayableBusiness } from '@futureproof/typings'
 
-// WAITING FOR SERVER + TYPINGS FOR DATA INPUT
-
-type ExampleBusinessRatingType = Pick<DisplayableBusiness, 'sustainabilityScore'>
-
-const ExampleBusinessRating : ExampleBusinessRatingType = {
-  sustainabilityScore: 70
-}
-
-const FutureProofRatingView = () => {
+const FutureProofRatingView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness }) => {
   return (
     <SafeAreaView style={styles.FutureProofRatingViewStyle}>
       <ScrollView>
         <View style={styles.FutureProofRatingTitleView}>
-          <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={ExampleBusinessRating.sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
+          <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={businessToDisplay.sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
           <CertificatesList/>
         </View>
         <Text style={styles.headingText}>BREAKDOWN</Text>
