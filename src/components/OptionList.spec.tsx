@@ -5,8 +5,8 @@ import React from 'react'
 
 const INITIAL_OPTION_INDEX = 1
 const OPTIONS : Option[] = [
-  { label: "option 1", value: 1 },
-  { label: "option 2", value: 2 }
+  { label: 'option 1', value: 1 },
+  { label: 'option 2', value: 2 }
 ]
 
 it('matches snapshot', () => {

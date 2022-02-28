@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import { Platform, Pressable, SafeAreaView, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native'
-import BottomSheet from "@components/BottomSheet"
-import Button from "@components/Button"
+import BottomSheet from '@components/BottomSheet'
+import Button from '@components/Button'
 import OptionList, { Option } from '@components/OptionList'
 
 interface ComponentProps {
@@ -10,15 +10,15 @@ interface ComponentProps {
   buttonStyle ?: ViewStyle,
   buttonTextStyle ?: TextStyle,
   selectorTitle : string
-  onButtonPress : (selectedOption: Option) => ({} | void)
+  onButtonPress : (selectedOption : Option) => void
 }
 
-const OptionSelector = ({options, initial, buttonStyle, buttonTextStyle, selectorTitle, onButtonPress} : ComponentProps) => {
+const OptionSelector = ({ options, initial, buttonStyle, buttonTextStyle, selectorTitle, onButtonPress } : ComponentProps) => {
   const [userOption, setUserOption] = useState(options[initial])
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
   return (
-    <View>
+    <View style={styles.view}>
       <Pressable
         style={buttonStyle}
         onPress={() => setShowBottomSheet(true) }

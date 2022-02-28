@@ -6,7 +6,7 @@ import { Business, Location } from '@futureproof/typings'
 import { Marker } from "react-native-maps"
 import { gql, useQuery } from '@apollo/client'
 import Pin from '@components/Pin'
-import DistanceRadiusView from './DistanceRadiusView'
+import DistanceRadiusView from '@components/DistanceRadiusView'
 
 type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>
 
@@ -58,17 +58,15 @@ const MapView = ({showRadius} : {showRadius : boolean}) => {
           showsCompass
         >
           { data?.locations.map((marker) => (
-          <Marker
-            key = {marker.id}
-            coordinate = {marker}
-          >
-            <Pin onPress = {() => {}} rating = {marker.business.sustainabilityScore || 0}/>
-          </Marker>
-        ))}
-          {showRadius ? <DistanceRadiusView location={location}/> : null}
-        </Map>
-          :
-        <Text> Error: Could not find location </Text>
+            <Marker
+              key = {marker.id}
+              coordinate = {marker}
+            >
+              <Pin onPress = {() => {}} rating = {marker.business.sustainabilityScore || 0}/>
+            </Marker>
+          ))}
+          { showRadius ? <DistanceRadiusView location={location}/> : null }
+        </Map> : <Text> Error: Could not find location </Text>
       }
     </React.Fragment>
   )

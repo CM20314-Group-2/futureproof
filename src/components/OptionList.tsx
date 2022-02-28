@@ -9,7 +9,7 @@ export type Option = {
 interface ComponentProps {
   options : Option[],
   initial : number,
-  onChange : (selectedOption : Option) => ({} | void)
+  onChange : (selectedOption : Option) => void
 }
 
 const OptionList = ({ options, initial, onChange } : ComponentProps) => {

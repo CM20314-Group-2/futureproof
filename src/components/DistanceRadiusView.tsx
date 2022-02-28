@@ -29,7 +29,7 @@ const DistanceRadiusView = ({ location } : { location : Location.LocationObject 
   const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
 
   return (
-    <View style={{ marginTop: "auto" }} pointerEvents='box-none'>
+    <View style={styles.view} pointerEvents='box-none'>
       <OptionSelector
         options={DISTANCES}
         initial={INITIAL_DISTANCE_INDEX}
@@ -68,6 +68,9 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 14
   },
+  view: {
+    marginTop: 'auto'
+  }
 })
 
 export default DistanceRadiusView

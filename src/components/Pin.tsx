@@ -2,9 +2,9 @@ import React from 'react'
 import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
 
 interface ComponentProps {
-  onPress: () => void,
-  rating: number,
-  style?: ViewStyle,
+  onPress : () => void,
+  rating : number,
+  style ?: ViewStyle
 }
 
 /**
@@ -16,58 +16,71 @@ interface ComponentProps {
  * @param style the styling for the pressable so it can be moved and scaled if needed
  * @returns a custom pin component
  */
-const Pin = ({onPress, rating, style}: ComponentProps) => {
+const Pin = ({ onPress, rating, style } : ComponentProps) => {
 
   // if the rating is > 66 then the pin will be green, between 33 and 66 the pin will be yellow, and red if < 33
   const colour = rating >= 33 ? rating > 66 ? ['#1ea853', '#188441'] : ['#bed62e', '#a8bd29'] : ['#e2382d', '#842b18']
 
   return (
-    <Pressable style={[style, {margin: 'auto'}]} onPress={onPress} testID='pin-pressable'>
-      <View style={[styles.circle, {backgroundColor: colour[0]}]} testID='pin'>
-        <View style={[styles.rating_circle, {backgroundColor: colour[1]}]} testID='rating-background'>
+    <Pressable
+      style={[style, styles.pressable]}
+      onPress={onPress}
+      testID='pin-pressable'
+    >
+      <View
+        style={[styles.circle, { backgroundColor: colour[0] }]}
+        testID='pin'
+      >
+        <View
+          style={[styles.rating_circle, { backgroundColor: colour[1] }]}
+          testID='rating-background'
+        >
           <Text style={styles.text}>{rating}</Text>
         </View>
       </View>
-      <View style={[styles.triangle, {borderBottomColor: colour[0]}]}/>
+      <View style={[styles.triangle, { borderBottomColor: colour[0] }]}/>
     </Pressable>
   )
 }
 
 const styles = StyleSheet.create({
   circle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 1,
-    elevation: 1
+    borderRadius: 20,
+    elevation: 1,
+    height: 40,
+    justifyContent: 'center',
+    width: 40,
+    zIndex: 1
+  },
+  pressable: {
+    margin: 'auto'
   },
   rating_circle:{
-    width: 28,
-    height: 28,
+    alignItems: 'center',
     borderRadius: 14,
+    height: 28,
     justifyContent: 'center',
-    alignItems: 'center'
+    width: 28
   },
   text: {
     color: '#ffffff',
-    fontWeight: 'bold',
-    fontSize: 12
+    fontSize: 12,
+    fontWeight: 'bold'
   },
   triangle: {
-    top: -11,
-    left: 2,
-    width: 0,
-    height: 0,
     backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderLeftWidth: 18,
-    borderRightWidth: 18,
     borderBottomWidth: 28,
     borderLeftColor: 'transparent',
+    borderLeftWidth: 18,
     borderRightColor: 'transparent',
-    transform: [{ rotate: '180deg' }]
+    borderRightWidth: 18,
+    borderStyle: 'solid',
+    height: 0,
+    left: 2,
+    top: -11,
+    transform: [{ rotate: '180deg' }],
+    width: 0
   }
 })
 

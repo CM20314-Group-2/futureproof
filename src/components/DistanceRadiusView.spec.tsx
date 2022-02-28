@@ -30,7 +30,7 @@ it('has the default radius of the circle at 500m', () => {
   expect(circle).toHaveProp('radius', 500)
 })
 
-test.each(distances)(`has a circle with a radius of %dm when the %dm option is selected`, (distance) => {
+test.each(distances)('has a circle with a radius of %dm when the %dm option is selected', (distance) => {
   const { getByTestId } = render(<DistanceRadiusView location={fakeLocation}/>)
 
   const button = getByTestId('option-selector-button')

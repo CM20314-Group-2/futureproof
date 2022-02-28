@@ -10,15 +10,15 @@ it('matches snapshot', () => {
 })
 
 it('fires onPress function when pressed', async () => {
-    const mockOnPress = jest.fn()
-    const { getByTestId } = render(<Pin rating={95} onPress={mockOnPress}/>)
+  const mockOnPress = jest.fn()
+  const { getByTestId } = render(<Pin rating={95} onPress={mockOnPress}/>)
 
-    const pin = getByTestId('pin-pressable')
-    fireEvent.press(pin)
-    await waitFor(() => {
-      expect(mockOnPress).toHaveBeenCalled()
-    })
+  const pin = getByTestId('pin-pressable')
+  fireEvent.press(pin)
+  await waitFor(() => {
+    expect(mockOnPress).toHaveBeenCalled()
   })
+})
 
 it('accepts custom styles', () => {
   const { getByTestId } = render(<Pin rating={95} onPress={() => {return}} style={{ padding: 50 }}/>)
@@ -28,33 +28,33 @@ it('accepts custom styles', () => {
 })
 
 it('is green for ratings greater than 66', () => {
-    const { getByTestId } = render(<Pin rating={95} onPress={() => {return}}/>)
+  const { getByTestId } = render(<Pin rating={95} onPress={() => {return}}/>)
 
-    const pin = getByTestId('pin')
-    expect(pin).toHaveStyle({ backgroundColor: '#1ea853' } as ViewStyle)
+  const pin = getByTestId('pin')
+  expect(pin).toHaveStyle({ backgroundColor: '#1ea853' } as ViewStyle)
 
-    const ratingBackground = getByTestId('rating-background')
-    expect(ratingBackground).toHaveStyle({ backgroundColor: '#188441' } as ViewStyle)
+  const ratingBackground = getByTestId('rating-background')
+  expect(ratingBackground).toHaveStyle({ backgroundColor: '#188441' } as ViewStyle)
 })
 
 it('is yellow for ratings greater than 33 and less than 66', () => {
-    const { getByTestId } = render(<Pin rating={56} onPress={() => {return}}/>)
+  const { getByTestId } = render(<Pin rating={56} onPress={() => {return}}/>)
 
-    const pin = getByTestId('pin')
-    expect(pin).toHaveStyle({ backgroundColor: '#bed62e' } as ViewStyle)
+  const pin = getByTestId('pin')
+  expect(pin).toHaveStyle({ backgroundColor: '#bed62e' } as ViewStyle)
 
-    const ratingBackground = getByTestId('rating-background')
-    expect(ratingBackground).toHaveStyle({ backgroundColor: '#a8bd29' } as ViewStyle)
+  const ratingBackground = getByTestId('rating-background')
+  expect(ratingBackground).toHaveStyle({ backgroundColor: '#a8bd29' } as ViewStyle)
 })
 
 it('is red for ratings less than 33', () => {
-    const { getByTestId } = render(<Pin rating={24} onPress={() => {return}}/>)
+  const { getByTestId } = render(<Pin rating={24} onPress={() => {return}}/>)
 
-    const pin = getByTestId('pin')
-    expect(pin).toHaveStyle({ backgroundColor: '#e2382d' } as ViewStyle)
+  const pin = getByTestId('pin')
+  expect(pin).toHaveStyle({ backgroundColor: '#e2382d' } as ViewStyle)
 
-    const ratingBackground = getByTestId('rating-background')
-    expect(ratingBackground).toHaveStyle({ backgroundColor: '#842b18' } as ViewStyle)
+  const ratingBackground = getByTestId('rating-background')
+  expect(ratingBackground).toHaveStyle({ backgroundColor: '#842b18' } as ViewStyle)
 })
 
 it('is green for a rating of 67', () => {
