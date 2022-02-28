@@ -1,10 +1,10 @@
-import { DisplayableBusiness } from "@futureproof/typings";
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { DisplayableBusiness } from '@futureproof/typings'
+import React from 'react'
+import { Image, StyleSheet, View } from 'react-native'
 
-export const DEFAULT_PROFILE_PATH = "../../../assets/icon.png";
+export const DEFAULT_PROFILE_PATH = '../../../assets/icon.png'
 
-type LogoProps = Pick<DisplayableBusiness, "profilePicture">;
+type LogoProps = Pick<DisplayableBusiness, 'profilePicture'>
 
 const BusinessLogo = ({ profilePicture = null }: LogoProps) => (
   <View style={styles.logoContainerViewStyle}>
@@ -15,11 +15,11 @@ const BusinessLogo = ({ profilePicture = null }: LogoProps) => (
           : require(DEFAULT_PROFILE_PATH)
       }
       style={styles.logoStyle}
-      resizeMode="contain"
-      testID="business-logo"
+      resizeMode='contain'
+      testID='business-logo'
     />
   </View>
-);
+)
 
 const styles = StyleSheet.create({
   logoContainerViewStyle: {
@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     height: 58,
     width: 58,
   },
-});
+})
 
-export default BusinessLogo;
+export default BusinessLogo

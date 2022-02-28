@@ -1,16 +1,16 @@
-import BusinessLogo from "@components/Search/BusinessLogo";
-import SearchItemStats from "@components/Search/SearchItemStats";
-import { DisplayableBusiness } from "@futureproof/typings";
-import React from "react";
+import BusinessLogo from '@components/Search/BusinessLogo'
+import SearchItemStats from '@components/Search/SearchItemStats'
+import { DisplayableBusiness } from '@futureproof/typings'
+import React from 'react'
 import {
   GestureResponderEvent,
   StyleSheet,
   TouchableOpacity,
-} from "react-native";
+} from 'react-native'
 
 interface ComponentProps {
-  business: DisplayableBusiness;
-  onPress: (event: GestureResponderEvent) => void;
+  business: DisplayableBusiness
+  onPress: (event: GestureResponderEvent) => void
 }
 
 const SearchResult = ({ business, onPress }: ComponentProps) => (
@@ -21,25 +21,18 @@ const SearchResult = ({ business, onPress }: ComponentProps) => (
     ) : null}
     <SearchItemStats {...business} />
   </TouchableOpacity>
-);
+)
 
 const styles = StyleSheet.create({
-  logoContainerViewStyle: {
-    paddingRight: 10,
-  },
-  logoStyle: {
-    height: 58,
-    width: 58,
-  },
   searchItemStyle: {
-    alignItems: "center",
-    backgroundColor: "#FAF9F9",
+    alignItems: 'center',
+    backgroundColor: '#FAF9F9',
     borderRadius: 10,
-    flexDirection: "row",
+    flexDirection: 'row',
     marginHorizontal: 25,
     marginVertical: 10,
     padding: 12,
   },
-});
+})
 
-export default SearchResult;
+export default SearchResult

@@ -1,12 +1,12 @@
-import RatingCapsule from "@components/Search/RatingCapsule";
-import { DisplayableBusiness } from "@futureproof/typings";
-import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import RatingCapsule from '@components/Search/RatingCapsule'
+import { DisplayableBusiness } from '@futureproof/typings'
+import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
 type ComponentProps = Pick<
   DisplayableBusiness,
-  "name" | "customerScore" | "sustainabilityScore"
->;
+  'name' | 'customerScore' | 'sustainabilityScore'
+>
 
 const SearchItemStats = ({
   name,
@@ -17,9 +17,9 @@ const SearchItemStats = ({
     <Text style={styles.businessTitleText}>{name}</Text>
     <View style={styles.logoAndSubtitleView}>
       <Image
-        source={require("../../../assets/icon_location.png")}
+        source={require('../../../assets/icon_location.png')}
         style={styles.businessLogoImageStyle}
-        resizeMode="contain"
+        resizeMode='contain'
       />
       <Text style={styles.subtitleText}>{`${0.2} miles`}</Text>
     </View>
@@ -33,7 +33,7 @@ const SearchItemStats = ({
       <RatingCapsule ratingValue={customerScore} />
     </View>
   </View>
-);
+)
 
 const styles = StyleSheet.create({
   businessLogoImageStyle: {
@@ -42,29 +42,29 @@ const styles = StyleSheet.create({
   },
   businessTitleText: {
     fontSize: 25,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   logoAndSubtitleView: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   ratingText: {
-    color: "#818181",
+    color: '#818181',
     fontSize: 11,
     paddingRight: 10,
   },
   ratingTextAndCapsuleView: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
     paddingVertical: 2,
   },
   searchItemStats: {
     flex: 1,
-    flexDirection: "column",
+    flexDirection: 'column',
   },
   subtitleText: {
-    color: "#686868",
+    color: '#686868',
     fontSize: 14,
   },
-});
+})
 
-export default SearchItemStats;
+export default SearchItemStats

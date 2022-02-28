@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 
 interface ComponentProps {
-  options : Option[],
-  initial ?: number | null,
-  onChange : React.Dispatch<React.SetStateAction<Option>>
+  options: Option[]
+  initial?: number | null
+  onChange: React.Dispatch<React.SetStateAction<Option>>
 }
 
 /**
@@ -19,16 +19,17 @@ interface ComponentProps {
  * @param onChange the function that is called when the user clicks on an option
  * @returns a styled component that contains all of the sorting options
  */
-const SortOptions = ({ options, initial, onChange } : ComponentProps) => {
+const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
   let initialOption = null
 
-  if (initial !== undefined  && initial !== null) {
-    initialOption = (initial >= 0 && initial < options.length) ? options[initial] : null
+  if (initial !== undefined && initial !== null) {
+    initialOption =
+      initial >= 0 && initial < options.length ? options[initial] : null
   }
 
   const [userOption, setUserOption] = useState<Option | null>(initialOption)
 
-  const updateOptionChoice = (option : Option) => {
+  const updateOptionChoice = (option: Option) => {
     onChange(option)
     setUserOption(option)
   }
@@ -42,16 +43,20 @@ const SortOptions = ({ options, initial, onChange } : ComponentProps) => {
             style={({ pressed }) => ({
               backgroundColor: pressed ? '#ededed' : '#ffffff',
               opacity: pressed ? 0.5 : 1,
-              ...option === userOption ? styles.selected_option : styles.unselected_option,
+              ...(option === userOption
+                ? styles.selected_option
+                : styles.unselected_option),
               ...styles.option,
             })}
-            onPress={ () => updateOptionChoice(option) }
+            onPress={() => updateOptionChoice(option)}
             testID={`sort-option-${option.value}`}
           >
             <Text
               style={[
                 styles.text,
-                option === userOption ? styles.selected_text : styles.unselected_text
+                option === userOption
+                  ? styles.selected_text
+                  : styles.unselected_text,
               ]}
             >
               {option.label}
@@ -68,16 +73,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     marginBottom: 15,
     marginTop: 10,
-    width: '60%'
+    width: '60%',
   },
   option: {
     borderRadius: 10,
     borderWidth: 2,
-    margin: 5
+    margin: 5,
   },
   selected_option: {
     backgroundColor: '#1ea853',
-    borderColor: '#1ea853'
+    borderColor: '#1ea853',
   },
   selected_text: {
     color: '#ffffff',
@@ -85,14 +90,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     padding: 5,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   unselected_option: {
-    borderColor: '#ededed'
+    borderColor: '#ededed',
   },
   unselected_text: {
-    color: '#000000'
-  }
+    color: '#000000',
+  },
 })
 
 export default SortOptions

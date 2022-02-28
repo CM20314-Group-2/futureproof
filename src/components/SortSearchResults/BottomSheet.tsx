@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react'
 import {
   Animated,
   Easing,
   Pressable,
   StyleSheet,
   useWindowDimensions,
-} from "react-native";
+} from 'react-native'
 
 interface ComponentProps {
-  children: React.ReactNode;
-  show: boolean;
-  height: number;
-  onOuterClick?: () => void;
+  children: React.ReactNode
+  show: boolean
+  height: number
+  onOuterClick?: () => void
 }
 
 /**
@@ -34,11 +34,11 @@ const BottomSheet = ({
   onOuterClick,
 }: ComponentProps) => {
   const useAnimatedBottom = (show: boolean, height: number) => {
-    const animatedValue = useRef(new Animated.Value(0));
+    const animatedValue = useRef(new Animated.Value(0))
     const bottom = animatedValue.current.interpolate({
       inputRange: [0, 1],
       outputRange: [-height, 0],
-    });
+    })
 
     useEffect(() => {
       Animated.timing(animatedValue.current, {
@@ -46,14 +46,14 @@ const BottomSheet = ({
         duration: show ? 300 : 150,
         easing: Easing.bezier(0.5, 0, 0.5, 1),
         useNativeDriver: false,
-      }).start();
-    }, [show]);
+      }).start()
+    }, [show])
 
-    return bottom;
-  };
+    return bottom
+  }
 
-  const screenHeight = useWindowDimensions().height;
-  const bottom = useAnimatedBottom(show, height);
+  const screenHeight = useWindowDimensions().height
+  const bottom = useAnimatedBottom(show, height)
 
   return (
     <React.Fragment>
@@ -70,25 +70,25 @@ const BottomSheet = ({
         {children}
       </Animated.View>
     </React.Fragment>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   background: {
-    position: "absolute",
-    width: "100%",
-    zIndex: 1,
+    backgroundColor: '#000000',
     elevation: 1,
-    backgroundColor: "#000000",
     opacity: 0.5,
+    position: 'absolute',
+    width: '100%',
+    zIndex: 1,
   },
   bottomSheet: {
-    position: "absolute",
-    width: "100%",
-    zIndex: 1,
+    backgroundColor: '#ffffff',
     elevation: 1,
-    backgroundColor: "#ffffff",
+    position: 'absolute',
+    width: '100%',
+    zIndex: 1,
   },
-});
+})
 
-export default BottomSheet;
+export default BottomSheet

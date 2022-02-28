@@ -7,14 +7,15 @@ import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
 import ImagesCarousel from './ImagesCarousel'
 
 // TODO - Update to fetch graphQL
-const ExampleBusiness : DisplayableBusiness =  {
+const ExampleBusiness: DisplayableBusiness = {
   id: '1',
   name: 'Starbucks',
   profileText: 'This is a test business',
   sustainabilityScore: 100,
   customerScore: 65,
   type: BusinessType.Cafe,
-  profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
+  profilePicture:
+    'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png',
 }
 
 const BusinessView = () => {
@@ -25,14 +26,12 @@ const BusinessView = () => {
           name={ExampleBusiness.name}
           profilePicture={ExampleBusiness.profilePicture}
         />
-        <DescriptionView
-          profileText={ExampleBusiness.profileText}
-        />
+        <DescriptionView profileText={ExampleBusiness.profileText} />
         <RatingsView
           customerScore={ExampleBusiness.customerScore}
           sustainabilityScore={ExampleBusiness.sustainabilityScore}
         />
-        <ImagesCarousel/>
+        <ImagesCarousel />
       </ScrollView>
     </SafeAreaView>
   )
@@ -40,8 +39,8 @@ const BusinessView = () => {
 
 export const styles = StyleSheet.create({
   businessViewStyle: {
-    marginHorizontal: 30
-  }
+    marginHorizontal: 30,
+  },
 })
 
 export default BusinessView

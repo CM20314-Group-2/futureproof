@@ -1,8 +1,8 @@
-import BottomSheet from "@components/SortSearchResults/BottomSheet";
-import Button from "@components/Button";
-import SortOptions from "@components/SortSearchResults/SortOptions";
-import { SortOptions as SortOptionsType } from "@futureproof/typings";
-import React, { useState } from "react";
+import BottomSheet from '@components/SortSearchResults/BottomSheet'
+import Button from '@components/Button'
+import SortOptions from '@components/SortSearchResults/SortOptions'
+import { SortOptions as SortOptionsType } from '@futureproof/typings'
+import React, { useState } from 'react'
 import {
   Platform,
   Pressable,
@@ -12,23 +12,23 @@ import {
   TextStyle,
   View,
   ViewStyle,
-} from "react-native";
-import { sortOption as sortBy } from "../../cache";
+} from 'react-native'
+import { sortOption as sortBy } from '../../cache'
 
-const INITIAL_OPTION_INDEX = 4; // config variable
+const INITIAL_OPTION_INDEX = 4 // config variable
 
 const options: { label: string; value: SortOptionsType }[] = [
-  { label: "Name: A to Z", value: "name_asc" },
-  { label: "Name: Z to A", value: "name_desc" },
-  { label: "Distance: Near to Far", value: "distance_asc" },
-  { label: "Distance: Far to Near", value: "distance_desc" },
-  { label: "Rating: High to Low", value: "rating_asc" },
-  { label: "Rating: Low to High", value: "rating_desc" },
-];
+  { label: 'Name: A to Z', value: 'name_asc' },
+  { label: 'Name: Z to A', value: 'name_desc' },
+  { label: 'Distance: Near to Far', value: 'distance_asc' },
+  { label: 'Distance: Far to Near', value: 'distance_desc' },
+  { label: 'Rating: High to Low', value: 'rating_asc' },
+  { label: 'Rating: Low to High', value: 'rating_desc' },
+]
 
 interface ComponentProps {
-  buttonStyle?: ViewStyle;
-  buttonTextStyle?: TextStyle;
+  buttonStyle?: ViewStyle
+  buttonTextStyle?: TextStyle
 }
 
 /**
@@ -47,14 +47,14 @@ const SearchResultSorter = ({
   buttonTextStyle,
 }: ComponentProps) => {
   const [sortOption, setSortOption] = useState<{
-    label: string;
-    value: SortOptionsType;
-  }>(options[INITIAL_OPTION_INDEX]);
-  const [showBottomSheet, setShowBottomSheet] = useState(false);
+    label: string
+    value: SortOptionsType
+  }>(options[INITIAL_OPTION_INDEX])
+  const [showBottomSheet, setShowBottomSheet] = useState(false)
 
   const hideSortingOptions = () => {
-    setShowBottomSheet(false);
-  };
+    setShowBottomSheet(false)
+  }
 
   return (
     <React.Fragment>
@@ -73,40 +73,37 @@ const SearchResultSorter = ({
             initial={INITIAL_OPTION_INDEX}
             onChange={(
               option: React.SetStateAction<{
-                label: string;
-                value: SortOptionsType;
+                label: string
+                value: SortOptionsType
               }>
             ) => setSortOption(option)}
           />
           <Button
             onPress={() => {
-              sortBy(sortOption.value);
-              hideSortingOptions();
+              sortBy(sortOption.value)
+              hideSortingOptions()
             }}
-            text={"Apply"}
+            text={'Apply'}
           />
         </View>
       </BottomSheet>
     </React.Fragment>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    backgroundColor: "#ffffff",
-    justifyContent: "flex-end",
-    alignItems: "center",
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    justifyContent: 'flex-end',
     // needed so that there is a margin at the bottom on android phones
-    marginBottom: Platform.OS === "android" ? 35 : 0,
+    marginBottom: Platform.OS === 'android' ? 35 : 0,
+    width: '100%',
   },
   title: {
     fontSize: 25,
     marginTop: 20,
   },
-  view: {
-    marginTop: "auto",
-  },
-});
+})
 
-export default SearchResultSorter;
+export default SearchResultSorter

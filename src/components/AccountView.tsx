@@ -1,10 +1,10 @@
-import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import React from 'react'
+import { StyleSheet, ScrollView } from 'react-native'
 
 const AccountView = () => {
-  return <ScrollView></ScrollView>;
-};
+  return <ScrollView></ScrollView>
+}
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({})
 
-export default AccountView;
+export default AccountView

@@ -3,24 +3,33 @@ import Button from '@components/Button'
 import SortOptions from '@components/SortOptions'
 import { SortOptions as SortOptionsType } from '@futureproof/typings'
 import React, { useState } from 'react'
-import { Platform, Pressable, SafeAreaView, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native'
+import {
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native'
 import { sortOption as sortBy } from '../cache'
 
-export type Option = {label : string, value : SortOptionsType}
+export type Option = { label: string; value: SortOptionsType }
 
 const INITIAL_OPTION_INDEX = 4
-export const OPTIONS_LIST : Option[] = [
+export const OPTIONS_LIST: Option[] = [
   { label: 'Name: A to Z', value: 'name_asc' },
   { label: 'Name: Z to A', value: 'name_desc' },
   { label: 'Distance: Near to Far', value: 'distance_asc' },
   { label: 'Distance: Far to Near', value: 'distance_desc' },
   { label: 'Rating: High to Low', value: 'rating_asc' },
-  { label: 'Rating: Low to High', value: 'rating_desc' }
+  { label: 'Rating: Low to High', value: 'rating_desc' },
 ]
 
 interface ComponentProps {
-  buttonStyle ?: ViewStyle,
-  buttonTextStyle ?: TextStyle
+  buttonStyle?: ViewStyle
+  buttonTextStyle?: TextStyle
 }
 
 /**
@@ -34,20 +43,23 @@ interface ComponentProps {
  * @param buttonTextStyle the styling for the text of the button
  * @returns the button and bottom sheet that contains the sorting options
  */
-const SearchResultSorter = ({ buttonStyle, buttonTextStyle } : ComponentProps) => {
-  const [sortOption, setSortOption] = useState<Option>(OPTIONS_LIST[INITIAL_OPTION_INDEX])
+const SearchResultSorter = ({
+  buttonStyle,
+  buttonTextStyle,
+}: ComponentProps) => {
+  const [sortOption, setSortOption] = useState<Option>(
+    OPTIONS_LIST[INITIAL_OPTION_INDEX]
+  )
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
   return (
     <View style={styles.view}>
       <Pressable
-        style={buttonStyle} onPress={() => setShowBottomSheet(true) }
+        style={buttonStyle}
+        onPress={() => setShowBottomSheet(true)}
         testID='result-sorter-button'
       >
-        <Text
-          style={buttonTextStyle}
-          testID='result-sorter-button-text'
-        >
+        <Text style={buttonTextStyle} testID='result-sorter-button-text'>
           Sorting by - {sortOption.label}
         </Text>
       </Pressable>
@@ -61,7 +73,7 @@ const SearchResultSorter = ({ buttonStyle, buttonTextStyle } : ComponentProps) =
           <SortOptions
             options={OPTIONS_LIST}
             initial={INITIAL_OPTION_INDEX}
-            onChange={(option : React.SetStateAction<Option>) => 
+            onChange={(option: React.SetStateAction<Option>) =>
               setSortOption(option)
             }
           />
@@ -85,15 +97,15 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     // needed so that there is a margin at the bottom on android phones
     marginBottom: Platform.OS === 'android' ? 35 : 0,
-    width: '100%'
+    width: '100%',
   },
   title: {
     fontSize: 25,
-    marginTop: 20
+    marginTop: 20,
   },
   view: {
-    marginTop: 'auto'
-  }
+    marginTop: 'auto',
+  },
 })
 
 export default SearchResultSorter

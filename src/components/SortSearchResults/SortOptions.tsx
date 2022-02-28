@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { SortOptions as SortOptionsType } from "@futureproof/typings";
+import React, { useState } from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { SortOptions as SortOptionsType } from '@futureproof/typings'
 
 interface ComponentProps {
-  options: { label: string; value: SortOptionsType }[];
-  initial?: number | null;
+  options: { label: string; value: SortOptionsType }[]
+  initial?: number | null
   onChange: React.Dispatch<
     React.SetStateAction<{ label: string; value: SortOptionsType }>
-  >;
+  >
 }
 
 /**
@@ -22,27 +22,27 @@ interface ComponentProps {
  * @returns a styled component that contains all of the sorting options
  */
 const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
-  let initialOption = null;
+  let initialOption = null
 
   if (initial !== undefined && initial !== null) {
     initialOption =
-      initial >= 0 && initial < options.length ? options[initial] : null;
+      initial >= 0 && initial < options.length ? options[initial] : null
   }
 
   // const io = !initial ? ((initial >= 0 && initial < options.length) ? options[initial] : null) : null
 
   const [userOption, setUserOption] = useState<{
-    label: string;
-    value: SortOptionsType;
-  } | null>(initialOption);
+    label: string
+    value: SortOptionsType
+  } | null>(initialOption)
 
   const updateOptionChoice = (option: {
-    label: string;
-    value: SortOptionsType;
+    label: string
+    value: SortOptionsType
   }) => {
-    onChange(option);
-    setUserOption(option);
-  };
+    onChange(option)
+    setUserOption(option)
+  }
 
   return (
     <View style={styles.container}>
@@ -52,7 +52,7 @@ const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
             key={option.value}
             style={({ pressed }) => [
               {
-                backgroundColor: pressed ? "#ededed" : "#ffffff",
+                backgroundColor: pressed ? '#ededed' : '#ffffff',
                 opacity: pressed ? 0.5 : 1,
               },
               styles.option,
@@ -73,18 +73,18 @@ const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
               {option.label}
             </Text>
           </Pressable>
-        );
+        )
       })}
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
-    width: "60%",
-    marginTop: 10,
+    justifyContent: 'space-evenly',
     marginBottom: 15,
-    justifyContent: "space-evenly",
+    marginTop: 10,
+    width: '60%',
   },
   option: {
     borderRadius: 10,
@@ -92,23 +92,23 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   selected_option: {
-    backgroundColor: "#1ea853",
-    borderColor: "#1ea853",
+    backgroundColor: '#1ea853',
+    borderColor: '#1ea853',
   },
   selected_text: {
-    color: "#ffffff",
+    color: '#ffffff',
   },
   text: {
     fontSize: 15,
-    textAlign: "center",
     padding: 5,
+    textAlign: 'center',
   },
   unselected_option: {
-    borderColor: "#ededed",
+    borderColor: '#ededed',
   },
   unselected_text: {
-    color: "#000000",
+    color: '#000000',
   },
-});
+})
 
-export default SortOptions;
+export default SortOptions

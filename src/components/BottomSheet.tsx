@@ -1,11 +1,17 @@
 import React, { useEffect, useRef } from 'react'
-import { Animated, Easing, Pressable, StyleSheet, useWindowDimensions } from 'react-native'
+import {
+  Animated,
+  Easing,
+  Pressable,
+  StyleSheet,
+  useWindowDimensions,
+} from 'react-native'
 
 interface ComponentProps {
-  children : React.ReactNode,
-  show : boolean,
-  height : number,
-  onOuterClick ?: () => void
+  children: React.ReactNode
+  show: boolean
+  height: number
+  onOuterClick?: () => void
 }
 
 /** Duration of appearance animation (ms) */
@@ -26,13 +32,17 @@ export const OUT_DURATION = 150
  * @param onOuterClick the function that gets called when the user clicks off of the bottom sheet
  * @returns the bottom sheet component
  */
-const BottomSheet = ({ children, show, height, onOuterClick } : ComponentProps) => {
-
-  const useAnimatedBottom = (show : boolean, height : number) => {
+const BottomSheet = ({
+  children,
+  show,
+  height,
+  onOuterClick,
+}: ComponentProps) => {
+  const useAnimatedBottom = (show: boolean, height: number) => {
     const animatedValue = useRef(new Animated.Value(0))
     const bottom = animatedValue.current.interpolate({
       inputRange: [0, 1],
-      outputRange: [-height, 0]
+      outputRange: [-height, 0],
     })
 
     useEffect(() => {
@@ -40,30 +50,34 @@ const BottomSheet = ({ children, show, height, onOuterClick } : ComponentProps) 
         toValue: show ? 1 : 0,
         duration: show ? IN_DURATION : OUT_DURATION,
         easing: Easing.bezier(0.5, 0, 0.5, 1),
-        useNativeDriver: false
+        useNativeDriver: false,
       }).start()
     }, [show])
 
     return bottom
   }
 
-  const screenHeight  = useWindowDimensions().height
+  const screenHeight = useWindowDimensions().height
   const bottom = useAnimatedBottom(show, height)
 
   return (
     <React.Fragment>
-      {show
-        ? <Pressable
-          onPress={ onOuterClick }
-          style={{ ...styles.background, height: screenHeight, top: -screenHeight }}
+      {show ? (
+        <Pressable
+          onPress={onOuterClick}
+          style={{
+            ...styles.background,
+            height: screenHeight,
+            top: -screenHeight,
+          }}
           testID='bottom-sheet-background'
         />
-        : null}
+      ) : null}
       <Animated.View
         style={{ ...styles.bottomSheet, height, bottom }}
         testID='bottom-sheet'
       >
-        { children }
+        {children}
       </Animated.View>
     </React.Fragment>
   )
@@ -76,15 +90,15 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     position: 'absolute',
     width: '100%',
-    zIndex: 1
+    zIndex: 1,
   },
   bottomSheet: {
     backgroundColor: '#ffffff',
     elevation: 1,
     position: 'absolute',
     width: '100%',
-    zIndex: 1
-  }
+    zIndex: 1,
+  },
 })
 
 export default BottomSheet

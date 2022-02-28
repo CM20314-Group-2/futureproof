@@ -1,7 +1,7 @@
-import { gql, useLazyQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import { Icon, Input } from "react-native-elements";
+import { gql, useLazyQuery } from '@apollo/client'
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { Icon, Input } from 'react-native-elements'
 
 // GraphQL fragment
 const COMPANY_TILE_DATA = gql`
@@ -17,15 +17,15 @@ const COMPANY_TILE_DATA = gql`
       customerScore
     }
   }
-`;
+`
 
 const SearchBarView = () => {
-  const [searchText, onChangeText] = useState("");
+  const [searchText, onChangeText] = useState('')
 
   const [executeSearch, { error }] = useLazyQuery(
     // 'loading' and 'data' can also be returned (not just error)
     COMPANY_TILE_DATA
-  );
+  )
 
   useEffect(() => {
     // Debounce query
@@ -35,57 +35,57 @@ const SearchBarView = () => {
       }).then(
         (data) => console.log(data),
         () => console.error(error)
-      );
-    }, 300);
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchText]);
+      )
+    }, 300)
+    return () => clearTimeout(delayDebounceFn)
+  }, [searchText])
 
   return (
     <React.Fragment>
       <View style={styles.searchBarView}>
         <Input
           inputContainerStyle={styles.searchInput}
-          placeholder="Search here"
+          placeholder='Search here'
           onChangeText={(text) => onChangeText(text)}
-          leftIcon={<Icon name="search" size={25} />}
+          leftIcon={<Icon name='search' size={25} />}
           leftIconContainerStyle={styles.leftContainerIconStyle}
           rightIcon={
             <Icon
-              name="options-outline"
-              type="ionicon"
+              name='options-outline'
+              type='ionicon'
               size={25}
-              onPress={() => console.error("Not implemented.")}
+              onPress={() => console.error('Not implemented.')}
             />
           }
           value={searchText}
         />
       </View>
     </React.Fragment>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   leftContainerIconStyle: {
-    marginLeft: "5%",
+    marginLeft: '5%',
   },
   safeAreaView: {
     flex: 1,
     padding: 20,
-    flexDirection: "column",
+    flexDirection: 'column',
   },
   searchInput: {
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: "#FFFFFF",
-    backgroundColor: "#E7E7E7",
+    borderColor: '#FFFFFF',
+    backgroundColor: '#E7E7E7',
     opacity: 1,
-    width: "90%",
-    alignSelf: "center",
+    width: '90%',
+    alignSelf: 'center',
   },
   searchBarView: {
-    marginTop: "auto",
-    marginBottom: "10%",
+    marginTop: 'auto',
+    marginBottom: '10%',
   },
-});
+})
 
-export default SearchBarView;
+export default SearchBarView

@@ -1,18 +1,11 @@
-import React from "react";
-import {
-  View,
-  StyleSheet,
-  Button,
-  Text,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
-import SlidingUpPanel from "rn-sliding-up-panel";
-import SearchBar from "@components/SearchBarView";
-import SearchView from "@components/SearchView";
-import SearchResultSorter from "@components/SortSearchResults/SearchResultSorter";
+import React from 'react'
+import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
+import SlidingUpPanel from 'rn-sliding-up-panel'
+import SearchBar from '@components/SearchBarView'
+import SearchView from '@components/SearchView'
+import SearchResultSorter from '@components/SortSearchResults/SearchResultSorter'
 
-const { height } = Dimensions.get("window");
+const { height } = Dimensions.get('window')
 
 class MapSlideUpSheet extends React.Component {
   render() {
@@ -26,7 +19,7 @@ class MapSlideUpSheet extends React.Component {
         >
           <View style={styles.panel}>
             <TouchableOpacity onPress={() => this._panel.show()}>
-              <View style={styles.panelHeader}></View>
+              <View aria-label='SearchPanel' style={styles.panelHeader}></View>
             </TouchableOpacity>
             <View style={styles.container}>
               <SearchBar />
@@ -36,45 +29,34 @@ class MapSlideUpSheet extends React.Component {
           </View>
         </SlidingUpPanel>
       </React.Fragment>
-    );
+    )
   }
 }
 
 export const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+    backgroundColor: '#f8f9fa',
     flex: 1,
-    backgroundColor: "#f8f9fa",
-    alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
     marginTop: 15,
   },
   panel: {
-    flex: 1,
-    backgroundColor: "white",
-    position: "relative",
-    opacity: 0.95,
+    backgroundColor: 'white',
     borderRadius: 15,
+    flex: 1,
+    opacity: 0.95,
+    position: 'relative',
   },
   panelHeader: {
-    height: 5,
-    backgroundColor: "#E7E7E7",
-    alignSelf: "center",
-    justifyContent: "center",
-    width: "36%",
+    alignSelf: 'center',
+    backgroundColor: '#E7E7E7',
     borderRadius: 5,
+    height: 5,
+    justifyContent: 'center',
     marginTop: 10,
+    width: '36%',
   },
-  favoriteIcon: {
-    position: "absolute",
-    top: -24,
-    right: 24,
-    backgroundColor: "#2b8a3e",
-    width: 48,
-    height: 48,
-    padding: 8,
-    borderRadius: 24,
-    zIndex: 1,
-  },
-});
+})
 
-export default MapSlideUpSheet;
+export default MapSlideUpSheet

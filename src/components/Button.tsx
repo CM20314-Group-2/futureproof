@@ -1,17 +1,11 @@
-import React from "react";
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TextStyle,
-  ViewStyle,
-} from "react-native";
+import React from 'react'
+import { Pressable, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native'
 
 interface ComponentProps {
-  onPress: () => void;
-  text: string;
-  style?: ViewStyle;
-  textStyle?: TextStyle;
+  onPress: () => void
+  text: string
+  style?: ViewStyle
+  textStyle?: TextStyle
 }
 
 /**
@@ -27,37 +21,37 @@ interface ComponentProps {
  */
 const Button = ({ onPress, text, style, textStyle }: ComponentProps) => {
   const buttonStyle =
-    style !== null && style !== undefined ? style : styles.button;
+    style !== null && style !== undefined ? style : styles.button
   const buttonTextStyle =
-    textStyle !== null && textStyle !== undefined ? textStyle : styles.text;
+    textStyle !== null && textStyle !== undefined ? textStyle : styles.text
   return (
     <Pressable
       style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1, ...buttonStyle })}
       onPress={onPress}
-      testID="button"
+      testID='button'
     >
-      <Text testID="button-text" style={buttonTextStyle}>
+      <Text testID='button-text' style={buttonTextStyle}>
         {text}
       </Text>
     </Pressable>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   button: {
-    alignItems: "center",
-    backgroundColor: "#1ea853",
+    alignItems: 'center',
+    backgroundColor: '#1ea853',
     borderRadius: 5,
-    justifyContent: "center",
-    width: "75%",
+    justifyContent: 'center',
+    width: '75%',
   },
   text: {
-    color: "#ffffff",
+    color: '#ffffff',
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingBottom: 10,
     paddingTop: 10,
   },
-});
+})
 
-export default Button;
+export default Button
