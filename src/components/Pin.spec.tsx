@@ -11,7 +11,7 @@ it('matches snapshot', () => {
 
 it('fires onPress function when pressed', async () => {
     const mockOnPress = jest.fn()
-    const { getByTestId } = render(<Pin rating={95} onPress={() => {return}}/>)
+    const { getByTestId } = render(<Pin rating={95} onPress={mockOnPress}/>)
 
     const pin = getByTestId('pin-pressable')
     fireEvent.press(pin)
@@ -21,10 +21,10 @@ it('fires onPress function when pressed', async () => {
   })
 
 it('accepts custom styles', () => {
-  const { getByTestId } = render(<Pin rating={95} onPress={() => {return}} style={{ backgroundColor: 'red' }}/>)
+  const { getByTestId } = render(<Pin rating={95} onPress={() => {return}} style={{ padding: 50 }}/>)
 
-  const pin = getByTestId('pin')
-  expect(pin).toHaveStyle({ backgroundColor: 'red' } as ViewStyle)
+  const pin = getByTestId('pin-pressable')
+  expect(pin).toHaveStyle({ padding: 50 } as ViewStyle)
 })
 
 it('is green for ratings greater than 66', () => {
@@ -78,7 +78,7 @@ it('is yellow for a rating of 66', () => {
 })
 
 it('is yellow for a rating of 33', () => {
-  const { getByTestId } = render(<Pin rating={32} onPress={() => {return}}/>)
+  const { getByTestId } = render(<Pin rating={33} onPress={() => {return}}/>)
 
   const pin = getByTestId('pin')
   expect(pin).toHaveStyle({ backgroundColor: '#bed62e' } as ViewStyle)

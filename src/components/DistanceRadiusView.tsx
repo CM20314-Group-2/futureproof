@@ -54,7 +54,7 @@ const DistanceRadiusView = ({ location } : { location : Location.LocationObject 
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#1ea835',
+    backgroundColor: '#1ea853',
     borderColor: '#188441',
     borderRadius: 25,
     borderWidth: 2,

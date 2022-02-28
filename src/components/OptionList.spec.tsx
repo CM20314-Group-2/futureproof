@@ -18,7 +18,7 @@ it('fires on change when new option is selected', () => {
   const onChange = jest.fn()
   const { getByTestId } = render(<OptionList onChange={onChange} initial={INITIAL_OPTION_INDEX} options={OPTIONS}/>)
 
-  const option = getByTestId(`option-list-${OPTIONS[INITIAL_OPTION_INDEX]}`)
+  const option = getByTestId(`option-list-${OPTIONS[INITIAL_OPTION_INDEX].value}`)
   fireEvent(option, 'press')
 
   expect(onChange).toHaveBeenCalled()
@@ -30,7 +30,7 @@ it('defaults to 0th index option if initial is out of range', () => {
   const firstOption = getByTestId(`option-list-${OPTIONS[0].value}`)
   const secondOption = getByTestId(`option-list-${OPTIONS[1].value}`)
   expect(firstOption).toHaveStyle({
-    backgroundColor: '#1ea835',
+    backgroundColor: '#1ea853',
   })
   expect(secondOption).toHaveStyle({
     backgroundColor: '#ffffff',

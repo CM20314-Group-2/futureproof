@@ -52,7 +52,7 @@ it('allows the button text style to be set', async () => {
       options={OPTIONS}
       initial={INITIAL_OPTION_INDEX}
       selectorTitle={'Test Selector'}
-      buttonTextStyle={{ backgroundColor: 'red' }}
+      buttonTextStyle={{ color: 'red' }}
       onButtonPress={() => {return}}
     />
   )
@@ -115,7 +115,7 @@ it('updates the selected option when an option is pressed', async () => {
       onButtonPress={() => {return}}
     />
   )
-  const option = getByTestId(`sort-option-${OPTIONS[0].value}`)
+  const option = getByTestId(`option-list-${OPTIONS[0].value}`)
 
   fireEvent(option, 'press')
   expect(toJSON()).toMatchSnapshot()
