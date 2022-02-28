@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot with permissions 1`] = `
+<AIRMap
+  handlePanDrag={false}
+  initialRegion={null}
+  onChange={[Function]}
+  onLayout={[Function]}
+  onMapReady={[Function]}
+  onMarkerPress={[Function]}
+  region={
+    Object {
+      "latitude": 1,
+      "latitudeDelta": 0.1,
+      "longitude": 2,
+      "longitudeDelta": 0.1,
+    }
+  }
+  showsCompass={true}
+  showsUserLocation={true}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+  testID="map"
+/>
+`;
+
+exports[`matches snapshot without permissions 1`] = `
+<AIRMap
+  handlePanDrag={false}
+  initialRegion={null}
+  onChange={[Function]}
+  onLayout={[Function]}
+  onMapReady={[Function]}
+  onMarkerPress={[Function]}
+  region={
+    Object {
+      "latitude": 0,
+      "latitudeDelta": 0.1,
+      "longitude": 0,
+      "longitudeDelta": 0.1,
+    }
+  }
+  showsCompass={true}
+  showsUserLocation={false}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+  testID="map"
+/>
+`;

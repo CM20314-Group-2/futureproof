@@ -1,39 +1,73 @@
-import * as Location from 'expo-location'
+import * as CurrentLocation from 'expo-location'
 import React, { useEffect, useState } from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import Map from 'react-native-maps'
-import SearchBar from '@components/SearchBarView'
+import { Business, Location } from '@futureproof/typings'
+import { Marker } from "react-native-maps"
+import { gql, useQuery } from '@apollo/client'
+import Pin from '@components/Pin'
+import DistanceRadiusView from '@components/DistanceRadiusView'
 
-const MapView = () => {
-  const [location, setLocation] = useState<Location.LocationObject | null>(null)
+type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>
+
+interface LocationTypewithRating extends LocationType {
+  business: Pick<Business, 'sustainabilityScore'>
+}
+
+const GET_COORDINATES = gql `
+  query {
+    locations {
+      id
+      latitude
+      longitude
+      business {
+        sustainabilityScore
+      }
+    }
+  }`
+
+const MapView = ({showRadius} : {showRadius : boolean}) => {
+  const [location, setLocation] = useState<CurrentLocation.LocationObject | null>(null)
+  const {data,  loading, error} = useQuery<{ locations: LocationTypewithRating[]}>(GET_COORDINATES)
 
   useEffect(() => {
     (async () => {
-      const {status} = await Location.requestForegroundPermissionsAsync()
+      const {status} = await CurrentLocation.requestForegroundPermissionsAsync()
       if (status !== 'granted') {
         console.error('Failed to get permissions.')
         return
       }
 
-      const location = await Location.getCurrentPositionAsync({})
+      const location = await CurrentLocation.getCurrentPositionAsync({})
       setLocation(location)
     })()
   }, [])
 
   return (
     <React.Fragment>
-      {location ? <Map
-        style={styles.map}
-        region={{
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-          latitudeDelta: 0.1,
-          longitudeDelta: 0.1
-        }}
-        showsUserLocation
-        showsCompass
-      /> : null}
-      <SearchBar/>
+      {location ?
+        <Map
+          style={styles.map}
+          region={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.1,
+            longitudeDelta: 0.1
+          }}
+          showsUserLocation
+          showsCompass
+        >
+          { data?.locations.map((marker) => (
+            <Marker
+              key = {marker.id}
+              coordinate = {marker}
+            >
+              <Pin onPress = {() => {}} rating = {marker.business.sustainabilityScore || 0}/>
+            </Marker>
+          ))}
+          { showRadius ? <DistanceRadiusView location={location}/> : null }
+        </Map> : <Text> Error: Could not find location </Text>
+      }
     </React.Fragment>
   )
 }

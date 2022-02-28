@@ -1,0 +1,421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "marginTop": "auto",
+    }
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#1ea853",
+          "borderColor": "#188441",
+          "borderRadius": 25,
+          "borderWidth": 2,
+          "height": 25,
+          "justifyContent": "center",
+          "left": 15,
+          "top": -1259,
+          "width": 80,
+        }
+      }
+      testID="option-selector-button"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+          }
+        }
+        testID="option-selector-button-text"
+      >
+        500 m
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": -400,
+          "elevation": 1,
+          "height": 400,
+          "position": "absolute",
+          "width": "100%",
+          "zIndex": 1,
+        }
+      }
+      testID="bottom-sheet"
+    >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "justifyContent": "flex-end",
+            "marginBottom": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 25,
+              "marginTop": 20,
+            }
+          }
+        >
+          Choose Distance
+        </Text>
+        <View
+          style={
+            Object {
+              "justifyContent": "space-evenly",
+              "marginBottom": 15,
+              "marginTop": 10,
+              "width": "60%",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#ededed",
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+                "opacity": 1,
+              }
+            }
+            testID="option-list-100"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "padding": 5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#000000",
+                  },
+                ]
+              }
+            >
+              100 m
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#ededed",
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+                "opacity": 1,
+              }
+            }
+            testID="option-list-250"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "padding": 5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#000000",
+                  },
+                ]
+              }
+            >
+              250 m
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#1ea853",
+                "borderColor": "#1ea853",
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+                "opacity": 1,
+              }
+            }
+            testID="option-list-500"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "padding": 5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                  },
+                ]
+              }
+            >
+              500 m
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#ededed",
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+                "opacity": 1,
+              }
+            }
+            testID="option-list-1000"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "padding": 5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#000000",
+                  },
+                ]
+              }
+            >
+              1 km
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#ededed",
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+                "opacity": 1,
+              }
+            }
+            testID="option-list-1500"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "padding": 5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#000000",
+                  },
+                ]
+              }
+            >
+              1.5 km
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#ededed",
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+                "opacity": 1,
+              }
+            }
+            testID="option-list-2000"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "padding": 5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#000000",
+                  },
+                ]
+              }
+            >
+              2 km
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#1ea853",
+              "borderRadius": 5,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": "75%",
+            }
+          }
+          testID="button"
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "paddingBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+            testID="button-text"
+          >
+            Apply
+          </Text>
+        </View>
+      </RCTSafeAreaView>
+    </View>
+  </View>
+  <AIRMapCircle
+    center={
+      Object {
+        "accuracy": 4,
+        "altitude": 3,
+        "altitudeAccuracy": 7,
+        "heading": 5,
+        "latitude": 1,
+        "longitude": 2,
+        "speed": 6,
+      }
+    }
+    lineDashPattern={
+      Array [
+        4,
+        2,
+      ]
+    }
+    lineDashPhase={1}
+    radius={500}
+    strokeColor="#188441"
+    strokeWidth={1}
+    testID="circle"
+  />
+</View>
+`;

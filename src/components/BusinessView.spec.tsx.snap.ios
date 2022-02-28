@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "marginHorizontal": 30,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginBottom": "8%",
+            "marginTop": "5%",
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png",
+            }
+          }
+          style={
+            Object {
+              "borderRadius": 10,
+              "height": 90,
+              "width": 90,
+            }
+          }
+          testID="profile-picture"
+        />
+        <Text
+          style={
+            Object {
+              "fontSize": 25,
+              "fontWeight": "500",
+            }
+          }
+        >
+          Starbucks
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 10,
+            }
+          }
+        >
+          Address (To be implemented)
+        </Text>
+      </View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 12,
+              "marginBottom": "1%",
+              "marginLeft": "1%",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          DESCRIPTION
+        </Text>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FAF9F9",
+              "borderRadius": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingHorizontal": 15,
+              }
+            }
+          >
+            <Image
+              resizeMode="contain"
+              source={1}
+              style={
+                Object {
+                  "height": 25,
+                  "width": 25,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "black",
+                  "fontSize": 12,
+                  "padding": 10,
+                }
+              }
+              testID="body-text"
+            >
+              This is a test business
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": "8%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 12,
+              "marginBottom": "1%",
+              "marginLeft": "1%",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          RATINGS
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#FAF9F9",
+                "borderRadius": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <Text>
+                FutureProof Rating
+              </Text>
+              <Text
+                testID="rating-value"
+              >
+                100
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A0A0A0",
+                    "fontSize": 10,
+                  }
+                }
+              >
+                Tap for Details
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#FAF9F9",
+                "borderRadius": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <Text>
+                Consumer Rating
+              </Text>
+              <Text
+                testID="rating-value"
+              >
+                65
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A0A0A0",
+                    "fontSize": 10,
+                  }
+                }
+              >
+                Tap for Details
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 12,
+              "marginBottom": "1%",
+              "marginLeft": "1%",
+            }
+          }
+        >
+          IMAGES
+        </Text>
+        <RCTScrollView
+          horizontal={true}
+        >
+          <View>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <Image
+                blurRadius={0}
+                source={
+                  Object {
+                    "height": 350,
+                    "uri": "https://cdn.vox-cdn.com/thumbor/VAkim2EiaKiIq4pUi295wH99Ces=/0x0:1100x729/1200x800/filters:focal(341x230:517x406)/cdn.vox-cdn.com/uploads/chorus_image/image/67717391/STARBUCKS.0.jpeg",
+                    "width": 320,
+                  }
+                }
+                style={
+                  Object {
+                    "borderColor": "#FFFFFF",
+                    "borderRadius": 30,
+                    "borderWidth": 10,
+                  }
+                }
+              />
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <Image
+                blurRadius={0}
+                source={
+                  Object {
+                    "height": 350,
+                    "uri": "https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-42658.jpg",
+                    "width": 320,
+                  }
+                }
+                style={
+                  Object {
+                    "borderColor": "#FFFFFF",
+                    "borderRadius": 30,
+                    "borderWidth": 10,
+                  }
+                }
+              />
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <Image
+                blurRadius={0}
+                source={
+                  Object {
+                    "height": 350,
+                    "uri": "https://cdn.vox-cdn.com/thumbor/1WVT8VSapMXbHPvsTEPxZp2gUrk=/0x0:1347x897/1200x800/filters:focal(567x342:781x556)/cdn.vox-cdn.com/uploads/chorus_image/image/62192379/starbucksredcups2015.1541431580.jpg",
+                    "width": 320,
+                  }
+                }
+                style={
+                  Object {
+                    "borderColor": "#FFFFFF",
+                    "borderRadius": 30,
+                    "borderWidth": 10,
+                  }
+                }
+              />
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <Image
+                blurRadius={0}
+                source={
+                  Object {
+                    "height": 350,
+                    "uri": "https://cdn.vox-cdn.com/thumbor/bSoWzne8VZvz8tavhebsL7DNik0=/0x0:5860x4008/1200x800/filters:focal(3243x1967:4179x2903)/cdn.vox-cdn.com/uploads/chorus_image/image/67132574/shutterstock_1410002591.0.jpg",
+                    "width": 320,
+                  }
+                }
+                style={
+                  Object {
+                    "borderColor": "#FFFFFF",
+                    "borderRadius": 30,
+                    "borderWidth": 10,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

@@ -1,0 +1,823 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": "auto",
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    testID="result-sorter-button"
+  >
+    <Text
+      testID="result-sorter-button-text"
+    >
+      Sorting by - 
+      Rating: High to Low
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "bottom": -400,
+        "elevation": 1,
+        "height": 400,
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": 1,
+      }
+    }
+    testID="bottom-sheet"
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "justifyContent": "flex-end",
+          "marginBottom": 0,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 25,
+            "marginTop": 20,
+          }
+        }
+      >
+        Sort Results
+      </Text>
+      <View
+        style={
+          Object {
+            "justifyContent": "space-evenly",
+            "marginBottom": 15,
+            "marginTop": 10,
+            "width": "60%",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-name_asc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Name: A to Z
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-name_desc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Name: Z to A
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-distance_asc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Distance: Near to Far
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-distance_desc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Distance: Far to Near
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "backgroundColor": "#1ea853",
+                "borderColor": "#1ea853",
+              },
+            ]
+          }
+          testID="sort-option-rating_asc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ]
+            }
+          >
+            Rating: High to Low
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-rating_desc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Rating: Low to High
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#1ea853",
+            "borderRadius": 5,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": "75%",
+          }
+        }
+        testID="button"
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "paddingBottom": 10,
+              "paddingTop": 10,
+            }
+          }
+          testID="button-text"
+        >
+          Apply
+        </Text>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</View>
+`;
+
+exports[`updates the selected option when an option is pressed 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": "auto",
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    testID="result-sorter-button"
+  >
+    <Text
+      testID="result-sorter-button-text"
+    >
+      Sorting by - 
+      Name: A to Z
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "bottom": -400,
+        "elevation": 1,
+        "height": 400,
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": 1,
+      }
+    }
+    testID="bottom-sheet"
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "justifyContent": "flex-end",
+          "marginBottom": 0,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 25,
+            "marginTop": 20,
+          }
+        }
+      >
+        Sort Results
+      </Text>
+      <View
+        style={
+          Object {
+            "justifyContent": "space-evenly",
+            "marginBottom": 15,
+            "marginTop": 10,
+            "width": "60%",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "backgroundColor": "#1ea853",
+                "borderColor": "#1ea853",
+              },
+            ]
+          }
+          testID="sort-option-name_asc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ]
+            }
+          >
+            Name: A to Z
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-name_desc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Name: Z to A
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-distance_asc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Distance: Near to Far
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-distance_desc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Distance: Far to Near
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-rating_asc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Rating: High to Low
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "opacity": 1,
+              },
+              Object {
+                "borderRadius": 10,
+                "borderWidth": 2,
+                "margin": 5,
+              },
+              Object {
+                "borderColor": "#ededed",
+              },
+            ]
+          }
+          testID="sort-option-rating_desc"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "fontSize": 15,
+                  "padding": 5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000000",
+                },
+              ]
+            }
+          >
+            Rating: Low to High
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#1ea853",
+            "borderRadius": 5,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": "75%",
+          }
+        }
+        testID="button"
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "paddingBottom": 10,
+              "paddingTop": 10,
+            }
+          }
+          testID="button-text"
+        >
+          Apply
+        </Text>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</View>
+`;
