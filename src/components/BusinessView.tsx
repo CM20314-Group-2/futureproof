@@ -40,15 +40,15 @@ const BusinessView = ({ businessToDisplay } : { businessToDisplay : DisplayableB
           <ImagesCarousel/>
         </SafeAreaView>
       </ScrollView>
-      <TouchableOpacity onPress={() => openMap({ end: ExampleBusinessLocation.address })} style={styles.DirectionsButtonContainer}>
-        <Text style={styles.DirectionsButtonText}>Get Directions</Text>
+      <TouchableOpacity onPress={() => openMap({ end: ExampleBusinessLocation.address })} style={styles.directionsButtonContainer}>
+        <Text style={styles.directionsButtonText}>Get Directions</Text>
       </TouchableOpacity>
     </View>
   )
 }
 
 export const styles = StyleSheet.create({
-  DirectionsButtonContainer: {
+  directionsButtonContainer: {
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: '#1EA853',
@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
     width: '90%',
     zIndex: 0
   },
-  DirectionsButtonText: {
+  directionsButtonText: {
     color: 'white',
     fontSize: 16
   },

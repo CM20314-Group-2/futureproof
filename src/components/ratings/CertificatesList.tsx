@@ -4,14 +4,14 @@ import CertificateLabel from '@components/ratings/CertificateLabel'
 
 const CertificatesList = () => {
   return (
-    <View style={styles.CertificatesListStyle}>
-      <View style={styles.CertificateItemStyle}>
+    <View style={styles.certificatesListStyle}>
+      <View style={styles.certificateItemStyle}>
         <CertificateLabel hasCertificate={true} certificateName={'BCorp'}/>
       </View>
-      <View style={styles.CertificateItemStyle}>
+      <View style={styles.certificateItemStyle}>
         <CertificateLabel hasCertificate={true} certificateName={'GBB'}/>
       </View>
-      <View style={styles.CertificateItemStyle}>
+      <View style={styles.certificateItemStyle}>
         <CertificateLabel hasCertificate={false} certificateName={'Green Mark'}/>
       </View>
     </View>
@@ -19,10 +19,10 @@ const CertificatesList = () => {
 }
 
 export const styles = StyleSheet.create({
-  CertificateItemStyle: {
+  certificateItemStyle: {
     paddingVertical: 5
   },
-  CertificatesListStyle: {
+  certificatesListStyle: {
     alignSelf: 'center'
   }
 })

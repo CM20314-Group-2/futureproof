@@ -7,9 +7,9 @@ const PROGRESS_BACKGROUND_COLOUR = '#F0EFEF'
 
 const RectangularRatingIndicator = ({ progressValue, ratingName } : { progressValue : number, ratingName : string }) => {
   return (
-    <View style={styles.IndicatorBackgroundStyle}>
-      <Text style={styles.RatingTitleStyle} testID={'rating-title-text'}>{ratingName}</Text>
-      <Svg style={StyleSheet.flatten([styles.IndicatorStyle])}>
+    <View style={styles.indicatorBackgroundStyle}>
+      <Text style={styles.ratingTitleStyle} testID={'rating-title-text'}>{ratingName}</Text>
+      <Svg style={StyleSheet.flatten([styles.indicatorStyle])}>
         <Rect width={'100%'} height={10} rx={5} fill={PROGRESS_BACKGROUND_COLOUR}/>
         <Rect width={`${progressValue}%`} height={10} rx={5} fill={ratingToColour(progressValue)}/>
       </Svg>
@@ -18,18 +18,18 @@ const RectangularRatingIndicator = ({ progressValue, ratingName } : { progressVa
 }
 
 export const styles = StyleSheet.create({
-  IndicatorBackgroundStyle: {
+  indicatorBackgroundStyle: {
     backgroundColor: '#FAF9F9',
     borderRadius: 10,
     height: 85,
     justifyContent: 'space-evenly',
     padding: 10
   },
-  IndicatorStyle: {
+  indicatorStyle: {
     borderRadius: 5,
     height: 10
   },
-  RatingTitleStyle: {
+  ratingTitleStyle: {
     fontSize: 12
   }
 })

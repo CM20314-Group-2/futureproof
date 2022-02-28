@@ -6,13 +6,13 @@ const FALSE_CERTIFICATE_COLOUR = 'brown'
 
 const CertificateLabel = ({ hasCertificate, certificateName } : { hasCertificate : boolean, certificateName : string }) => {
   return (
-    <View style={styles.IndicatorBackgroundStyle}>
+    <View style={styles.indicatorBackgroundStyle}>
       <View 
-        style={StyleSheet.flatten([styles.CertificateIndicator, { backgroundColor: (hasCertificate ? TRUE_CERTIFICATE_COLOUR : FALSE_CERTIFICATE_COLOUR) }])} 
+        style={StyleSheet.flatten([styles.certificateIndicator, { backgroundColor: (hasCertificate ? TRUE_CERTIFICATE_COLOUR : FALSE_CERTIFICATE_COLOUR) }])} 
         testID={'certificate-indicator'}
       />
       <Text 
-        style={styles.CertificateTitleStyle}
+        style={styles.certificateTitleStyle}
         testID={'certificate-text'}>
         {certificateName}
       </Text>
@@ -21,15 +21,15 @@ const CertificateLabel = ({ hasCertificate, certificateName } : { hasCertificate
 }
 
 export const styles = StyleSheet.create({
-  CertificateIndicator: {
+  certificateIndicator: {
     height: 15,
     right: 5,
     width: 2
   },
-  CertificateTitleStyle: {
+  certificateTitleStyle: {
     fontSize: 10
   },
-  IndicatorBackgroundStyle: {
+  indicatorBackgroundStyle: {
     alignItems: 'center',
     flexDirection: 'row'
   }

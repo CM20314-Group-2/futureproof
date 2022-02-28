@@ -7,26 +7,26 @@ import { DisplayableBusiness } from '@futureproof/typings'
 
 const FutureProofRatingView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness }) => {
   return (
-    <SafeAreaView style={styles.FutureProofRatingViewStyle}>
+    <SafeAreaView style={styles.futureProofRatingViewStyle}>
       <ScrollView>
-        <View style={styles.FutureProofRatingTitleView}>
+        <View style={styles.futureProofRatingTitleView}>
           <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={businessToDisplay.sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
           <CertificatesList/>
         </View>
         <Text style={styles.headingText}>BREAKDOWN</Text>
-        <View style={styles.RectangularRatingStyle}>
+        <View style={styles.rectangularRatingStyle}>
           <RectangularRatingIndicator progressValue={75} ratingName={'Carbon Emissions'}/>
         </View>
-        <View style={styles.RectangularRatingStyle}>
+        <View style={styles.rectangularRatingStyle}>
           <RectangularRatingIndicator progressValue={20} ratingName={'Working Conditions'}/>
         </View>
-        <View style={styles.RectangularRatingStyle}>
+        <View style={styles.rectangularRatingStyle}>
           <RectangularRatingIndicator progressValue={95} ratingName={'Ecosystem Impact'}/>
         </View>
-        <View style={styles.RectangularRatingStyle}>
+        <View style={styles.rectangularRatingStyle}>
           <RectangularRatingIndicator progressValue={51} ratingName={'Pay distibution'}/>
         </View>
-        <View style={styles.RectangularRatingStyle}>
+        <View style={styles.rectangularRatingStyle}>
           <RectangularRatingIndicator progressValue={85} ratingName={'Discrimination and Diversity'}/>
         </View>
       </ScrollView>
@@ -35,15 +35,15 @@ const FutureProofRatingView = ({ businessToDisplay } : { businessToDisplay : Dis
 }
 
 export const styles = StyleSheet.create({
-  FutureProofRatingTitleView: {
+  futureProofRatingTitleView: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     paddingVertical: 20
   },
-  FutureProofRatingViewStyle: {
+  futureProofRatingViewStyle: {
     marginHorizontal: 30
   },
-  RectangularRatingStyle: {
+  rectangularRatingStyle: {
     paddingVertical: 5
   },
   headingText: {

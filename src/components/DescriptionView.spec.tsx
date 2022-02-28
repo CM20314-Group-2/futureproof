@@ -7,6 +7,14 @@ it('matches snapshot', () => {
   expect(toJSON()).toMatchSnapshot()
 })
 
+it('renders expected text', () => {
+  const { getByTestId } = render(<DescriptionView profileText={'TEST'}/>)
+  
+  const text = getByTestId('body-text')
+  expect(text).toHaveTextContent('TEST')
+  expect(text.props.children).toEqual('No description available.')
+})
+
 it('gives a default message when no text is provided', () => {
   const { getByTestId } = render(<DescriptionView profileText={null}/>)
   
