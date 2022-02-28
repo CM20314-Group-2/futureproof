@@ -29,9 +29,6 @@ const GET_COORDINATES = gql `
 const MapView = () => {
   const [location, setLocation] = useState<CurrentLocation.LocationObject | null>(null)
   const {data,  loading, error} = useQuery<{ locations: LocationTypewithRating[]}>(GET_COORDINATES)
-  console.log(loading)
-  console.log(error)
-  console.log('data', data)
 
   useEffect(() => {
     (async () => {
