@@ -1,6 +1,6 @@
 import * as CurrentLocation from 'expo-location'
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import Map from 'react-native-maps'
 import SearchBar from '@components/SearchBarView'
 import { Business, Location } from '@futureproof/typings'
@@ -14,29 +14,7 @@ interface LocationTypewithRating extends LocationType {
   business: Pick<Business, 'sustainabilityScore'>
 }
 
-//Example locations, not from database
-const ExampleLocationOne: LocationType = {
-  //Starbucks
-  id: '0',
-  latitude: 51.3808,
-  longitude: -2.3631
-
-}
-const ExampleLocationTwo: LocationType = {
-  //Sainsburys
-  id: '1',
-  latitude: 51.3811,
-  longitude: -2.3687
-}
-const ExampleLocationThree: LocationType = {
-  //H&M
-  id: '2',
-  latitude: 51.37904,
-  longitude: -2.35882
-}
-const ExampleLocations = [ExampleLocationOne, ExampleLocationTwo, ExampleLocationThree]
-
-const GetCoordinates = gql `
+const GET_COORDINATES = gql `
   query {
     locations {
       id
@@ -48,26 +26,12 @@ const GetCoordinates = gql `
     }
   }`
 
-
 const MapView = () => {
   const [location, setLocation] = useState<CurrentLocation.LocationObject | null>(null)
-  const {data,  loading, error} = useQuery<{ locations: LocationTypewithRating[]}>(GetCoordinates)
+  const {data,  loading, error} = useQuery<{ locations: LocationTypewithRating[]}>(GET_COORDINATES)
   console.log(loading)
   console.log(error)
   console.log('data', data)
-  
-
-  //Function to populate the map with the customised pins
-  function PopulateMap() {
-    return data?.locations.map((marker) => (<Marker
-      key = {marker.id}
-      coordinate = {marker}
-      >
-      <Pin onPress = {() => {}} rating = {marker.business.sustainabilityScore || 0}
-      ></Pin>
-      </Marker>)
-    )
-  }
 
   useEffect(() => {
     (async () => {
@@ -95,8 +59,15 @@ const MapView = () => {
         showsUserLocation
         showsCompass
         >   
-        { PopulateMap() }
-      </Map> :null}
+        { data?.locations.map((marker) => (<Marker
+          key = {marker.id}
+          coordinate = {marker}
+          >
+      <Pin onPress = {() => {}} rating = {marker.business.sustainabilityScore || 0}
+      ></Pin>
+      </Marker>)
+        ) }
+      </Map> : <Text> Error: Could not find location </Text>}
     </React.Fragment>
   )
 }

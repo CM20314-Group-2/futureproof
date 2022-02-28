@@ -1,4 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import MapView from '@components/MapView'
 import SearchView from '@components/SearchView'
 import { Business, Location } from '@futureproof/typings'
 import Constants from 'expo-constants'
@@ -11,7 +12,7 @@ interface LocationType extends Pick<Location, 'latitude'> {
 
 // Initialise Apollo Client
 const client = new ApolloClient({
-  uri: `${Constants.manifest?.extra?.serverAddress}`, // Server URL (must be absolute)
+  uri: `${Constants.manifest?.extra?.serverAddress}/graphql`, // Server URL (must be absolute)
   cache: new InMemoryCache() // Cache
 })
 
@@ -20,8 +21,8 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        {/* <MapView/> */}
-        <SearchView/>
+        <MapView/>
+        {/* <SearchView/> */}
       </View>
     </ApolloProvider>
   )
