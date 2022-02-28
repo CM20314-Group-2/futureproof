@@ -8,7 +8,7 @@ interface ComponentProps {
   ratingValue : Business['customerScore'] | Business['sustainabilityScore']
 }
 
-const RatingView = ({ ratingName, ratingValue = 0 } : ComponentProps ) => (
+const RatingView = ({ ratingName, ratingValue } : ComponentProps ) => (
   <View style={styles.itemBackgroundStyle}>
     <View style={styles.ratingContainerStyle}>
       <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={ratingValue == null ? 0 : ratingValue} ratingName={ratingName}/>
