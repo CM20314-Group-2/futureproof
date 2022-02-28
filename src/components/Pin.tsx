@@ -22,9 +22,9 @@ const Pin = ({onPress, rating, style}: ComponentProps) => {
   const colour = rating >= 33 ? rating > 66 ? ['#1ea853', '#188441'] : ['#bed62e', '#a8bd29'] : ['#e2382d', '#842b18']
 
   return (
-    <Pressable style={[style, {margin: 'auto'}]} onPress={onPress} testID={'pin-pressable'}>
-      <View style={[styles.circle, {backgroundColor: colour[0]}]} testID={'pin'}>
-        <View style={[styles.rating_circle, {backgroundColor: colour[1]}]} testID={'rating-background'}>
+    <Pressable style={[style, {margin: 'auto'}]} onPress={onPress} testID='pin-pressable'>
+      <View style={[styles.circle, {backgroundColor: colour[0]}]} testID='pin'>
+        <View style={[styles.rating_circle, {backgroundColor: colour[1]}]} testID='rating-background'>
           <Text style={styles.text}>{rating}</Text>
         </View>
       </View>
