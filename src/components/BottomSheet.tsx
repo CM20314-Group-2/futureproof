@@ -52,8 +52,8 @@ const BottomSheet = ({ children, show, height, onOuterClick } : ComponentProps) 
 
   return (
     <React.Fragment>
-      {show
-        ? <Pressable
+      {show ?
+        <Pressable
           onPress={ onOuterClick }
           style={{ ...styles.background, height: screenHeight, top: -screenHeight }}
           testID='bottom-sheet-background'
