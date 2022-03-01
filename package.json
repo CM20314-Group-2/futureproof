@@ -25,7 +25,9 @@
     "react-native-elements": "^3.4.2",
     "react-native-image-viewing": "^0.2.1",
     "react-native-maps": "^0.29.4",
+    "react-native-open-maps": "^0.4.0",
     "react-native-safe-area-context": "^3.4.1",
+    "react-native-svg": "^12.1.1",
     "react-navigation": "^4.4.4"
   },
   "devDependencies": {
