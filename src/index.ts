@@ -3,7 +3,6 @@ import {typeDefs} from '@typings/schema'
 import {resolvers} from './resolvers'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
-//import {Context} from './context'
 import {makeExecutableSchema}  from '@graphql-tools/schema'
 
 const app = Fastify()

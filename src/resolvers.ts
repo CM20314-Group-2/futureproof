@@ -1,8 +1,5 @@
 import {Prisma} from '@prisma/client'
-// may not need to import prisma - but idk how to make sure input is valid
 
-//_parent, _args, context: Context
-// Use this if context includes prismaclient
 export const resolvers = {
   Query: {
     users: async (context) => {
@@ -83,9 +80,6 @@ export const resolvers = {
     },
   },
 
-  // There must be functionality to ensure that non-primary
-  // keys that are still unique are not repeated
-
   Mutation: {
     createUser: async (_parent, userInput: Prisma.UserCreateInput, context) => {
       return context.prisma.user.create({
@@ -96,7 +90,9 @@ export const resolvers = {
           password: userInput.password,
           Comment: {},
           UserReview: {},
-          // below here are optional (do i add them or not?)
+
+          // Data assignment is split by a blank line into required and optional.
+          // The second block is optional data that does not need to be assigned in creation.
           roles: userInput.roles,
           profilePhoto: userInput.profilePhoto,
           Business: userInput.Business
@@ -113,8 +109,8 @@ export const resolvers = {
           createdAt: businessInput.createdAt,
           updatedAt: businessInput.updatedAt,
 
-          ProfileText: businessInput.ProfileText,
-          ProfilePicture: businessInput.ProfilePicture,
+          profileText: businessInput.profileText,
+          profilePicture: businessInput.profilePicture,
           type: businessInput.type,
           locationId: businessInput.locationId,
           primaryLocation: businessInput.primaryLocation,
@@ -150,14 +146,14 @@ export const resolvers = {
         }
       })
     },
-    createReview: async (_parent, reviewInput: Prisma.UserReviewCreateInput, context) => {
+    createReview: async (_parent, reviewInput: Prisma.ReviewCreateInput, context) => {
       return context.prisma.userReview.create({
         data: {
           createdAt: reviewInput.createdAt,
           reputation: reviewInput.reputation,
-          ReviewData: reviewInput.ReviewData,
+          reviewData: reviewInput.reviewData,
           user: reviewInput.user,
-          Business: reviewInput.Business
+          business: reviewInput.business
         }
       })
     },
@@ -188,8 +184,8 @@ export const resolvers = {
           createdAt: args.businessInput.createdAt,
           updatedAt: args.businessInput.updatedAt,
 
-          ProfileText: args.businessInput.ProfileText,
-          ProfilePicture: args.businessInput.ProfilePicture,
+          profileText: args.businessInput.profileText,
+          profilePicture: args.businessInput.profilePicture,
           type: args.businessInput.type,
           locationId: args.businessInput.locationId,
           primaryLocation: args.businessInput.primaryLocation,
@@ -228,14 +224,14 @@ export const resolvers = {
         where: { id: args.id }
       })
     },
-    updateReview: async (_parent, args: { id: number, reviewInput: Prisma.UserReviewUpdateInput }, context) => {
+    updateReview: async (_parent, args: { id: number, reviewInput: Prisma.ReviewUpdateInput }, context) => {
       return context.prisma.userReview.update({
         data: {
           createdAt: args.reviewInput.createdAt,
           reputation: args.reviewInput.reputation,
-          ReviewData: args.reviewInput.ReviewData,
+          ReviewData: args.reviewInput.reviewData,
           user: args.reviewInput.user,
-          Business: args.reviewInput.Business
+          Business: args.reviewInput.business
         },
         where: { id: args.id }
       })
