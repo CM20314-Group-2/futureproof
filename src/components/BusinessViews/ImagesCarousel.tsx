@@ -1,41 +1,31 @@
 import React, { useState } from 'react'
 import {
   Image,
+  ScrollView,
   StyleSheet,
   Text,
-  View,
-  ScrollView,
   TouchableHighlight,
+  View,
 } from 'react-native'
 import ImageView from 'react-native-image-viewing'
 
-const Image1 =
-  'https://cdn.vox-cdn.com/thumbor/VAkim2EiaKiIq4pUi295wH99Ces=/0x0:1100x729/1200x800/filters:focal(341x230:517x406)/cdn.vox-cdn.com/uploads/chorus_image/image/67717391/STARBUCKS.0.jpeg'
-const Image2 =
-  'https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-42658.jpg'
-const Image3 =
-  'https://cdn.vox-cdn.com/thumbor/1WVT8VSapMXbHPvsTEPxZp2gUrk=/0x0:1347x897/1200x800/filters:focal(567x342:781x556)/cdn.vox-cdn.com/uploads/chorus_image/image/62192379/starbucksredcups2015.1541431580.jpg'
-const Image4 =
-  'https://cdn.vox-cdn.com/thumbor/bSoWzne8VZvz8tavhebsL7DNik0=/0x0:5860x4008/1200x800/filters:focal(3243x1967:4179x2903)/cdn.vox-cdn.com/uploads/chorus_image/image/67132574/shutterstock_1410002591.0.jpg'
+interface ComponentProps {
+  Image1: string
+  Image2: string
+  Image3: string
+  Image4: string
+}
 
-const images = [
-  {
-    uri: Image1,
-  },
-  {
-    uri: Image2,
-  },
-  {
-    uri: Image3,
-  },
-  {
-    uri: Image4,
-  },
-]
-
-const ImagesCarousel = () => {
+const ImagesCarousel = ({ Image1, Image2, Image3, Image4 }: ComponentProps) => {
   const [visible, setModalVisible] = useState(false)
   const [modalImageIndex, setModalImageIndex] = useState(0)
+
+  const images = [
+    { uri: Image1 },
+    { uri: Image2 },
+    { uri: Image3 },
+    { uri: Image4 },
+  ]
 
   return (
     <View>
