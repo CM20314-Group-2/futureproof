@@ -36,12 +36,13 @@
     "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
-    "rn-sliding-up-panel": "^2.4.5"
+    "rn-sliding-up-panel": "^2.4.5",
+    "react-native-open-maps": "^0.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-typescript": "^7.16.7",
-    "@futureproof/typings": "../typings",
+    "@futureproof/typings": "file:../typings",
     "@testing-library/jest-native": "^4.0.4",
     "@testing-library/react-native": "^9.0.0",
     "@types/ip": "^1.1.0",

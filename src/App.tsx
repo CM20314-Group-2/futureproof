@@ -8,8 +8,20 @@ import AccountButton from './components/AccountButton'
 import BusinessView from '@components/BusinessViews/BusinessView'
 import React from 'react'
 import { StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native'
-import { Business, Location } from '@futureproof/typings'
+import SearchView from '@components/SearchView'
+import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
+import { Business, DisplayableBusiness, BusinessType, Location } from '@futureproof/typings'
 import Constants from 'expo-constants'
+
+const ExampleBusiness : DisplayableBusiness =  {
+  id: '1',
+  name: 'Starbucks',
+  profileText: 'This is a test business and there is not that much to say about it.',
+  sustainabilityScore: 80,
+  customerScore: 65,
+  type: BusinessType.Cafe,
+  profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
+}
 
 interface LocationType extends Pick<Location, 'latitude'> {
   business: Pick<Business, 'sustainabilityScore'>
@@ -31,6 +43,7 @@ const Stack = createStackNavigator<RootStackParamList>()
 
 type Props = StackScreenProps<RootStackParamList>
 
+
 export const FeedScreen = ({ navigation }: Props) => {
   return (
     <ApolloProvider client={client}>
@@ -47,10 +60,19 @@ export const FeedScreen = ({ navigation }: Props) => {
   )
 }
 
-/**
- *
- * @returns
- */
+/*
+export const FeedScreen = ({ navigation }: Props) => {
+  return (
+    <ApolloProvider client={client}>
+      <View style={styles.container}>
+        <BusinessView businessToDisplay={ExampleBusiness}/>
+      </View>
+    </ApolloProvider>
+  )
+}
+*/
+
+
 export const AppNavigator = () => {
   return (
     <Stack.Navigator>

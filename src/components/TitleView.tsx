@@ -1,21 +1,15 @@
-import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
-type ViewProps = Pick<DisplayableBusiness, 'name' | 'profilePicture'>
-
-const TitleView = ({ name, profilePicture }: ViewProps) => (
+const TitleView = ({ name, profilePicture, businessAddress } : { name : string, profilePicture ?: string | null, businessAddress : string } ) => (
   <View style={styles.titleViewStyle}>
-    {profilePicture ? (
-      <Image
-        source={{ uri: profilePicture }}
-        style={styles.profilePictureStyle}
-        resizeMode='contain'
-        testID='profile-picture'
-      />
-    ) : null}
-    <Text style={styles.titleText}>{name}</Text>
-    <Text style={styles.subtitleText}>Address (To be implemented)</Text>
+    {profilePicture ? <Image source={{ uri: profilePicture }} style={styles.profilePictureStyle} resizeMode='contain' testID='profile-picture'/> : null}
+    <Text style={styles.titleText} testID={'business-name-text'}>
+      {name}
+    </Text>
+    <Text style={styles.subtitleText} testID={'business-address-text'}>
+      {businessAddress}
+    </Text>
   </View>
 )
 

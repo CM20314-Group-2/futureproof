@@ -1,4 +1,4 @@
-import BusinessView from '@components/BusinessView'
+import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 import { DisplayableBusiness, BusinessType } from '@futureproof/typings'
@@ -14,6 +14,12 @@ const ExampleBusiness : DisplayableBusiness =  {
 }
 
 it('matches snapshot', () => {
-  const { toJSON } = render(<BusinessView businessToDisplay={ExampleBusiness}/>)
+  const { toJSON } = render(<FutureProofRatingView businessToDisplay={ExampleBusiness}/>)
   expect(toJSON()).toMatchSnapshot()
+})
+
+it('renders rating title text appended with "Rating"', () => {
+  const { getByTestId } = render(<FutureProofRatingView businessToDisplay={ExampleBusiness} />)
+  const nameText = getByTestId('rating-name-text')
+  expect(nameText).toHaveTextContent('FutureProof Rating')
 })

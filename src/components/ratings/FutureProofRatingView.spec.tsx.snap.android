@@ -1,0 +1,522 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "marginHorizontal": 30,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-evenly",
+            "paddingVertical": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <RNSVGSvgView
+            bbHeight={150}
+            bbWidth={150}
+            focusable={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "height": 150,
+                  "transform": Array [
+                    Object {
+                      "rotate": "270deg",
+                    },
+                  ],
+                  "width": 150,
+                  "zIndex": 0,
+                },
+                Object {
+                  "flex": 0,
+                  "height": 150,
+                  "width": 150,
+                },
+              ]
+            }
+          >
+            <RNSVGGroup
+              matrix={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            >
+              <RNSVGCircle
+                cx={61}
+                cy={61}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    -0,
+                    1,
+                    14,
+                    14,
+                  ]
+                }
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                  ]
+                }
+                r={61}
+                stroke={-329223}
+                strokeWidth={14}
+              />
+              <RNSVGCircle
+                cx={61}
+                cy={61}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    -0,
+                    1,
+                    14,
+                    14,
+                  ]
+                }
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeDasharray",
+                    "strokeDashoffset",
+                    "strokeLinecap",
+                  ]
+                }
+                r={61}
+                stroke={-11491492}
+                strokeDasharray={
+                  Array [
+                    383.27430373795477,
+                    383.27430373795477,
+                  ]
+                }
+                strokeDashoffset={114.98229112138645}
+                strokeLinecap={1}
+                strokeWidth={11.200000000000001}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+          <Text
+            style={
+              Object {
+                "alignItems": "center",
+                "color": "#50a75c",
+                "fontSize": 21,
+                "fontWeight": "bold",
+                "position": "absolute",
+                "top": 62.5,
+                "zIndex": 1,
+              }
+            }
+            testID="rating-value-text"
+          >
+            70
+          </Text>
+          <Text
+            style={
+              Object {
+                "alignItems": "center",
+                "color": "#50a75c",
+                "fontSize": 9,
+                "position": "absolute",
+                "top": 87.5,
+                "zIndex": 1,
+              }
+            }
+            testID="rating-name-text"
+          >
+            FutureProof Rating
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignSelf": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "paddingVertical": 5,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#1EA853",
+                    "height": 15,
+                    "right": 5,
+                    "width": 2,
+                  }
+                }
+                testID="certificate-indicator"
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+                testID="certificate-text"
+              >
+                BCorp
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "paddingVertical": 5,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#1EA853",
+                    "height": 15,
+                    "right": 5,
+                    "width": 2,
+                  }
+                }
+                testID="certificate-indicator"
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+                testID="certificate-text"
+              >
+                GBB
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "paddingVertical": 5,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "brown",
+                    "height": 15,
+                    "right": 5,
+                    "width": 2,
+                  }
+                }
+                testID="certificate-indicator"
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+                testID="certificate-text"
+              >
+                Green Mark
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#A0A0A0",
+            "fontSize": 12,
+            "paddingLeft": 20,
+          }
+        }
+      >
+        BREAKDOWN
+      </Text>
+      <View
+        style={
+          Object {
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FAF9F9",
+              "borderRadius": 10,
+              "height": 85,
+              "justifyContent": "space-evenly",
+              "padding": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 12,
+              }
+            }
+            testID="rating-title-text"
+          >
+            Carbon Emissions
+          </Text>
+          <RNSVGSvgView
+            bbHeight={10}
+            focusable={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "borderRadius": 5,
+                  "height": 10,
+                },
+              ]
+            }
+          >
+            <RNSVGGroup>
+              <RNSVGRect
+                fill={-987153}
+                height={10}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rx={5}
+                width="100%"
+                x={0}
+                y={0}
+              />
+              <RNSVGRect
+                fill={-11491492}
+                height={10}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rx={5}
+                width="75%"
+                x={0}
+                y={0}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FAF9F9",
+              "borderRadius": 10,
+              "height": 85,
+              "justifyContent": "space-evenly",
+              "padding": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 12,
+              }
+            }
+            testID="rating-title-text"
+          >
+            Working Conditions
+          </Text>
+          <RNSVGSvgView
+            bbHeight={10}
+            focusable={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "borderRadius": 5,
+                  "height": 10,
+                },
+              ]
+            }
+          >
+            <RNSVGGroup>
+              <RNSVGRect
+                fill={-987153}
+                height={10}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rx={5}
+                width="100%"
+                x={0}
+                y={0}
+              />
+              <RNSVGRect
+                fill={-5952982}
+                height={10}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rx={5}
+                width="20%"
+                x={0}
+                y={0}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FAF9F9",
+              "borderRadius": 10,
+              "height": 85,
+              "justifyContent": "space-evenly",
+              "padding": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 12,
+              }
+            }
+            testID="rating-title-text"
+          >
+            Ecosystem Impact
+          </Text>
+          <RNSVGSvgView
+            bbHeight={10}
+            focusable={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "borderRadius": 5,
+                  "height": 10,
+                },
+              ]
+            }
+          >
+            <RNSVGGroup>
+              <RNSVGRect
+                fill={-987153}
+                height={10}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rx={5}
+                width="100%"
+                x={0}
+                y={0}
+              />
+              <RNSVGRect
+                fill={-11491492}
+                height={10}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rx={5}
+                width="70%"
+                x={0}
+                y={0}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
