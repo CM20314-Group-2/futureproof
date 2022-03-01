@@ -18,7 +18,7 @@ const ExampleBusinessLocation : ExampleLocationType = {
   longitude: -2.3572347659685513
 }
 
-const BusinessView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness}) => {
+const BusinessView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness }) => {
   return (
     <View>
       <ScrollView contentContainerStyle={styles.businessViewScrollStyle} contentInsetAdjustmentBehavior='automatic'>
@@ -48,6 +48,13 @@ const BusinessView = ({ businessToDisplay } : { businessToDisplay : DisplayableB
 }
 
 export const styles = StyleSheet.create({
+  businessViewScrollStyle: {
+    flexGrow: 1,
+    height: '100%'
+  },
+  businessViewStyle: {
+    marginHorizontal: 30
+  },
   directionsButtonContainer: {
     alignItems: 'center',
     alignSelf: 'center',
@@ -63,13 +70,6 @@ export const styles = StyleSheet.create({
   directionsButtonText: {
     color: 'white',
     fontSize: 16
-  },
-  businessViewScrollStyle: {
-    flexGrow: 1,
-    height: '100%'
-  },
-  businessViewStyle: {
-    marginHorizontal: 30
   }
 })
 
