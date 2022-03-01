@@ -166,7 +166,7 @@ export const resolvers = {
           password: args.userInput.password,
           Comment: {},
           UserReview: {},
-          // below here are optional (do i add them or not?)
+          
           roles: args.userInput.roles,
           profilePhoto: args.userInput.profilePhoto,
           Business: args.userInput.Business
