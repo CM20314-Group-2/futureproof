@@ -5,6 +5,7 @@ import MapView from '@components/MapView'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import AccountView from '@components/AccountView'
 import AccountButton from './components/AccountButton'
+import BusinessView from '@components/BusinessViews/BusinessView'
 import React from 'react'
 import { StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import { Business, Location } from '@futureproof/typings'
@@ -46,6 +47,10 @@ export const FeedScreen = ({ navigation }: Props) => {
   )
 }
 
+/**
+ *
+ * @returns
+ */
 export const AppNavigator = () => {
   return (
     <Stack.Navigator>

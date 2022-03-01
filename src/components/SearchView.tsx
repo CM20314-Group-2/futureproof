@@ -16,15 +16,15 @@ const TEST_BUSINESSES_DATA: DisplayableBusiness[] = [
   },
 ]
 
-const SearchView = ({ navigation }: { navigation: any }) => {
+const SearchView = () => {
   const [selectedId, setSelectedId] = useState(null)
 
-  const renderSearchItem = ({ item }: { item: DisplayableBusiness }) => (
+  const renderSearchItem = ({ item } : { item : DisplayableBusiness }) => (
     <SearchResult
       business={item}
       onPress={() => {
         // Respond to business seletion tap here
-        navigation.push('BusinessView')
+        //navigation.push('BusinessView')
       }}
     />
   )
