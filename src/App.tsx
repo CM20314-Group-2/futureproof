@@ -1,17 +1,14 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
-import { NavigationContainer } from '@react-navigation/native'
-import MapView from '@components/MapView'
-import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import AccountView from '@components/AccountView'
-import AccountButton from './components/AccountButton'
-import BusinessView from '@components/BusinessViews/BusinessView'
-import React from 'react'
-import { StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native'
-import SearchView from '@components/SearchView'
-import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
-import { Business, DisplayableBusiness, BusinessType, Location } from '@futureproof/typings'
+import MapSlideUpSheet from '@components/MapSlideUpSheet'
+import MapView from '@components/MapView'
+import { Business, BusinessType, DisplayableBusiness, Location } from '@futureproof/typings'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import Constants from 'expo-constants'
+import React from 'react'
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
+import AccountButton from './components/AccountButton'
 
 const ExampleBusiness : DisplayableBusiness =  {
   id: '1',
@@ -24,18 +21,18 @@ const ExampleBusiness : DisplayableBusiness =  {
 }
 
 interface LocationType extends Pick<Location, 'latitude'> {
-  business: Pick<Business, 'sustainabilityScore'>
+  business : Pick<Business, 'sustainabilityScore'>
 }
 
 // Initialise Apollo Client
 const client = new ApolloClient({
-  uri: `${Constants.manifest?.extra?.serverAddress}`, // Server URL (must be absolute)
-  cache: new InMemoryCache(), // Cache
+  uri: `${Constants.manifest?.extra?.serverAddress}/graphql`, // Server URL (must be absolute)
+  cache: new InMemoryCache() // Cache
 })
 
 type RootStackParamList = {
-  MapView: undefined
-  AccountView: undefined
+  MapView : undefined
+  AccountView : undefined
 }
 
 // Initialise Stack Navigator
@@ -44,11 +41,11 @@ const Stack = createStackNavigator<RootStackParamList>()
 type Props = StackScreenProps<RootStackParamList>
 
 
-export const FeedScreen = ({ navigation }: Props) => {
+export const FeedScreen = ({ navigation } : Props) => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <MapView />
+        <MapView showRadius />
         <SafeAreaView>
           <TouchableOpacity onPress={() => navigation.push('AccountView')}>
             <AccountButton />
@@ -59,18 +56,6 @@ export const FeedScreen = ({ navigation }: Props) => {
     </ApolloProvider>
   )
 }
-
-/*
-export const FeedScreen = ({ navigation }: Props) => {
-  return (
-    <ApolloProvider client={client}>
-      <View style={styles.container}>
-        <BusinessView businessToDisplay={ExampleBusiness}/>
-      </View>
-    </ApolloProvider>
-  )
-}
-*/
 
 
 export const AppNavigator = () => {

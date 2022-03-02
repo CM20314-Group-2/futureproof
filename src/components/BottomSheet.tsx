@@ -4,14 +4,14 @@ import {
   Easing,
   Pressable,
   StyleSheet,
-  useWindowDimensions,
+  useWindowDimensions
 } from 'react-native'
 
 interface ComponentProps {
-  children: React.ReactNode
-  show: boolean
-  height: number
-  onOuterClick?: () => void
+  children : React.ReactNode
+  show : boolean
+  height : number
+  onOuterClick ?: () => void
 }
 
 /** Duration of appearance animation (ms) */
@@ -37,8 +37,8 @@ const BottomSheet = ({
   show,
   height,
   onOuterClick,
-}: ComponentProps) => {
-  const useAnimatedBottom = (show: boolean, height: number) => {
+} : ComponentProps) => {
+  const useAnimatedBottom = (show : boolean, height : number) => {
     const animatedValue = useRef(new Animated.Value(0))
     const bottom = animatedValue.current.interpolate({
       inputRange: [0, 1],
