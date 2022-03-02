@@ -14,13 +14,8 @@ interface ComponentProps {
   onOuterClick?: () => void
 }
 
-/** Duration of appearance animation (ms) */
-export const IN_DURATION = 300
-/** Duration of disappearance animation (ms) */
-export const OUT_DURATION = 150
-
 /**
- * BottomSheet Component
+ * BottomSheet Component -
  *
  * source: https://stackoverflow.com/questions/39117599/how-to-slide-view-in-and-out-from-the-bottom-in-react-native
  *
@@ -48,7 +43,7 @@ const BottomSheet = ({
     useEffect(() => {
       Animated.timing(animatedValue.current, {
         toValue: show ? 1 : 0,
-        duration: show ? IN_DURATION : OUT_DURATION,
+        duration: show ? 300 : 150,
         easing: Easing.bezier(0.5, 0, 0.5, 1),
         useNativeDriver: false,
       }).start()
@@ -62,21 +57,16 @@ const BottomSheet = ({
 
   return (
     <React.Fragment>
-      {show ? (
+      {show && (
         <Pressable
           onPress={onOuterClick}
-          style={{
-            ...styles.background,
-            height: screenHeight,
-            top: -screenHeight,
-          }}
-          testID='bottom-sheet-background'
+          style={[
+            styles.background,
+            { height: screenHeight, top: -screenHeight },
+          ]}
         />
-      ) : null}
-      <Animated.View
-        style={{ ...styles.bottomSheet, height, bottom }}
-        testID='bottom-sheet'
-      >
+      )}
+      <Animated.View style={[styles.bottomSheet, { height, bottom }]}>
         {children}
       </Animated.View>
     </React.Fragment>

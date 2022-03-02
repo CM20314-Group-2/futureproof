@@ -1,11 +1,13 @@
-import { Option } from '@components/SearchResultSorter'
 import React, { useState } from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { SortOptions as SortOptionsType } from '@futureproof/typings'
 
 interface ComponentProps {
-  options: Option[]
+  options: { label: string; value: SortOptionsType }[]
   initial?: number | null
-  onChange: React.Dispatch<React.SetStateAction<Option>>
+  onChange: React.Dispatch<
+    React.SetStateAction<{ label: string; value: SortOptionsType }>
+  >
 }
 
 /**
@@ -27,9 +29,17 @@ const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
       initial >= 0 && initial < options.length ? options[initial] : null
   }
 
-  const [userOption, setUserOption] = useState<Option | null>(initialOption)
+  // const io = !initial ? ((initial >= 0 && initial < options.length) ? options[initial] : null) : null
 
-  const updateOptionChoice = (option: Option) => {
+  const [userOption, setUserOption] = useState<{
+    label: string
+    value: SortOptionsType
+  } | null>(initialOption)
+
+  const updateOptionChoice = (option: {
+    label: string
+    value: SortOptionsType
+  }) => {
     onChange(option)
     setUserOption(option)
   }
@@ -40,16 +50,17 @@ const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
         return (
           <Pressable
             key={option.value}
-            style={({ pressed }) => ({
-              backgroundColor: pressed ? '#ededed' : '#ffffff',
-              opacity: pressed ? 0.5 : 1,
-              ...(option === userOption
+            style={({ pressed }) => [
+              {
+                backgroundColor: pressed ? '#ededed' : '#ffffff',
+                opacity: pressed ? 0.5 : 1,
+              },
+              styles.option,
+              option === userOption
                 ? styles.selected_option
-                : styles.unselected_option),
-              ...styles.option,
-            })}
+                : styles.unselected_option,
+            ]}
             onPress={() => updateOptionChoice(option)}
-            testID={`sort-option-${option.value}`}
           >
             <Text
               style={[

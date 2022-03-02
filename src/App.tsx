@@ -1,12 +1,17 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native'
 import MapView from '@components/MapView'
+import MapSlideUpSheet from '@components/MapSlideUpSheet'
+import AccountView from '@components/AccountView'
+import AccountButton from './components/AccountButton'
+import BusinessView from '@components/BusinessViews/BusinessView'
+import React from 'react'
+import { StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import SearchView from '@components/SearchView'
-import BusinessView from '@components/BusinessView'
 import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
 import { Business, DisplayableBusiness, BusinessType, Location } from '@futureproof/typings'
 import Constants from 'expo-constants'
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
 
 const ExampleBusiness : DisplayableBusiness =  {
   id: '1',
@@ -19,32 +24,84 @@ const ExampleBusiness : DisplayableBusiness =  {
 }
 
 interface LocationType extends Pick<Location, 'latitude'> {
-  business : Pick<Business, 'sustainabilityScore'>
+  business: Pick<Business, 'sustainabilityScore'>
 }
 
 // Initialise Apollo Client
 const client = new ApolloClient({
   uri: `${Constants.manifest?.extra?.serverAddress}`, // Server URL (must be absolute)
-  cache: new InMemoryCache() // Cache
+  cache: new InMemoryCache(), // Cache
 })
 
-const App = () => {
+type RootStackParamList = {
+  MapView: undefined
+  AccountView: undefined
+}
+
+// Initialise Stack Navigator
+const Stack = createStackNavigator<RootStackParamList>()
+
+type Props = StackScreenProps<RootStackParamList>
+
+
+export const FeedScreen = ({ navigation }: Props) => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        {/* <MapView/> */}
-        {/* <SearchView/> */}
-        {/*<BusinessView businessToDisplay={ExampleBusiness}/>*/}
-        <FutureProofRatingView businessToDisplay={ExampleBusiness}/>
+        <MapView />
+        <SafeAreaView>
+          <TouchableOpacity onPress={() => navigation.push('AccountView')}>
+            <AccountButton />
+          </TouchableOpacity>
+        </SafeAreaView>
+        <MapSlideUpSheet parentData={navigation} />
       </View>
     </ApolloProvider>
+  )
+}
+
+/*
+export const FeedScreen = ({ navigation }: Props) => {
+  return (
+    <ApolloProvider client={client}>
+      <View style={styles.container}>
+        <BusinessView businessToDisplay={ExampleBusiness}/>
+      </View>
+    </ApolloProvider>
+  )
+}
+*/
+
+
+export const AppNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name='MapView'
+        component={FeedScreen}
+        options={{ title: 'Map', headerShown: false }}
+      />
+      <Stack.Screen
+        name='AccountView'
+        component={AccountView}
+        options={{ title: 'Account Settings' }}
+      />
+    </Stack.Navigator>
+  )
+}
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    flex: 1
+    flex: 1,
   },
 })
 

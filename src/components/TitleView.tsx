@@ -17,21 +17,21 @@ export const styles = StyleSheet.create({
   profilePictureStyle: {
     borderRadius: 10,
     height: 90,
-    width: 90
+    width: 90,
   },
   subtitleText: {
     color: '#A0A0A0',
-    fontSize: 10
+    fontSize: 10,
   },
   titleText: {
     fontSize: 25,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   titleViewStyle: {
     alignItems: 'center',
     marginBottom: '8%',
-    marginTop: '5%'
-  }
+    marginTop: '5%',
+  },
 })
 
 export default TitleView

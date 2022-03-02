@@ -1,29 +1,36 @@
-import RatingCapsule from '@components/search/RatingCapsule'
+import RatingCapsule from '@components/Search/RatingCapsule'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
-type ComponentProps = Pick<DisplayableBusiness, 'name' | 'customerScore' | 'sustainabilityScore'>
+type ComponentProps = Pick<
+  DisplayableBusiness,
+  'name' | 'customerScore' | 'sustainabilityScore'
+>
 
-const SearchItemStats = ({ name, customerScore, sustainabilityScore } : ComponentProps) => (
+const SearchItemStats = ({
+  name,
+  customerScore,
+  sustainabilityScore,
+}: ComponentProps) => (
   <View style={styles.searchItemStats}>
     <Text style={styles.businessTitleText}>{name}</Text>
-    <View style = {styles.logoAndSubtitleView}>
+    <View style={styles.logoAndSubtitleView}>
       <Image
         source={require('../../../assets/icon_location.png')}
         style={styles.businessLogoImageStyle}
-        resizeMode="contain"
+        resizeMode='contain'
       />
-      <Text style={styles.subtitleText}>{`${  .2} miles`}</Text>
+      <Text style={styles.subtitleText}>{`${0.2} miles`}</Text>
     </View>
-      
-    <View style = {styles.ratingTextAndCapsuleView}>
+
+    <View style={styles.ratingTextAndCapsuleView}>
       <Text style={styles.ratingText}>FutureProof Rating:</Text>
-      <RatingCapsule ratingValue={sustainabilityScore}/>
+      <RatingCapsule ratingValue={sustainabilityScore} />
     </View>
-    <View style = {styles.ratingTextAndCapsuleView}>
+    <View style={styles.ratingTextAndCapsuleView}>
       <Text style={styles.ratingText}>Consumer Rating:</Text>
-      <RatingCapsule ratingValue={customerScore}/>
+      <RatingCapsule ratingValue={customerScore} />
     </View>
   </View>
 )
@@ -31,33 +38,33 @@ const SearchItemStats = ({ name, customerScore, sustainabilityScore } : Componen
 const styles = StyleSheet.create({
   businessLogoImageStyle: {
     height: 20,
-    width: 20
+    width: 20,
   },
   businessTitleText: {
     fontSize: 25,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   logoAndSubtitleView: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   ratingText: {
     color: '#818181',
     fontSize: 11,
-    paddingRight: 10
+    paddingRight: 10,
   },
   ratingTextAndCapsuleView: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    paddingVertical: 2
+    paddingVertical: 2,
   },
   searchItemStats: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   subtitleText: {
     color: '#686868',
-    fontSize: 14
-  }
+    fontSize: 14,
+  },
 })
 
 export default SearchItemStats

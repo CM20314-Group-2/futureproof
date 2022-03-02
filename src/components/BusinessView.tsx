@@ -6,7 +6,7 @@ import { DisplayableBusiness, Location } from '@futureproof/typings'
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
 import openMap from 'react-native-open-maps'
-import ImagesCarousel from '@components/ImagesCarousel'
+import ImagesCarousel from '@components/BusinessViews/ImagesCarousel'
 
 // PLACEHOLDER BUSINESS LOCATION -> Update to fetch graphQL
 export type ExampleLocationType = Pick<Location, 'id' | 'address' | 'latitude' | 'longitude'>
@@ -17,6 +17,15 @@ const ExampleBusinessLocation : ExampleLocationType = {
   latitude: 51.37758520597919,
   longitude: -2.3572347659685513
 }
+
+const Image1 =
+   'https://cdn.vox-cdn.com/thumbor/VAkim2EiaKiIq4pUi295wH99Ces=/0x0:1100x729/1200x800/filters:focal(341x230:517x406)/cdn.vox-cdn.com/uploads/chorus_image/image/67717391/STARBUCKS.0.jpeg'
+ const Image2 =
+   'https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-42658.jpg'
+ const Image3 =
+   'https://cdn.vox-cdn.com/thumbor/1WVT8VSapMXbHPvsTEPxZp2gUrk=/0x0:1347x897/1200x800/filters:focal(567x342:781x556)/cdn.vox-cdn.com/uploads/chorus_image/image/62192379/starbucksredcups2015.1541431580.jpg'
+ const Image4 =
+   'https://cdn.vox-cdn.com/thumbor/bSoWzne8VZvz8tavhebsL7DNik0=/0x0:5860x4008/1200x800/filters:focal(3243x1967:4179x2903)/cdn.vox-cdn.com/uploads/chorus_image/image/67132574/shutterstock_1410002591.0.jpg'
 
 const BusinessView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness }) => {
   return (
@@ -37,7 +46,12 @@ const BusinessView = ({ businessToDisplay } : { businessToDisplay : DisplayableB
           <BusinessViewMap
             businessLocation={ExampleBusinessLocation}
           />
-          <ImagesCarousel/>
+          <ImagesCarousel
+           Image1={Image1}
+           Image2={Image2}
+           Image3={Image3}
+           Image4={Image4}
+         />
         </SafeAreaView>
       </ScrollView>
       <TouchableOpacity onPress={() => openMap({ end: ExampleBusinessLocation.address })} style={styles.directionsButtonContainer}>

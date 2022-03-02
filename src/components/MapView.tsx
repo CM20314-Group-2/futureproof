@@ -30,10 +30,10 @@ const MapView = () => {
           latitude: location?.coords.latitude || 0,
           longitude: location?.coords.longitude || 0,
           latitudeDelta: 0.1,
-          longitudeDelta: 0.1
+          longitudeDelta: 0.1,
         }}
         showsUserLocation={location !== null}
-        showsCompass  
+        showsCompass
         testID='map'
       />
     </React.Fragment>
@@ -42,8 +42,8 @@ const MapView = () => {
 
 const styles = StyleSheet.create({
   map: {
-    ...StyleSheet.absoluteFillObject
-  }
+    ...StyleSheet.absoluteFillObject,
+  },
 })
 
 export default MapView

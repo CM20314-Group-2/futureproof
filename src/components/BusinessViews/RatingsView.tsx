@@ -1,17 +1,14 @@
-import RatingView from '@components/RatingView'
+import RatingView from '@components/BusinessViews/RatingView'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-type ComponentProps = Pick<
+type ViewProps = Pick<
   DisplayableBusiness,
   'customerScore' | 'sustainabilityScore'
 >
 
-const RatingsView = ({
-  customerScore,
-  sustainabilityScore,
-}: ComponentProps) => (
+const RatingsView = ({ customerScore, sustainabilityScore }: ViewProps) => (
   <View style={styles.compoundStyle}>
     <Text style={styles.headingText}>RATINGS</Text>
     <View style={styles.ratingsHorizontalStyle}>
@@ -25,19 +22,18 @@ const RatingsView = ({
 )
 
 const styles = StyleSheet.create({
-  compoundStyle: {
-    marginBottom: '8%',
-  },
   headingText: {
-    color: '#A0A0A0',
     fontSize: 12,
-    marginBottom: '1%',
+    color: '#A0A0A0',
     marginLeft: '1%',
-    paddingLeft: 20,
+    marginBottom: '1%',
   },
   ratingsHorizontalStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  compoundStyle: {
+    marginBottom: '8%',
   },
 })
 

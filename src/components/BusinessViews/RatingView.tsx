@@ -1,11 +1,11 @@
 import { Business } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import CircularRatingIndicator from './ratings/CircularRatingIndicator'
+import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
 
 interface ComponentProps {
-  ratingName : 'FutureProof' | 'Consumer',
-  ratingValue : Business['customerScore'] | Business['sustainabilityScore']
+  ratingName: 'FutureProof' | 'Consumer'
+  ratingValue: Business['customerScore'] | Business['sustainabilityScore']
 }
 
 const RatingView = ({ ratingName, ratingValue } : ComponentProps ) => (
@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
     padding: 5
   },
   ratingContainerStyle: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   subtitleText: {
     color: '#A0A0A0',
-    fontSize: 10
+    fontSize: 10,
   },
 })
 

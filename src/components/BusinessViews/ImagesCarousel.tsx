@@ -10,11 +10,13 @@ import {
 import ImageView from 'react-native-image-viewing'
 
 interface ComponentProps {
-  show: boolean
-  height: number
+  Image1: string
+  Image2: string
+  Image3: string
+  Image4: string
 }
 
-const ImagesCarousel = ({ show, height }: ComponentProps) => {
+const ImagesCarousel = ({ Image1, Image2, Image3, Image4 }: ComponentProps) => {
   const [visible, setModalVisible] = useState(false)
   const [modalImageIndex, setModalImageIndex] = useState(0)
 
