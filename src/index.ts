@@ -3,9 +3,13 @@ import {typeDefs} from '@typings/schema'
 import {resolvers} from './resolvers'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
+import mercuriusCodegen from "mercurius-codegen"
 import {makeExecutableSchema}  from '@graphql-tools/schema'
 
-const app = Fastify()
+export const app = Fastify({
+  logger: process.env.NODE_ENV !== "test",
+})
+
 const prisma = new PrismaClient()
 
 app.register(mercurius, {
@@ -13,7 +17,7 @@ app.register(mercurius, {
   context: (request, reply) => {
     return {prisma}
   },
-  graphiql: true
+  graphiql: process.env.NODE_ENV === 'development',
 })
 
 const start = async () => {
@@ -25,4 +29,11 @@ const start = async () => {
     process.exit(1)
   }
 }
-start()
+
+if (process.env.NODE_ENV !== "test") {
+  mercuriusCodegen(app, {
+    targetPath: "./src/generated.ts",
+  }).catch(console.error)
+
+  start()
+}

@@ -1,87 +1,87 @@
 import {Prisma} from '@prisma/client'
+import {Context} from './context'
 
 export const resolvers = {
   Query: {
-    users: async (context) => {
+    users: async (context: Context) => {
       return context.prisma.user.findMany()
     },
-    businesses: async (context) => {
+    businesses: async (context: Context) => {
       return context.prisma.business.findMany()
     },
-    comments: async (context) => {
+    comments: async (context: Context) => {
       return context.prisma.comment.findMany()
     },
-    locations: async (context) => {
+    locations: async (context: Context) => {
       return context.prisma.location.findMany()
     },
-    reviews: async (context) => {
-      return context.prisma.userReview.findMany()
+    reviews: async (context: Context) => {
+      return context.prisma.review.findMany()
     },
-    user: async (_parent, id: number, context) => {
+    user: async (idInput: number, context: Context) => {
       return context.prisma.user.findUnique({
-        where: { id: id },
+        where: { id: idInput },
       })
     },
-    business: async (_parent, id: number, context) => {
+    business: async (idInput: number, context: Context) => {
       return context.prisma.business.findUnique({
-        where: { id: id },
+        where: { id: idInput },
       })
     },
-    comment: async (_parent, id: number, context) => {
+    comment: async (idInput: number, context: Context) => {
       return context.prisma.comment.findUnique({
-        where: { id: id },
+        where: { id: idInput },
       })
     },
-    location: async (_parent, id: number, context) => {
+    location: async (idInput: number, context: Context) => {
       return context.prisma.location.findUnique({
-        where: { id: id },
+        where: { id: idInput },
       })
     },
-    review: async (_parent, id: number, context) => {
-      return context.prisma.userReview.findUnique({
-        where: { id: id },
+    review: async (idInput: number, context: Context) => {
+      return context.prisma.review.findUnique({
+        where: { id: idInput },
       })
     },
-    userByEmail: async (_parent, emailInput: string, context) => {
-      return context.prisma.user.findUnique({
+    userByEmail: async (emailInput: string, context: Context) => {
+      return context.prisma.user.findFirst({
         where: { email: emailInput }
       })
     },
-    businessByName: async (_parent, name: string, context) => {
-      return context.prisma.business.findUnique({
-        where: { name: name }
+    businessByName: async (nameInput: string, context: Context) => {
+      return context.prisma.business.findFirst({
+        where: { name: nameInput }
       })
-
     },
-    commentsByUser: async (_parent, id: number, context) => {
+    commentsByUser: async (idInput: number, context: Context) => {
       return context.prisma.comment.findMany({
-        where: { userId: id },
+        where: { userId: idInput },
       })
     },
-    locationsByBusiness: async (_parent, id: number, context) => {
+    locationsByBusiness: async (idInput: number, context: Context) => {
       return context.prisma.location.findMany({
-        where: { businessId: id },
+        where: { businessId: idInput },
       })
     },
-    reviewsByUser: async (_parent, id: number, context) => {
-      return context.prisma.userReview.findMany({
-        where: { userId: id },
+    reviewsByUser: async (idInput: number, context: Context) => {
+      return context.prisma.review.findMany({
+        where: { userId: idInput },
       })
     },
-    commentsByBusiness: async (_parent, id: number, context) => {
+    commentsByBusiness: async (idInput: number, context: Context) => {
       return context.prisma.comment.findMany({
-        where: { businessId: id },
+        where: { businessId: idInput },
       })
     },
-    reviewsByBusiness: async (_parent, id: number, context) => {
-      return context.prisma.userReview.findMany({
-        where: { businessId: id },
+    reviewsByBusiness: async (idInput: number, context: Context) => {
+      return context.prisma.review.findMany({
+        where: { businessId: idInput },
       })
     },
   },
 
   Mutation: {
-    createUser: async (_parent, userInput: Prisma.UserCreateInput, context) => {
+    createUser: async (userInput: Prisma.UserCreateInput, context: Context) => {
       return context.prisma.user.create({
         data: {
           firstName: userInput.firstName,
@@ -89,7 +89,7 @@ export const resolvers = {
           email: userInput.email,
           password: userInput.password,
           Comment: {},
-          UserReview: {},
+          Review: {},
 
           // Data assignment is split by a blank line into required and optional.
           // The second block is optional data that does not need to be assigned in creation.
@@ -99,7 +99,7 @@ export const resolvers = {
         }
       })
     },
-    createBusiness: async (_parent, businessInput: Prisma.BusinessCreateInput, context) => {
+    createBusiness: async (businessInput: Prisma.BusinessCreateInput, context: Context) => {
       return context.prisma.business.create({
         data: {
           name: businessInput.name,
@@ -119,7 +119,7 @@ export const resolvers = {
         }
       })
     },
-    createLocation: async (_parent, locationInput: Prisma.LocationCreateInput, context) => {
+    createLocation: async (locationInput: Prisma.LocationCreateInput, context: Context) => {
       return context.prisma.location.create({
         data: {
           address: locationInput.address,
@@ -134,7 +134,7 @@ export const resolvers = {
         }
       })
     },
-    createComment: async (_parent, commentInput: Prisma.CommentCreateInput, context) => {
+    createComment: async (commentInput: Prisma.CommentCreateInput, context: Context) => {
       return context.prisma.comment.create({
         data: {
           text: commentInput.text,
@@ -146,8 +146,8 @@ export const resolvers = {
         }
       })
     },
-    createReview: async (_parent, reviewInput: Prisma.ReviewCreateInput, context) => {
-      return context.prisma.userReview.create({
+    createReview: async (reviewInput: Prisma.ReviewCreateInput, context: Context) => {
+      return context.prisma.review.create({
         data: {
           createdAt: reviewInput.createdAt,
           reputation: reviewInput.reputation,
@@ -157,7 +157,7 @@ export const resolvers = {
         }
       })
     },
-    updateUser: async (_parent, args: { id: number, userInput: Prisma.UserUpdateInput }, context) => {
+    updateUser: async (args: { id: number, userInput: Prisma.UserUpdateInput }, context: Context) => {
       return context.prisma.user.update({
         data: {
           firstName: args.userInput.firstName,
@@ -165,7 +165,7 @@ export const resolvers = {
           email: args.userInput.email,
           password: args.userInput.password,
           Comment: {},
-          UserReview: {},
+          Review: {},
           
           roles: args.userInput.roles,
           profilePhoto: args.userInput.profilePhoto,
@@ -174,7 +174,7 @@ export const resolvers = {
         where: { id: args.id }
       })
     },
-    updateBusiness: async (_parent, args: { id: number, businessInput: Prisma.BusinessUpdateInput }, context) => {
+    updateBusiness: async (args: { id: number, businessInput: Prisma.BusinessUpdateInput }, context: Context) => {
       return context.prisma.business.update({
         data: {
           name: args.businessInput.name,
@@ -195,7 +195,7 @@ export const resolvers = {
         where: { id: args.id }
       })
     },
-    updateLocation: async (_parent, args: { id: number, locationInput: Prisma.LocationUpdateInput }, context) => {
+    updateLocation: async (args: { id: number, locationInput: Prisma.LocationUpdateInput }, context: Context) => {
       return context.prisma.location.update({
         data: {
           address: args.locationInput.address,
@@ -211,7 +211,7 @@ export const resolvers = {
         where: { id: args.id }
       })
     },
-    updateComment: async (_parent, args: { id: number, commentInput: Prisma.CommentUpdateInput }, context) => {
+    updateComment: async (args: { id: number, commentInput: Prisma.CommentUpdateInput }, context: Context) => {
       return context.prisma.comment.update({
         data: {
           text: args.commentInput.text,
@@ -224,40 +224,40 @@ export const resolvers = {
         where: { id: args.id }
       })
     },
-    updateReview: async (_parent, args: { id: number, reviewInput: Prisma.ReviewUpdateInput }, context) => {
-      return context.prisma.userReview.update({
+    updateReview: async (args: { id: number, reviewInput: Prisma.ReviewUpdateInput }, context: Context) => {
+      return context.prisma.review.update({
         data: {
           createdAt: args.reviewInput.createdAt,
           reputation: args.reviewInput.reputation,
-          ReviewData: args.reviewInput.reviewData,
+          reviewData: args.reviewInput.reviewData,
           user: args.reviewInput.user,
-          Business: args.reviewInput.business
+          business: args.reviewInput.business
         },
         where: { id: args.id }
       })
     },
-    deleteUser: async (_parent, id: number, context) => {
+    deleteUser: async (id: number, context: Context) => {
       return context.prisma.user.delete({
         where: { id: id }
       })
     },
-    deleteBusiness: async (_parent, id: number, context) => {
+    deleteBusiness: async (id: number, context: Context) => {
       return context.prisma.business.delete({
         where: { id: id }
       })
     },
-    deleteLocation: async (_parent, id: number, context) => {
+    deleteLocation: async (id: number, context: Context) => {
       return context.prisma.location.delete({
         where: { id: id }
       })
     },
-    deleteComment: async (_parent, id: number, context) => {
+    deleteComment: async (id: number, context: Context) => {
       return context.prisma.comment.delete({
         where: { id: id }
       })
     },
-    deleteReview: async (_parent, id: number, context) => {
-      return context.prisma.userReview.delete({
+    deleteReview: async (id: number, context: Context) => {
+      return context.prisma.review.delete({
         where: { id: id }
       })
     }
