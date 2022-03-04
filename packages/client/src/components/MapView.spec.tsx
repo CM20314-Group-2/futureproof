@@ -13,7 +13,7 @@ import { MapViewProps } from 'react-native-maps'
 import { MockedObject } from 'ts-jest/dist/utils/testing'
 import { mocked } from 'ts-jest/utils'
 
-const fakeLocation: LocationObject = {
+const fakeLocation : LocationObject = {
   coords: {
     latitude: 1,
     longitude: 2,
@@ -26,41 +26,41 @@ const fakeLocation: LocationObject = {
   timestamp: 7,
 }
 
-const grantedPermissions: LocationPermissionResponse = {
+const grantedPermissions : LocationPermissionResponse = {
   status: PermissionStatus.GRANTED,
   granted: true,
   expires: 'never',
   canAskAgain: true,
 }
 
-const deniedPermissions: LocationPermissionResponse = {
+const deniedPermissions : LocationPermissionResponse = {
   status: PermissionStatus.DENIED,
   granted: false,
   expires: 'never',
   canAskAgain: true,
 }
 
-let location: MockedObject<typeof Location>
+let location : MockedObject<typeof Location>
 
 beforeEach(() => {
   jest.mock('expo-location')
   location = mocked(Location)
 
   jest.mock('react-native-maps'),
-    () => {
-      const MockMapView = (props: MapViewProps) => {
-        return (
-          <View testID={props.testID} {...props}>
-            {props.children}
-          </View>
-        )
-      }
-
-      return {
-        __esModule: true,
-        default: MockMapView,
-      }
+  () => {
+    const MockMapView = (props : MapViewProps) => {
+      return (
+        <View testID={props.testID} {...props}>
+          {props.children}
+        </View>
+      )
     }
+
+    return {
+      __esModule: true,
+      default: MockMapView,
+    }
+  }
 })
 
 afterEach(() => {

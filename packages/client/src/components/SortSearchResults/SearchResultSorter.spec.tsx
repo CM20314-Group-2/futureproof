@@ -8,9 +8,9 @@ import React from 'react'
 import * as cache from '../../cache'
 
 declare global {
-  function withAnimatedTimeTravelEnabled(fn: () => void): void
-  function timeTravel(time: number): void
-  function requestAnimationFrame(cb: FrameRequestCallback): void
+  function withAnimatedTimeTravelEnabled(fn : () => void) : void
+  function timeTravel(time : number) : void
+  function requestAnimationFrame(cb : FrameRequestCallback) : void
 }
 
 it('matches snapshot', () => {

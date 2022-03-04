@@ -70,21 +70,21 @@ const styles = StyleSheet.create({
   },
   safeAreaView: {
     flex: 1,
-    padding: 20,
     flexDirection: 'column',
-  },
-  searchInput: {
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#FFFFFF',
-    backgroundColor: '#E7E7E7',
-    opacity: 1,
-    width: '90%',
-    alignSelf: 'center',
+    padding: 20,
   },
   searchBarView: {
-    marginTop: 'auto',
     marginBottom: '10%',
+    marginTop: 'auto',
+  },
+  searchInput: {
+    alignSelf: 'center',
+    backgroundColor: '#E7E7E7',
+    borderColor: '#FFFFFF',
+    borderRadius: 10,
+    borderWidth: 2,
+    opacity: 1,
+    width: '90%',
   },
 })
 

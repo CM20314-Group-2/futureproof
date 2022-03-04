@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 
 const IndividualImage = () => {
-  ;<TouchableHighlight
+  <TouchableHighlight
     activeOpacity={0.7}
     underlayColor='#FFFFFF'
     onPress={() => {

@@ -9,11 +9,11 @@ import {
 } from 'react-native'
 
 interface ComponentProps {
-  business: DisplayableBusiness
-  onPress: (event: GestureResponderEvent) => void
+  business : DisplayableBusiness
+  onPress : (event : GestureResponderEvent) => void
 }
 
-const SearchResult = ({ business, onPress }: ComponentProps) => (
+const SearchResult = ({ business, onPress } : ComponentProps) => (
   <TouchableOpacity onPress={onPress} style={styles.searchItemStyle}>
     {/* Don't use null check built in BusinessLogo to match design */}
     {business.profilePicture ? (

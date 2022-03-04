@@ -2,10 +2,10 @@ import React from 'react'
 import { Pressable, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native'
 
 interface ComponentProps {
-  onPress: () => void
-  text: string
-  style?: ViewStyle
-  textStyle?: TextStyle
+  onPress : () => void
+  text : string
+  style ?: ViewStyle
+  textStyle ?: TextStyle
 }
 
 /**
@@ -19,7 +19,7 @@ interface ComponentProps {
  * @param textStyle the styling for the text of the button, if not passed as an argument, a default is used
  * @returns the button component
  */
-const Button = ({ onPress, text, style, textStyle }: ComponentProps) => {
+const Button = ({ onPress, text, style, textStyle } : ComponentProps) => {
   const buttonStyle =
     style !== null && style !== undefined ? style : styles.button
   const buttonTextStyle =

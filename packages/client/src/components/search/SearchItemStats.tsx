@@ -12,7 +12,7 @@ const SearchItemStats = ({
   name,
   customerScore,
   sustainabilityScore,
-}: ComponentProps) => (
+} : ComponentProps) => (
   <View style={styles.searchItemStats}>
     <Text style={styles.businessTitleText}>{name}</Text>
     <View style={styles.logoAndSubtitleView}>

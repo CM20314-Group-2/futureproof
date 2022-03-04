@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 
 interface ComponentProps {
-  options: Option[]
-  initial?: number | null
-  onChange: React.Dispatch<React.SetStateAction<Option>>
+  options : Option[]
+  initial ?: number | null
+  onChange : React.Dispatch<React.SetStateAction<Option>>
 }
 
 /**
@@ -19,7 +19,7 @@ interface ComponentProps {
  * @param onChange the function that is called when the user clicks on an option
  * @returns a styled component that contains all of the sorting options
  */
-const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
+const SortOptions = ({ options, initial, onChange } : ComponentProps) => {
   let initialOption = null
 
   if (initial !== undefined && initial !== null) {
@@ -29,7 +29,7 @@ const SortOptions = ({ options, initial, onChange }: ComponentProps) => {
 
   const [userOption, setUserOption] = useState<Option | null>(initialOption)
 
-  const updateOptionChoice = (option: Option) => {
+  const updateOptionChoice = (option : Option) => {
     onChange(option)
     setUserOption(option)
   }

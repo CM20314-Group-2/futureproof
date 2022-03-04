@@ -3,7 +3,7 @@ import SortOptions from '@components/SortSearchResults/SortOptions'
 import { fireEvent, render } from '@testing-library/react-native'
 import React from 'react'
 
-const options: Option[] = [
+const options : Option[] = [
   { label: 'Distance Ascending', value: 'distance_asc' },
   { label: 'Distance Descending', value: 'distance_desc' },
 ]

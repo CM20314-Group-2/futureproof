@@ -2,7 +2,7 @@ import { Business } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export const ratingToColour = (ratingValue: number): string => {
+export const ratingToColour = (ratingValue : number) : string => {
   if (ratingValue < 0 || ratingValue > 100)
     throw new Error('ratingValue must be between 0 and 100')
 
@@ -13,7 +13,7 @@ export const ratingToColour = (ratingValue: number): string => {
   else return 'brown'
 }
 
-export const ratingToText = (ratingValue: number): string => {
+export const ratingToText = (ratingValue : number) : string => {
   if (ratingValue < 0 || ratingValue > 100)
     throw new Error('ratingValue must be between 0 and 100')
 
@@ -27,10 +27,10 @@ export const ratingToText = (ratingValue: number): string => {
 const RATING_CAPSULE_HEIGHT = 18
 
 interface ComponentProps {
-  ratingValue: Business['customerScore'] | Business['sustainabilityScore']
+  ratingValue : Business['customerScore'] | Business['sustainabilityScore']
 }
 
-const RatingCapsule = ({ ratingValue = 0 }: ComponentProps) => (
+const RatingCapsule = ({ ratingValue = 0 } : ComponentProps) => (
   <View
     style={{
       ...styles.CapsuleStyle,
