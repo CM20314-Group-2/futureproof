@@ -1,9 +1,0 @@
-[submodule "client"]
-	path = packages/client
-	url = https://github.com/CM20314-Group-2/client.git
-[submodule "typings"]
-	path = packages/typings
-	url = https://github.com/CM20314-Group-2/typings.git
-[submodule "server"]
-	path = packages/server
-	url = https://github.com/CM20314-Group-2/backend.git

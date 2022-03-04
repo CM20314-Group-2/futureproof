@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FAF9F9",
+      "borderRadius": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <Text>
+      FutureProof Rating
+    </Text>
+    <Text
+      testID="rating-value"
+    >
+      70
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#A0A0A0",
+          "fontSize": 10,
+        }
+      }
+    >
+      Tap for Details
+    </Text>
+  </View>
+</View>
+`;

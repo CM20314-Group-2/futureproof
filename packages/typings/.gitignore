@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.yarn/
+yarn.lock
+
+# Generated files
+src/ts/API.ts
+schema.ts

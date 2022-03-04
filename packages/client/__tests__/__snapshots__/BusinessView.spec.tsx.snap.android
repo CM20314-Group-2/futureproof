@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "marginHorizontal": 30,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png",
+            }
+          }
+          style={
+            Object {
+              "borderRadius": 10,
+              "height": 90,
+              "width": 90,
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "fontSize": 25,
+              "fontWeight": "500",
+            }
+          }
+        >
+          Starbucks
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 10,
+            }
+          }
+        >
+          Address (To be implemented)
+        </Text>
+      </View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 12,
+              "paddingLeft": 20,
+            }
+          }
+        >
+          DESCRIPTION
+        </Text>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FAF9F9",
+              "borderRadius": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingHorizontal": 15,
+              }
+            }
+          >
+            <Image
+              resizeMode="contain"
+              source={1}
+              style={
+                Object {
+                  "height": 25,
+                  "width": 25,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "black",
+                  "fontSize": 12,
+                  "padding": 10,
+                }
+              }
+              testID="body-text"
+            >
+              This is a test business
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 12,
+              "paddingLeft": 20,
+            }
+          }
+        >
+          RATINGS
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#FAF9F9",
+                "borderRadius": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <Text>
+                FutureProof Rating
+              </Text>
+              <Text
+                testID="rating-value"
+              >
+                100
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A0A0A0",
+                    "fontSize": 10,
+                  }
+                }
+              >
+                Tap for Details
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#FAF9F9",
+                "borderRadius": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <Text>
+                Consumer Rating
+              </Text>
+              <Text
+                testID="rating-value"
+              >
+                65
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#A0A0A0",
+                    "fontSize": 10,
+                  }
+                }
+              >
+                Tap for Details
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 12,
+              "paddingLeft": 20,
+            }
+          }
+        >
+          IMAGES
+        </Text>
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "assets/Sample_Business_Image.png",
+            }
+          }
+          style={
+            Object {
+              "alignSelf": "center",
+              "borderRadius": 10,
+              "height": 300,
+              "width": 250,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
