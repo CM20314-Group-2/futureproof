@@ -1,2 +1,22 @@
-lerna-debug.log
-node_modules
+# JS
+node_modules/
+.expo/
+.expo-shared/
+.yarn/
+yarn.lock
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+coverage/
+
+# macOS
+.DS_Store
+
+# Environment Variables
+**/.env

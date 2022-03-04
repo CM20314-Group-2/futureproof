@@ -6,6 +6,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm install
-    - name: Run ESLint
+      run: npm run setup
+    - name: Run linter
       run: npm run lint
+    - name: Run tests
+      run: npm run test

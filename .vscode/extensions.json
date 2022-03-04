@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ms-vsliveshare.vsliveshare",
+    "Gruntfuggly.todo-tree",
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "naumovs.color-highlight"
+  ]
+}
