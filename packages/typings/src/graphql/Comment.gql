@@ -1,0 +1,16 @@
+input CommentInput {
+  text: String!
+  user: ID!
+  business: ID!
+  location: ID
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  business: Business!
+  user: User!
+  location: Location
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}

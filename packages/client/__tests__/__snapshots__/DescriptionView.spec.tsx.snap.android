@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "#A0A0A0",
+        "fontSize": 12,
+        "paddingLeft": 20,
+      }
+    }
+  >
+    DESCRIPTION
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FAF9F9",
+        "borderRadius": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "paddingHorizontal": 15,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "height": 25,
+            "width": 25,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 12,
+            "padding": 10,
+          }
+        }
+        testID="body-text"
+      >
+        TEST
+      </Text>
+    </View>
+  </View>
+</View>
+`;

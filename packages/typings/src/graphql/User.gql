@@ -1,0 +1,26 @@
+input UserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  profilePicture: String
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  profilePhoto: String
+  comments: [Comment!]
+  reviews: [Review!]
+  roles: [Role!]
+}
+
+enum Role {
+  ADMIN
+  CUSTOMER
+  BUSINESS
+}

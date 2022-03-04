@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column",
+      "padding": 20,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "marginBottom": "10%",
+        "marginTop": "auto",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderBottomWidth": 1,
+            "borderColor": "#FFFFFF",
+            "borderRadius": 10,
+            "borderWidth": 2,
+            "flexDirection": "row",
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 40,
+              "justifyContent": "center",
+              "marginLeft": "2%",
+              "marginVertical": 4,
+              "paddingRight": 4,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "overflow": "hidden",
+              }
+            }
+          >
+            <View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text />
+              </View>
+            </View>
+          </View>
+        </View>
+        <TextInput
+          allowFontScaling={true}
+          editable={true}
+          onChangeText={[Function]}
+          placeholder="Search here"
+          placeholderTextColor="#86939e"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "color": "#242424",
+              "flex": 1,
+              "fontSize": 18,
+              "minHeight": 40,
+            }
+          }
+          testID="RNE__Input__text-input"
+          underlineColorAndroid="transparent"
+          value=""
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 40,
+              "justifyContent": "center",
+              "marginVertical": 4,
+              "paddingRight": 4,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "overflow": "hidden",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#ff190c",
+            "fontSize": 12,
+            "margin": 5,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
