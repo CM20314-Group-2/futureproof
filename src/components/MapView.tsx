@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client'
-import DistanceRadiusView from '@components/DistanceRadiusView'
+import DistanceRadiusView from '@components/SortSearchResults/DistanceRadiusView'
 import Pin from '@components/Pin'
 import { Business, Location } from '@futureproof/typings'
 import * as CurrentLocation from 'expo-location'

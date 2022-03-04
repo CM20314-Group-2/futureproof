@@ -4,18 +4,23 @@ import {
   Easing,
   Pressable,
   StyleSheet,
-  useWindowDimensions,
+  useWindowDimensions
 } from 'react-native'
 
 interface ComponentProps {
-  children: React.ReactNode
-  show: boolean
-  height: number
-  onOuterClick?: () => void
+  children : React.ReactNode
+  show : boolean
+  height : number
+  onOuterClick ?: () => void
 }
 
+/** Duration of appearance animation (ms) */
+export const IN_DURATION = 300
+/** Duration of disappearance animation (ms) */
+export const OUT_DURATION = 150
+
 /**
- * BottomSheet Component -
+ * BottomSheet Component
  *
  * source: https://stackoverflow.com/questions/39117599/how-to-slide-view-in-and-out-from-the-bottom-in-react-native
  *
@@ -32,8 +37,8 @@ const BottomSheet = ({
   show,
   height,
   onOuterClick,
-}: ComponentProps) => {
-  const useAnimatedBottom = (show: boolean, height: number) => {
+} : ComponentProps) => {
+  const useAnimatedBottom = (show : boolean, height : number) => {
     const animatedValue = useRef(new Animated.Value(0))
     const bottom = animatedValue.current.interpolate({
       inputRange: [0, 1],
@@ -43,7 +48,7 @@ const BottomSheet = ({
     useEffect(() => {
       Animated.timing(animatedValue.current, {
         toValue: show ? 1 : 0,
-        duration: show ? 300 : 150,
+        duration: show ? IN_DURATION : OUT_DURATION,
         easing: Easing.bezier(0.5, 0, 0.5, 1),
         useNativeDriver: false,
       }).start()
@@ -57,16 +62,21 @@ const BottomSheet = ({
 
   return (
     <React.Fragment>
-      {show && (
+      {show ? (
         <Pressable
           onPress={onOuterClick}
-          style={[
-            styles.background,
-            { height: screenHeight, top: -screenHeight },
-          ]}
+          style={{
+            ...styles.background,
+            height: screenHeight,
+            top: -screenHeight,
+          }}
+          testID='bottom-sheet-background'
         />
-      )}
-      <Animated.View style={[styles.bottomSheet, { height, bottom }]}>
+      ) : null}
+      <Animated.View
+        style={{ ...styles.bottomSheet, height, bottom }}
+        testID='bottom-sheet'
+      >
         {children}
       </Animated.View>
     </React.Fragment>

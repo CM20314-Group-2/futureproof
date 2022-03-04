@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Platform, Pressable, SafeAreaView, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native'
-import BottomSheet from '@components/BottomSheet'
-import Button from '@components/Button'
-import OptionList, { Option } from '@components/OptionList'
+import BottomSheet from '@components/SortSearchResults/BottomSheet'
+import Button from '@components/SortSearchResults/Button'
+import OptionList, { Option } from '@components/SortSearchResults/OptionList'
 
 interface ComponentProps {
   options : Option[],

@@ -1,4 +1,4 @@
-import BusinessView from '@components/BusinessView'
+import BusinessView from '@components/BusinessViews/BusinessView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 import { DisplayableBusiness, BusinessType } from '@futureproof/typings'

@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
-import { IN_DURATION, OUT_DURATION } from '@components/BottomSheet'
-import OptionSelector from '@components/OptionSelector'
+import { IN_DURATION, OUT_DURATION } from '@components/SortSearchResults/BottomSheet'
+import OptionSelector from '@components/SortSearchResults/OptionSelector'
 import { fireEvent, render, waitFor } from '@testing-library/react-native'
 import React from 'react'
-import { Option } from '@components/OptionList'
+import { Option } from '@components/SortSearchResults/OptionList'
 
 
 const INITIAL_OPTION_INDEX = 1

@@ -1,5 +1,5 @@
-import { Option } from '@components/SearchResultSorter'
-import SortOptions from '@components/SortOptions'
+import { Option } from '@components/SortSearchResults/SearchResultSorter'
+import SortOptions from '@components/SortSearchResults/SortOptions'
 import { fireEvent, render } from '@testing-library/react-native'
 import React from 'react'
 

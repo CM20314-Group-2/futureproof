@@ -1,4 +1,4 @@
-import DescriptionView from '@components/DescriptionView'
+import DescriptionView from '@components/BusinessViews/DescriptionView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { ExampleLocationType } from '@components/BusinessView'
+import { ExampleLocationType } from '@components/BusinessViews/BusinessView'
 import Map from 'react-native-maps'
 
 const BusinessViewMap = ({ businessLocation } : { businessLocation : ExampleLocationType }) => (
