@@ -1,4 +1,7 @@
-import RatingCapsule, { ratingToColour, ratingToText } from '@components/search/RatingCapsule'
+import RatingCapsule, {
+  ratingToColour,
+  ratingToText,
+} from '@components/search/RatingCapsule'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
@@ -37,7 +40,6 @@ describe('ratingToColour', () => {
   })
 })
 
-
 describe('ratingToText', () => {
   it('returns "Great" for ratings greater than or equal to 85', () => {
     expect(ratingToText(85)).toBe('Great')
@@ -73,7 +75,6 @@ describe('ratingToText', () => {
   })
 })
 
-
 describe('RatingCapsule', () => {
   it('renders a green capsule with text "Great" when ratingValue is greater than or equal to 85', () => {
     const { getByTestId } = render(<RatingCapsule ratingValue={85} />)
@@ -95,7 +96,7 @@ describe('RatingCapsule', () => {
 
   it('renders a yellow capsule with text "Okay" when ratingValue is between 50 and 69 inclusive', () => {
     const { getByTestId } = render(<RatingCapsule ratingValue={55} />)
-    
+
     const capsule = getByTestId('rating-capsule')
     const text = getByTestId('rating-text')
     expect(capsule).toHaveStyle({ backgroundColor: '#bed62e' })

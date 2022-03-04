@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#1EA853",
+            "height": 15,
+            "right": 5,
+            "width": 2,
+          }
+        }
+        testID="certificate-indicator"
+      />
+      <Text
+        style={
+          Object {
+            "fontSize": 10,
+          }
+        }
+        testID="certificate-text"
+      >
+        BCorp
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#1EA853",
+            "height": 15,
+            "right": 5,
+            "width": 2,
+          }
+        }
+        testID="certificate-indicator"
+      />
+      <Text
+        style={
+          Object {
+            "fontSize": 10,
+          }
+        }
+        testID="certificate-text"
+      >
+        GBB
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "brown",
+            "height": 15,
+            "right": 5,
+            "width": 2,
+          }
+        }
+        testID="certificate-indicator"
+      />
+      <Text
+        style={
+          Object {
+            "fontSize": 10,
+          }
+        }
+        testID="certificate-text"
+      >
+        Green Mark
+      </Text>
+    </View>
+  </View>
+</View>
+`;

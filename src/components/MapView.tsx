@@ -1,17 +1,16 @@
+import { gql, useQuery } from '@apollo/client'
+import DistanceRadiusView from '@components/SortSearchResults/DistanceRadiusView'
+import Pin from '@components/Pin'
+import { Business, Location } from '@futureproof/typings'
 import * as CurrentLocation from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text } from 'react-native'
-import Map from 'react-native-maps'
-import { Business, Location } from '@futureproof/typings'
-import { Marker } from "react-native-maps"
-import { gql, useQuery } from '@apollo/client'
-import Pin from '@components/Pin'
-import DistanceRadiusView from '@components/DistanceRadiusView'
+import Map, { Marker } from 'react-native-maps'
 
 type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>
 
-interface LocationTypewithRating extends LocationType {
-  business: Pick<Business, 'sustainabilityScore'>
+interface LocationTypeWithRating extends LocationType {
+  business : Pick<Business, 'sustainabilityScore'>
 }
 
 const GET_COORDINATES = gql `
@@ -26,13 +25,13 @@ const GET_COORDINATES = gql `
     }
   }`
 
-const MapView = ({showRadius} : {showRadius : boolean}) => {
+const MapView = ({ showRadius } : {showRadius : boolean}) => {
   const [location, setLocation] = useState<CurrentLocation.LocationObject | null>(null)
-  const {data,  loading, error} = useQuery<{ locations: LocationTypewithRating[]}>(GET_COORDINATES)
+  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
 
   useEffect(() => {
     (async () => {
-      const {status} = await CurrentLocation.requestForegroundPermissionsAsync()
+      const { status } = await CurrentLocation.requestForegroundPermissionsAsync()
       if (status !== 'granted') {
         console.error('Failed to get permissions.')
         return
@@ -62,7 +61,7 @@ const MapView = ({showRadius} : {showRadius : boolean}) => {
               key = {marker.id}
               coordinate = {marker}
             >
-              <Pin onPress = {() => {}} rating = {marker.business.sustainabilityScore || 0}/>
+              <Pin onPress = {() => {return}} rating = {marker.business.sustainabilityScore || 0}/>
             </Marker>
           ))}
           { showRadius ? <DistanceRadiusView location={location}/> : null }
@@ -74,8 +73,8 @@ const MapView = ({showRadius} : {showRadius : boolean}) => {
 
 const styles = StyleSheet.create({
   map: {
-    ...StyleSheet.absoluteFillObject
-  }
+    ...StyleSheet.absoluteFillObject,
+  },
 })
 
 export default MapView

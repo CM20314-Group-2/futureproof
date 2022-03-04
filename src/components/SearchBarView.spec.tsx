@@ -8,7 +8,7 @@ import React from 'react'
 it('matches snapshot', () => {
   const { toJSON } = render(
     <MockedProvider>
-      <SearchBarView/>
+      <SearchBarView />
     </MockedProvider>
   )
   expect(toJSON()).toMatchSnapshot()
