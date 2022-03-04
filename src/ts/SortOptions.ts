@@ -1,0 +1,1 @@
+export type SortOptions = `${'name' | 'distance' | 'rating'}_${'asc' | 'desc'}`
