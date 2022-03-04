@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import Button from '@components/Button'
+import Button from '@components/SortSearchResults/Button'
 import { fireEvent, render, waitFor } from '@testing-library/react-native'
 import React from 'react'
 import { TextStyle, ViewStyle } from 'react-native'

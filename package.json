@@ -30,14 +30,14 @@
     "react-native-image-viewing": "^0.2.1",
     "react-native-maps": "^0.29.4",
     "react-native-navigation": "^7.24.3-hotfix.1",
+    "react-native-open-maps": "^0.4.0",
     "react-native-reanimated": "^2.4.1",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.12.0",
     "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
-    "rn-sliding-up-panel": "^2.4.5",
-    "react-native-open-maps": "^0.4.0"
+    "rn-sliding-up-panel": "^2.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

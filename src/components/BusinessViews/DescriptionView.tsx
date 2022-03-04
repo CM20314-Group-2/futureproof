@@ -5,17 +5,17 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 type ViewProps = Pick<DisplayableBusiness, 'profileText'>
 
 const DescriptionView = ({ profileText }: ViewProps) => (
-  <View style={styles.compoundStyle}>
+  <View>
     <Text style={styles.headingText}>DESCRIPTION</Text>
     <View style={styles.itemBackgroundStyle}>
       <View style={styles.textAndImageContainerStyle}>
         <Image
-          source={require('../../../assets/icon_paragraph.png')}
+          source={require('../../assets/icon_paragraph.png')}
           style={styles.paragraphIcon}
-          resizeMode='center'
+          resizeMode='contain'
         />
-        <Text style={styles.bodyText}>
-          {profileText == null ? 'No description available.' : profileText}
+        <Text style={styles.bodyText} testID='body-text'>
+          {profileText === null ? 'No description available.' : profileText}
         </Text>
       </View>
     </View>
@@ -23,32 +23,30 @@ const DescriptionView = ({ profileText }: ViewProps) => (
 )
 
 const styles = StyleSheet.create({
+  bodyText: {
+    color: 'black',
+    fontSize: 12,
+    padding: 10,
+  },
+  headingText: {
+    color: '#A0A0A0',
+    fontSize: 12,
+    marginBottom: '1%',
+    marginLeft: '1%',
+    paddingLeft: 20,
+  },
   itemBackgroundStyle: {
     backgroundColor: '#FAF9F9',
     borderRadius: 10,
   },
-  headingText: {
-    fontSize: 12,
-    color: '#A0A0A0',
-    marginLeft: '1%',
-    marginBottom: '1%',
+  paragraphIcon: {
+    height: 25,
+    width: 25,
   },
   textAndImageContainerStyle: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     paddingHorizontal: 15,
-  },
-  paragraphIcon: {
-    width: 25,
-    height: 25,
-  },
-  bodyText: {
-    fontSize: 12,
-    color: 'black',
-    padding: 10,
-  },
-  compoundStyle: {
-    marginBottom: '8%',
   },
 })
 

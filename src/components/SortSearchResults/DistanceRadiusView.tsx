@@ -2,8 +2,8 @@ import * as Location from 'expo-location'
 import React, { useState } from 'react'
 import { Dimensions, StyleSheet, View } from 'react-native'
 import { Circle } from 'react-native-maps'
-import { Option } from '@components/OptionList'
-import OptionSelector from '@components/OptionSelector'
+import { Option } from '@components/SortSearchResults/OptionList'
+import OptionSelector from '@components/SortSearchResults/OptionSelector'
 
 const INITIAL_DISTANCE_INDEX = 2
 

@@ -1,4 +1,4 @@
-import OptionList, { Option } from '@components/OptionList'
+import OptionList, { Option } from '@components/SortSearchResults/OptionList'
 import { fireEvent, render } from '@testing-library/react-native'
 import React from 'react'
 

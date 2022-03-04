@@ -1,4 +1,4 @@
-import TitleView from '@components/TitleView'
+import TitleView from '@components/BusinessViews/TitleView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 

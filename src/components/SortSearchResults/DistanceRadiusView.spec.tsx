@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react-native'
 import { LocationObject } from 'expo-location'
 import React from 'react'
-import DistanceRadiusView from '@components/DistanceRadiusView'
+import DistanceRadiusView from '@components/SortSearchResults/DistanceRadiusView'
 
 const fakeLocation : LocationObject = {
   coords: {

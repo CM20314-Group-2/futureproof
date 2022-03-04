@@ -1,7 +1,7 @@
-import BusinessViewMap from '@components/BusinessViewMap'
+import BusinessViewMap from '@components/BusinessViews/BusinessViewMap'
 import { render } from '@testing-library/react-native'
 import React from 'react'
-import { ExampleLocationType } from '@components/BusinessView'
+import { ExampleLocationType } from '@components/BusinessViews/BusinessView'
 
 const ExampleBusinessLocation : ExampleLocationType = {
   id: '1',

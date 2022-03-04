@@ -1,11 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
-import { IN_DURATION, OUT_DURATION } from '@components/BottomSheet'
+import { IN_DURATION, OUT_DURATION } from '@components/SortSearchResults/BottomSheet'
 import SearchResultSorter, {
   OPTIONS_LIST,
-} from '@components/SearchResultSorter'
+} from '@components/SortSearchResults/SearchResultSorter'
 import { fireEvent, render, waitFor } from '@testing-library/react-native'
 import React from 'react'
-import * as cache from '../cache'
+import * as cache from '../../cache'
 
 declare global {
   function withAnimatedTimeTravelEnabled(fn: () => void): void

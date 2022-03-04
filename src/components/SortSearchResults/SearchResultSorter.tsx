@@ -1,5 +1,5 @@
 import BottomSheet from '@components/SortSearchResults/BottomSheet'
-import Button from '@components/Button'
+import Button from '@components/SortSearchResults/Button'
 import SortOptions from '@components/SortSearchResults/SortOptions'
 import { SortOptions as SortOptionsType } from '@futureproof/typings'
 import React, { useState } from 'react'
@@ -15,9 +15,10 @@ import {
 } from 'react-native'
 import { sortOption as sortBy } from '../../cache'
 
-const INITIAL_OPTION_INDEX = 4 // config variable
+export type Option = { label: string; value: SortOptionsType }
 
-const options: { label: string; value: SortOptionsType }[] = [
+const INITIAL_OPTION_INDEX = 4
+export const OPTIONS_LIST: Option[] = [
   { label: 'Name: A to Z', value: 'name_asc' },
   { label: 'Name: Z to A', value: 'name_desc' },
   { label: 'Distance: Near to Far', value: 'distance_asc' },
@@ -32,7 +33,7 @@ interface ComponentProps {
 }
 
 /**
- * SearchResultSorter Component -
+ * SearchResultSorter Component
  *
  * A button that, when pressed, reveals the different options that a user can use to sort, and applies the selected
  * sorting method to the search results. The button text updates with the label of the users chosen option whenever
@@ -46,48 +47,46 @@ const SearchResultSorter = ({
   buttonStyle,
   buttonTextStyle,
 }: ComponentProps) => {
-  const [sortOption, setSortOption] = useState<{
-    label: string
-    value: SortOptionsType
-  }>(options[INITIAL_OPTION_INDEX])
+  const [sortOption, setSortOption] = useState<Option>(
+    OPTIONS_LIST[INITIAL_OPTION_INDEX]
+  )
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
-  const hideSortingOptions = () => {
-    setShowBottomSheet(false)
-  }
-
   return (
-    <React.Fragment>
-      <Pressable style={buttonStyle} onPress={() => setShowBottomSheet(true)}>
-        <Text style={buttonTextStyle}>Sorting by - {sortOption.label}</Text>
+    <View style={styles.view}>
+      <Pressable
+        style={buttonStyle}
+        onPress={() => setShowBottomSheet(true)}
+        testID='result-sorter-button'
+      >
+        <Text style={buttonTextStyle} testID='result-sorter-button-text'>
+          Sorting by - {sortOption.label}
+        </Text>
       </Pressable>
       <BottomSheet
         show={showBottomSheet}
         height={400}
-        onOuterClick={hideSortingOptions}
+        onOuterClick={() => setShowBottomSheet(false)}
       >
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
           <Text style={styles.title}>Sort Results</Text>
           <SortOptions
-            options={options}
+            options={OPTIONS_LIST}
             initial={INITIAL_OPTION_INDEX}
-            onChange={(
-              option: React.SetStateAction<{
-                label: string
-                value: SortOptionsType
-              }>
-            ) => setSortOption(option)}
+            onChange={(option: React.SetStateAction<Option>) =>
+              setSortOption(option)
+            }
           />
           <Button
             onPress={() => {
               sortBy(sortOption.value)
-              hideSortingOptions()
+              setShowBottomSheet(false)
             }}
             text={'Apply'}
           />
-        </View>
+        </SafeAreaView>
       </BottomSheet>
-    </React.Fragment>
+    </View>
   )
 }
 
@@ -103,6 +102,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     marginTop: 20,
+  },
+  view: {
+    marginTop: 'auto',
   },
 })
 

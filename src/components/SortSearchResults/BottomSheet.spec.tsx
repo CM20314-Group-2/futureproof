@@ -1,4 +1,4 @@
-import BottomSheet from '@components/BottomSheet'
+import BottomSheet from '@components/SortSearchResults/BottomSheet'
 import { fireEvent, render } from '@testing-library/react-native'
 import React from 'react'
 import { Text, ViewStyle } from 'react-native'
