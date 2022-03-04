@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,66 +11,106 @@ datasource db {
 }
 
 model Business {
-  id                  Int             @map("BusinessID")
-  UserID              Int?
+  id                  Int      @id @unique @default(autoincrement()) @map("BusinessID")
   name                String
-  sustainabilityScore Float           @map("FutureproofRating")
-  customerScore       Float           @map("UserRating")
-  ProfileText         String?
-  ProfilePicture      Bytes?
-  type                BusinessType? @map("BusinessType")
+  sustainabilityScore Float    @map("FutureproofRating")
+  customerScore       Float    @map("UserRating")
+  profileText         String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  profilePicture      Bytes?
 
-  @@id([id, name])
+  //Different Relations
+  owner           User          @relation(fields: [userId], references: [id])
+  locations       Location[]    @relation("Locations")
+  primaryLocation Location?     @relation("PrimaryLocation")
+  comments        Comment[]
+  reviews         Review[]
+  type            BusinessType? @map("BusinessType")
+
+  // Keys for the join table
+  userId     Int
+  locationId Int?
 }
 
 model Comment {
-  CommentID  Int      @id
-  BusinessID Int
-  LocationID Int
-  UserID     Int
-  text       String   @map("CommentText")
-  createdAt  DateTime @map("DateCreated") @db.Date
+  id        Int      @id @unique @default(autoincrement())
+  text      String   @map("CommentText")
+  createdAt DateTime @map("DateCreated") @default(now()) @db.Date
+
+  // Different Relations
+  location Location  @relation(fields: [locationId], references: [id])
+  user     User      @relation(fields: [userId], references: [id])
+  business Business? @relation(fields: [businessId], references: [id])
+
+  //Keys for join table
+  businessId Int?
+  locationId Int
+  userId     Int
 }
 
 model Location {
-  id         Int    @id @map("LocationID")
-  BusinessID Int
-  address    String @map("Location")
-  longitude  Int?   @map("Longitude")
-  latitude   Int?   @map("Latitude")
+  id        Int      @id @default(autoincrement()) @map("LocationID")
+  address   String   @map("Location")
+  longitude Float?   @map("Longitude")
+  latitude  Float?   @map("Latitude")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Different Relations
+  Business     Business? @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
+  BusinessList Business?  @relation(name: "Locations", fields: [businessesID], references: [id])
+  Comment      Comment[]
+
+  // Keys for the join table
+  businessesID Int?
+  businessId   Int?    
+  businessName String?
+
 }
 
 model User {
-  id           Int         @id @map("UserID")
+  id           Int         @id @unique @default(autoincrement()) @map("UserID")
   firstName    String      @map("FirstName")
   lastName     String      @map("LastName")
   email        String      @map("Email")
-  Password     String
+  password     String
   profilePhoto Bytes?      @map("ProfilePic")
   roles        user_types? @map("AccountType")
+
+  // Different Relations
+  Business Business[]
+  Comment  Comment[]
+  Review   Review[]
 }
 
-model UserReview {
-  ReviewID   Int      @id
-  BusinessID Int
-  UserID     Int
-  createdAt  DateTime @map("DateCreated") @db.Date
-  ReviewData String
+model Review {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @map("DateCreated") @default(now()) @db.Date
+  reputation Int
+  reviewData String
+
+  // Different Relations
+  user     User      @relation(fields: [userId], references: [id])
+  business Business? @relation(fields: [businessId], references: [id])
+
+  // Keys for the join table
+  businessId   Int?
+  businessName String?
+  userId       Int
+
+  @@map("UserReview")
 }
 
 enum BusinessType {
-  Restuarant
-  Cafe
-  Bar
-  Other
-  Retail
-  Supermarket
-  Health_and_Beauty  @map("Health and Beauty")
-  @@map("business_types")
+  RESTAURANT
+  BAR
+  CAFE
+  OTHER
 }
 
 enum user_types {
-  User
-  Admin
-  Business
+  ADMIN
+  CUSTOMER
+  BUSINESS
 }
