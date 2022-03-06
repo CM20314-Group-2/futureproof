@@ -1,4 +1,4 @@
-import RatingView from '@components/RatingView'
+import RatingView from '@components/BusinessViews/RatingView'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'

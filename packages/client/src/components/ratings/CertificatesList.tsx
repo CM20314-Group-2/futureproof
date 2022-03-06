@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import CertificateLabel from '@components/ratings/CertificateLabel'
-import { BusinessCertificate } from '@components/ratings/CertificateLabel'
+import { BusinessCertificate } from '@futureproof/typings'
 
-const CertificatesListItems = ({ certificates } : { certificates : BusinessCertificate[] }) => {
+const CertificatesListItems = ({ certificates = [] } : { certificates ?: BusinessCertificate[] }) => {
   return (
     <React.Fragment>
       {certificates.map((certificate) => {
@@ -17,7 +17,7 @@ const CertificatesListItems = ({ certificates } : { certificates : BusinessCerti
   )
 }
 
-const CertificatesList = ({ certificates } : { certificates : BusinessCertificate[] }) => {
+const CertificatesList = ({ certificates = [] } : { certificates ?: BusinessCertificate[] }) => {
   return (
     <View style={styles.certificatesListStyle}>
       <CertificatesListItems certificates={certificates}/>

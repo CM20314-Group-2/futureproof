@@ -16,6 +16,8 @@ type Business {
   locations: [Location!]!
   primaryLocation: Location!
   sustainabilityScore: Float
+  sustainabilityCertificates: [BusinessCertificate]
+  sustainabilityRatings: [Rating]
   customerScore: Float
   profilePicture: String
   profileText: String
@@ -31,6 +33,8 @@ type DisplayableBusiness {
   name: String!
   type: BusinessType!
   sustainabilityScore: Float
+  sustainabilityCertificates: [BusinessCertificate]
+  sustainabilityRatings: [Rating]
   customerScore: Float
   profilePicture: String
   profileText: String

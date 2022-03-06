@@ -1,11 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-
-export type BusinessCertificate = {
-  id : number
-  certificateName : string
-  businessHasCertificate : boolean
-}
+import { BusinessCertificate } from '@futureproof/typings'
 
 const TRUE_CERTIFICATE_COLOUR = '#1EA853'
 const FALSE_CERTIFICATE_COLOUR = 'brown'
@@ -14,7 +9,7 @@ const CertificateLabel = ({ certificate } : { certificate : BusinessCertificate 
   return (
     <View style={styles.indicatorBackgroundStyle}>
       <View 
-        style={StyleSheet.flatten([styles.certificateIndicator, { backgroundColor: (certificate.businessHasCertificate ? TRUE_CERTIFICATE_COLOUR : FALSE_CERTIFICATE_COLOUR) }])} 
+        style={StyleSheet.flatten([styles.certificateIndicator, { backgroundColor: (certificate.businessHasCertificate === 1 ? TRUE_CERTIFICATE_COLOUR : FALSE_CERTIFICATE_COLOUR) }])} 
         testID={'certificate-indicator'}
       />
       <Text 

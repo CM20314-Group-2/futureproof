@@ -27,6 +27,8 @@ export type Business = {
   profileText?: Maybe<Scalars['String']>;
   reviews: Array<Review>;
   sustainabilityScore?: Maybe<Scalars['Float']>;
+  sustainabilityCertificates?: [BusinessCertificate];
+  sustainabilityRatings?: [Rating];
   type: BusinessType;
   updatedAt: Scalars['DateTime'];
 };
@@ -74,6 +76,8 @@ export type DisplayableBusiness = {
   profilePicture?: Maybe<Scalars['String']>;
   profileText?: Maybe<Scalars['String']>;
   sustainabilityScore?: Maybe<Scalars['Float']>;
+  sustainabilityCertificates?: [BusinessCertificate];
+  sustainabilityRatings?: [Rating];
   type: BusinessType;
 };
 
@@ -319,3 +323,25 @@ export type UserInput = {
   password: Scalars['String'];
   profilePicture?: InputMaybe<Scalars['String']>;
 };
+
+export type Rating = {
+  __typename?: 'Rating';
+  id: Scalars['ID'];
+  business: Business;
+  ratingName: Scalars['String'];
+  ratingValue: Scalars['Int'];
+}
+
+export type BusinessCertificate = {
+  __typename?: 'BusinessCertificate';
+  id: Scalars['ID'];
+  certificateName: Scalars['String'];
+  businessHasCertificate: Scalars['Int'];
+}
+
+export type SustainabilityScoreBreakdown = {
+  __typename?: 'SustainabilityScoreBreakdown';
+  id: Scalars['ID'];
+  certificates: Array<BusinessCertificate>;
+  ratings: [Rating]
+}

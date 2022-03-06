@@ -3,51 +3,37 @@ import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import CertificatesList from '@components/ratings/CertificatesList'
 import RectangularRatingIndicator from '@components/ratings/RectangularRatingIndicator'
-import { DisplayableBusiness } from '@futureproof/typings'
-import { BusinessCertificate } from '@components/ratings/CertificateLabel'
+import { DisplayableBusiness, Rating } from '@futureproof/typings'
 
-const BUSINESS_CERTIFICATES : BusinessCertificate[] = [
-  {
-    id: 1234,
-    certificateName: 'BCorp',
-    businessHasCertificate: true
-  },
-  {
-    id: 5678,
-    certificateName: 'GBB',
-    businessHasCertificate: false
-  },
-  {
-    id: 9012,
-    certificateName: 'Green Mark',
-    businessHasCertificate: false
-  }
-]
+type ComponentProps = Pick<
+  DisplayableBusiness,
+  'sustainabilityScore' | 'sustainabilityCertificates' | 'sustainabilityRatings'
+>
 
-const FutureProofRatingView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness }) => {
+const RatingBreakdownItems = ({ ratings = [] } : { ratings ?: Rating[] }) => {
+  return (
+    <React.Fragment>
+      {ratings.map((rating) => {
+        return (
+          <View key={rating.id} style={styles.rectangularRatingStyle}>
+            <RectangularRatingIndicator progressValue={rating.ratingValue} ratingName={rating.ratingName}/>
+          </View>
+        )
+      })}
+    </React.Fragment>
+  )
+}
+
+const FutureProofRatingView = ({ sustainabilityScore, sustainabilityCertificates, sustainabilityRatings } : ComponentProps ) => {
   return (
     <SafeAreaView style={styles.futureProofRatingViewStyle}>
       <ScrollView>
         <View style={styles.futureProofRatingTitleView}>
-          <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={businessToDisplay.sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
-          <CertificatesList certificates={BUSINESS_CERTIFICATES}/>
+          <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
+          <CertificatesList certificates={sustainabilityCertificates}/>
         </View>
         <Text style={styles.headingText}>BREAKDOWN</Text>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={75} ratingName={'Carbon Emissions'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={20} ratingName={'Working Conditions'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={95} ratingName={'Ecosystem Impact'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={51} ratingName={'Pay distibution'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={85} ratingName={'Discrimination and Diversity'}/>
-        </View>
+        <RatingBreakdownItems ratings={sustainabilityRatings}/>
       </ScrollView>
     </SafeAreaView>
   )
