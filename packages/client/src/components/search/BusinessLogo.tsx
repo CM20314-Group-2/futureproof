@@ -6,7 +6,7 @@ export const DEFAULT_PROFILE_PATH = '../../../assets/icon.png'
 
 type LogoProps = Pick<DisplayableBusiness, 'profilePicture'>
 
-const BusinessLogo = ({ profilePicture = null } : LogoProps) => (
+const BusinessLogo = ({ profilePicture = null }: LogoProps) => (
   <View style={styles.logoContainerViewStyle}>
     <Image
       source={

@@ -1,9 +1,9 @@
-import SearchResult from '@components/search/SearchResult'
+import SearchResult from '@components/Search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
-const business : DisplayableBusiness = {
+const business: DisplayableBusiness = {
   id: '1',
   name: 'Test Business',
   type: BusinessType.Cafe,

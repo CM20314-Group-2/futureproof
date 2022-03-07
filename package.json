@@ -11,6 +11,7 @@
     "postsetup": "npm run build"
   },
   "dependencies": {
+    "@babel/runtime": "^7.17.2",
     "@futureproof/client": "file:packages/client",
     "@futureproof/server": "file:packages/server",
     "@futureproof/typings": "file:packages/typings"

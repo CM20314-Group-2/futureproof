@@ -13,7 +13,7 @@ class MapSlideUpSheet extends React.Component {
       <React.Fragment>
         <SlidingUpPanel
           ref={(c) => (this._panel = c)}
-          draggableRange={{ top: height / 1.15, bottom: 140 }}
+          draggableRange={{ top: height / 1.15, bottom: 120 }}
           animatedValue={this._draggedValue}
           showBackdrop={true}
         >
@@ -24,7 +24,7 @@ class MapSlideUpSheet extends React.Component {
             <View style={styles.container}>
               <SearchBar />
               <SearchResultSorter />
-              <SearchView />
+              <SearchView navigation={this.props.navigation} />
             </View>
           </View>
         </SlidingUpPanel>
@@ -45,7 +45,6 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 15,
     flex: 1,
-    opacity: 0.95,
     position: 'relative',
   },
   panelHeader: {

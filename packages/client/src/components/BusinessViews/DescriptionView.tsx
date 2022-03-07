@@ -4,13 +4,13 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 
 type ViewProps = Pick<DisplayableBusiness, 'profileText'>
 
-const DescriptionView = ({ profileText } : ViewProps) => (
+const DescriptionView = ({ profileText }: ViewProps) => (
   <View>
     <Text style={styles.headingText}>DESCRIPTION</Text>
     <View style={styles.itemBackgroundStyle}>
       <View style={styles.textAndImageContainerStyle}>
         <Image
-          source={require('../../assets/icon_paragraph.png')}
+          source={require('../../../assets/icon_paragraph.png')}
           style={styles.paragraphIcon}
           resizeMode='contain'
         />

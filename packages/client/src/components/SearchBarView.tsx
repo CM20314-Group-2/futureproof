@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   searchBarView: {
-    marginBottom: '10%',
+    marginBottom: '3%',
     marginTop: 'auto',
   },
   searchInput: {

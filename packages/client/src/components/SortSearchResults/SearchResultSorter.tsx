@@ -15,10 +15,10 @@ import {
 } from 'react-native'
 import { sortOption as sortBy } from '../../cache'
 
-export type Option = { label : string; value : SortOptionsType }
+export type Option = { label: string; value: SortOptionsType }
 
 const INITIAL_OPTION_INDEX = 4
-export const OPTIONS_LIST : Option[] = [
+export const OPTIONS_LIST: Option[] = [
   { label: 'Name: A to Z', value: 'name_asc' },
   { label: 'Name: Z to A', value: 'name_desc' },
   { label: 'Distance: Near to Far', value: 'distance_asc' },
@@ -28,8 +28,8 @@ export const OPTIONS_LIST : Option[] = [
 ]
 
 interface ComponentProps {
-  buttonStyle ?: ViewStyle
-  buttonTextStyle ?: TextStyle
+  buttonStyle?: ViewStyle
+  buttonTextStyle?: TextStyle
 }
 
 /**
@@ -46,14 +46,14 @@ interface ComponentProps {
 const SearchResultSorter = ({
   buttonStyle,
   buttonTextStyle,
-} : ComponentProps) => {
+}: ComponentProps) => {
   const [sortOption, setSortOption] = useState<Option>(
     OPTIONS_LIST[INITIAL_OPTION_INDEX]
   )
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
   return (
-    <View style={styles.view}>
+    <React.Fragment>
       <Pressable
         style={buttonStyle}
         onPress={() => setShowBottomSheet(true)}
@@ -65,7 +65,7 @@ const SearchResultSorter = ({
       </Pressable>
       <BottomSheet
         show={showBottomSheet}
-        height={400}
+        height={550}
         onOuterClick={() => setShowBottomSheet(false)}
       >
         <SafeAreaView style={styles.container}>
@@ -73,7 +73,7 @@ const SearchResultSorter = ({
           <SortOptions
             options={OPTIONS_LIST}
             initial={INITIAL_OPTION_INDEX}
-            onChange={(option : React.SetStateAction<Option>) =>
+            onChange={(option: React.SetStateAction<Option>) =>
               setSortOption(option)
             }
           />
@@ -86,7 +86,7 @@ const SearchResultSorter = ({
           />
         </SafeAreaView>
       </BottomSheet>
-    </View>
+    </React.Fragment>
   )
 }
 
