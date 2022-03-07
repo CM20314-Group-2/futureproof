@@ -1,5 +1,5 @@
 import {PrismaClient} from '@prisma/client'
-import {typeDefs} from '@typings/schema'
+import typeDefs from '@futureproof/typings/schema'
 import {resolvers} from './resolvers'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
