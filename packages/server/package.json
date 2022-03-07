@@ -2,7 +2,11 @@
   "name": "@futureproof/backend",
   "version": "0.1.0",
   "description": "Backend for FutureProof",
-  "repository": "https://github.com/CM20314-Group-2/backend",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CM20314-Group-2/futureproof.git",
+    "directory": "packages/server"
+  },
   "main": "src/index.ts",
   "scripts": {
     "build": "prisma generate",
@@ -14,6 +18,7 @@
   },
   "private": true,
   "dependencies": {
+    "@futureproof/typings": "*",
     "@prisma/client": "^3.9.1",
     "apollo-server": "^3.6.2",
     "fastify": "^3.27.1",

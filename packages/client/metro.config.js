@@ -6,7 +6,6 @@ const { resolver: defaultResolver } = getDefaultConfig.getDefaultValues()
 
 exports.watchFolders = [
   path.resolve(__dirname, './src'),
-  path.resolve(__dirname, 'node_modules'),
   path.resolve(__dirname, '../typings'), // This cannot be achieved dynamically with the current iteration of lerna
 ]
 
