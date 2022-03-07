@@ -119,7 +119,7 @@ export const resolvers = {
         }
       })
     },
-    createLocation: async (locationInput: Prisma.LocationCreateInput, context: Context) => {
+    /*createLocation: async (locationInput: Prisma.LocationCreateInput, context: Context) => {
       return context.prisma.location.create({
         data: {
           address: locationInput.address,
@@ -133,7 +133,7 @@ export const resolvers = {
           Comment: locationInput.Comment
         }
       })
-    },
+    },*/
     createComment: async (commentInput: Prisma.CommentCreateInput, context: Context) => {
       return context.prisma.comment.create({
         data: {

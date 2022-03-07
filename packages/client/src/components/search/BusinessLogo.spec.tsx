@@ -1,6 +1,6 @@
 import BusinessLogo, {
   DEFAULT_PROFILE_PATH,
-} from '@components/search/BusinessLogo'
+} from '@components/Search/BusinessLogo'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 

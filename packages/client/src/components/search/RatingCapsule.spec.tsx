@@ -1,7 +1,7 @@
 import RatingCapsule, {
   ratingToColour,
   ratingToText,
-} from '@components/search/RatingCapsule'
+} from '@components/Search/RatingCapsule'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
