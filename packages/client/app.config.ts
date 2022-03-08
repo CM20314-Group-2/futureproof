@@ -31,7 +31,7 @@ export default {
       favicon: './assets/favicon.png'
     },
     extra: {
-      serverAddress: console.error('serverAddress must be specified.'),
+      serverAddress: console.error('serverAddress must be specified.')
     }
   }
 }

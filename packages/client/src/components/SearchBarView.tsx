@@ -15,11 +15,12 @@ const GET_COMPANY_DATA = gql`
   }
 `
 
+export const globalData = makeVar([]);
+
 const SearchBarView = () => {
   const [searchText, onChangeText] = useState('')
 
   const [executeSearch, { data, error }] = useLazyQuery(
-    // 'loading' and 'data' can also be returned (not just error)
     GET_COMPANY_DATA, { variables: { _value: searchText } }
   )
 
@@ -30,10 +31,6 @@ const SearchBarView = () => {
     }, 300)
     return () => clearTimeout(delayDebounceFn)
   }, [searchText])
-
-  const updateSearch = (text : string) => {
-    onChangeText(text)
-  }
 
   return (
     <React.Fragment>

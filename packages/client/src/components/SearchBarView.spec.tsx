@@ -15,10 +15,6 @@ it('matches snapshot', () => {
   expect(toJSON()).toMatchSnapshot()
 })
 
-it ('allows the filter button to be pressed', () => {
-  console.log('button has not been implemented yet')
-})
-
 it ('allows input into the search bar', () => {
   const inputField = screen.getByTestId('search-bar')
   userEvent.type(inputField, 'test')
