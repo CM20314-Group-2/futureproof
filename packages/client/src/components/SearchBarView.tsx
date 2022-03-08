@@ -15,7 +15,7 @@ const GET_COMPANY_DATA = gql`
   }
 `
 
-export const globalData = makeVar([]);
+export const globalData = makeVar([])
 
 const SearchBarView = () => {
   const [searchText, onChangeText] = useState('')
