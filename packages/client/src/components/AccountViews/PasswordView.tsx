@@ -9,8 +9,6 @@ import {
   Dimensions,
   Button,
 } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
@@ -73,6 +71,8 @@ const styles = StyleSheet.create({
   bottomImageStyle: {
     width: width,
     height: width / 3,
+    flex: 1,
+    alignItems: 'flex-end',
   },
 })
 

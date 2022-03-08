@@ -49,11 +49,11 @@ type Props = StackScreenProps<RootStackParamList>
 const BusinessView = ({ route }: Props) => {
   return (
     <View>
-      <ScrollView
-        contentContainerStyle={styles.businessViewScrollStyle}
-        contentInsetAdjustmentBehavior='automatic'
-      >
-        <SafeAreaView style={styles.businessViewStyle}>
+      <SafeAreaView style={styles.businessViewStyle}>
+        <ScrollView
+          contentContainerStyle={styles.businessViewScrollStyle}
+          contentInsetAdjustmentBehavior='automatic'
+        >
           <TitleView
             name={route.params.businessToDisplay.name}
             profilePicture={
@@ -74,8 +74,8 @@ const BusinessView = ({ route }: Props) => {
           />
           <BusinessViewMap businessLocation={ExampleBusinessLocation} />
           <ImagesCarousel Images={images} />
-        </SafeAreaView>
-      </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
       <TouchableOpacity
         onPress={() => openMap({ end: ExampleBusinessLocation.address })}
         style={styles.directionsButtonContainer}
@@ -89,7 +89,7 @@ const BusinessView = ({ route }: Props) => {
 export const styles = StyleSheet.create({
   businessViewScrollStyle: {
     flexGrow: 1,
-    height: '100%',
+    height: '150%',
   },
   businessViewStyle: {
     marginHorizontal: 30,

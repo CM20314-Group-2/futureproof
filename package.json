@@ -10,17 +10,14 @@
     "setup": "npm install",
     "postsetup": "npm run build"
   },
-<<<<<<< HEAD
   "dependencies": {
     "@babel/runtime": "^7.17.2",
     "@futureproof/client": "file:packages/client",
     "@futureproof/server": "file:packages/server",
     "@futureproof/typings": "file:packages/typings"
   },
-=======
   "workspaces": [
     "packages/*"
   ],
->>>>>>> origin/sprint-3
   "private": true
 }

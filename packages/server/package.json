@@ -18,11 +18,8 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@babel/runtime": "^7.17.2",
-=======
     "@futureproof/typings": "*",
->>>>>>> origin/sprint-3
     "@prisma/client": "^3.9.1",
     "apollo-server": "^3.6.2",
     "fastify": "^3.27.1",

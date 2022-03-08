@@ -24,7 +24,7 @@ class MapSlideUpSheet extends React.Component {
             <View style={styles.container}>
               <SearchBar />
               <SearchResultSorter />
-              <SearchView navigation={this.props.navigation} />
+              <SearchView navigation={this.props.navigationProp} />
             </View>
           </View>
         </SlidingUpPanel>
