@@ -1,23 +1,26 @@
 import {PrismaClient} from '@prisma/client'
-import typeDefs from '@futureproof/typings/schema'
+import typeDefs from "@futureproof/typings/schema"
 import {resolvers} from './resolvers'
+import prisma from './client'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
 import mercuriusCodegen from "mercurius-codegen"
 import {makeExecutableSchema}  from '@graphql-tools/schema'
 
+//import * as resolvers from "./Resolvers/index";
+
 export const app = Fastify({
   logger: process.env.NODE_ENV !== "test",
 })
 
-const prisma = new PrismaClient()
+//const prisma = new PrismaClient()
 
 app.register(mercurius, {
   schema: makeExecutableSchema({ typeDefs, resolvers }),
   context: (request, reply) => {
     return {prisma}
   },
-  graphiql: process.env.NODE_ENV === 'development',
+  graphiql: true, //process.env.NODE_ENV === 'development',
 })
 
 const start = async () => {
