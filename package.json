@@ -13,9 +13,5 @@
   "workspaces": [
     "packages/*"
   ],
-  "private": true,
-  "dependencies": {
-    "@testing-library/dom": "^8.11.3",
-    "@testing-library/user-event": "^13.5.0"
-  }
+  "private": true
 }
