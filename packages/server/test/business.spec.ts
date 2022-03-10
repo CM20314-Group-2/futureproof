@@ -10,8 +10,8 @@ const businesses: Business[] = [
   {
     id: 1,
     name: "Business 1",
-    ProfilePicture: null,
-    ProfileText: null,
+    profilePicture: null,
+    profileText: null,
     createdAt: new Date(),
     updatedAt: new Date(),
     customerScore: 0,

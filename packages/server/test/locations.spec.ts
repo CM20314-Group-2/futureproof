@@ -11,6 +11,7 @@ const locations: Location[] = [
     id: 1,
     address: "address 1",
     businessId: 1,
+    businessesID: null,
     businessName: "business 1",
     createdAt: new Date(),
     latitude: 0,
