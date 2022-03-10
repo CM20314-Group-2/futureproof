@@ -1,4 +1,4 @@
-import { UserReview } from "@prisma/client"
+import { Review } from "@prisma/client"
 import { createMercuriusTestClient } from "mercurius-integration-testing"
 import { Context, createMockContext, MockContext } from "../src/context"
 import { app } from "../src/index"
@@ -6,11 +6,11 @@ import { app } from "../src/index"
 let mockCtx: MockContext
 let ctx: Context
 
-const reviews: UserReview[] = [
+const reviews: Review[] = [
   {
     id: 1,
     userId: 1,
-    ReviewData: "review 1",
+    reviewData: "review 1",
     businessId: 1,
     createdAt: new Date(),
     businessName: "business 1",
