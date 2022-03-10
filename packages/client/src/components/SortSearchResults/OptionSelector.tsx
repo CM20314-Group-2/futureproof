@@ -21,7 +21,7 @@ const OptionSelector = ({ options, initial, buttonStyle, buttonTextStyle, select
     <View style={styles.view}>
       <Pressable
         style={buttonStyle}
-        onPress={() => setShowBottomSheet(true) }
+        onPress={ () => setShowBottomSheet(true) }
         testID='option-selector-button'
       >
         <Text

@@ -2,6 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import AccountView from '@components/AccountView'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
+import SearchResultSorter from '@components/SortSearchResults/SearchResultSorter'
 import { Business, BusinessType, DisplayableBusiness, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
@@ -77,9 +78,13 @@ export const AppNavigator = () => {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <AppNavigator />
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <AppNavigator />
+    // </NavigationContainer>
+    <View>
+      <MapView showRadius={true} />
+      <SearchResultSorter />
+    </View>
   )
 }
 
