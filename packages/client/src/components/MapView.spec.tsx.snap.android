@@ -21,21 +21,7 @@ exports[`matches snapshot with permissions 1`] = `
 `;
 
 exports[`matches snapshot without permissions 1`] = `
-<AIRMap
-  initialRegion={null}
-  onChange={[Function]}
-  onLayout={[Function]}
-  onMapReady={[Function]}
-  onMarkerPress={[Function]}
-  region={null}
-  style={
-    Object {
-      "bottom": 0,
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-    }
-  }
-/>
+<Text>
+   Error: Could not find location 
+</Text>
 `;

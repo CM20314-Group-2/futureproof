@@ -1,0 +1,368 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "marginBottom": "8%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#A0A0A0",
+        "fontSize": 12,
+        "marginBottom": "1%",
+        "marginLeft": "1%",
+        "paddingLeft": 20,
+      }
+    }
+  >
+    RATINGS
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FAF9F9",
+          "borderRadius": 10,
+          "padding": 5,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <RNSVGSvgView
+            bbHeight={150}
+            bbWidth={150}
+            focusable={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "height": 150,
+                  "transform": Array [
+                    Object {
+                      "rotate": "270deg",
+                    },
+                  ],
+                  "width": 150,
+                  "zIndex": 0,
+                },
+                Object {
+                  "flex": 0,
+                  "height": 150,
+                  "width": 150,
+                },
+              ]
+            }
+            testID="circular-indicator"
+          >
+            <RNSVGGroup
+              matrix={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            >
+              <RNSVGCircle
+                cx={61}
+                cy={61}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    -0,
+                    1,
+                    14,
+                    14,
+                  ]
+                }
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                  ]
+                }
+                r={61}
+                stroke={-329223}
+                strokeWidth={14}
+              />
+              <RNSVGCircle
+                cx={61}
+                cy={61}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    -0,
+                    1,
+                    14,
+                    14,
+                  ]
+                }
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeDasharray",
+                    "strokeDashoffset",
+                    "strokeLinecap",
+                  ]
+                }
+                r={61}
+                stroke={-11491492}
+                strokeDasharray={
+                  Array [
+                    383.27430373795477,
+                    383.27430373795477,
+                  ]
+                }
+                strokeDashoffset={114.98229112138645}
+                strokeLinecap={1}
+                strokeWidth={11.200000000000001}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+          <Text
+            style={
+              Object {
+                "alignItems": "center",
+                "color": "#50a75c",
+                "fontSize": 21,
+                "fontWeight": "bold",
+                "position": "absolute",
+                "top": 62.5,
+                "zIndex": 1,
+              }
+            }
+            testID="rating-value-text"
+          >
+            70
+          </Text>
+          <Text
+            style={
+              Object {
+                "alignItems": "center",
+                "color": "#50a75c",
+                "fontSize": 9,
+                "position": "absolute",
+                "top": 87.5,
+                "zIndex": 1,
+              }
+            }
+            testID="rating-name-text"
+          >
+            FutureProof Rating
+          </Text>
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 10,
+            }
+          }
+        >
+          Tap for Details
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FAF9F9",
+          "borderRadius": 10,
+          "padding": 5,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <RNSVGSvgView
+            bbHeight={150}
+            bbWidth={150}
+            focusable={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "height": 150,
+                  "transform": Array [
+                    Object {
+                      "rotate": "270deg",
+                    },
+                  ],
+                  "width": 150,
+                  "zIndex": 0,
+                },
+                Object {
+                  "flex": 0,
+                  "height": 150,
+                  "width": 150,
+                },
+              ]
+            }
+            testID="circular-indicator"
+          >
+            <RNSVGGroup
+              matrix={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            >
+              <RNSVGCircle
+                cx={61}
+                cy={61}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    -0,
+                    1,
+                    14,
+                    14,
+                  ]
+                }
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                  ]
+                }
+                r={61}
+                stroke={-329223}
+                strokeWidth={14}
+              />
+              <RNSVGCircle
+                cx={61}
+                cy={61}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    -0,
+                    1,
+                    14,
+                    14,
+                  ]
+                }
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeDasharray",
+                    "strokeDashoffset",
+                    "strokeLinecap",
+                  ]
+                }
+                r={61}
+                stroke={-4270546}
+                strokeDasharray={
+                  Array [
+                    383.27430373795477,
+                    383.27430373795477,
+                  ]
+                }
+                strokeDashoffset={191.63715186897738}
+                strokeLinecap={1}
+                strokeWidth={11.200000000000001}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+          <Text
+            style={
+              Object {
+                "alignItems": "center",
+                "color": "#bed62e",
+                "fontSize": 21,
+                "fontWeight": "bold",
+                "position": "absolute",
+                "top": 62.5,
+                "zIndex": 1,
+              }
+            }
+            testID="rating-value-text"
+          >
+            50
+          </Text>
+          <Text
+            style={
+              Object {
+                "alignItems": "center",
+                "color": "#bed62e",
+                "fontSize": 9,
+                "position": "absolute",
+                "top": 87.5,
+                "zIndex": 1,
+              }
+            }
+            testID="rating-name-text"
+          >
+            Consumer Rating
+          </Text>
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#A0A0A0",
+              "fontSize": 10,
+            }
+          }
+        >
+          Tap for Details
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
