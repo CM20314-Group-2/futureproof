@@ -1,13 +1,14 @@
-import {Prisma} from '@prisma/client'
-import {Context} from './context'
+import {Business, BusinessType, Prisma, PrismaClient} from '@prisma/client'
+import { Context } from './context'
+
 
 export const resolvers = {
   Query: {
-    users: async (context: Context) => {
-      return context.prisma.user.findMany()
+    users: async (_parent:any, _args: any, context: Context) => {
+      return await context.prisma.user.findMany();
     },
-    businesses: async (context: Context) => {
-      return context.prisma.business.findMany()
+    businesses: (_parent: any, _args: any, context: Context) => {
+      return context.prisma.business.findMany();
     },
     comments: async (context: Context) => {
       return context.prisma.comment.findMany()
@@ -23,9 +24,9 @@ export const resolvers = {
         where: { id: idInput },
       })
     },
-    business: async (idInput: number, context: Context) => {
+    business: (_parent:any, args : { id:number }, context: Context) => {
       return context.prisma.business.findUnique({
-        where: { id: idInput },
+        where: { id: Number(args.id) || undefined },
       })
     },
     comment: async (idInput: number, context: Context) => {

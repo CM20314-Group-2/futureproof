@@ -1,22 +1,27 @@
-import {PrismaClient} from '@prisma/client'
 import typeDefs from "@futureproof/typings/schema"
-import {resolvers} from './resolvers'
 import prisma from './client'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
 import mercuriusCodegen from "mercurius-codegen"
 import {makeExecutableSchema}  from '@graphql-tools/schema'
 
-//import * as resolvers from "./Resolvers/index";
+// Imports to help with resolver merge.
+import { resolvers as userResolvers } from './resolvers/userResolvers'
+import { resolvers as businessResolvers } from './resolvers/businessResolvers'
+import { resolvers as commentResolvers } from "./resolvers/commentResolvers"
+import merge = require("lodash.merge")
+
 
 export const app = Fastify({
   logger: process.env.NODE_ENV !== "test",
 })
 
-//const prisma = new PrismaClient()
-
+// Main app running script -> defines how the server runs(important).
 app.register(mercurius, {
-  schema: makeExecutableSchema({ typeDefs, resolvers }),
+  schema: makeExecutableSchema({
+     typeDefs, 
+     resolvers : merge({}, userResolvers, businessResolvers, commentResolvers) 
+    }),
   context: (request, reply) => {
     return {prisma}
   },
@@ -35,7 +40,7 @@ const start = async () => {
 
 if (process.env.NODE_ENV !== "test") {
   mercuriusCodegen(app, {
-    targetPath: "./src/generated.ts",
+    targetPath: "./merCodegen/generated.ts",
   }).catch(console.error)
 
   start()
