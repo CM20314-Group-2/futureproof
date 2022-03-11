@@ -10,8 +10,8 @@ const businesses: Business[] = [
   {
     id: 1,
     name: "Business 1",
-    ProfilePicture: null,
-    ProfileText: null,
+    profilePicture: null,
+    profileText: null,
     createdAt: new Date(),
     updatedAt: new Date(),
     customerScore: 0,
@@ -33,6 +33,9 @@ describe("resolvers", () => {
     mockCtx.prisma.business.findMany.mockResolvedValueOnce(businesses)
 
     await expect(ctx.prisma.business.findMany()).resolves.toEqual(businesses)
+  })
+  it("creates businesses", async () => {
+    mockCtx.prisma.business.create.mock
   })
 })
 

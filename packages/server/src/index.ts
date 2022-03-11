@@ -1,4 +1,4 @@
-import typeDefs from '@futureproof/typings/schema'
+import typeDefs from '@futureproof/packages/typings/schema'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
@@ -15,7 +15,7 @@ export const app = Fastify({
 app.register(mercurius, {
   schema: makeExecutableSchema({ typeDefs, resolvers }),
   context: buildContext,
-  graphiql: process.env.NODE_ENV === 'development',
+  graphiql: true,
 })
 
 const start = async () => {

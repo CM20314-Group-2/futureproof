@@ -2,7 +2,6 @@ input BusinessInput {
   name: String!
   owner: ID
   type: BusinessType
-  primaryLocation: ID!
   locations: [ID!]!
   profilePicture: String
   profileText: String
@@ -14,7 +13,6 @@ type Business {
   owner: User
   type: BusinessType!
   locations: [Location!]!
-  primaryLocation: Location!
   sustainabilityScore: Float
   customerScore: Float
   profilePicture: String
