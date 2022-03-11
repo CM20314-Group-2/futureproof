@@ -26,7 +26,7 @@ beforeEach(() => {
 describe("resolvers", () => {
   it("gets reviews", async () => {
     //@ts-ignore
-    mockCtx.prisma.userReview.findMany.mockResolvedValueOnce(reviews)
+    mockCtx.prisma.review.findMany.mockResolvedValueOnce(reviews)
 
     await expect(ctx.prisma.userReview.findMany()).resolves.toEqual(reviews)
   })
@@ -36,7 +36,7 @@ describe("API", () => {
   const client = createMercuriusTestClient(app)
 
   it("gets reviews", async () => {
-    mockCtx.prisma.userReview.findMany.mockResolvedValueOnce(reviews)
+    mockCtx.prisma.review.findMany.mockResolvedValueOnce(reviews)
 
     const response = await client.query(
       `query {
