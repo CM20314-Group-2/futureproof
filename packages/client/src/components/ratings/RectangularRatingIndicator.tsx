@@ -5,6 +5,14 @@ import { ratingToColour } from '@components/Search/RatingCapsule'
 
 const PROGRESS_BACKGROUND_COLOUR = '#F0EFEF'
 
+/**
+ * Creates a rectangular rating indicator view to show a percentage of progress.
+ * 
+ * @param {number} progressValue The progress to represent in the view (value from 0 to 100)
+ * @param {string} ratingName The rating title to show for this rating view
+ * @returns A rectangular rating indicator view
+ */
+
 const RectangularRatingIndicator = ({ progressValue, ratingName } : { progressValue : number, ratingName : string }) => {
   return (
     <View style={styles.indicatorBackgroundStyle}>

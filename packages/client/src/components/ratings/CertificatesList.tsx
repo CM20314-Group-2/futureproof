@@ -3,7 +3,14 @@ import { StyleSheet, View } from 'react-native'
 import CertificateLabel from '@components/ratings/CertificateLabel'
 import { BusinessCertificate } from '@futureproof/typings'
 
-const CertificatesListItems = ({ certificates = [] } : { certificates ?: BusinessCertificate[] }) => {
+/**
+ * Creates a list of certificate views.
+ * 
+ * @param {BusinessCertificate[]} certificates An array of business certificates to show
+ * @returns A list of certificate views corresponding to the passed in certificates
+ */
+
+const CertificatesListItems = ({ certificates } : { certificates : BusinessCertificate[] }) => {
   return (
     <React.Fragment>
       {certificates.map((certificate) => {

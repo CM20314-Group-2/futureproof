@@ -2,23 +2,13 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import AccountView from '@components/AccountView'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
-import { Business, BusinessType, DisplayableBusiness, Location } from '@futureproof/typings'
+import { Business, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import Constants from 'expo-constants'
 import React from 'react'
 import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import AccountButton from './components/AccountButton'
-
-const ExampleBusiness : DisplayableBusiness =  {
-  id: '1',
-  name: 'Starbucks',
-  profileText: 'This is a test business and there is not that much to say about it.',
-  sustainabilityScore: 80,
-  customerScore: 65,
-  type: BusinessType.Cafe,
-  profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
-}
 
 interface LocationType extends Pick<Location, 'latitude'> {
   business : Pick<Business, 'sustainabilityScore'>

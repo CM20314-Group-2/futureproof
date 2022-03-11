@@ -2,27 +2,22 @@ import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import CertificatesList from '@components/ratings/CertificatesList'
-import RectangularRatingIndicator from '@components/ratings/RectangularRatingIndicator'
-import { DisplayableBusiness, Rating } from '@futureproof/typings'
+import RatingBreakdownItems from '@components/ratings/RatingBreakdownItems'
+import { BusinessCertificate, DisplayableBusiness, Rating } from '@futureproof/typings'
 
 type ComponentProps = Pick<
   DisplayableBusiness,
   'sustainabilityScore' | 'sustainabilityCertificates' | 'sustainabilityRatings'
 >
 
-const RatingBreakdownItems = ({ ratings = [] } : { ratings ?: Rating[] }) => {
-  return (
-    <React.Fragment>
-      {ratings.map((rating) => {
-        return (
-          <View key={rating.id} style={styles.rectangularRatingStyle}>
-            <RectangularRatingIndicator progressValue={rating.ratingValue} ratingName={rating.ratingName}/>
-          </View>
-        )
-      })}
-    </React.Fragment>
-  )
-}
+/**
+ * This function creates the whole FutureProof rating view, including certificates and individual ratings breakdown.
+ * 
+ * @param {Maybe<number> | undefined} sustainabilityScore The sustainability score
+ * @param {Maybe<Maybe<BusinessCertificate>[]> | undefined} sustainabilityCertificates An array of certificates for this business
+ * @param {Maybe<Maybe<Rating>[]> | undefined} sustainabilityRatings An array of ratings for this business
+ * @returns {View} The FutureProof Rating (breakdown) view
+ */
 
 const FutureProofRatingView = ({ sustainabilityScore, sustainabilityCertificates, sustainabilityRatings } : ComponentProps ) => {
   return (
@@ -30,10 +25,10 @@ const FutureProofRatingView = ({ sustainabilityScore, sustainabilityCertificates
       <ScrollView>
         <View style={styles.futureProofRatingTitleView}>
           <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
-          <CertificatesList certificates={sustainabilityCertificates}/>
+          <CertificatesList certificates={sustainabilityCertificates as BusinessCertificate[]}/>
         </View>
         <Text style={styles.headingText}>BREAKDOWN</Text>
-        <RatingBreakdownItems ratings={sustainabilityRatings}/>
+        <RatingBreakdownItems ratings={sustainabilityRatings as Rating[]}/>
       </ScrollView>
     </SafeAreaView>
   )
@@ -52,9 +47,6 @@ export const styles = StyleSheet.create({
     color: '#A0A0A0',
     fontSize: 12,
     paddingLeft: 20
-  },
-  rectangularRatingStyle: {
-    paddingVertical: 5
   }
 })
 

@@ -1,9 +1,7 @@
 type Rating {
   id: ID!
-  business: Business!
   ratingName: String!
   ratingValue: Int!
-  # Sustainability Data
 }
 
 type BusinessCertificate {

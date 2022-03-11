@@ -1,4 +1,4 @@
-import RatingsView from '@components/RatingsView'
+import RatingsView from '@components/BusinessViews/RatingsView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 

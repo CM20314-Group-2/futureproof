@@ -5,6 +5,13 @@ import { BusinessCertificate } from '@futureproof/typings'
 const TRUE_CERTIFICATE_COLOUR = '#1EA853'
 const FALSE_CERTIFICATE_COLOUR = 'brown'
 
+/**
+ * Creates a single certificate label (with text and left-side colour indictor)
+ * 
+ * @param {BusinessCertificate} certificate The certificate to be represented
+ * @returns A certificate label view
+ */
+
 const CertificateLabel = ({ certificate } : { certificate : BusinessCertificate }) => {
   return (
     <View style={styles.indicatorBackgroundStyle}>
