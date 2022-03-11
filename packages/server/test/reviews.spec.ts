@@ -28,7 +28,7 @@ describe("resolvers", () => {
     //@ts-ignore
     mockCtx.prisma.review.findMany.mockResolvedValueOnce(reviews)
 
-    await expect(ctx.prisma.userReview.findMany()).resolves.toEqual(reviews)
+    await expect(ctx.prisma.review.findMany()).resolves.toEqual(reviews)
   })
 })
 
