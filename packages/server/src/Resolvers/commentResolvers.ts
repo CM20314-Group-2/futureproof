@@ -1,4 +1,4 @@
-import { Business, BusinessType, Prisma, PrismaClient } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { Context } from '@futureproof/server/src/context'
 
 export const resolvers = {
@@ -21,7 +21,7 @@ export const resolvers = {
 
         commentsByBusiness: (_parent: any, args: { idInput: number }, context: Context) => {
             return context.prisma.comment.findMany({
-                where: { businessId: Number(args.idInput) || undefined },
+                where: { businessId: Number(args.idInput)},
             })
         },
         //End of Queries

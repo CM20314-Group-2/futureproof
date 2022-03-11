@@ -1,4 +1,4 @@
-import { Business, BusinessType, Prisma, PrismaClient } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { Context } from '@futureproof/server/src/context'
 
 export const resolvers = {
