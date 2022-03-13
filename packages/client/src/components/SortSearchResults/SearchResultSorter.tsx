@@ -1,23 +1,16 @@
-import BottomSheet from '@components/SortSearchResults/BottomSheet'
-import Button from '@components/SortSearchResults/Button'
-import SortOptions from '@components/SortSearchResults/SortOptions'
 import React, { useState } from 'react'
 import {
-  Platform,
-  Pressable,
-  SafeAreaView,
   StyleSheet,
-  Text,
   TextStyle,
   View,
   ViewStyle,
 } from 'react-native'
 import { sortOption as sortBy } from '../../cache'
-import OptionSelector from './OptionSelector'
+import OptionSelector from '@components/SortSearchResults/OptionSelector'
 import { Option } from '@components/SortSearchResults/OptionList'
 
 const INITIAL_OPTION_INDEX = 4
-export const OPTIONS_LIST : Option[] = [
+const OPTIONS_LIST : Option[] = [
   { label: 'Name: A to Z', value: 'name_asc' },
   { label: 'Name: Z to A', value: 'name_desc' },
   { label: 'Distance: Near to Far', value: 'distance_asc' },
@@ -47,71 +40,27 @@ const SearchResultSorter = ({ buttonStyle, buttonTextStyle } : ComponentProps) =
   const [sortOption, setSortOption] = useState<Option>(OPTIONS_LIST[INITIAL_OPTION_INDEX])
 
   return (
-    <View style={styles.view}>
+    <View style={styles.view} pointerEvents='box-none'>
       <OptionSelector
         options={OPTIONS_LIST}
         initial={INITIAL_OPTION_INDEX}
-        selectorTitle={'Sorting by - ' + sortOption.label}
+        selectorTitle={'Choose Sorting Method'}
+        buttonTextPrefix={'Sorting By - '}
         onButtonPress={ (selectedOption : Option) => {
-          setSortOption(selectedOption);
+          setSortOption(selectedOption)
           sortBy(sortOption.value)
         }}
+        buttonStyle={buttonStyle}
+        buttonTextStyle={buttonTextStyle}
       />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
-    justifyContent: 'flex-end',
-    // needed so that there is a margin at the bottom on android phones
-    marginBottom: Platform.OS === 'android' ? 35 : 0,
-    width: '100%',
-  },
-  title: {
-    fontSize: 25,
-    marginTop: 20,
-  },
   view: {
     marginTop: 'auto',
   },
 })
 
 export default SearchResultSorter
-
-// <View style={styles.view}>
-//       <Pressable
-//         style={buttonStyle}
-//         onPress={() => setShowBottomSheet(true)}
-//         testID='result-sorter-button'
-//       >
-//         <Text style={buttonTextStyle} testID='result-sorter-button-text'>
-//         Sorting by - {sortOption.label}
-//         </Text>
-//       </Pressable>
-//       <BottomSheet
-//         show={showBottomSheet}
-//         height={400}
-//         onOuterClick={() => setShowBottomSheet(false)}
-//       >
-//         <SafeAreaView style={styles.container}>
-//           <Text style={styles.title}>Sort Results</Text>
-//           <SortOptions
-//             options={OPTIONS_LIST}
-//             initial={INITIAL_OPTION_INDEX}
-//             onChange={(option : React.SetStateAction<Option>) =>
-//               setSortOption(option)
-//             }
-//           />
-//           <Button
-//             onPress={() => {
-//               sortBy(sortOption.value)
-//               setShowBottomSheet(false)
-//             }}
-//             text={'Apply'}
-//           />
-//         </SafeAreaView>
-//       </BottomSheet>
-//     </View>

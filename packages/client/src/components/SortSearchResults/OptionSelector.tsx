@@ -9,11 +9,12 @@ interface ComponentProps {
   initial : number,
   buttonStyle ?: ViewStyle,
   buttonTextStyle ?: TextStyle,
-  selectorTitle : string
+  selectorTitle : string,
+  buttonTextPrefix? : string
   onButtonPress : (selectedOption : Option) => void
 }
 
-const OptionSelector = ({ options, initial, buttonStyle, buttonTextStyle, selectorTitle, onButtonPress } : ComponentProps) => {
+const OptionSelector = ({ options, initial, buttonStyle, buttonTextStyle, selectorTitle, buttonTextPrefix, onButtonPress } : ComponentProps) => {
   const [userOption, setUserOption] = useState(options[initial])
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
@@ -28,7 +29,7 @@ const OptionSelector = ({ options, initial, buttonStyle, buttonTextStyle, select
           style={buttonTextStyle}
           testID='option-selector-button-text'
         >
-          {userOption.label}
+          {(buttonTextPrefix != undefined ?  buttonTextPrefix : '') + userOption.label}
         </Text>
       </Pressable>
       <BottomSheet

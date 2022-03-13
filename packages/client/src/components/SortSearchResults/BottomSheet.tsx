@@ -86,18 +86,18 @@ const BottomSheet = ({
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#000000',
-    elevation: 1,
+    elevation: 10,
     opacity: 0.5,
     position: 'absolute',
     width: '100%',
-    zIndex: 1,
+    zIndex: 10,
   },
   bottomSheet: {
     backgroundColor: '#ffffff',
-    elevation: 1,
+    elevation: 10,
     position: 'absolute',
     width: '100%',
-    zIndex: 1,
+    zIndex: 10,
   },
 })
 
