@@ -1,4 +1,4 @@
-import RatingCapsule, { ratingToColour, ratingToText } from '@components/Search/RatingCapsule'
+import RatingCapsule, { ratingToColour, ratingToText } from '@components/search/RatingCapsule'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
