@@ -10,7 +10,7 @@
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "tunnel": "ngrok http 3000",
     "test": "jest -i",
-    "lint": "eslint ."
+    "lint": "eslint -c ."
   },
   "private": true,
   "dependencies": {
@@ -30,6 +30,7 @@
     "@types/ip": "^1.1.0",
     "@types/jest": "^27.4.0",
     "@types/lodash.merge": "^4.6.6",
+    "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^8.9.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.5.1",

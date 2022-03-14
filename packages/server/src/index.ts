@@ -12,17 +12,17 @@ export const app = Fastify()
 // Add mercurius to server
 app.register(mercurius, {
   schema: makeExecutableSchema({
-     typeDefs, 
-     resolvers
-    }),
+    typeDefs,
+    resolvers,
+  }),
   context: buildContext,
   graphiql: true, //process.env.NODE_ENV === 'development',
-  jit: 1
+  jit: 1,
 })
 
 app.register(cache, {
   ttl: 10,
-  all: true
+  all: true,
 })
 
 const start = async () => {
@@ -36,9 +36,9 @@ const start = async () => {
 }
 
 // Generate types
-if (process.env.NODE_ENV !== "test") {
+if (process.env.NODE_ENV !== 'test') {
   mercuriusCodegen(app, {
-    targetPath: "../build/generated.ts",
+    targetPath: '../build/generated.ts',
   }).catch(console.error)
 
   start()

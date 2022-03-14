@@ -1,7 +1,7 @@
-import { PrismaSelect } from '@paljs/plugins';
-import { Prisma } from '@prisma/client';
-import { GraphQLResolveInfo } from 'graphql';
-import { Context } from '../context';
+import { PrismaSelect } from '@paljs/plugins'
+import { Prisma } from '@prisma/client'
+import { GraphQLResolveInfo } from 'graphql'
+import { Context } from '../context'
 
 export default {
   Query: {
@@ -9,7 +9,7 @@ export default {
       const select = new PrismaSelect(info).value
       return context.prisma.user.findMany({
         ...select
-      });
+      })
     },
     user: (_parent: any, args: { id: number }, context: Context, info: GraphQLResolveInfo) => {
       const select = new PrismaSelect(info).value

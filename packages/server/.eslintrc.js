@@ -3,4 +3,5 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
   },
+  parser: '@typescript-eslint/parser',
 }
