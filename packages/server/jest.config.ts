@@ -1,14 +1,17 @@
 export default {
   clearMocks: true,
-  preset: "ts-jest",
-  testEnvironment: "node",
+  preset: 'ts-jest',
+  testEnvironment: 'node',
   globals: {
-    "ts-jest": {
-      tsconfig: "<rootDir>/tsconfig.spec.json",
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
   transform: {
-    "^.+\\.(ts|tsx)?$": "ts-jest",
-    "^.+\\.(js|jsx)$": "babel-jest",
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest',
+  },
+  moduleNameMapper: {
+    '^@resolvers/(.*)$': '<rootDir>/src/resolvers/$1',
   },
 }

@@ -1,10 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "moduleResolution": "node",
     "baseUrl": "./src",
     "paths": {
       "@resolvers/*": ["resolvers/*"],
-      "@resolvers": ["resolvers/index"]
     }
   },
   "exclude": ["node_modules"],

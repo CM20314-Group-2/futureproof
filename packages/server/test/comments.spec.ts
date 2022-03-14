@@ -1,7 +1,7 @@
-import { Comment } from "@prisma/client"
-import { createMercuriusTestClient } from "mercurius-integration-testing"
-import { Context, createMockContext, MockContext } from "../src/context"
-import { app } from "../src/index"
+import { Comment } from '@prisma/client'
+import { createMercuriusTestClient } from 'mercurius-integration-testing'
+import { Context, createMockContext, MockContext } from '../src/context'
+import { app } from '../src/index'
 
 let mockCtx: MockContext
 let ctx: Context
@@ -9,7 +9,7 @@ let ctx: Context
 const comments: Comment[] = [
   {
     id: 1,
-    text: "comment 1",
+    text: 'comment 1',
     userId: 1,
     businessId: 1,
     createdAt: new Date(),
@@ -22,8 +22,8 @@ beforeEach(() => {
   ctx = mockCtx as unknown as Context
 })
 
-describe("resolvers", () => {
-  it("gets comments", async () => {
+describe('resolvers', () => {
+  it('gets comments', async () => {
     //@ts-ignore
     mockCtx.prisma.comment.findMany.mockResolvedValueOnce(comments)
 
@@ -31,10 +31,10 @@ describe("resolvers", () => {
   })
 })
 
-describe("API", () => {
+describe('API', () => {
   const client = createMercuriusTestClient(app)
 
-  it("gets comments", async () => {
+  it('gets comments', async () => {
     mockCtx.prisma.comment.findMany.mockResolvedValueOnce(comments)
 
     const response = await client.query(

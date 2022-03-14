@@ -1,6 +1,6 @@
 import typeDefs from '@futureproof/typings/schema'
 import { makeExecutableSchema } from '@graphql-tools/schema'
-import resolvers from '@resolvers'
+import resolvers from '@resolvers/index'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
 import cache from 'mercurius-cache'

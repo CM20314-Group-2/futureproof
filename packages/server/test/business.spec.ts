@@ -1,7 +1,7 @@
-import { Business, BusinessType } from "@prisma/client"
-import { createMercuriusTestClient } from "mercurius-integration-testing"
-import { Context, createMockContext, MockContext } from "../src/context"
-import { app } from "../src/index"
+import { Business, BusinessType } from '@prisma/client'
+import { createMercuriusTestClient } from 'mercurius-integration-testing'
+import { Context, createMockContext, MockContext } from '../src/context'
+import { app } from '../src/index'
 
 let mockCtx: MockContext
 let ctx: Context
@@ -9,9 +9,9 @@ let ctx: Context
 const businesses: Business[] = [
   {
     id: 1,
-    name: "Business 1",
-    ProfilePicture: null,
-    ProfileText: null,
+    name: 'Business 1',
+    profilePicture: null,
+    profileText: null,
     createdAt: new Date(),
     updatedAt: new Date(),
     customerScore: 0,
@@ -27,8 +27,8 @@ beforeEach(() => {
   ctx = mockCtx as unknown as Context
 })
 
-describe("resolvers", () => {
-  it("gets businesses", async () => {
+describe('resolvers', () => {
+  it('gets businesses', async () => {
     //@ts-ignore
     mockCtx.prisma.business.findMany.mockResolvedValueOnce(businesses)
 
@@ -36,10 +36,10 @@ describe("resolvers", () => {
   })
 })
 
-describe("API", () => {
+describe('API', () => {
   const client = createMercuriusTestClient(app)
 
-  it("gets businesses", async () => {
+  it('gets businesses', async () => {
     mockCtx.prisma.business.findMany.mockResolvedValueOnce(businesses)
 
     const response = await client.query(
