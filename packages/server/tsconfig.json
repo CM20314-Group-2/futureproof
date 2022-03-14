@@ -1,5 +1,11 @@
 {
   "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@resolvers/*": ["resolvers/*"],
+    }
+  },
   "exclude": ["node_modules"],
   "include": ["src/**/*.ts"]
 }

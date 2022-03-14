@@ -1,20 +1,16 @@
 // Imports to make the schema.
 import typeDefs from "@futureproof/typings/schema"
-import {makeExecutableSchema}  from '@graphql-tools/schema'
-
-import prisma from './client'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+import { resolvers as businessResolvers } from '@resolvers/businessResolvers'
+import { resolvers as commentResolvers } from "@resolvers/commentResolvers"
+import { resolvers as locationResolvers } from "@resolvers/locationResolvers"
+import { resolvers as reviewResolvers } from "@resolvers/reviewResolvers"
+// Imports to help with resolver merge.
+import { resolvers as userResolvers } from '@resolvers/userResolvers'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
 import mercuriusCodegen from "mercurius-codegen"
-
-// Imports to help with resolver merge.
-import { resolvers as userResolvers } from './resolvers/userResolvers'
-import { resolvers as businessResolvers } from './resolvers/businessResolvers'
-import { resolvers as commentResolvers } from "./resolvers/commentResolvers"
-import { resolvers as locationResolvers  } from "./resolvers/locationResolvers"
-import { resolvers as reviewResolvers } from "./resolvers/reviewResolvers"
-import merge = require("lodash.merge")
-
+import prisma from './client'
 
 export const app = Fastify({
   logger: process.env.NODE_ENV !== "test",
@@ -24,7 +20,7 @@ export const app = Fastify({
 app.register(mercurius, {
   schema: makeExecutableSchema({
      typeDefs, 
-     resolvers : merge({}, userResolvers, businessResolvers, commentResolvers, locationResolvers, reviewResolvers) 
+     resolvers : {...businessResolvers, ...commentResolvers, ...locationResolvers, ...reviewResolvers, ...userResolvers} 
     }),
   context: (request, reply) => {
     return {prisma}
