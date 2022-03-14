@@ -1,9 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import { IN_DURATION, OUT_DURATION } from '@components/SortSearchResults/BottomSheet'
-import SearchResultSorter, { INITIAL_OPTION_INDEX, OPTIONS_LIST } from '@components/SortSearchResults/SearchResultSorter'
 import { fireEvent, render, waitFor } from '@testing-library/react-native'
 import React from 'react'
-import * as cache from '../../cache'
+import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/SortSearchResults/DistanceRadiusSelector'
 
 declare global {
   function withAnimatedTimeTravelEnabled(fn : () => void) : void
@@ -12,13 +11,13 @@ declare global {
 }
 
 it('matches snapshot', () => {
-  const { toJSON } = render(<SearchResultSorter />)
+  const { toJSON } = render(<DistanceRadiusSelector onButtonPress={() => {return}}/>)
   expect(toJSON()).toMatchSnapshot()
 })
 
 it('allows the button style to be set', () => {
   const { getByTestId } = render(
-    <SearchResultSorter buttonStyle={{ backgroundColor: 'red' }} />
+    <DistanceRadiusSelector buttonStyle={{ backgroundColor: 'red' }} onButtonPress={() => {return}}/>
   )
   const button = getByTestId('option-selector-button')
   expect(button).toHaveStyle({ backgroundColor: 'red' })
@@ -26,14 +25,14 @@ it('allows the button style to be set', () => {
 
 it('allows the button text style to be set', async () => {
   const { getByTestId } = render(
-    <SearchResultSorter buttonTextStyle={{ color: 'red' }} />
+    <DistanceRadiusSelector buttonTextStyle={{ color: 'red' }} onButtonPress={() => {return}}/>
   )
   const buttonText = getByTestId('option-selector-button-text')
   expect(buttonText).toHaveStyle({ color: 'red' })
 })
 
-it('opens the result sorter view when the button is pressed', async () => {
-  const { getByTestId } = render(<SearchResultSorter />)
+it('opens the radius selector view when the button is pressed', async () => {
+  const { getByTestId } = render(<DistanceRadiusSelector onButtonPress={() => {return}}/>)
 
   const button = getByTestId('option-selector-button')
   fireEvent(button, 'press')
@@ -42,9 +41,9 @@ it('opens the result sorter view when the button is pressed', async () => {
   await waitFor(() => expect(bottomSheet).toHaveStyle({ bottom: -400 }))
 })
 
-it('dismisses the result sorter when the outside of the bottom sheet is pressed', () => {
+it('dismisses the radius selector when the outside of the bottom sheet is pressed', () => {
   global.withAnimatedTimeTravelEnabled(() => {
-    const { getByTestId, queryByTestId } = render(<SearchResultSorter />)
+    const { getByTestId, queryByTestId } = render(<DistanceRadiusSelector onButtonPress={() => {return}}/>)
 
     const button = getByTestId('option-selector-button')
     fireEvent(button, 'press')
@@ -62,25 +61,21 @@ it('dismisses the result sorter when the outside of the bottom sheet is pressed'
   })
 })
 
-it('updates the selected option when an option is pressed', async () => {
-  const { getByTestId, toJSON } = render(<SearchResultSorter />)
-  const option = getByTestId(`option-list-${OPTIONS_LIST[INITIAL_OPTION_INDEX].value}`)
+it('updates the selected distance when an option is pressed', async () => {
+  const { getByTestId, toJSON } = render(<DistanceRadiusSelector onButtonPress={() => {return}}/>)
+  const option = getByTestId(`option-list-${DISTANCES[INITIAL_DISTANCE_INDEX].value}`)
 
   fireEvent(option, 'press')
   expect(toJSON()).toMatchSnapshot()
 })
 
-it('updates cached option value when apply is pressed', async () => {
-  const sortOptionMock = jest.fn()
-  jest.spyOn(cache, 'sortOption').mockImplementation(sortOptionMock)
+it('onButtonPress is called', async () => {
+  const mockOnPress = jest.fn()
+  const { getByTestId } = render(<DistanceRadiusSelector onButtonPress={mockOnPress}/>)
 
-  const { getByTestId } = render(<SearchResultSorter />)
-  const option = getByTestId(`option-list-${OPTIONS_LIST[INITIAL_OPTION_INDEX].value}`)
-
-  fireEvent(option, 'press')
   const button = getByTestId('button')
-  fireEvent(button, 'press')
-  await waitFor(() =>
-    expect(sortOptionMock).toHaveBeenCalledWith(OPTIONS_LIST[INITIAL_OPTION_INDEX].value)
-  )
+  fireEvent.press(button)
+  await waitFor(() => {
+    expect(mockOnPress).toHaveBeenCalled()
+  })
 })

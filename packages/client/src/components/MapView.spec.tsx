@@ -42,6 +42,8 @@ const deniedPermissions : LocationPermissionResponse = {
 
 let location : MockedObject<typeof Location>
 
+const distances = [100, 250, 500, 1000, 1500, 2000]
+
 beforeEach(() => {
   jest.mock('expo-location')
   location = mocked(Location)
@@ -76,7 +78,7 @@ it('matches snapshot with permissions', async () => {
     .mockResolvedValue(fakeLocation)
   const { toJSON } = render(
     <MockedProvider>
-      <MapView />
+      <MapView showRadius={false}/>
     </MockedProvider>
   )
 
@@ -96,7 +98,7 @@ it('matches snapshot without permissions', async () => {
     .mockResolvedValue(fakeLocation)
   const { toJSON } = render(
     <MockedProvider>
-      <MapView />
+      <MapView showRadius={false}/>
     </MockedProvider>
   )
 
@@ -116,7 +118,7 @@ it('defaults to showing Null Island', async () => {
     .mockResolvedValue(fakeLocation)
   const { container } = render(
     <MockedProvider>
-      <MapView />
+      <MapView showRadius={false}/>
     </MockedProvider>
   )
 
@@ -129,4 +131,28 @@ it('defaults to showing Null Island', async () => {
   const map = container.find((node) => node.props.testID === 'map')
   expect(map.props.region.latitude).toEqual(0)
   expect(map.props.region.longitude).toEqual(0)
+})
+
+it('has the default radius of the circle at 500m', () => {
+  const { container } = render(
+    <MockedProvider>
+      <MapView showRadius={true}/>
+    </MockedProvider>
+  )
+
+  // Workaround for broken getByTestId
+  const circle = container.find((node) => node.props.testID === 'circle')
+  expect(circle.props.radius).toEqual(500)
+})
+
+test.each(distances)('has circle of correct radius when %dm option is selected', (distance) => {
+  const { container } = render(
+    <MockedProvider>
+      <MapView showRadius={true} radiusSize={distance}/>
+    </MockedProvider>
+  )
+
+  // Workaround for broken getByTestId
+  const circle = container.find((node) => node.props.testID === 'circle')
+  expect(circle.props.radius).toEqual(distance)
 })

@@ -10,7 +10,7 @@ interface ComponentProps {
   buttonStyle ?: ViewStyle,
   buttonTextStyle ?: TextStyle,
   selectorTitle : string,
-  buttonTextPrefix? : string
+  buttonTextPrefix ?: string
   onButtonPress : (selectedOption : Option) => void
 }
 
@@ -29,7 +29,7 @@ const OptionSelector = ({ options, initial, buttonStyle, buttonTextStyle, select
           style={buttonTextStyle}
           testID='option-selector-button-text'
         >
-          {(buttonTextPrefix != undefined ?  buttonTextPrefix : '') + userOption.label}
+          {(buttonTextPrefix !== undefined ?  buttonTextPrefix : '') + userOption.label}
         </Text>
       </Pressable>
       <BottomSheet

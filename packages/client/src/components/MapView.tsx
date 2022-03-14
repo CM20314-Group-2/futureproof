@@ -1,32 +1,18 @@
-import { gql, useQuery } from '@apollo/client'
 import Pin from '@components/Pin'
-import { Business, Location } from '@futureproof/typings'
+import { LocationTypeWithRating } from 'App'
 import * as CurrentLocation from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import Map, { Circle, Marker } from 'react-native-maps'
 
-type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>
-
-interface LocationTypeWithRating extends LocationType {
-  business : Pick<Business, 'sustainabilityScore'>
+interface ComponentProps {
+  showRadius : boolean,
+  radiusSize ?: number,
+  businesses : { locations : LocationTypeWithRating[] } | undefined
 }
 
-const GET_COORDINATES = gql `
-  query {
-    locations {
-      id
-      latitude
-      longitude
-      business {
-        sustainabilityScore
-      }
-    }
-  }`
-
-const MapView = ({ showRadius, radiusSize } : {showRadius : boolean, radiusSize? : number}) => {
+const MapView = ({ showRadius, radiusSize, businesses } : ComponentProps) => {
   const [location, setLocation] = useState<CurrentLocation.LocationObject | null>(null)
-  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
 
   useEffect(() => {
     (async () => {
@@ -66,7 +52,7 @@ const MapView = ({ showRadius, radiusSize } : {showRadius : boolean, radiusSize?
               testID='circle'
             /> : null
           }
-          { data?.locations.map((marker) => (
+          { businesses?.locations.map((marker) => (
             <Marker
               key = {marker.id}
               coordinate = {marker}

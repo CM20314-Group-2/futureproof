@@ -1,4 +1,4 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
 import AccountView from '@components/AccountView'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
@@ -13,6 +13,24 @@ import { Dimensions, SafeAreaView, StyleSheet, TouchableOpacity, View } from 're
 import AccountButton from '@components/AccountButton'
 import { Option } from '@components/SortSearchResults/OptionList'
 
+const GET_COORDINATES = gql `
+  query {
+    locations {
+      id
+      latitude
+      longitude
+      business {
+        sustainabilityScore
+      }
+    }
+  }`
+
+export type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>;
+
+export interface LocationTypeWithRating extends LocationType {
+  business : Pick<Business, 'sustainabilityScore'>
+}
+
 const ExampleBusiness : DisplayableBusiness =  {
   id: '1',
   name: 'Starbucks',
@@ -21,10 +39,6 @@ const ExampleBusiness : DisplayableBusiness =  {
   customerScore: 65,
   type: BusinessType.Cafe,
   profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
-}
-
-interface LocationType extends Pick<Location, 'latitude'> {
-  business : Pick<Business, 'sustainabilityScore'>
 }
 
 // Initialise Apollo Client
@@ -80,13 +94,14 @@ export const AppNavigator = () => {
 
 const App = () => {
   const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
+  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
 
   return (
     // <NavigationContainer>
     //   <AppNavigator />
     // </NavigationContainer>
     <ApolloProvider client={client}>
-      <MapView showRadius={true} radiusSize={distance.value as number}/>
+      <MapView showRadius={true} radiusSize={distance.value as number} businesses={data}/>
       <DistanceRadiusSelector
         buttonStyle={styles.button}
         buttonTextStyle={styles.buttonText}

@@ -9,8 +9,8 @@ import { sortOption as sortBy } from '../../cache'
 import OptionSelector from '@components/SortSearchResults/OptionSelector'
 import { Option } from '@components/SortSearchResults/OptionList'
 
-const INITIAL_OPTION_INDEX = 4
-const OPTIONS_LIST : Option[] = [
+export const INITIAL_OPTION_INDEX = 4
+export const OPTIONS_LIST : Option[] = [
   { label: 'Name: A to Z', value: 'name_asc' },
   { label: 'Name: Z to A', value: 'name_desc' },
   { label: 'Distance: Near to Far', value: 'distance_asc' },
