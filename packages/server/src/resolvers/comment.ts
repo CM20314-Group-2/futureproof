@@ -1,30 +1,24 @@
-import { Prisma } from '@prisma/client'
-import { Context } from '@futureproof/server/src/context'
+import { PrismaSelect } from '@paljs/plugins';
+import { Prisma } from '@prisma/client';
+import { GraphQLResolveInfo } from 'graphql';
+import { Context } from '../context';
 
-export const resolvers = {
+export default {
     Query: {
-        comments: (_parent: any, _args: any, context: Context) => {
-            return context.prisma.comment.findMany();
+        comments: (_parent: any, _args: any, context: Context, info: GraphQLResolveInfo) => {
+            const select = new PrismaSelect(info).value
+            return context.prisma.comment.findMany({
+                ...select
+            });
         },
 
-        comment: (_parent: any, args: { id: number }, context: Context) => {
+        comment: (_parent: any, args: { id: number }, context: Context, info: GraphQLResolveInfo) => {
+            const select = new PrismaSelect(info).value
             return context.prisma.comment.findUnique({
                 where: { id: Number(args.id) || undefined },
+                ...select
             })
-        },
-
-        commentsByUser: (_parent: any, args: { idInput: number }, context: Context) => {
-            return context.prisma.comment.findMany({
-                where: { userId: Number(args.idInput) || undefined },
-            })
-        },
-
-        commentsByBusiness: (_parent: any, args: { idInput: number }, context: Context) => {
-            return context.prisma.comment.findMany({
-                where: { businessId: Number(args.idInput)},
-            })
-        },
-        //End of Queries
+        }
     },
     Mutation: {
         createComment: (_parent: any, args: { commentInput: Prisma.CommentCreateInput }, context: Context) => {

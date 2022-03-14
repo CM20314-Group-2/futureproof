@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client"
-import { FastifyReply, FastifyRequest } from "fastify"
-import { DeepMockProxy, mockDeep } from "jest-mock-extended"
+import { PrismaClient } from '@prisma/client'
+import { FastifyReply, FastifyRequest } from 'fastify'
+import { DeepMockProxy, mockDeep } from 'jest-mock-extended'
 
 const prisma = new PrismaClient ()
 
@@ -26,7 +26,9 @@ export const createMockContext = (): MockContext => {
 
 const buildContext = async (_req: FastifyRequest, _res: FastifyReply) => {
   return {
-    prisma: new PrismaClient(),
+    prisma: new PrismaClient({
+      log: process.env.NODE_ENV !== 'production' ? ['query'] : undefined
+    }),
   }
 }
 

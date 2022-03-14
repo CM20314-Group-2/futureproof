@@ -1,24 +1,23 @@
+import { PrismaSelect } from '@paljs/plugins'
 import { Prisma } from '@prisma/client'
-import { Context } from '@futureproof/server/src/context'
+import { GraphQLResolveInfo } from 'graphql'
+import { Context } from '../context'
 
-export const resolvers = {
+export default {
     Query: {
-        locations: (_parent:any, _args:any, context: Context) => {
-            return context.prisma.location.findMany()
+        locations: (_parent:any, _args:any, context: Context, info: GraphQLResolveInfo) => {
+            const select = new PrismaSelect(info).value
+            return context.prisma.location.findMany({
+                ...select
+            })
         },
-
-        location: (_parent:any, args: { idInput: number }, context: Context) => {
+        location: (_parent:any, args: { idInput: number }, context: Context, info: GraphQLResolveInfo) => {
+            const select = new PrismaSelect(info).value
             return context.prisma.location.findUnique({
                 where: { id: Number(args.idInput) },
+                ...select
             })
         },
-
-        locationsByBusiness: (_parent: any, args: { idInput: number }, context: Context) => {
-            return context.prisma.location.findMany({
-                where: { businessId: Number(args.idInput) },
-            })
-        },
-        //End of queries
     },
 
     Mutation: {

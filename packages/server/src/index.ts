@@ -1,35 +1,28 @@
-// Imports to make the schema.
-import typeDefs from "@futureproof/typings/schema"
+import typeDefs from '@futureproof/typings/schema'
 import { makeExecutableSchema } from '@graphql-tools/schema'
-import { resolvers as businessResolvers } from '@resolvers/businessResolvers'
-import { resolvers as commentResolvers } from "@resolvers/commentResolvers"
-import { resolvers as locationResolvers } from "@resolvers/locationResolvers"
-import { resolvers as reviewResolvers } from "@resolvers/reviewResolvers"
-// Imports to help with resolver merge.
-import { resolvers as userResolvers } from '@resolvers/userResolvers'
+import resolvers from '@resolvers'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
-import mercuriusCodegen from "mercurius-codegen"
-import prisma from './client'
+import cache from 'mercurius-cache'
+import mercuriusCodegen from 'mercurius-codegen'
+import buildContext from './context'
 
+export const app = Fastify()
 
-import merge = require("lodash.merge")
-
-
-export const app = Fastify({
-  logger: process.env.NODE_ENV !== "test",
-})
-
-// Main app running script -> defines how the server runs(important).
+// Add mercurius to server
 app.register(mercurius, {
   schema: makeExecutableSchema({
      typeDefs, 
-     resolvers : merge({}, userResolvers, businessResolvers, commentResolvers, locationResolvers, reviewResolvers) 
+     resolvers
     }),
-  context: (request, reply) => {
-    return {prisma}
-  },
+  context: buildContext,
   graphiql: true, //process.env.NODE_ENV === 'development',
+  jit: 1
+})
+
+app.register(cache, {
+  ttl: 10,
+  all: true
 })
 
 const start = async () => {
@@ -42,7 +35,7 @@ const start = async () => {
   }
 }
 
-// Generated types to help with testing.
+// Generate types
 if (process.env.NODE_ENV !== "test") {
   mercuriusCodegen(app, {
     targetPath: "../build/generated.ts",

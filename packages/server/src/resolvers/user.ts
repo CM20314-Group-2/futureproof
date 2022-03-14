@@ -1,24 +1,30 @@
-import { Prisma } from '@prisma/client'
-import { Context } from '@futureproof/server/src/context'
+import { PrismaSelect } from '@paljs/plugins';
+import { Prisma } from '@prisma/client';
+import { GraphQLResolveInfo } from 'graphql';
+import { Context } from '../context';
 
-export const resolvers = {
+export default {
   Query: {
-    users: (_parent: any, _args: any, context: Context) => {
-      return context.prisma.user.findMany();
+    users: (_parent: any, _args: any, context: Context, info: GraphQLResolveInfo) => {
+      const select = new PrismaSelect(info).value
+      return context.prisma.user.findMany({
+        ...select
+      });
     },
-
-    user: (_parent: any, args: { id: number }, context: Context) => {
+    user: (_parent: any, args: { id: number }, context: Context, info: GraphQLResolveInfo) => {
+      const select = new PrismaSelect(info).value
       return context.prisma.user.findUnique({
         where: { id: Number(args.id) || undefined },
+        ...select
       })
     },
-
-    userByEmail: (_parent: any, args: { emailInput: string }, context: Context) => {
+    userByEmail: (_parent: any, args: { emailInput: string }, context: Context, info: GraphQLResolveInfo) => {
+      const select = new PrismaSelect(info).value
       return context.prisma.user.findFirst({
-        where: { email: args.emailInput || undefined }
+        where: { email: args.emailInput || undefined },
+        ...select
       })
     },
-    //End of Queries
   },
   Mutation: {
     createUser: (_parent: any, args: { userInput: Prisma.UserCreateInput }, context: Context) => {
@@ -64,5 +70,5 @@ export const resolvers = {
       })
     },
     //End of Mutations
-  }
+  },
 }
