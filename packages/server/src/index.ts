@@ -12,6 +12,10 @@ import mercurius from 'mercurius'
 import mercuriusCodegen from "mercurius-codegen"
 import prisma from './client'
 
+
+import merge = require("lodash.merge")
+
+
 export const app = Fastify({
   logger: process.env.NODE_ENV !== "test",
 })
@@ -20,7 +24,7 @@ export const app = Fastify({
 app.register(mercurius, {
   schema: makeExecutableSchema({
      typeDefs, 
-     resolvers : {...businessResolvers, ...commentResolvers, ...locationResolvers, ...reviewResolvers, ...userResolvers} 
+     resolvers : merge({}, userResolvers, businessResolvers, commentResolvers, locationResolvers, reviewResolvers) 
     }),
   context: (request, reply) => {
     return {prisma}
