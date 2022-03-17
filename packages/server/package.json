@@ -13,7 +13,7 @@
     "dev": "nodemon",
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "tunnel": "ngrok http 3000",
-    "lint": "eslint -c ."
+    "lint": "eslint"
   },
   "private": true,
   "dependencies": {
