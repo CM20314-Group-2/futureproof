@@ -135,7 +135,7 @@ export const resolvers = {
           longitude: locationInput.longitude,
           latitude: locationInput.latitude,
           businessName: locationInput.businessName,
-          Business: locationInput.Business,
+          business: locationInput.business,
           Comment: locationInput.Comment,
         },
       })
@@ -226,7 +226,7 @@ export const resolvers = {
           longitude: args.locationInput.longitude,
           latitude: args.locationInput.latitude,
           businessName: args.locationInput.businessName,
-          Business: args.locationInput.Business,
+          business: args.locationInput.business,
           Comment: args.locationInput.Comment,
         },
         where: { id: args.id },

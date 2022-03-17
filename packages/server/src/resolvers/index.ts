@@ -5,5 +5,10 @@ import reviewResolver from '@resolvers/review'
 import userResolver from '@resolvers/user'
 import { merge } from 'lodash'
 
-
-export default merge(businessResolver, commentResolver, locationResolver, reviewResolver, userResolver)
+export default merge(
+  businessResolver,
+  commentResolver,
+  locationResolver,
+  reviewResolver,
+  userResolver
+)
