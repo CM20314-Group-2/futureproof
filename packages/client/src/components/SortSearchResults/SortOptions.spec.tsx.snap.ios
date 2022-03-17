@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "justifyContent": "space-evenly",
+      "marginBottom": 15,
+      "marginTop": 10,
+      "width": "60%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderColor": "#ededed",
+        "borderRadius": 10,
+        "borderWidth": 2,
+        "margin": 5,
+        "opacity": 1,
+      }
+    }
+    testID="sort-option-distance_asc"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 15,
+            "padding": 5,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#000000",
+          },
+        ]
+      }
+    >
+      Distance Ascending
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#1ea853",
+        "borderColor": "#1ea853",
+        "borderRadius": 10,
+        "borderWidth": 2,
+        "margin": 5,
+        "opacity": 1,
+      }
+    }
+    testID="sort-option-distance_desc"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 15,
+            "padding": 5,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#ffffff",
+          },
+        ]
+      }
+    >
+      Distance Descending
+    </Text>
+  </View>
+</View>
+`;
