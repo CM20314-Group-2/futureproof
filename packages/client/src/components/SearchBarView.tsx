@@ -1,4 +1,4 @@
-import { gql, useLazyQuery, makeVar } from '@apollo/client'
+import { gql, makeVar, useLazyQuery } from '@apollo/client'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Icon, Input } from 'react-native-elements'
@@ -27,7 +27,7 @@ const SearchBarView = () => {
   useEffect(() => {
     // Debounce query
     const delayDebounceFn = setTimeout(() => {
-      executeSearch().then(_data => globalData(data), (error) => console.log(error))
+      executeSearch().then(() => globalData(data), () => console.log(error))
     }, 300)
     return () => clearTimeout(delayDebounceFn)
   }, [searchText])

@@ -122,14 +122,10 @@ export const resolvers = {
         },
       })
     },
-<<<<<<< HEAD:packages/server/src/resolvers.ts
-    /*createLocation: async (locationInput: Prisma.LocationCreateInput, context: Context) => {
-=======
     createLocation: async (
       locationInput: Prisma.LocationCreateInput,
       context: Context
     ) => {
->>>>>>> sprint-3:packages/server/src/resolvers/resolvers.ts
       return context.prisma.location.create({
         data: {
           address: locationInput.address,
@@ -143,16 +139,11 @@ export const resolvers = {
           Comment: locationInput.Comment,
         },
       })
-<<<<<<< HEAD:packages/server/src/resolvers.ts
-    },*/
-    createComment: async (commentInput: Prisma.CommentCreateInput, context: Context) => {
-=======
     },
     createComment: async (
       commentInput: Prisma.CommentCreateInput,
       context: Context
     ) => {
->>>>>>> sprint-3:packages/server/src/resolvers/resolvers.ts
       return context.prisma.comment.create({
         data: {
           text: commentInput.text,
