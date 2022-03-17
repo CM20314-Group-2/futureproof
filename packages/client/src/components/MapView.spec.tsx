@@ -78,7 +78,7 @@ it('matches snapshot with permissions', async () => {
     .mockResolvedValue(fakeLocation)
   const { toJSON } = render(
     <MockedProvider>
-      <MapView showRadius={false}/>
+      <MapView showRadius={false} businesses={undefined}/>
     </MockedProvider>
   )
 
@@ -98,7 +98,7 @@ it('matches snapshot without permissions', async () => {
     .mockResolvedValue(fakeLocation)
   const { toJSON } = render(
     <MockedProvider>
-      <MapView showRadius={false}/>
+      <MapView showRadius={false} businesses={undefined}/>
     </MockedProvider>
   )
 
@@ -118,7 +118,7 @@ it('defaults to showing Null Island', async () => {
     .mockResolvedValue(fakeLocation)
   const { container } = render(
     <MockedProvider>
-      <MapView showRadius={false}/>
+      <MapView showRadius={false} businesses={undefined}/>
     </MockedProvider>
   )
 
@@ -136,7 +136,7 @@ it('defaults to showing Null Island', async () => {
 it('has the default radius of the circle at 500m', () => {
   const { container } = render(
     <MockedProvider>
-      <MapView showRadius={true}/>
+      <MapView showRadius={true} businesses={undefined}/>
     </MockedProvider>
   )
 
@@ -148,7 +148,7 @@ it('has the default radius of the circle at 500m', () => {
 test.each(distances)('has circle of correct radius when %dm option is selected', (distance) => {
   const { container } = render(
     <MockedProvider>
-      <MapView showRadius={true} radiusSize={distance}/>
+      <MapView showRadius={true} radiusSize={distance} businesses={undefined}/>
     </MockedProvider>
   )
 
