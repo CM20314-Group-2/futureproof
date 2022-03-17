@@ -10,10 +10,8 @@
     "setup": "npm install",
     "postsetup": "npm run build"
   },
-  "dependencies": {
-    "@futureproof/client": "file:packages/client",
-    "@futureproof/server": "file:packages/server",
-    "@futureproof/typings": "file:packages/typings"
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "private": true
 }

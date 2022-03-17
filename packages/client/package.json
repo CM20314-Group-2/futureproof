@@ -2,6 +2,11 @@
   "name": "@futureproof/client",
   "version": "0.0.0",
   "main": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CM20314-Group-2/futureproof.git",
+    "directory": "packages/client"
+  },
   "scripts": {
     "start": "expo start --tunnel  -c",
     "android": "expo start --android -c",
@@ -13,6 +18,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
+    "@babel/runtime": "^7.17.2",
     "@react-navigation/native": "^6.0.7",
     "@react-navigation/native-stack": "^6.3.0",
     "@react-navigation/stack": "^6.1.1",
@@ -42,7 +48,6 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-typescript": "^7.16.7",
-    "@futureproof/typings": "file:../typings",
     "@testing-library/jest-native": "^4.0.4",
     "@testing-library/react-native": "^9.0.0",
     "@types/ip": "^1.1.0",
