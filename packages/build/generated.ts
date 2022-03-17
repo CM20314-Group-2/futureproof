@@ -212,15 +212,10 @@ export type Query = {
   businesses?: Maybe<Array<Maybe<Business>>>
   comment?: Maybe<Comment>
   comments?: Maybe<Array<Maybe<Comment>>>
-  commentsByBusiness?: Maybe<Array<Maybe<Comment>>>
-  commentsByUser?: Maybe<Array<Maybe<Comment>>>
   location?: Maybe<Location>
   locations?: Maybe<Array<Maybe<Location>>>
-  locationsByBusiness?: Maybe<Array<Maybe<Location>>>
   review?: Maybe<Review>
   reviews?: Maybe<Array<Maybe<Review>>>
-  reviewsByBusiness?: Maybe<Array<Maybe<Review>>>
-  reviewsByUser?: Maybe<Array<Maybe<Review>>>
   user?: Maybe<User>
   userByEmail?: Maybe<User>
   users?: Maybe<Array<Maybe<User>>>
@@ -238,32 +233,12 @@ export type QuerycommentArgs = {
   id: Scalars['ID']
 }
 
-export type QuerycommentsByBusinessArgs = {
-  businessId: Scalars['ID']
-}
-
-export type QuerycommentsByUserArgs = {
-  userId: Scalars['ID']
-}
-
 export type QuerylocationArgs = {
   id: Scalars['ID']
 }
 
-export type QuerylocationsByBusinessArgs = {
-  businessId: Scalars['ID']
-}
-
 export type QueryreviewArgs = {
   id: Scalars['ID']
-}
-
-export type QueryreviewsByBusinessArgs = {
-  businessId: Scalars['ID']
-}
-
-export type QueryreviewsByUserArgs = {
-  userId: Scalars['ID']
 }
 
 export type QueryuserArgs = {
@@ -704,18 +679,6 @@ export type QueryResolvers<
     ParentType,
     ContextType
   >
-  commentsByBusiness?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes['Comment']>>>,
-    ParentType,
-    ContextType,
-    RequireFields<QuerycommentsByBusinessArgs, 'businessId'>
-  >
-  commentsByUser?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes['Comment']>>>,
-    ParentType,
-    ContextType,
-    RequireFields<QuerycommentsByUserArgs, 'userId'>
-  >
   location?: Resolver<
     Maybe<ResolversTypes['Location']>,
     ParentType,
@@ -727,12 +690,6 @@ export type QueryResolvers<
     ParentType,
     ContextType
   >
-  locationsByBusiness?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes['Location']>>>,
-    ParentType,
-    ContextType,
-    RequireFields<QuerylocationsByBusinessArgs, 'businessId'>
-  >
   review?: Resolver<
     Maybe<ResolversTypes['Review']>,
     ParentType,
@@ -743,18 +700,6 @@ export type QueryResolvers<
     Maybe<Array<Maybe<ResolversTypes['Review']>>>,
     ParentType,
     ContextType
-  >
-  reviewsByBusiness?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes['Review']>>>,
-    ParentType,
-    ContextType,
-    RequireFields<QueryreviewsByBusinessArgs, 'businessId'>
-  >
-  reviewsByUser?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes['Review']>>>,
-    ParentType,
-    ContextType,
-    RequireFields<QueryreviewsByUserArgs, 'userId'>
   >
   user?: Resolver<
     Maybe<ResolversTypes['User']>,
