@@ -1,19 +1,28 @@
 import typeDefs from '@futureproof/typings/schema'
 import { makeExecutableSchema } from '@graphql-tools/schema'
+import resolvers from '@resolvers/index'
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
-import mercuriusCodegen from "mercurius-codegen"
+import cache from 'mercurius-cache'
+import mercuriusCodegen from 'mercurius-codegen'
 import buildContext from './context'
-import { resolvers } from './resolvers'
 
-export const app = Fastify({
-  logger: process.env.NODE_ENV !== "test",
-})
+export const app = Fastify()
 
+// Add mercurius to server
 app.register(mercurius, {
-  schema: makeExecutableSchema({ typeDefs, resolvers }),
+  schema: makeExecutableSchema({
+    typeDefs,
+    resolvers,
+  }),
   context: buildContext,
   graphiql: process.env.NODE_ENV === 'development',
+  jit: 1,
+})
+
+app.register(cache, {
+  ttl: 10,
+  all: true,
 })
 
 const start = async () => {
@@ -26,9 +35,10 @@ const start = async () => {
   }
 }
 
-if (process.env.NODE_ENV !== "test") {
+// Generate types
+if (process.env.NODE_ENV !== 'test') {
   mercuriusCodegen(app, {
-    targetPath: "./src/generated.ts",
+    targetPath: '../build/generated.ts',
   }).catch(console.error)
 
   start()

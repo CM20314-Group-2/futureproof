@@ -9,15 +9,10 @@ type Query {
   businessByName(name: String!): Business
   reviews: [Review]
   review(id: ID!): Review
-  reviewsByBusiness(businessId: ID!): [Review]
-  reviewsByUser(userId: ID!): [Review]
   comments: [Comment]
   comment(id: ID!): Comment
-  commentsByBusiness(businessId: ID!): [Comment]
-  commentsByUser(userId: ID!): [Comment]
   locations: [Location]
   location(id: ID!): Location
-  locationsByBusiness(businessId: ID!): [Location]
 }
 
 type Mutation {
