@@ -1,4 +1,4 @@
-import SearchItemStats from '@components/search/SearchItemStats'
+import SearchItemStats from '@components/Search/SearchItemStats'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
