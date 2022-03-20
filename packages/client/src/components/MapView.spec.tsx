@@ -42,8 +42,6 @@ const deniedPermissions : LocationPermissionResponse = {
 
 let location : MockedObject<typeof Location>
 
-const distances = [100, 250, 500, 1000, 1500, 2000]
-
 beforeEach(() => {
   jest.mock('expo-location')
   location = mocked(Location)

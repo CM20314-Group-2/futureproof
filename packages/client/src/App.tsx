@@ -1,35 +1,14 @@
-import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import AccountView from '@components/AccountView'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
-import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/SortSearchResults/DistanceRadiusSelector'
-import SearchResultSorter from '@components/SortSearchResults/SearchResultSorter'
 import { Business, BusinessType, DisplayableBusiness, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import Constants from 'expo-constants'
-import React, { useState } from 'react'
-import { Dimensions, SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
-import AccountButton from '@components/AccountButton'
-import { Option } from '@components/SortSearchResults/OptionList'
-
-const GET_COORDINATES = gql `
-  query {
-    locations {
-      id
-      latitude
-      longitude
-      business {
-        sustainabilityScore
-      }
-    }
-  }`
-
-export type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>;
-
-export interface LocationTypeWithRating extends LocationType {
-  business : Pick<Business, 'sustainabilityScore'>
-}
+import React from 'react'
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
+import AccountButton from './components/AccountButton'
 
 const ExampleBusiness : DisplayableBusiness =  {
   id: '1',
@@ -39,6 +18,10 @@ const ExampleBusiness : DisplayableBusiness =  {
   customerScore: 65,
   type: BusinessType.Cafe,
   profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
+}
+
+interface LocationType extends Pick<Location, 'latitude'> {
+  business : Pick<Business, 'sustainabilityScore'>
 }
 
 // Initialise Apollo Client
@@ -62,7 +45,7 @@ export const FeedScreen = ({ navigation } : Props) => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        {/* <MapView showRadius /> */}
+        <MapView showRadius businesses={undefined} />
         <SafeAreaView>
           <TouchableOpacity onPress={() => navigation.push('AccountView')}>
             <AccountButton />
@@ -93,41 +76,14 @@ export const AppNavigator = () => {
 }
 
 const App = () => {
-  const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
-  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
-
   return (
-    // <NavigationContainer>
-    //   <AppNavigator />
-    // </NavigationContainer>
-    <ApolloProvider client={client}>
-      <MapView showRadius={true} radiusSize={distance.value as number} businesses={data}/>
-      <DistanceRadiusSelector
-        buttonStyle={styles.button}
-        buttonTextStyle={styles.buttonText}
-        onButtonPress={(selectedOption : Option) => setDistance(selectedOption)}
-      />
-    </ApolloProvider>
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   )
 }
 
 const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#1ea853',
-    borderColor: '#188441',
-    borderRadius: 25,
-    borderWidth: 2,
-    height: 25,
-    justifyContent: 'center',
-    left: 15,
-    top: -Dimensions.get('screen').height + 85,
-    width: 80
-  },
-  buttonText: {
-    color: '#ffffff',
-    fontSize: 14
-  },
   container: {
     backgroundColor: '#fff',
     flex: 1,
