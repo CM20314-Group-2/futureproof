@@ -6,4 +6,4 @@ generates:
       - '@graphql-codegen/typescript'
   schema.ts:
     plugins:
-      - "dist/plugins/index.js"
+      - "dist/index.js"

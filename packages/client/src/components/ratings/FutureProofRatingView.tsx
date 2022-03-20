@@ -11,7 +11,7 @@ type ComponentProps = Pick<
 >
 
 /**
- * This function creates the whole FutureProof rating view, including certificates and individual ratings breakdown.
+ * This view provides a break down of a given business' FutureProof rating, including certificates and listed individual ratings.
  * 
  * @param {Maybe<number> | undefined} sustainabilityScore The sustainability score
  * @param {Maybe<Maybe<BusinessCertificate>[]> | undefined} sustainabilityCertificates An array of certificates for this business
