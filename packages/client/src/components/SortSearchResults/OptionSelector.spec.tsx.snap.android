@@ -34,11 +34,19 @@ exports[`matches snapshot 1`] = `
       Object {
         "backgroundColor": "#ffffff",
         "bottom": -400,
+<<<<<<< HEAD
         "elevation": 10,
         "height": 400,
         "position": "absolute",
         "width": "100%",
         "zIndex": 10,
+=======
+        "elevation": 1,
+        "height": 400,
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": 1,
+>>>>>>> sprint-3
       }
     }
     testID="bottom-sheet"
@@ -327,11 +335,19 @@ exports[`updates the selected option when an option is pressed 1`] = `
       Object {
         "backgroundColor": "#ffffff",
         "bottom": -400,
+<<<<<<< HEAD
         "elevation": 10,
         "height": 400,
         "position": "absolute",
         "width": "100%",
         "zIndex": 10,
+=======
+        "elevation": 1,
+        "height": 400,
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": 1,
+>>>>>>> sprint-3
       }
     }
     testID="bottom-sheet"
