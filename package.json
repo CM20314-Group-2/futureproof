@@ -11,11 +11,12 @@
     "postsetup": "npm run build"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.2",
+    "@babel/runtime": "^7.17.8",
     "@futureproof/client": "file:packages/client",
     "@futureproof/server": "file:packages/server",
     "@futureproof/typings": "file:packages/typings",
-    "expo": "^44.0.6"
+    "expo": "^44.0.6",
+    "graphql": "^16.3.0"
   },
   "workspaces": [
     "packages/*"
