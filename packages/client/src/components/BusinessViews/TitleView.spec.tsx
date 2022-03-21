@@ -7,20 +7,10 @@ it('matches snapshot', () => {
   expect(toJSON()).toMatchSnapshot()
 })
 
-it('does not display a profile picture if one is not provided', () => {
-  const { getByTestId } = render(<TitleView name={'TEST'} profilePicture={null} businessAddress={'TEST_ADDRESS'}/>)
-  expect(getByTestId('profile-picture')).toBeNull()
-})
-
-it('does not display a profile picture if one is not defined', () => {
-  const { getByTestId } = render(<TitleView name={'TEST'} profilePicture={undefined} businessAddress={'TEST_ADDRESS'}/>)
-  expect(getByTestId('profile-picture')).toBeNull()
-})
-
-it('does not display a profile picture if one is not defined', () => {
+it('displays business address text matching parameters', () => {
   const { getByTestId } = render(<TitleView name={'TEST'} profilePicture={undefined} businessAddress={'TEST_ADDRESS'}/>)
 
-  const businessAddressText = getByTestId('sort-option-distance_desc')
+  const businessAddressText = getByTestId('business-address-text')
   expect(businessAddressText).toHaveTextContent('TEST_ADDRESS')
 })
 

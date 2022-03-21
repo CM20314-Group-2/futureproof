@@ -10,7 +10,7 @@ const DescriptionView = ({ profileText } : ViewProps) => (
     <View style={styles.itemBackgroundStyle}>
       <View style={styles.textAndImageContainerStyle}>
         <Image
-          source={require('../../assets/icon_paragraph.png')}
+          source={require('../../../assets/icon_paragraph.png')}
           style={styles.paragraphIcon}
           resizeMode='contain'
         />
