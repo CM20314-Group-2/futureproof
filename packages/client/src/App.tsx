@@ -190,12 +190,7 @@ export const AppNavigator = () => {
 
 export const MapComponent = () => {
   const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
-  const { data, error, loading } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
-
-  console.log(data)
-  console.log(loading);
-  console.log(error);
-
+  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
 
   return (
     <React.Fragment>

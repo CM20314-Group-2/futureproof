@@ -16,7 +16,7 @@ app.register(mercurius, {
     resolvers,
   }),
   context: buildContext,
-  graphiql: process.env.NODE_ENV === 'development',
+  graphiql: true,
   jit: 1,
 })
 
