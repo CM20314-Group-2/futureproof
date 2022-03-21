@@ -33,7 +33,7 @@ const MapView = ({ showRadius } : {showRadius : boolean}) => {
     (async () => {
       const { status } = await CurrentLocation.requestForegroundPermissionsAsync()
       if (status !== 'granted') {
-        console.error('Failed to get permissions.')
+        console.log('Failed to get permissions.')
         return
       }
 
