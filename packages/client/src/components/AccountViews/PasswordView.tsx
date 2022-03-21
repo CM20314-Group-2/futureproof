@@ -11,7 +11,6 @@ import {
 } from 'react-native'
 
 const width = Dimensions.get('window').width
-const height = Dimensions.get('window').height
 
 const AccountView = () => {
   const [password, setPassword] = useState('')
@@ -32,14 +31,13 @@ const AccountView = () => {
         secureText
       />
       <Button
-        onPress={confirmPasswordsMatch(password, confirmPassword)}
+        onPress={() => confirmPasswordsMatch(password, confirmPassword)}
         title='Change Password'
         color='#841584'
-        accessibilityLabel='Learn more about this purple button'
       />
       <Image
         style={styles.bottomImageStyle}
-        source={require('../../../assets/Bottom_Image_Styling.png')}
+        source={require('@assets/Bottom_Image_Styling.png')}
       />
     </ScrollView>
   )
@@ -69,10 +67,10 @@ function confirmPasswordsMatch(confirmationPassword, originalPassword) {
 
 const styles = StyleSheet.create({
   bottomImageStyle: {
-    width: width,
-    height: width / 3,
-    flex: 1,
     alignItems: 'flex-end',
+    flex: 1,
+    height: width / 3,
+    width: width,
   },
 })
 

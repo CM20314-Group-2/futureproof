@@ -2,18 +2,15 @@ import React, { useState } from 'react'
 import {
   View,
   Text,
-  TextInput,
-  ScrollView,
   StyleSheet,
   Image,
   Dimensions,
   Pressable,
 } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
-import PasswordView from '@components/AccountViews/PasswordView'
+import LabelInput from '@components/AccountViews/LabelInput'
 
 const width = Dimensions.get('window').width
-const height = Dimensions.get('window').height
 
 type RootStackParamList = {
   MapView: undefined
@@ -34,7 +31,7 @@ const AccountView = ({ navigation }: Props) => {
     <View>
       <Image
         style={styles.profilePictureStyle}
-        source={require('../../../assets/Account_Icon.png')}
+        source={require('@assets/Account_Icon.png')}
       />
       <LabelInput
         label='Name'
@@ -46,26 +43,24 @@ const AccountView = ({ navigation }: Props) => {
         placeholder='john.smith@gmail.com'
         value={(text) => setEmail(text)}
       />
-      <Text style={[styles.bodyText, { padding: '5%', color: '#C4C4C4' }]}>
-        Profile Information
-      </Text>
+      <Text style={styles.bodyText}>Profile Information</Text>
       <Pressable onPress={() => navigation.push('PasswordView')}>
-        <Text style={[styles.bodyText, { padding: '5%' }]}>
+        <Text style={styles.bodyText}>
           {'Change Password                                          >'}
         </Text>
       </Pressable>
       <Pressable onPress={() => navigation.push('PPView')}>
-        <Text style={[styles.bodyText, { padding: '5%' }]}>
+        <Text style={styles.bodyText}>
           {'Privacy Policy                                                 >'}
         </Text>
       </Pressable>
       <Pressable onPress={() => navigation.push('ToSView')}>
-        <Text style={[styles.bodyText, { padding: '5%' }]}>
+        <Text style={styles.bodyText}>
           {'Terms of Service                                            >'}
         </Text>
       </Pressable>
       <Pressable onPress={() => navigation.push('HelpView')}>
-        <Text style={[styles.bodyText, { padding: '5%' }]}>
+        <Text style={styles.bodyText}>
           {
             'Help                                                                  >'
           }
@@ -79,38 +74,21 @@ const AccountView = ({ navigation }: Props) => {
   )
 }
 
-const LabelInput = (props) => (
-  // Move a box `View` component here
-  <View style={{ padding: '5%' }}>
-    <Text style={styles.headingText}>{props.label}</Text>
-    <TextInput
-      style={styles.bodyText}
-      placeholder={props.placeholder}
-      onChangeText={props.value}
-      onSubmitEditing={props.onSubmitEditing}
-    />
-  </View>
-)
-
 const styles = StyleSheet.create({
-  profilePictureStyle: {
-    borderRadius: 150 / 2,
-    height: 150,
-    width: 150,
-    alignItems: 'center',
-  },
-  bottomImageStyle: {
-    width: width,
-    height: width / 3,
-  },
-  headingText: {
-    fontWeight: 'bold',
-    marginBottom: '2%',
-    fontSize: 20,
-  },
   bodyText: {
     borderBottomWidth: 2,
     fontSize: 20,
+    padding: '5%',
+  },
+  bottomImageStyle: {
+    height: width / 3,
+    width: width,
+  },
+  profilePictureStyle: {
+    alignItems: 'center',
+    borderRadius: 150 / 2,
+    height: 150,
+    width: 150,
   },
 })
 

@@ -18,7 +18,7 @@ import {
   View,
   Dimensions,
 } from 'react-native'
-import AccountButton from './components/AccountViews/AccountButton'
+import AccountButton from '@components/AccountViews/AccountButton'
 import AccountView from '@components/AccountViews/AccountView'
 import HelpView from '@components/AccountViews/HelpView'
 import PasswordView from '@components/AccountViews/PasswordView'

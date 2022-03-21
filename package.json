@@ -14,10 +14,14 @@
     "@babel/runtime": "^7.17.2",
     "@futureproof/client": "file:packages/client",
     "@futureproof/server": "file:packages/server",
-    "@futureproof/typings": "file:packages/typings"
+    "@futureproof/typings": "file:packages/typings",
+    "expo": "^44.0.6"
   },
   "workspaces": [
     "packages/*"
   ],
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
 }
