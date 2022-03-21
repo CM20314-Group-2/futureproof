@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Svg, { Rect } from 'react-native-svg'
 import { ratingToColour } from '@components/search/RatingCapsule'
