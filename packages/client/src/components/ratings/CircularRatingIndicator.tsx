@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Svg, { Circle } from 'react-native-svg'
 import { ratingToColour } from '@components/search/RatingCapsule'
+import ErrorBoundary from '@components/ErrorBoundary'
 
 const BACKGROUND_SECONDARY_COLOUR = '#FAF9F9'
 
