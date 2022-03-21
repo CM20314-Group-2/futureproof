@@ -1,5 +1,5 @@
-import BusinessLogo from '@components/Search/BusinessLogo'
-import SearchItemStats from '@components/Search/SearchItemStats'
+import BusinessLogo from '@components/search/BusinessLogo'
+import SearchItemStats from '@components/search/SearchItemStats'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import {
