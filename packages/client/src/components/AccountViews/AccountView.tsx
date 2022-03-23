@@ -13,17 +13,17 @@ import LabelInput from '@components/AccountViews/LabelInput'
 const width = Dimensions.get('window').width
 
 type RootStackParamList = {
-  MapView: undefined
-  AccountView: undefined
-  PasswordView: undefined
-  PPView: undefined
-  ToSView: undefined
-  HelpView: undefined
+  MapView : undefined
+  AccountView : undefined
+  PasswordView : undefined
+  PPView : undefined
+  ToSView : undefined
+  HelpView : undefined
 }
 
 type Props = StackScreenProps<RootStackParamList>
 
-const AccountView = ({ navigation }: Props) => {
+const AccountView = ({ navigation } : Props) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
 
@@ -31,17 +31,21 @@ const AccountView = ({ navigation }: Props) => {
     <View>
       <Image
         style={styles.profilePictureStyle}
-        source={require('@assets/Account_Icon.png')}
+        source={require('../../../assets/Account_Icon.png')}
       />
       <LabelInput
         label='Name'
         placeholder='John Smith'
-        value={(text) => setName(text)}
+        value={name}
+        onChangeText={() => setName(name)}
+        secureText={false}
       />
       <LabelInput
         label='Email'
         placeholder='john.smith@gmail.com'
-        value={(text) => setEmail(text)}
+        value={email}
+        onChangeText={() => setEmail(email)}
+        secureText={false}
       />
       <Text style={styles.bodyText}>Profile Information</Text>
       <Pressable onPress={() => navigation.push('PasswordView')}>

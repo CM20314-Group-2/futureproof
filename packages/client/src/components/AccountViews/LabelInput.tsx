@@ -1,15 +1,25 @@
 import React from 'react'
 import { View, StyleSheet, TextInput, Text } from 'react-native'
 
-const LabelInput = (props) => (
+interface ComponentProps {
+  label : string
+  placeholder : string
+  value : string
+  onChangeText : () => void
+  secureText : boolean
+}
+
+
+const LabelInput = (props : ComponentProps) => (
   // Move a box `View` component here
   <View style={styles.labelStyle}>
     <Text style={styles.headingText}>{props.label}</Text>
     <TextInput
       style={styles.bodyText}
       placeholder={props.placeholder}
-      onChangeText={props.value}
-      onSubmitEditing={props.onSubmitEditing}
+      value={props.value}
+      onChangeText={props.onChangeText}
+      secureTextEntry={props.secureText}
     />
   </View>
 )

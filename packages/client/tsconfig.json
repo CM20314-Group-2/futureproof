@@ -11,6 +11,6 @@
       "@assets/*": ["assets/*"],
     },
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/components/MapSlideUpSheet.js"],
+  "include": ["**/*.ts", "**/*.tsx", "src/components/MapSlideUpSheet.js], "src/components/MapSlideUpSheet.js",
   "exclude": ["node_modules"],
 }

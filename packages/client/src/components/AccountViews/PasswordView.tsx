@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import {
-  View,
-  Text,
-  TextInput,
   ScrollView,
   StyleSheet,
   Image,
   Dimensions,
   Button,
 } from 'react-native'
+import LabelInput from '@components/AccountViews/LabelInput'
 
 const width = Dimensions.get('window').width
 
@@ -21,14 +19,16 @@ const AccountView = () => {
       <LabelInput
         label='Password'
         placeholder='Please enter your password'
-        value={(text) => setPassword(text)}
-        secureText
+        value={password}
+        onChangeText={() => setPassword(password)}
+        secureText={true}
       />
       <LabelInput
         label='Confirm Password'
         placeholder='Please re-enter your password'
-        value={(text) => setConfirmPassword(text)}
-        secureText
+        value={confirmPassword}
+        onChangeText={() => setConfirmPassword(confirmPassword)}
+        secureText={true}
       />
       <Button
         onPress={() => confirmPasswordsMatch(password, confirmPassword)}
@@ -37,29 +37,13 @@ const AccountView = () => {
       />
       <Image
         style={styles.bottomImageStyle}
-        source={require('@assets/Bottom_Image_Styling.png')}
+        source={require('../../../assets/Bottom_Image_Styling.png')}
       />
     </ScrollView>
   )
 }
 
-const LabelInput = (props) => (
-  // Move a box `View` component here
-  <View style={{ padding: '5%' }}>
-    <Text style={{ fontWeight: 'bold', marginBottom: '2%' }}>
-      {props.label}
-    </Text>
-    <TextInput
-      style={{ borderBottomWidth: 2 }}
-      placeholder={props.placeholder}
-      onChangeText={props.value}
-      secureTextEntry={props.secureText}
-      onSubmitEditing={props.onSubmitEditing}
-    />
-  </View>
-)
-
-function confirmPasswordsMatch(confirmationPassword, originalPassword) {
+function confirmPasswordsMatch(confirmationPassword : string, originalPassword : string) {
   if (confirmationPassword !== originalPassword) {
     alert('Passwords do not match, please try again.')
   }

@@ -1,5 +1,5 @@
-import BusinessLogo from '@components/Search/BusinessLogo'
-import SearchItemStats from '@components/Search/SearchItemStats'
+import BusinessLogo from '@components/search/BusinessLogo'
+import SearchItemStats from '@components/search/SearchItemStats'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import {
@@ -10,11 +10,11 @@ import {
 } from 'react-native'
 
 interface ComponentProps {
-  business: DisplayableBusiness
-  onPress: (event: GestureResponderEvent) => void
+  business : DisplayableBusiness
+  onPress : (event : GestureResponderEvent) => void
 }
 
-const SearchResult = ({ business, onPress }: ComponentProps) => (
+const SearchResult = ({ business, onPress } : ComponentProps) => (
   <TouchableOpacity onPress={onPress}>
     <View style={styles.searchItemStyle}>
       {/* Don't use null check built in BusinessLogo to match design */}

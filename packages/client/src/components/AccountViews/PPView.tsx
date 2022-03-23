@@ -8,11 +8,11 @@ const AccountView = () => {
     <ScrollView>
       <Image
         style={styles.PPStyle}
-        source={require('@assets/Privacy_Policy.png')}
+        source={require('../../../assets/Privacy_Policy.png')}
       />
       <Image
         style={styles.bottomImageStyle}
-        source={require('@assets/Bottom_Image_Styling.png')}
+        source={require('../../../assets/Bottom_Image_Styling.png')}
       />
     </ScrollView>
   )

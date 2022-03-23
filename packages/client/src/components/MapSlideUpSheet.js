@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
 import SlidingUpPanel from 'rn-sliding-up-panel'

@@ -3,7 +3,6 @@ import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
 import {
   Business,
-  BusinessType,
   DisplayableBusiness,
   Location,
 } from '@futureproof/typings'
@@ -26,20 +25,8 @@ import PPView from '@components/AccountViews/PPView'
 import ToSView from '@components/AccountViews/ToSView'
 import BusinessView from '@components/BusinessViews/BusinessView'
 
-const ExampleBusiness: DisplayableBusiness = {
-  id: '1',
-  name: 'Starbucks',
-  profileText:
-    'This is a test business and there is not that much to say about it.',
-  sustainabilityScore: 80,
-  customerScore: 65,
-  type: BusinessType.Cafe,
-  profilePicture:
-    'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png',
-}
-
 interface LocationType extends Pick<Location, 'latitude'> {
-  business: Pick<Business, 'sustainabilityScore'>
+  business : Pick<Business, 'sustainabilityScore'>
 }
 
 // Initialise Apollo Client
@@ -51,13 +38,13 @@ const client = new ApolloClient({
 const width = Dimensions.get('window').width
 
 type RootStackParamList = {
-  MapView: undefined
-  AccountView: undefined
-  PasswordView: undefined
-  PPView: undefined
-  ToSView: undefined
-  HelpView: undefined
-  BusinessView: { businessToDisplay: DisplayableBusiness }
+  MapView : undefined
+  AccountView : undefined
+  PasswordView : undefined
+  PPView : undefined
+  ToSView : undefined
+  HelpView : undefined
+  BusinessView : { businessToDisplay : DisplayableBusiness }
 }
 
 // Initialise Stack Navigator
@@ -65,7 +52,7 @@ const Stack = createStackNavigator<RootStackParamList>()
 
 type Props = StackScreenProps<RootStackParamList>
 
-export const FeedScreen = ({ navigation }: Props) => {
+export const FeedScreen = ({ navigation } : Props) => {
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
