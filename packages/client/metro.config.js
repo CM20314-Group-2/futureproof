@@ -4,10 +4,12 @@ const path = require('path')
 const { getDefaultConfig } = require('metro-config')
 const { resolver: defaultResolver } = getDefaultConfig.getDefaultValues()
 
+const workspaceRoot = path.resolve(__dirname, '../..')
+const projectRoot = __dirname
+
+
 exports.watchFolders = [
-  path.resolve(__dirname, './src'),
-  path.resolve(__dirname, 'node_modules'),
-  path.resolve(__dirname, '../typings'), // This cannot be achieved dynamically with the current iteration of lerna
+  workspaceRoot,
 ]
 
 exports.resolver = {
@@ -16,5 +18,8 @@ exports.resolver = {
     ...defaultResolver.sourceExts,
     'cjs',
   ],
-  
+  nodeModulesPath: [
+    path.resolve(workspaceRoot, 'node_modules'),
+    path.resolve(projectRoot, 'node_modules'),
+  ]
 }
