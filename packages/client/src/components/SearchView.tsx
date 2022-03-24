@@ -2,6 +2,7 @@ import SearchResult from '@components/Search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React, { useState } from 'react'
 import { FlatList, ScrollView, StyleSheet } from 'react-native'
+import { globalData } from './SearchBarView'
 
 const TEST_BUSINESSES_DATA : DisplayableBusiness[] = [
   {
@@ -32,7 +33,7 @@ const SearchView = () => {
     <React.Fragment>
       <ScrollView style={styles.searchList}>
         <FlatList
-          data={TEST_BUSINESSES_DATA}
+          data={globalData()}
           renderItem={renderSearchItem}
           keyExtractor={(item) => item.id}
         />
