@@ -13,7 +13,6 @@ type Business {
   owner: User
   type: BusinessType!
   locations: [Location!]!
-  sustainabilityScore: Float
   customerScore: Float
   profilePicture: String
   profileText: String
@@ -21,7 +20,19 @@ type Business {
   reviews: [Review!]!
   createdAt: DateTime!
   updatedAt: DateTime!
+
   # Sustainability Data
+  sustainabilityScore: Float
+  humanRightsScore: Float
+  carbonScore: Float
+  certificateScore: Float
+  envProtectionScore: Float
+  diversityScore: Float
+  productSafetyScore: Float
+  equalPayScore: Float
+  taxScore: Float
+  dataPrivacyScore: Float
+  charitableScore: Float
 }
 
 type DisplayableBusiness {

@@ -13,12 +13,23 @@ datasource db {
 model Business {
   id                  Int      @id @unique @default(autoincrement()) @map("BusinessID")
   name                String
-  sustainabilityScore Float    @map("FutureproofRating")
   customerScore       Float    @map("UserRating")
   profileText         String?
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
   profilePicture      Bytes?
+
+  //Sustainability Data
+  humanRightsScore    Float
+  carbonScore         Float
+  certificateScore    Float
+  envProtectionScore  Float
+  diversityScore      Float
+  productSafetyScore  Float
+  equalPayScore       Float
+  taxScore            Float
+  dataPrivacyScore    Float
+  charitableScore     Float
 
   //Different Relations
   owner           User          @relation(fields: [userId], references: [id])

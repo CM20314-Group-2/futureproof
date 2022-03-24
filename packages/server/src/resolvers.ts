@@ -26,7 +26,7 @@ export const resolvers = {
     business: async (idInput: number, context: Context) => {
       return context.prisma.business.findUnique({
         where: { id: idInput },
-      })
+      }) 
     },
     comment: async (idInput: number, context: Context) => {
       return context.prisma.comment.findUnique({
