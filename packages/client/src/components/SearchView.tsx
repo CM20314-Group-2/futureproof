@@ -1,4 +1,4 @@
-import SearchResult from '@components/Search/SearchResult'
+import SearchResult from '@components/search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React, { useState } from 'react'
 import { FlatList, ScrollView, StyleSheet } from 'react-native'
