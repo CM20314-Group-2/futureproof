@@ -1,7 +1,7 @@
 import SearchResult from '@components/search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet, View } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 
 const TEST_BUSINESSES_DATA : DisplayableBusiness[] = [
@@ -43,13 +43,23 @@ const SearchView = ({ navigation } : Props) => {
   )
   return (
     <React.Fragment>
-      <View style={styles.searchList}>
+      <ScrollView
+        style={styles.searchList}
+        bounces={true}
+        persistentScrollbar={true}
+      >
         <FlatList
           data={TEST_BUSINESSES_DATA}
           renderItem={renderSearchItem}
           keyExtractor={(item) => item.id}
         />
-      </View>
+        <FlatList
+          data={TEST_BUSINESSES_DATA}
+          renderItem={renderSearchItem}
+          keyExtractor={(item) => item.id}
+        />
+
+      </ScrollView>
     </React.Fragment>
   )
 }

@@ -16,6 +16,7 @@ import {
   TouchableOpacity,
   View,
   Dimensions,
+  Platform,
 } from 'react-native'
 import AccountButton from '@components/AccountViews/AccountButton'
 import AccountView from '@components/AccountViews/AccountView'
@@ -124,6 +125,14 @@ const App = () => {
 const styles = StyleSheet.create({
   button: {
     marginLeft: width - 80,
+    ...Platform.select({
+      ios: {
+        marginTop: 80,
+      },
+      android: {
+        marginTop: 70,
+      },
+    }),
   },
   container: {
     backgroundColor: '#fff',

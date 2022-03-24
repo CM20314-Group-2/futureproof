@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Platform } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 const AccountButton = () => {
   return (
@@ -23,14 +23,6 @@ const styles = StyleSheet.create({
   },
   circleInside: {
     backgroundColor: 'transparent',
-    ...Platform.select({
-      ios: {
-        marginTop: 80,
-      },
-      android: {
-        marginTop: 70,
-      },
-    }),
     borderColor: 'grey',
     borderRadius: 60 / 2,
     borderWidth: 7.5,
