@@ -69,7 +69,7 @@ model Location {
   updatedAt DateTime @updatedAt
 
   // Different Relations
-  Business     Business? @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
+  business     Business? @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
   BusinessList Business?  @relation(name: "Locations", fields: [businessesID], references: [id])
   Comment      Comment[]
 
