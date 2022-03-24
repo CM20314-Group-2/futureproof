@@ -8,24 +8,23 @@ export default {
     comments: (
       _parent: any,
       _args: any,
-      context: Context,
+      { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
       const select = new PrismaSelect(info).value
-      return context.prisma.comment.findMany({
+      return prisma.comment.findMany({
         ...select,
       })
     },
-
     comment: (
       _parent: any,
-      args: { id: number },
-      context: Context,
+      { id }: { id: number },
+      { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
       const select = new PrismaSelect(info).value
-      return context.prisma.comment.findUnique({
-        where: { id: Number(args.id) || undefined },
+      return prisma.comment.findUnique({
+        where: { id: Number(id) || undefined },
         ...select,
       })
     },
@@ -33,44 +32,38 @@ export default {
   Mutation: {
     createComment: (
       _parent: any,
-      args: { commentInput: Prisma.CommentCreateInput },
-      context: Context
+      { commentInput }: { commentInput: Prisma.CommentCreateInput },
+      { prisma }: Context
     ) => {
-      return context.prisma.comment.create({
+      return prisma.comment.create({
         data: {
-          text: args.commentInput.text,
-          createdAt: args.commentInput.createdAt,
-          location: args.commentInput.location,
-          user: args.commentInput.user,
-
-          business: args.commentInput.business,
+          ...commentInput,
         },
       })
     },
-
     updateComment: (
       _parent: any,
-      args: { id: number; commentInput: Prisma.CommentUpdateInput },
-      context: Context
+      {
+        id,
+        commentInput,
+      }: { id: number; commentInput: Prisma.CommentUpdateInput },
+      { prisma }: Context
     ) => {
-      return context.prisma.comment.update({
+      return prisma.comment.update({
         data: {
-          text: args.commentInput.text,
-          createdAt: args.commentInput.createdAt,
-          location: args.commentInput.location,
-          user: args.commentInput.user,
-
-          business: args.commentInput.business,
+          ...commentInput,
         },
-        where: { id: args.id },
+        where: { id: Number(id) || undefined },
       })
     },
-
-    deleteComment: (_parent: any, args: { id: number }, context: Context) => {
-      return context.prisma.comment.delete({
-        where: { id: Number(args.id) || undefined },
+    deleteComment: (
+      _parent: any,
+      { id }: { id: number },
+      { prisma }: Context
+    ) => {
+      return prisma.comment.delete({
+        where: { id: Number(id) || undefined },
       })
     },
-    //End of Mutations
   },
 }
