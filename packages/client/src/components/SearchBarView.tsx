@@ -22,9 +22,9 @@ const SearchBarView = () => {
   const [searchText, onChangeText] = useState('')
 
   const [executeSearch, { data, error }] = useLazyQuery<{
-    businessByName: DisplayableBusiness
+    businessByName : DisplayableBusiness
   }>(
-    GET_COMPANY_DATA, {variables: { _value: searchText }}
+    GET_COMPANY_DATA, { variables: { _value: searchText } }
   )
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const SearchBarView = () => {
         if (data != undefined) {
           globalData([data.businessByName])
         }
-      }, () => console.log(error));
+      }, () => console.log(error))
 
     }, 300)
     return () => clearTimeout(delayDebounceFn)

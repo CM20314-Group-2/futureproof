@@ -30,7 +30,7 @@ const SearchView = () => {
       }}
     />
   )
-  const data = globalData();
+  const data = globalData()
   
   if (!data) return null
 
