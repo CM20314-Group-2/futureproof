@@ -2,9 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
 import {
-  Business,
   DisplayableBusiness,
-  Location,
 } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
@@ -25,10 +23,6 @@ import PasswordView from '@components/AccountViews/PasswordView'
 import PPView from '@components/AccountViews/PPView'
 import ToSView from '@components/AccountViews/ToSView'
 import BusinessView from '@components/BusinessViews/BusinessView'
-
-interface LocationType extends Pick<Location, 'latitude'> {
-  business : Pick<Business, 'sustainabilityScore'>
-}
 
 // Initialise Apollo Client
 const client = new ApolloClient({

@@ -1,7 +1,7 @@
 import AccountView from '@components/AccountViews/AccountView'
 import { render, fireEvent } from '@testing-library/react-native'
 import React from 'react'
-import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import HelpView from '@components/AccountViews/HelpView'
 import PasswordView from '@components/AccountViews/PasswordView'
@@ -19,7 +19,7 @@ type RootStackParamList = {
 // Initialise Stack Navigator
 const Stack = createStackNavigator<RootStackParamList>()
   
-type Props = StackScreenProps<RootStackParamList>
+//type Props = StackScreenProps<RootStackParamList>
 
 const AccountNavigator = () => {
   return (
