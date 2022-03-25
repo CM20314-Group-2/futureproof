@@ -1,9 +1,9 @@
 import type {
   GraphQLResolveInfo,
   GraphQLScalarType,
-  GraphQLScalarTypeConfig,
-} from "graphql"
-import type { MercuriusContext } from "mercurius"
+  GraphQLScalarTypeConfig
+} from 'graphql'
+import type { MercuriusContext } from 'mercurius'
 export type Maybe<T> = T | null
 export type InputMaybe<T> = Maybe<T>
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -21,8 +21,8 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   context: TContext,
   info: GraphQLResolveInfo
 ) =>
-  | Promise<import("mercurius-codegen").DeepPartial<TResult>>
-  | import("mercurius-codegen").DeepPartial<TResult>
+  | Promise<import('mercurius-codegen').DeepPartial<TResult>>
+  | import('mercurius-codegen').DeepPartial<TResult>
 export type RequireFields<T, K extends keyof T> = Omit<T, K> & {
   [P in K]-?: NonNullable<T[P]>
 }
@@ -38,91 +38,91 @@ export type Scalars = {
 }
 
 export type Business = {
-  __typename?: "Business"
+  __typename?: 'Business'
   comments: Array<Comment>
-  createdAt: Scalars["DateTime"]
-  customerScore?: Maybe<Scalars["Float"]>
-  id: Scalars["ID"]
+  createdAt: Scalars['DateTime']
+  customerScore?: Maybe<Scalars['Float']>
+  id: Scalars['ID']
   locations: Array<Location>
-  name: Scalars["String"]
+  name: Scalars['String']
   owner?: Maybe<User>
   primaryLocation: Location
-  profilePicture?: Maybe<Scalars["String"]>
-  profileText?: Maybe<Scalars["String"]>
+  profilePicture?: Maybe<Scalars['String']>
+  profileText?: Maybe<Scalars['String']>
   reviews: Array<Review>
-  sustainabilityScore?: Maybe<Scalars["Float"]>
+  sustainabilityScore?: Maybe<Scalars['Float']>
   type: BusinessType
-  updatedAt: Scalars["DateTime"]
+  updatedAt: Scalars['DateTime']
 }
 
 export type BusinessInput = {
-  locations: Array<Scalars["ID"]>
-  name: Scalars["String"]
-  owner?: InputMaybe<Scalars["ID"]>
-  primaryLocation: Scalars["ID"]
-  profilePicture?: InputMaybe<Scalars["String"]>
-  profileText?: InputMaybe<Scalars["String"]>
+  locations: Array<Scalars['ID']>
+  name: Scalars['String']
+  owner?: InputMaybe<Scalars['ID']>
+  primaryLocation: Scalars['ID']
+  profilePicture?: InputMaybe<Scalars['String']>
+  profileText?: InputMaybe<Scalars['String']>
   type?: InputMaybe<BusinessType>
 }
 
 export enum BusinessType {
-  BAR = "BAR",
-  CAFE = "CAFE",
-  OTHER = "OTHER",
-  RESTAURANT = "RESTAURANT",
+  BAR = 'BAR',
+  CAFE = 'CAFE',
+  OTHER = 'OTHER',
+  RESTAURANT = 'RESTAURANT',
 }
 
 export type Comment = {
-  __typename?: "Comment"
+  __typename?: 'Comment'
   business: Business
-  createdAt: Scalars["DateTime"]
-  id: Scalars["ID"]
+  createdAt: Scalars['DateTime']
+  id: Scalars['ID']
   location?: Maybe<Location>
-  text: Scalars["String"]
-  updatedAt: Scalars["DateTime"]
+  text: Scalars['String']
+  updatedAt: Scalars['DateTime']
   user: User
 }
 
 export type CommentInput = {
-  business: Scalars["ID"]
-  location?: InputMaybe<Scalars["ID"]>
-  text: Scalars["String"]
-  user: Scalars["ID"]
+  business: Scalars['ID']
+  location?: InputMaybe<Scalars['ID']>
+  text: Scalars['String']
+  user: Scalars['ID']
 }
 
 export type DisplayableBusiness = {
-  __typename?: "DisplayableBusiness"
-  customerScore?: Maybe<Scalars["Float"]>
-  id: Scalars["ID"]
-  name: Scalars["String"]
-  profilePicture?: Maybe<Scalars["String"]>
-  profileText?: Maybe<Scalars["String"]>
-  sustainabilityScore?: Maybe<Scalars["Float"]>
+  __typename?: 'DisplayableBusiness'
+  customerScore?: Maybe<Scalars['Float']>
+  id: Scalars['ID']
+  name: Scalars['String']
+  profilePicture?: Maybe<Scalars['String']>
+  profileText?: Maybe<Scalars['String']>
+  sustainabilityScore?: Maybe<Scalars['Float']>
   type: BusinessType
 }
 
 export type Location = {
-  __typename?: "Location"
-  address: Scalars["String"]
+  __typename?: 'Location'
+  address: Scalars['String']
   business: Business
-  createdAt: Scalars["DateTime"]
-  id: Scalars["ID"]
-  latitude: Scalars["Float"]
-  longitude: Scalars["Float"]
-  name: Scalars["String"]
-  updatedAt: Scalars["DateTime"]
+  createdAt: Scalars['DateTime']
+  id: Scalars['ID']
+  latitude: Scalars['Float']
+  longitude: Scalars['Float']
+  name: Scalars['String']
+  updatedAt: Scalars['DateTime']
 }
 
 export type LocationInput = {
-  address: Scalars["String"]
-  business: Scalars["ID"]
-  latitude: Scalars["Float"]
-  longitude: Scalars["Float"]
-  name: Scalars["String"]
+  address: Scalars['String']
+  business: Scalars['ID']
+  latitude: Scalars['Float']
+  longitude: Scalars['Float']
+  name: Scalars['String']
 }
 
 export type Mutation = {
-  __typename?: "Mutation"
+  __typename?: 'Mutation'
   createBusiness?: Maybe<Business>
   createComment?: Maybe<Comment>
   createLocation?: Maybe<Location>
@@ -161,52 +161,52 @@ export type MutationcreateUserArgs = {
 }
 
 export type MutationdeleteBusinessArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type MutationdeleteCommentArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type MutationdeleteLocationArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type MutationdeleteReviewArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type MutationdeleteUserArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type MutationupdateBusinessArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
   input?: InputMaybe<BusinessInput>
 }
 
 export type MutationupdateCommentArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
   input?: InputMaybe<CommentInput>
 }
 
 export type MutationupdateLocationArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
   input?: InputMaybe<LocationInput>
 }
 
 export type MutationupdateReviewArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
   input?: InputMaybe<ReviewInput>
 }
 
 export type MutationupdateUserArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
   input?: InputMaybe<UserInput>
 }
 
 export type Query = {
-  __typename?: "Query"
+  __typename?: 'Query'
   business?: Maybe<Business>
   businessByName?: Maybe<Business>
   businesses?: Maybe<Array<Maybe<Business>>>
@@ -227,94 +227,94 @@ export type Query = {
 }
 
 export type QuerybusinessArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type QuerybusinessByNameArgs = {
-  name: Scalars["String"]
+  name: Scalars['String']
 }
 
 export type QuerycommentArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type QuerycommentsByBusinessArgs = {
-  businessId: Scalars["ID"]
+  businessId: Scalars['ID']
 }
 
 export type QuerycommentsByUserArgs = {
-  userId: Scalars["ID"]
+  userId: Scalars['ID']
 }
 
 export type QuerylocationArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type QuerylocationsByBusinessArgs = {
-  businessId: Scalars["ID"]
+  businessId: Scalars['ID']
 }
 
 export type QueryreviewArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type QueryreviewsByBusinessArgs = {
-  businessId: Scalars["ID"]
+  businessId: Scalars['ID']
 }
 
 export type QueryreviewsByUserArgs = {
-  userId: Scalars["ID"]
+  userId: Scalars['ID']
 }
 
 export type QueryuserArgs = {
-  id: Scalars["ID"]
+  id: Scalars['ID']
 }
 
 export type QueryuserByEmailArgs = {
-  email: Scalars["String"]
+  email: Scalars['String']
 }
 
 export type Review = {
-  __typename?: "Review"
+  __typename?: 'Review'
   business: Business
-  createdAt: Scalars["DateTime"]
-  id: Scalars["ID"]
-  reputation: Scalars["Int"]
-  updatedAt: Scalars["DateTime"]
+  createdAt: Scalars['DateTime']
+  id: Scalars['ID']
+  reputation: Scalars['Int']
+  updatedAt: Scalars['DateTime']
   user: User
 }
 
 export type ReviewInput = {
-  business: Scalars["ID"]
-  user: Scalars["ID"]
+  business: Scalars['ID']
+  user: Scalars['ID']
 }
 
 export enum Role {
-  ADMIN = "ADMIN",
-  BUSINESS = "BUSINESS",
-  CUSTOMER = "CUSTOMER",
+  ADMIN = 'ADMIN',
+  BUSINESS = 'BUSINESS',
+  CUSTOMER = 'CUSTOMER',
 }
 
 export type User = {
-  __typename?: "User"
+  __typename?: 'User'
   comments?: Maybe<Array<Comment>>
-  createdAt: Scalars["DateTime"]
-  email: Scalars["String"]
-  firstName: Scalars["String"]
-  id: Scalars["ID"]
-  lastName: Scalars["String"]
-  profilePhoto?: Maybe<Scalars["String"]>
+  createdAt: Scalars['DateTime']
+  email: Scalars['String']
+  firstName: Scalars['String']
+  id: Scalars['ID']
+  lastName: Scalars['String']
+  profilePhoto?: Maybe<Scalars['String']>
   reviews?: Maybe<Array<Review>>
   roles?: Maybe<Array<Role>>
-  updatedAt: Scalars["DateTime"]
+  updatedAt: Scalars['DateTime']
 }
 
 export type UserInput = {
-  email: Scalars["String"]
-  firstName: Scalars["String"]
-  lastName: Scalars["String"]
-  password: Scalars["String"]
-  profilePicture?: InputMaybe<Scalars["String"]>
+  email: Scalars['String']
+  firstName: Scalars['String']
+  lastName: Scalars['String']
+  password: Scalars['String']
+  profilePicture?: InputMaybe<Scalars['String']>
 }
 
 export type ResolverTypeWrapper<T> = Promise<T> | T
@@ -418,358 +418,358 @@ export type DirectiveResolverFn<
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Business: ResolverTypeWrapper<Business>
-  Float: ResolverTypeWrapper<Scalars["Float"]>
-  ID: ResolverTypeWrapper<Scalars["ID"]>
-  String: ResolverTypeWrapper<Scalars["String"]>
+  Float: ResolverTypeWrapper<Scalars['Float']>
+  ID: ResolverTypeWrapper<Scalars['ID']>
+  String: ResolverTypeWrapper<Scalars['String']>
   BusinessInput: BusinessInput
   BusinessType: BusinessType
   Comment: ResolverTypeWrapper<Comment>
   CommentInput: CommentInput
-  DateTime: ResolverTypeWrapper<Scalars["DateTime"]>
+  DateTime: ResolverTypeWrapper<Scalars['DateTime']>
   DisplayableBusiness: ResolverTypeWrapper<DisplayableBusiness>
   Location: ResolverTypeWrapper<Location>
   LocationInput: LocationInput
   Mutation: ResolverTypeWrapper<{}>
   Query: ResolverTypeWrapper<{}>
   Review: ResolverTypeWrapper<Review>
-  Int: ResolverTypeWrapper<Scalars["Int"]>
+  Int: ResolverTypeWrapper<Scalars['Int']>
   ReviewInput: ReviewInput
   Role: Role
   User: ResolverTypeWrapper<User>
   UserInput: UserInput
-  Boolean: ResolverTypeWrapper<Scalars["Boolean"]>
+  Boolean: ResolverTypeWrapper<Scalars['Boolean']>
 }
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Business: Business
-  Float: Scalars["Float"]
-  ID: Scalars["ID"]
-  String: Scalars["String"]
+  Float: Scalars['Float']
+  ID: Scalars['ID']
+  String: Scalars['String']
   BusinessInput: BusinessInput
   Comment: Comment
   CommentInput: CommentInput
-  DateTime: Scalars["DateTime"]
+  DateTime: Scalars['DateTime']
   DisplayableBusiness: DisplayableBusiness
   Location: Location
   LocationInput: LocationInput
   Mutation: {}
   Query: {}
   Review: Review
-  Int: Scalars["Int"]
+  Int: Scalars['Int']
   ReviewInput: ReviewInput
   User: User
   UserInput: UserInput
-  Boolean: Scalars["Boolean"]
+  Boolean: Scalars['Boolean']
 }
 
 export type BusinessResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["Business"] = ResolversParentTypes["Business"]
+  ParentType extends ResolversParentTypes['Business'] = ResolversParentTypes['Business']
 > = {
-  comments?: Resolver<Array<ResolversTypes["Comment"]>, ParentType, ContextType>
-  createdAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
+  comments?: Resolver<Array<ResolversTypes['Comment']>, ParentType, ContextType>
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
   customerScore?: Resolver<
-    Maybe<ResolversTypes["Float"]>,
+    Maybe<ResolversTypes['Float']>,
     ParentType,
     ContextType
   >
-  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
   locations?: Resolver<
-    Array<ResolversTypes["Location"]>,
+    Array<ResolversTypes['Location']>,
     ParentType,
     ContextType
   >
-  name?: Resolver<ResolversTypes["String"], ParentType, ContextType>
-  owner?: Resolver<Maybe<ResolversTypes["User"]>, ParentType, ContextType>
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  owner?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>
   primaryLocation?: Resolver<
-    ResolversTypes["Location"],
+    ResolversTypes['Location'],
     ParentType,
     ContextType
   >
   profilePicture?: Resolver<
-    Maybe<ResolversTypes["String"]>,
+    Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >
   profileText?: Resolver<
-    Maybe<ResolversTypes["String"]>,
+    Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >
-  reviews?: Resolver<Array<ResolversTypes["Review"]>, ParentType, ContextType>
+  reviews?: Resolver<Array<ResolversTypes['Review']>, ParentType, ContextType>
   sustainabilityScore?: Resolver<
-    Maybe<ResolversTypes["Float"]>,
+    Maybe<ResolversTypes['Float']>,
     ParentType,
     ContextType
   >
-  type?: Resolver<ResolversTypes["BusinessType"], ParentType, ContextType>
-  updatedAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
+  type?: Resolver<ResolversTypes['BusinessType'], ParentType, ContextType>
+  updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
 export type CommentResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["Comment"] = ResolversParentTypes["Comment"]
+  ParentType extends ResolversParentTypes['Comment'] = ResolversParentTypes['Comment']
 > = {
-  business?: Resolver<ResolversTypes["Business"], ParentType, ContextType>
-  createdAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
-  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>
+  business?: Resolver<ResolversTypes['Business'], ParentType, ContextType>
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
   location?: Resolver<
-    Maybe<ResolversTypes["Location"]>,
+    Maybe<ResolversTypes['Location']>,
     ParentType,
     ContextType
   >
-  text?: Resolver<ResolversTypes["String"], ParentType, ContextType>
-  updatedAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
-  user?: Resolver<ResolversTypes["User"], ParentType, ContextType>
+  text?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
+  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
 export interface DateTimeScalarConfig
-  extends GraphQLScalarTypeConfig<ResolversTypes["DateTime"], any> {
-  name: "DateTime"
+  extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
+  name: 'DateTime'
 }
 
 export type DisplayableBusinessResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["DisplayableBusiness"] = ResolversParentTypes["DisplayableBusiness"]
+  ParentType extends ResolversParentTypes['DisplayableBusiness'] = ResolversParentTypes['DisplayableBusiness']
 > = {
   customerScore?: Resolver<
-    Maybe<ResolversTypes["Float"]>,
+    Maybe<ResolversTypes['Float']>,
     ParentType,
     ContextType
   >
-  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>
-  name?: Resolver<ResolversTypes["String"], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   profilePicture?: Resolver<
-    Maybe<ResolversTypes["String"]>,
+    Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >
   profileText?: Resolver<
-    Maybe<ResolversTypes["String"]>,
+    Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >
   sustainabilityScore?: Resolver<
-    Maybe<ResolversTypes["Float"]>,
+    Maybe<ResolversTypes['Float']>,
     ParentType,
     ContextType
   >
-  type?: Resolver<ResolversTypes["BusinessType"], ParentType, ContextType>
+  type?: Resolver<ResolversTypes['BusinessType'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
 export type LocationResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["Location"] = ResolversParentTypes["Location"]
+  ParentType extends ResolversParentTypes['Location'] = ResolversParentTypes['Location']
 > = {
-  address?: Resolver<ResolversTypes["String"], ParentType, ContextType>
-  business?: Resolver<ResolversTypes["Business"], ParentType, ContextType>
-  createdAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
-  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>
-  latitude?: Resolver<ResolversTypes["Float"], ParentType, ContextType>
-  longitude?: Resolver<ResolversTypes["Float"], ParentType, ContextType>
-  name?: Resolver<ResolversTypes["String"], ParentType, ContextType>
-  updatedAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
+  address?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  business?: Resolver<ResolversTypes['Business'], ParentType, ContextType>
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  latitude?: Resolver<ResolversTypes['Float'], ParentType, ContextType>
+  longitude?: Resolver<ResolversTypes['Float'], ParentType, ContextType>
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
 export type MutationResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["Mutation"] = ResolversParentTypes["Mutation"]
+  ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']
 > = {
   createBusiness?: Resolver<
-    Maybe<ResolversTypes["Business"]>,
+    Maybe<ResolversTypes['Business']>,
     ParentType,
     ContextType,
     Partial<MutationcreateBusinessArgs>
   >
   createComment?: Resolver<
-    Maybe<ResolversTypes["Comment"]>,
+    Maybe<ResolversTypes['Comment']>,
     ParentType,
     ContextType,
     Partial<MutationcreateCommentArgs>
   >
   createLocation?: Resolver<
-    Maybe<ResolversTypes["Location"]>,
+    Maybe<ResolversTypes['Location']>,
     ParentType,
     ContextType,
     Partial<MutationcreateLocationArgs>
   >
   createReview?: Resolver<
-    Maybe<ResolversTypes["Review"]>,
+    Maybe<ResolversTypes['Review']>,
     ParentType,
     ContextType,
     Partial<MutationcreateReviewArgs>
   >
   createUser?: Resolver<
-    Maybe<ResolversTypes["User"]>,
+    Maybe<ResolversTypes['User']>,
     ParentType,
     ContextType,
     Partial<MutationcreateUserArgs>
   >
   deleteBusiness?: Resolver<
-    Maybe<ResolversTypes["Business"]>,
+    Maybe<ResolversTypes['Business']>,
     ParentType,
     ContextType,
-    RequireFields<MutationdeleteBusinessArgs, "id">
+    RequireFields<MutationdeleteBusinessArgs, 'id'>
   >
   deleteComment?: Resolver<
-    Maybe<ResolversTypes["Comment"]>,
+    Maybe<ResolversTypes['Comment']>,
     ParentType,
     ContextType,
-    RequireFields<MutationdeleteCommentArgs, "id">
+    RequireFields<MutationdeleteCommentArgs, 'id'>
   >
   deleteLocation?: Resolver<
-    Maybe<ResolversTypes["Location"]>,
+    Maybe<ResolversTypes['Location']>,
     ParentType,
     ContextType,
-    RequireFields<MutationdeleteLocationArgs, "id">
+    RequireFields<MutationdeleteLocationArgs, 'id'>
   >
   deleteReview?: Resolver<
-    Maybe<ResolversTypes["Review"]>,
+    Maybe<ResolversTypes['Review']>,
     ParentType,
     ContextType,
-    RequireFields<MutationdeleteReviewArgs, "id">
+    RequireFields<MutationdeleteReviewArgs, 'id'>
   >
   deleteUser?: Resolver<
-    Maybe<ResolversTypes["User"]>,
+    Maybe<ResolversTypes['User']>,
     ParentType,
     ContextType,
-    RequireFields<MutationdeleteUserArgs, "id">
+    RequireFields<MutationdeleteUserArgs, 'id'>
   >
   updateBusiness?: Resolver<
-    Maybe<ResolversTypes["Business"]>,
+    Maybe<ResolversTypes['Business']>,
     ParentType,
     ContextType,
-    RequireFields<MutationupdateBusinessArgs, "id">
+    RequireFields<MutationupdateBusinessArgs, 'id'>
   >
   updateComment?: Resolver<
-    Maybe<ResolversTypes["Comment"]>,
+    Maybe<ResolversTypes['Comment']>,
     ParentType,
     ContextType,
-    RequireFields<MutationupdateCommentArgs, "id">
+    RequireFields<MutationupdateCommentArgs, 'id'>
   >
   updateLocation?: Resolver<
-    Maybe<ResolversTypes["Location"]>,
+    Maybe<ResolversTypes['Location']>,
     ParentType,
     ContextType,
-    RequireFields<MutationupdateLocationArgs, "id">
+    RequireFields<MutationupdateLocationArgs, 'id'>
   >
   updateReview?: Resolver<
-    Maybe<ResolversTypes["Review"]>,
+    Maybe<ResolversTypes['Review']>,
     ParentType,
     ContextType,
-    RequireFields<MutationupdateReviewArgs, "id">
+    RequireFields<MutationupdateReviewArgs, 'id'>
   >
   updateUser?: Resolver<
-    Maybe<ResolversTypes["User"]>,
+    Maybe<ResolversTypes['User']>,
     ParentType,
     ContextType,
-    RequireFields<MutationupdateUserArgs, "id">
+    RequireFields<MutationupdateUserArgs, 'id'>
   >
 }
 
 export type QueryResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["Query"] = ResolversParentTypes["Query"]
+  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
 > = {
   business?: Resolver<
-    Maybe<ResolversTypes["Business"]>,
+    Maybe<ResolversTypes['Business']>,
     ParentType,
     ContextType,
-    RequireFields<QuerybusinessArgs, "id">
+    RequireFields<QuerybusinessArgs, 'id'>
   >
   businessByName?: Resolver<
-    Maybe<ResolversTypes["Business"]>,
+    Maybe<ResolversTypes['Business']>,
     ParentType,
     ContextType,
-    RequireFields<QuerybusinessByNameArgs, "name">
+    RequireFields<QuerybusinessByNameArgs, 'name'>
   >
   businesses?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Business"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Business']>>>,
     ParentType,
     ContextType
   >
   comment?: Resolver<
-    Maybe<ResolversTypes["Comment"]>,
+    Maybe<ResolversTypes['Comment']>,
     ParentType,
     ContextType,
-    RequireFields<QuerycommentArgs, "id">
+    RequireFields<QuerycommentArgs, 'id'>
   >
   comments?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Comment"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Comment']>>>,
     ParentType,
     ContextType
   >
   commentsByBusiness?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Comment"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Comment']>>>,
     ParentType,
     ContextType,
-    RequireFields<QuerycommentsByBusinessArgs, "businessId">
+    RequireFields<QuerycommentsByBusinessArgs, 'businessId'>
   >
   commentsByUser?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Comment"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Comment']>>>,
     ParentType,
     ContextType,
-    RequireFields<QuerycommentsByUserArgs, "userId">
+    RequireFields<QuerycommentsByUserArgs, 'userId'>
   >
   location?: Resolver<
-    Maybe<ResolversTypes["Location"]>,
+    Maybe<ResolversTypes['Location']>,
     ParentType,
     ContextType,
-    RequireFields<QuerylocationArgs, "id">
+    RequireFields<QuerylocationArgs, 'id'>
   >
   locations?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Location"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Location']>>>,
     ParentType,
     ContextType
   >
   locationsByBusiness?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Location"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Location']>>>,
     ParentType,
     ContextType,
-    RequireFields<QuerylocationsByBusinessArgs, "businessId">
+    RequireFields<QuerylocationsByBusinessArgs, 'businessId'>
   >
   review?: Resolver<
-    Maybe<ResolversTypes["Review"]>,
+    Maybe<ResolversTypes['Review']>,
     ParentType,
     ContextType,
-    RequireFields<QueryreviewArgs, "id">
+    RequireFields<QueryreviewArgs, 'id'>
   >
   reviews?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Review"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Review']>>>,
     ParentType,
     ContextType
   >
   reviewsByBusiness?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Review"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Review']>>>,
     ParentType,
     ContextType,
-    RequireFields<QueryreviewsByBusinessArgs, "businessId">
+    RequireFields<QueryreviewsByBusinessArgs, 'businessId'>
   >
   reviewsByUser?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Review"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['Review']>>>,
     ParentType,
     ContextType,
-    RequireFields<QueryreviewsByUserArgs, "userId">
+    RequireFields<QueryreviewsByUserArgs, 'userId'>
   >
   user?: Resolver<
-    Maybe<ResolversTypes["User"]>,
+    Maybe<ResolversTypes['User']>,
     ParentType,
     ContextType,
-    RequireFields<QueryuserArgs, "id">
+    RequireFields<QueryuserArgs, 'id'>
   >
   userByEmail?: Resolver<
-    Maybe<ResolversTypes["User"]>,
+    Maybe<ResolversTypes['User']>,
     ParentType,
     ContextType,
-    RequireFields<QueryuserByEmailArgs, "email">
+    RequireFields<QueryuserByEmailArgs, 'email'>
   >
   users?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["User"]>>>,
+    Maybe<Array<Maybe<ResolversTypes['User']>>>,
     ParentType,
     ContextType
   >
@@ -777,47 +777,47 @@ export type QueryResolvers<
 
 export type ReviewResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["Review"] = ResolversParentTypes["Review"]
+  ParentType extends ResolversParentTypes['Review'] = ResolversParentTypes['Review']
 > = {
-  business?: Resolver<ResolversTypes["Business"], ParentType, ContextType>
-  createdAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
-  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>
-  reputation?: Resolver<ResolversTypes["Int"], ParentType, ContextType>
-  updatedAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
-  user?: Resolver<ResolversTypes["User"], ParentType, ContextType>
+  business?: Resolver<ResolversTypes['Business'], ParentType, ContextType>
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  reputation?: Resolver<ResolversTypes['Int'], ParentType, ContextType>
+  updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
+  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
 export type UserResolvers<
   ContextType = MercuriusContext,
-  ParentType extends ResolversParentTypes["User"] = ResolversParentTypes["User"]
+  ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']
 > = {
   comments?: Resolver<
-    Maybe<Array<ResolversTypes["Comment"]>>,
+    Maybe<Array<ResolversTypes['Comment']>>,
     ParentType,
     ContextType
   >
-  createdAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
-  email?: Resolver<ResolversTypes["String"], ParentType, ContextType>
-  firstName?: Resolver<ResolversTypes["String"], ParentType, ContextType>
-  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>
-  lastName?: Resolver<ResolversTypes["String"], ParentType, ContextType>
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   profilePhoto?: Resolver<
-    Maybe<ResolversTypes["String"]>,
+    Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType
   >
   reviews?: Resolver<
-    Maybe<Array<ResolversTypes["Review"]>>,
+    Maybe<Array<ResolversTypes['Review']>>,
     ParentType,
     ContextType
   >
   roles?: Resolver<
-    Maybe<Array<ResolversTypes["Role"]>>,
+    Maybe<Array<ResolversTypes['Role']>>,
     ParentType,
     ContextType
   >
-  updatedAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>
+  updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
@@ -839,9 +839,9 @@ export type Loader<TReturn, TObj, TParams, TContext> = (
     params: TParams
   }>,
   context: TContext & {
-    reply: import("fastify").FastifyReply
+    reply: import('fastify').FastifyReply
   }
-) => Promise<Array<import("mercurius-codegen").DeepPartial<TReturn>>>
+) => Promise<Array<import('mercurius-codegen').DeepPartial<TReturn>>>
 export type LoaderResolver<TReturn, TObj, TParams, TContext> =
   | Loader<TReturn, TObj, TParams, TContext>
   | {
@@ -851,80 +851,80 @@ export type LoaderResolver<TReturn, TObj, TParams, TContext> =
       }
     }
 export interface Loaders<
-  TContext = import("mercurius").MercuriusContext & {
-    reply: import("fastify").FastifyReply
+  TContext = import('mercurius').MercuriusContext & {
+    reply: import('fastify').FastifyReply
   }
 > {
   Business?: {
     comments?: LoaderResolver<Array<Comment>, Business, {}, TContext>
-    createdAt?: LoaderResolver<Scalars["DateTime"], Business, {}, TContext>
+    createdAt?: LoaderResolver<Scalars['DateTime'], Business, {}, TContext>
     customerScore?: LoaderResolver<
-      Maybe<Scalars["Float"]>,
+      Maybe<Scalars['Float']>,
       Business,
       {},
       TContext
     >
-    id?: LoaderResolver<Scalars["ID"], Business, {}, TContext>
+    id?: LoaderResolver<Scalars['ID'], Business, {}, TContext>
     locations?: LoaderResolver<Array<Location>, Business, {}, TContext>
-    name?: LoaderResolver<Scalars["String"], Business, {}, TContext>
+    name?: LoaderResolver<Scalars['String'], Business, {}, TContext>
     owner?: LoaderResolver<Maybe<User>, Business, {}, TContext>
     primaryLocation?: LoaderResolver<Location, Business, {}, TContext>
     profilePicture?: LoaderResolver<
-      Maybe<Scalars["String"]>,
+      Maybe<Scalars['String']>,
       Business,
       {},
       TContext
     >
     profileText?: LoaderResolver<
-      Maybe<Scalars["String"]>,
+      Maybe<Scalars['String']>,
       Business,
       {},
       TContext
     >
     reviews?: LoaderResolver<Array<Review>, Business, {}, TContext>
     sustainabilityScore?: LoaderResolver<
-      Maybe<Scalars["Float"]>,
+      Maybe<Scalars['Float']>,
       Business,
       {},
       TContext
     >
     type?: LoaderResolver<BusinessType, Business, {}, TContext>
-    updatedAt?: LoaderResolver<Scalars["DateTime"], Business, {}, TContext>
+    updatedAt?: LoaderResolver<Scalars['DateTime'], Business, {}, TContext>
   }
 
   Comment?: {
     business?: LoaderResolver<Business, Comment, {}, TContext>
-    createdAt?: LoaderResolver<Scalars["DateTime"], Comment, {}, TContext>
-    id?: LoaderResolver<Scalars["ID"], Comment, {}, TContext>
+    createdAt?: LoaderResolver<Scalars['DateTime'], Comment, {}, TContext>
+    id?: LoaderResolver<Scalars['ID'], Comment, {}, TContext>
     location?: LoaderResolver<Maybe<Location>, Comment, {}, TContext>
-    text?: LoaderResolver<Scalars["String"], Comment, {}, TContext>
-    updatedAt?: LoaderResolver<Scalars["DateTime"], Comment, {}, TContext>
+    text?: LoaderResolver<Scalars['String'], Comment, {}, TContext>
+    updatedAt?: LoaderResolver<Scalars['DateTime'], Comment, {}, TContext>
     user?: LoaderResolver<User, Comment, {}, TContext>
   }
 
   DisplayableBusiness?: {
     customerScore?: LoaderResolver<
-      Maybe<Scalars["Float"]>,
+      Maybe<Scalars['Float']>,
       DisplayableBusiness,
       {},
       TContext
     >
-    id?: LoaderResolver<Scalars["ID"], DisplayableBusiness, {}, TContext>
-    name?: LoaderResolver<Scalars["String"], DisplayableBusiness, {}, TContext>
+    id?: LoaderResolver<Scalars['ID'], DisplayableBusiness, {}, TContext>
+    name?: LoaderResolver<Scalars['String'], DisplayableBusiness, {}, TContext>
     profilePicture?: LoaderResolver<
-      Maybe<Scalars["String"]>,
+      Maybe<Scalars['String']>,
       DisplayableBusiness,
       {},
       TContext
     >
     profileText?: LoaderResolver<
-      Maybe<Scalars["String"]>,
+      Maybe<Scalars['String']>,
       DisplayableBusiness,
       {},
       TContext
     >
     sustainabilityScore?: LoaderResolver<
-      Maybe<Scalars["Float"]>,
+      Maybe<Scalars['Float']>,
       DisplayableBusiness,
       {},
       TContext
@@ -933,40 +933,40 @@ export interface Loaders<
   }
 
   Location?: {
-    address?: LoaderResolver<Scalars["String"], Location, {}, TContext>
+    address?: LoaderResolver<Scalars['String'], Location, {}, TContext>
     business?: LoaderResolver<Business, Location, {}, TContext>
-    createdAt?: LoaderResolver<Scalars["DateTime"], Location, {}, TContext>
-    id?: LoaderResolver<Scalars["ID"], Location, {}, TContext>
-    latitude?: LoaderResolver<Scalars["Float"], Location, {}, TContext>
-    longitude?: LoaderResolver<Scalars["Float"], Location, {}, TContext>
-    name?: LoaderResolver<Scalars["String"], Location, {}, TContext>
-    updatedAt?: LoaderResolver<Scalars["DateTime"], Location, {}, TContext>
+    createdAt?: LoaderResolver<Scalars['DateTime'], Location, {}, TContext>
+    id?: LoaderResolver<Scalars['ID'], Location, {}, TContext>
+    latitude?: LoaderResolver<Scalars['Float'], Location, {}, TContext>
+    longitude?: LoaderResolver<Scalars['Float'], Location, {}, TContext>
+    name?: LoaderResolver<Scalars['String'], Location, {}, TContext>
+    updatedAt?: LoaderResolver<Scalars['DateTime'], Location, {}, TContext>
   }
 
   Review?: {
     business?: LoaderResolver<Business, Review, {}, TContext>
-    createdAt?: LoaderResolver<Scalars["DateTime"], Review, {}, TContext>
-    id?: LoaderResolver<Scalars["ID"], Review, {}, TContext>
-    reputation?: LoaderResolver<Scalars["Int"], Review, {}, TContext>
-    updatedAt?: LoaderResolver<Scalars["DateTime"], Review, {}, TContext>
+    createdAt?: LoaderResolver<Scalars['DateTime'], Review, {}, TContext>
+    id?: LoaderResolver<Scalars['ID'], Review, {}, TContext>
+    reputation?: LoaderResolver<Scalars['Int'], Review, {}, TContext>
+    updatedAt?: LoaderResolver<Scalars['DateTime'], Review, {}, TContext>
     user?: LoaderResolver<User, Review, {}, TContext>
   }
 
   User?: {
     comments?: LoaderResolver<Maybe<Array<Comment>>, User, {}, TContext>
-    createdAt?: LoaderResolver<Scalars["DateTime"], User, {}, TContext>
-    email?: LoaderResolver<Scalars["String"], User, {}, TContext>
-    firstName?: LoaderResolver<Scalars["String"], User, {}, TContext>
-    id?: LoaderResolver<Scalars["ID"], User, {}, TContext>
-    lastName?: LoaderResolver<Scalars["String"], User, {}, TContext>
-    profilePhoto?: LoaderResolver<Maybe<Scalars["String"]>, User, {}, TContext>
+    createdAt?: LoaderResolver<Scalars['DateTime'], User, {}, TContext>
+    email?: LoaderResolver<Scalars['String'], User, {}, TContext>
+    firstName?: LoaderResolver<Scalars['String'], User, {}, TContext>
+    id?: LoaderResolver<Scalars['ID'], User, {}, TContext>
+    lastName?: LoaderResolver<Scalars['String'], User, {}, TContext>
+    profilePhoto?: LoaderResolver<Maybe<Scalars['String']>, User, {}, TContext>
     reviews?: LoaderResolver<Maybe<Array<Review>>, User, {}, TContext>
     roles?: LoaderResolver<Maybe<Array<Role>>, User, {}, TContext>
-    updatedAt?: LoaderResolver<Scalars["DateTime"], User, {}, TContext>
+    updatedAt?: LoaderResolver<Scalars['DateTime'], User, {}, TContext>
   }
 }
-declare module "mercurius" {
+declare module 'mercurius' {
   interface IResolvers
-    extends Resolvers<import("mercurius").MercuriusContext> {}
+    extends Resolvers<import('mercurius').MercuriusContext> {}
   interface MercuriusLoaders extends Loaders {}
 }
