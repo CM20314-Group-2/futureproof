@@ -7,13 +7,7 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "build": "lerna run build",
-    "setup": "npm install",
-    "postsetup": "npm run build"
-  },
-  "dependencies": {
-    "@futureproof/client": "file:packages/client",
-    "@futureproof/server": "file:packages/server",
-    "@futureproof/typings": "file:packages/typings"
+    "postinstall": "yarn run build && lerna run postinstall"
   },
   "workspaces": [
     "packages/*"

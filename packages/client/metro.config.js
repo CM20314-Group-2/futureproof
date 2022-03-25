@@ -2,12 +2,14 @@
 // Need to disable eslint here because this file is not a module
 const path = require('path')
 const { getDefaultConfig } = require('metro-config')
+const { createMetroConfiguration } = require('expo-yarn-workspaces')
+
 const { resolver: defaultResolver } = getDefaultConfig.getDefaultValues()
 
 const workspaceRoot = path.resolve(__dirname, '../..')
 const projectRoot = __dirname
 
-const config = getDefaultConfig(projectRoot)
+const config = createMetroConfiguration(projectRoot)
 
 config.watchFolders = [
   workspaceRoot,

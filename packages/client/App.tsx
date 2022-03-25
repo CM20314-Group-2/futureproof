@@ -1,4 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import AccountButton from '@components/AccountButton'
 import AccountView from '@components/AccountView'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
@@ -8,7 +9,6 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import Constants from 'expo-constants'
 import React from 'react'
 import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
-import AccountButton from './components/AccountButton'
 
 interface LocationType extends Pick<Location, 'latitude'> {
   business : Pick<Business, 'sustainabilityScore'>
