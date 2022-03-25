@@ -28,7 +28,7 @@ exports[`matches snapshot 1`] = `
     }
     testID="certificate-text"
   >
-    Certificate
+    BCorp
   </Text>
 </View>
 `;
