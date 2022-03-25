@@ -17,7 +17,7 @@ model Business {
   profileText         String?
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
-  profilePicture      Bytes?
+  profilePicture      String?
 
   //Sustainability Data
   humanRightsScore    Float     @default(0)
