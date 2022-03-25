@@ -7,18 +7,22 @@ const { resolver: defaultResolver } = getDefaultConfig.getDefaultValues()
 const workspaceRoot = path.resolve(__dirname, '../..')
 const projectRoot = __dirname
 
-exports.watchFolders = [
+const config = getDefaultConfig(projectRoot)
+
+config.watchFolders = [
   workspaceRoot,
 ]
 
-exports.resolver = {
+config.resolver = {
   ...defaultResolver,
   sourceExts: [
     ...defaultResolver.sourceExts,
     'cjs',
   ],
   nodeModulesPath: [
-    path.resolve(workspaceRoot, 'node_modules'),
     path.resolve(projectRoot, 'node_modules'),
+    path.resolve(workspaceRoot, 'node_modules'),
   ]
 }
+
+module.exports = config
