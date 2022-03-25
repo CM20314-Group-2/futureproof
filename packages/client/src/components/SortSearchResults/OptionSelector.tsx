@@ -14,12 +14,12 @@ import Button from '@components/SortSearchResults/Button'
 import OptionList, { Option } from '@components/SortSearchResults/OptionList'
 
 interface ComponentProps {
-  options: Option[]
-  initial: number
-  buttonStyle?: ViewStyle
-  buttonTextStyle?: TextStyle
-  selectorTitle: string
-  onButtonPress: (selectedOption: Option) => void
+  options : Option[]
+  initial : number
+  buttonStyle ?: ViewStyle
+  buttonTextStyle ?: TextStyle
+  selectorTitle : string
+  onButtonPress : (selectedOption : Option) => void
 }
 
 const OptionSelector = ({
@@ -29,7 +29,7 @@ const OptionSelector = ({
   buttonTextStyle,
   selectorTitle,
   onButtonPress,
-}: ComponentProps) => {
+} : ComponentProps) => {
   const [userOption, setUserOption] = useState(options[initial])
   const [showBottomSheet, setShowBottomSheet] = useState(false)
 
@@ -54,7 +54,7 @@ const OptionSelector = ({
           <OptionList
             options={options}
             initial={initial}
-            onChange={(selectedOption: Option) => setUserOption(selectedOption)}
+            onChange={(selectedOption : Option) => setUserOption(selectedOption)}
           />
           <Button
             onPress={() => {

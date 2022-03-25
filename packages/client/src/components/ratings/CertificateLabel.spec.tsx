@@ -4,13 +4,13 @@ import CertificateLabel, {
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
-const BCORP_EXAMPLE_CERTIFICATE: BusinessCertificate = {
+const BCORP_EXAMPLE_CERTIFICATE : BusinessCertificate = {
   id: 1234,
   certificateName: 'BCorp',
   businessHasCertificate: true,
 }
 
-const NO_CERTIFICATE_EXAMPLE: BusinessCertificate = {
+const NO_CERTIFICATE_EXAMPLE : BusinessCertificate = {
   id: 5678,
   certificateName: 'Green Mark',
   businessHasCertificate: false,
