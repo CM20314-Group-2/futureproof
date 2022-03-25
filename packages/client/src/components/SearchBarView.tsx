@@ -31,7 +31,7 @@ const SearchBarView = () => {
     // Debounce query 
     const delayDebounceFn = setTimeout(() => {
       executeSearch().then(() => {
-        if (data != undefined) {
+        if (data !== undefined) {
           globalData([data.businessByName])
         }
       }, () => console.log(error))
