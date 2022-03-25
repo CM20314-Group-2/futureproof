@@ -1,11 +1,11 @@
-import PPView from '@components/AccountViews/PPView'
+import HelpView from '@components/account/AccountSubViews/HelpView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
 it('matches snapshot', () => {
 
   const { toJSON } = render(
-    <PPView/>
+    <HelpView/>
   )
   expect(toJSON()).toMatchSnapshot()
 })

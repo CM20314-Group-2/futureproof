@@ -1,4 +1,4 @@
-import LabelInput from '@components/AccountViews/LabelInput'
+import LabelInput from '@components/account/AccountSubViews/LabelInput'
 import { render } from '@testing-library/react-native'
 import React, { useState } from 'react'
 

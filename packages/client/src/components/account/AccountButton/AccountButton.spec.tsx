@@ -1,11 +1,11 @@
-import ToSView from '@components/AccountViews/ToSView'
+import AccountButton from '@components/account/AccountButton/AccountButton'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
 it('matches snapshot', () => {
 
   const { toJSON } = render(
-    <ToSView/>
+    <AccountButton/>
   )
   expect(toJSON()).toMatchSnapshot()
 })

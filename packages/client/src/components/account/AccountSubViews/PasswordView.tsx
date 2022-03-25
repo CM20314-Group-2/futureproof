@@ -6,7 +6,7 @@ import {
   Dimensions,
   Button,
 } from 'react-native'
-import LabelInput from '@components/AccountViews/LabelInput'
+import LabelInput from '@components/account/AccountSubViews/LabelInput'
 
 const width = Dimensions.get('window').width
 

@@ -1,4 +1,4 @@
-import PasswordView from '@components/AccountViews/PasswordView'
+import PasswordView from '@components/account/AccountSubViews/PasswordView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
