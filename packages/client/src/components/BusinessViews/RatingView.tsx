@@ -4,11 +4,11 @@ import { StyleSheet, Text, View } from 'react-native'
 import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
 
 interface ComponentProps {
-  ratingName: 'FutureProof' | 'Consumer'
-  ratingValue: Business['customerScore'] | Business['sustainabilityScore']
+  ratingName : 'FutureProof' | 'Consumer'
+  ratingValue : Business['customerScore'] | Business['sustainabilityScore']
 }
 
-const RatingView = ({ ratingName, ratingValue }: ComponentProps) => (
+const RatingView = ({ ratingName, ratingValue } : ComponentProps) => (
   <View style={styles.itemBackgroundStyle}>
     <View style={styles.ratingContainerStyle}>
       <CircularRatingIndicator

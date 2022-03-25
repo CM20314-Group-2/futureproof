@@ -2,14 +2,14 @@ import React from 'react'
 import { StyleSheet, TouchableHighlight, Image } from 'react-native'
 
 interface ComponentProps {
-  onPressFunction: () => void
-  ImageToDisplay: string
+  onPressFunction : () => void
+  ImageToDisplay : string
 }
 
 const IndividualImage = ({
   onPressFunction,
   ImageToDisplay,
-}: ComponentProps) => {
+} : ComponentProps) => {
   return (
     <React.Fragment>
       <TouchableHighlight

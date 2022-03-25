@@ -11,7 +11,7 @@ type ComponentProps = Pick<
 const RatingsView = ({
   customerScore,
   sustainabilityScore,
-}: ComponentProps) => (
+} : ComponentProps) => (
   <View style={styles.compoundStyle}>
     <Text style={styles.headingText}>RATINGS</Text>
     <View style={styles.ratingsHorizontalStyle}>

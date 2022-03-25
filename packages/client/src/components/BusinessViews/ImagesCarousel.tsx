@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import ImageView from 'react-native-image-viewing'
 import IndividualImage from '@components/BusinessViews/IndividualImage'
 
-const ImagesCarousel = ({ Images }: { Images: string[] }) => {
+const ImagesCarousel = ({ Images } : { Images : string[] }) => {
   const [visible, setModalVisible] = useState(false)
   const [modalImageIndex, setModalImageIndex] = useState(0)
 

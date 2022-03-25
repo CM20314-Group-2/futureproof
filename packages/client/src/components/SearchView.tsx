@@ -1,7 +1,7 @@
 import SearchResult from '@components/search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
-import { FlatList, ScrollView, StyleSheet, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 
 
