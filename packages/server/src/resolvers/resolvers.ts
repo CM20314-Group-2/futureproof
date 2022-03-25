@@ -265,27 +265,27 @@ export const resolvers = {
     },
     deleteUser: async (idInput: number, context: Context) => {
       return context.prisma.user.delete({
-        where: { id: idInput }
+        where: { id: idInput },
       })
     },
     deleteBusiness: async (idInput: number, context: Context) => {
       return context.prisma.business.delete({
-        where: { id: idInput }
+        where: { id: idInput },
       })
     },
     deleteLocation: async (idInput: number, context: Context) => {
       return context.prisma.location.delete({
-        where: { id: idInput }
+        where: { id: idInput },
       })
     },
     deleteComment: async (idInput: number, context: Context) => {
       return context.prisma.comment.delete({
-        where: { id: idInput }
+        where: { id: idInput },
       })
     },
     deleteReview: async (idInput: number, context: Context) => {
       return context.prisma.review.delete({
-        where: { id: idInput }
+        where: { id: idInput },
       })
     },
   },
