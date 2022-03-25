@@ -1,6 +1,7 @@
+import { useReactiveVar } from '@apollo/client'
 import SearchResult from '@components/Search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, ScrollView, StyleSheet } from 'react-native'
 import { globalData } from './SearchBarView'
 
@@ -29,11 +30,13 @@ const SearchView = () => {
       }}
     />
   )
+  const data = globalData();
+
   return (
     <React.Fragment>
       <ScrollView style={styles.searchList}>
         <FlatList
-          data={globalData()}
+          data={data}
           renderItem={renderSearchItem}
           keyExtractor={(item) => item.id}
         />

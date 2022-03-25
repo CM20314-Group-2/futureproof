@@ -1,33 +1,45 @@
 import { gql, makeVar, useLazyQuery } from '@apollo/client'
+import { Business, DisplayableBusiness } from '@futureproof/typings'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Icon, Input } from 'react-native-elements'
 
 const GET_COMPANY_DATA = gql`
   query getBussiness ($_value: String!) {
-    businessByName (name:$_value) {
+    businessByName (name: $_value) {
       id
       name
-      profilePicture
-      sustainabilityScore
       customerScore
+      type
+      profileText
     }
   }
 `
 
-export const globalData = makeVar([])
+interface DisplayBussinessData {
+  displayableBusiness:DisplayableBusiness[];
+}
+
+export const globalData = makeVar<DisplayableBusiness[]>([])
 
 const SearchBarView = () => {
   const [searchText, onChangeText] = useState('')
 
-  const [executeSearch, { data, error }] = useLazyQuery(
-    GET_COMPANY_DATA, { variables: { _value: searchText } }
+  const [executeSearch, { data, error }] = useLazyQuery<{
+    businessByName: DisplayableBusiness
+  }>(
+    GET_COMPANY_DATA, {variables: { _value: searchText }}
   )
 
   useEffect(() => {
-    // Debounce query
+    // Debounce query 
     const delayDebounceFn = setTimeout(() => {
-      executeSearch().then(() => globalData(data), () => console.log(error))
+      console.log("Searching");
+      
+      executeSearch().then(() => {
+        if (data != undefined) {globalData([data.businessByName])}
+      }, () => console.log(error));
+
     }, 300)
     return () => clearTimeout(delayDebounceFn)
   }, [searchText])
