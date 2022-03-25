@@ -7,23 +7,23 @@ export default {
     reviews: (
       _parent: any,
       _args: any,
-      context: Context,
+      { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
       const select = new PrismaSelect(info).value
-      return context.prisma.review.findMany({
+      return prisma.review.findMany({
         ...select,
       })
     },
     review: (
       _parent: any,
-      args: { idInput: number },
-      context: Context,
+      { id }: { id: number },
+      { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
       const select = new PrismaSelect(info).value
-      return context.prisma.review.findUnique({
-        where: { id: Number(args.idInput) },
+      return prisma.review.findUnique({
+        where: { id: Number(id) || undefined },
         ...select,
       })
     },
