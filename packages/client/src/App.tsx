@@ -1,17 +1,16 @@
 import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
+import AccountButton from '@components/AccountButton'
 import AccountView from '@components/AccountView'
 import MapSlideUpSheet from '@components/MapSlideUpSheet'
 import MapView from '@components/MapView'
 import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/SortSearchResults/DistanceRadiusSelector'
-import SearchResultSorter from '@components/SortSearchResults/SearchResultSorter'
-import { Business, BusinessType, DisplayableBusiness, Location } from '@futureproof/typings'
+import { Option } from '@components/SortSearchResults/OptionList'
+import { Business, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import Constants from 'expo-constants'
 import React, { useState } from 'react'
 import { Dimensions, SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
-import AccountButton from '@components/AccountButton'
-import { Option } from '@components/SortSearchResults/OptionList'
 
 const GET_COORDINATES = gql `
   query {
@@ -29,16 +28,6 @@ export type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>;
 
 export interface LocationTypeWithRating extends LocationType {
   business : Pick<Business, 'sustainabilityScore'>
-}
-
-const ExampleBusiness : DisplayableBusiness =  {
-  id: '1',
-  name: 'Starbucks',
-  profileText: 'This is a test business and there is not that much to say about it.',
-  sustainabilityScore: 80,
-  customerScore: 65,
-  type: BusinessType.Cafe,
-  profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
 }
 
 // Initialise Apollo Client
