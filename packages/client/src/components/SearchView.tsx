@@ -4,6 +4,7 @@ import React from 'react'
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 
+
 const TEST_BUSINESSES_DATA : DisplayableBusiness[] = [
   {
     id: '1',
