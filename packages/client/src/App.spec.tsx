@@ -1,10 +1,10 @@
-import { FeedScreen } from '@src/App'
-import { render, fireEvent } from '@testing-library/react-native'
+import { fireEvent, render } from '@testing-library/react-native'
 import React from 'react'
+import { FeedScreen } from './App'
 
 it('opens account page when account profile icon is clicked', async () => {
   const pushMock = jest.fn()
-  const { getByTestId } = render(<FeedScreen navigation={{ push: pushMock }} />)
+  const { getByTestId } = render(<FeedScreen navigation={{ push: pushMock as  }} />)
 
   fireEvent.press(getByTestId('AccountView'))
 
