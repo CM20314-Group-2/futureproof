@@ -31,7 +31,7 @@ const AccountView = ({ navigation } : Props) => {
     <View>
       <Image
         style={styles.profilePictureStyle}
-        source={require('../../../assets/Account_Icon.png')}
+        source={require('../../../../assets/Account_Icon.png')}
       />
       <LabelInput
         label='Name'
@@ -72,7 +72,7 @@ const AccountView = ({ navigation } : Props) => {
       </Pressable>
       <Image
         style={styles.bottomImageStyle}
-        source={require('../../../assets/Bottom_Image_Styling.png')}
+        source={require('../../../../assets/Bottom_Image_Styling.png')}
       />
     </View>
   )

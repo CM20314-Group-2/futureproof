@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import ResultSorter from '@components/common/ResultSorter'
+import ResultSorter from '@components/search/ResultSorter/ResultSorter'
 import SearchBar from '@components/search/SearchBarView'
-import SearchView from '@components/search/SearchView'
+import SearchView from '@components/search/SearchView/SearchView'
 import React from 'react'
 import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native'
 import SlidingUpPanel from 'rn-sliding-up-panel'
