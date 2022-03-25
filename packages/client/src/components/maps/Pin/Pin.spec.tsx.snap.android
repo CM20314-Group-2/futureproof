@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      undefined,
+      Object {
+        "margin": "auto",
+      },
+    ]
+  }
+  testID="pin-pressable"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderRadius": 20,
+          "elevation": 1,
+          "height": 40,
+          "justifyContent": "center",
+          "width": 40,
+          "zIndex": 1,
+        },
+        Object {
+          "backgroundColor": "#1ea853",
+        },
+      ]
+    }
+    testID="pin"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 14,
+            "height": 28,
+            "justifyContent": "center",
+            "width": 28,
+          },
+          Object {
+            "backgroundColor": "#188441",
+          },
+        ]
+      }
+      testID="rating-background"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        95
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomWidth": 28,
+          "borderLeftColor": "transparent",
+          "borderLeftWidth": 18,
+          "borderRightColor": "transparent",
+          "borderRightWidth": 18,
+          "borderStyle": "solid",
+          "height": 0,
+          "left": 2,
+          "top": -11,
+          "transform": Array [
+            Object {
+              "rotate": "180deg",
+            },
+          ],
+          "width": 0,
+        },
+        Object {
+          "borderBottomColor": "#1ea853",
+        },
+      ]
+    }
+  />
+</View>
+`;
