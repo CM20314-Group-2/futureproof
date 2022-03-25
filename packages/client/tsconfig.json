@@ -6,6 +6,7 @@
     "baseUrl": "./src",
     "rootDir": ".",
     "jsx": "react-native",
+    "esModuleInterop": true,
     "paths": {
       "@components/*": ["components/*"],
     },
