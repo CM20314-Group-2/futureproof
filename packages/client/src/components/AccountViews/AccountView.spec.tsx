@@ -73,15 +73,13 @@ it('opens password page when account profile icon is clicked', async () => {
     </NavigationContainer>
   )
 
-  const { getByTestId, findByText } = render(component)
+  const { getByText, findByText } = render(component)
   
-  fireEvent.press(getByTestId('PasswordView'))
+  fireEvent.press(getByText('Change Password                                          >'))
   
-  const newHeader = await findByText('Account Settings')
-  const newBody = await findByText('Name')
+  const newHeader = await findByText('Change Password')
 
   expect(newHeader).toBeTruthy()
-  expect(newBody).toBeTruthy()
 })
 
 it('opens PP page when account profile icon is clicked', async () => {
@@ -91,15 +89,13 @@ it('opens PP page when account profile icon is clicked', async () => {
     </NavigationContainer>
   )
 
-  const { getByTestId, findByText } = render(component)
+  const { getByText, findByText } = render(component)
+  
+  fireEvent.press(getByText('Privacy Policy                                                 >'))
 
-  fireEvent.press(getByTestId('PPView'))
-
-  const newHeader = await findByText('Account Settings')
-  const newBody = await findByText('Name')
+  const newHeader = await findByText('Privacy Policy')
 
   expect(newHeader).toBeTruthy()
-  expect(newBody).toBeTruthy()
 })
 
 it('opens ToS page when account profile icon is clicked', async () => {
@@ -109,15 +105,13 @@ it('opens ToS page when account profile icon is clicked', async () => {
     </NavigationContainer>
   )
 
-  const { getByTestId, findByText } = render(component)
+  const { getByText, findByText } = render(component)
   
-  fireEvent.press(getByTestId('ToSView'))
+  fireEvent.press(getByText('Terms of Service                                            >'))
   
-  const newHeader = await findByText('Account Settings')
-  const newBody = await findByText('Name')
+  const newHeader = await findByText('Terms of Service')
 
   expect(newHeader).toBeTruthy()
-  expect(newBody).toBeTruthy()
 })
 
 it('opens help page when account profile icon is clicked', async () => {
@@ -127,13 +121,11 @@ it('opens help page when account profile icon is clicked', async () => {
     </NavigationContainer>
   )
 
-  const { getByTestId, findByText } = render(component)
+  const { getByText, findByText } = render(component)
+  
+  fireEvent.press(getByText('Help                                                                  >'))
 
-  fireEvent.press(getByTestId('HelpView'))
-
-  const newHeader = await findByText('Account Settings')
-  const newBody = await findByText('Name')
+  const newHeader = await findByText('Help')
 
   expect(newHeader).toBeTruthy()
-  expect(newBody).toBeTruthy()
 })
