@@ -30,10 +30,10 @@ const SearchBarView = () => {
   useEffect(() => {
     // Debounce query 
     const delayDebounceFn = setTimeout(() => {
-      console.log("Searching");
-      
       executeSearch().then(() => {
-        if (data != undefined) {globalData([data.businessByName])}
+        if (data != undefined) {
+          globalData([data.businessByName])
+        }
       }, () => console.log(error));
 
     }, 300)

@@ -31,7 +31,7 @@ export default {
       favicon: './assets/favicon.png'
     },
     extra: {
-      serverAddress: 'http://7100-92-40-169-178.ngrok.io'
+      serverAddress: 'http://e5a9-92-40-169-173.ngrok.io'
     }
   }
 }

@@ -31,6 +31,8 @@ const SearchView = () => {
     />
   )
   const data = globalData();
+  
+  if (!data) return null
 
   return (
     <React.Fragment>
