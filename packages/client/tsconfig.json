@@ -8,9 +8,8 @@
     "jsx": "react-native",
     "paths": {
       "@components/*": ["components/*"],
-      "@assets/*": ["assets/*"],
     },
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/components/MapSlideUpSheet.js"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
 }
