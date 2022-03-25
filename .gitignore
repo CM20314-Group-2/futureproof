@@ -15,6 +15,7 @@ yarn-error.log
 web-build/
 coverage/
 packages/client/__generated__
+packages/build
 
 # macOS
 .DS_Store

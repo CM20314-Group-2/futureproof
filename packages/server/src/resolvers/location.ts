@@ -2,6 +2,7 @@ import { PrismaSelect } from '@paljs/plugins'
 import { Prisma } from '@prisma/client'
 import { GraphQLResolveInfo } from 'graphql'
 import { Context } from '../context'
+import { defaultFields } from './index'
 
 export default {
   Query: {
@@ -11,7 +12,7 @@ export default {
       { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
-      const select = new PrismaSelect(info).value
+      const select = new PrismaSelect(info, { defaultFields }).value
       return prisma.location.findMany({
         ...select,
       })
@@ -22,7 +23,7 @@ export default {
       { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
-      const select = new PrismaSelect(info).value
+      const select = new PrismaSelect(info, { defaultFields }).value
       return prisma.location.findUnique({
         where: { id: Number(id) || undefined },
         ...select,
