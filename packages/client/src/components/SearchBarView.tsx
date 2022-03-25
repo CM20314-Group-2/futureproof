@@ -16,10 +16,6 @@ const GET_COMPANY_DATA = gql`
   }
 `
 
-interface DisplayBussinessData {
-  displayableBusiness:DisplayableBusiness[];
-}
-
 export const globalData = makeVar<DisplayableBusiness[]>([])
 
 const SearchBarView = () => {
