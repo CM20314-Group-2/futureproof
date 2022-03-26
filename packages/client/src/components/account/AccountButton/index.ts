@@ -1,4 +1,4 @@
-import AccountButton from "./AccountButton";
+import AccountButton from './AccountButton'
 
-export * from './AccountButton';
+export * from './AccountButton'
 export default AccountButton

@@ -1,4 +1,4 @@
-import DistanceRadiusSelector from "./DistanceRadiusSelector";
+import DistanceRadiusSelector from './DistanceRadiusSelector'
 
-export * from './DistanceRadiusSelector';
+export * from './DistanceRadiusSelector'
 export default DistanceRadiusSelector

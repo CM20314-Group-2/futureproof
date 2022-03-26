@@ -6,7 +6,7 @@
 ## Prerequisites
 - Ensure that you have lerna installed globally:
 ```
-npm install -g lerna
+yarn add -g lerna
 ```
 - Ensure that you have [ngrok](https://ngrok.com/) installed.
 
@@ -17,7 +17,7 @@ git clone https://github.com/CM20314-Group-2/futureproof.git
 ```
 - Setup the development environment:
 ```
-npm run setup
+yarn install
 ```
 
 ## Developing Locally
@@ -45,7 +45,7 @@ lerna run --stream dev
 ```
 - In a new terminal window start the client with:
 ```
-npm start
+yarn start
 ```
 - Open the ExpoGo mobile app, and you should see the app running.
 - You can also run the following command to open the app in an android emulator:

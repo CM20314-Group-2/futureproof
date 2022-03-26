@@ -2,18 +2,29 @@
 // Need to disable eslint here because this file is not a module
 const path = require('path')
 const { getDefaultConfig } = require('metro-config')
+const { createMetroConfiguration } = require('expo-yarn-workspaces')
+
 const { resolver: defaultResolver } = getDefaultConfig.getDefaultValues()
 
-exports.watchFolders = [
-  path.resolve(__dirname, './src'),
-  path.resolve(__dirname, '../typings'), // This cannot be achieved dynamically with the current iteration of lerna
+const workspaceRoot = path.resolve(__dirname, '../..')
+const projectRoot = __dirname
+
+const config = createMetroConfiguration(projectRoot)
+
+config.watchFolders = [
+  workspaceRoot,
 ]
 
-exports.resolver = {
+config.resolver = {
   ...defaultResolver,
   sourceExts: [
     ...defaultResolver.sourceExts,
     'cjs',
   ],
-  
+  nodeModulesPath: [
+    path.resolve(projectRoot, 'node_modules'),
+    path.resolve(workspaceRoot, 'node_modules'),
+  ]
 }
+
+module.exports = config

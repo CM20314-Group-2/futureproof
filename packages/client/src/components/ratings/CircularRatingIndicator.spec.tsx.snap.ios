@@ -35,6 +35,7 @@ exports[`matches snapshot 1`] = `
         },
       ]
     }
+    testID="circular-indicator"
   >
     <RNSVGGroup
       matrix={

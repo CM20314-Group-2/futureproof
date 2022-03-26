@@ -23,6 +23,8 @@ type Business {
 
   # Sustainability Data
   sustainabilityScore: Float
+  sustainabilityCertificates: [BusinessCertificate]
+  sustainabilityRatings: [Rating]
   humanRightsScore: Float
   carbonScore: Float
   certificateScore: Float
@@ -40,6 +42,8 @@ type DisplayableBusiness {
   name: String!
   type: BusinessType!
   sustainabilityScore: Float
+  sustainabilityCertificates: [BusinessCertificate]
+  sustainabilityRatings: [Rating]
   customerScore: Float
   profilePicture: String
   profileText: String

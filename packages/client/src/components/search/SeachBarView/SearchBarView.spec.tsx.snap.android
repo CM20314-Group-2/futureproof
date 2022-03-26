@@ -57,7 +57,9 @@ exports[`matches snapshot 1`] = `
             }
           }
         >
-          <View>
+          <View
+            tvParallaxProperties={true}
+          >
             <View
               style={
                 Object {

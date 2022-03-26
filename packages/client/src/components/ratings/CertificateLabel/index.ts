@@ -1,4 +1,4 @@
-import CertificateLabel from "./CertificateLabel";
+import CertificateLabel from './CertificateLabel'
 
-export * from "./CertificateLabel";
-export default CertificateLabel;
+export * from './CertificateLabel'
+export default CertificateLabel

@@ -1,4 +1,4 @@
-import RatingsView from "./RatingsView";
+import RatingsView from './RatingsView'
 
-export * from "./RatingsView";
-export default RatingsView;
+export * from './RatingsView'
+export default RatingsView

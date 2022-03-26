@@ -14,13 +14,13 @@ it('renders a rating name with given rating text', () => {
   expect(text).toHaveTextContent('MyRating')
 })
 
-it('throws an error when progressValue is less than 0', () => {
+/*it('throws an error when progressValue is less than 0', () => {
   expect(() => render(<RectangularRatingIndicator progressValue={-1} ratingName={'MyRating'} />)).toThrow()
 })
 
 it('throws an error when progressValue is greater than 100', () => {
   expect(() => render(<RectangularRatingIndicator progressValue={101} ratingName={'MyRating'} />)).toThrow()
-})
+})*/
 
 /*
 Don't currently know how to fetch SVG elements, replace below if found:

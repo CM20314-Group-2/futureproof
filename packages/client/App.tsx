@@ -36,15 +36,15 @@ const client = new ApolloClient({
   cache: new InMemoryCache() // Cache
 })
 
-type RootStackParamList = {
+export type RootStackParams = {
   MapView : undefined
   AccountView : undefined
 }
 
 // Initialise Stack Navigator
-const Stack = createStackNavigator<RootStackParamList>()
+const Stack = createStackNavigator<RootStackParams>()
 
-type Props = StackScreenProps<RootStackParamList>
+type Props = StackScreenProps<RootStackParams>
 
 
 export const FeedScreen = ({ navigation } : Props) => {
