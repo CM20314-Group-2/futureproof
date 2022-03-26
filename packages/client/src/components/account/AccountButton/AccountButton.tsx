@@ -1,12 +1,10 @@
 import React from 'react'
-import { View, StyleSheet, useWindowDimensions, Platform } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 const AccountButton = () => {
-  const screenWidth = useWindowDimensions().width
-
   return (
     <React.Fragment>
-      <View style={[styles.circleInside, { marginLeft: screenWidth - 80 }]}>
+      <View style={[styles.circleInside]}>
         <View style={styles.circleHead} />
         <View style={styles.ovalBody} />
       </View>
@@ -16,7 +14,7 @@ const AccountButton = () => {
 
 const styles = StyleSheet.create({
   circleHead: {
-    backgroundColor: 'black',
+    backgroundColor: 'grey',
     borderRadius: 15 / 2,
     height: 15,
     marginLeft: 15,
@@ -24,23 +22,15 @@ const styles = StyleSheet.create({
     width: 15,
   },
   circleInside: {
-    backgroundColor: 'white',
-    ...Platform.select({
-      ios: {
-        marginTop: 10,
-      },
-      android: {
-        marginTop: 70,
-      },
-    }),
-    borderColor: 'black',
+    backgroundColor: 'transparent',
+    borderColor: 'grey',
     borderRadius: 60 / 2,
     borderWidth: 7.5,
     height: 60,
     width: 60,
   },
   ovalBody: {
-    backgroundColor: 'black',
+    backgroundColor: 'grey',
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     borderRadius: 30 / 2,

@@ -1,16 +1,27 @@
 import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
 import AccountButton from '@components/account/AccountButton/AccountButton'
-import AccountView from '@components/account/AccountView'
+import HelpView from '@components/account/AccountSubViews/HelpView'
+import PasswordView from '@components/account/AccountSubViews/PasswordView'
+import PPView from '@components/account/AccountSubViews/PPView'
+import ToSView from '@components/account/AccountSubViews/ToSView'
+import AccountView from '@components/account/AccountView/AccountView'
+import BusinessView from '@components/business/BusinessView/BusinessView'
 import { Option } from '@components/common/OptionList'
 import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/maps/DistanceRadiusSelector'
 import MapSlideUpSheet from '@components/maps/MapSlideUpSheet'
 import MapView from '@components/maps/MapView'
-import { Business, Location } from '@futureproof/typings'
+import { Business, DisplayableBusiness, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import Constants from 'expo-constants'
 import React, { useState } from 'react'
-import { Dimensions, SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native'
+import {
+  Dimensions,
+  Platform, SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native'
 
 const GET_COORDINATES = gql `
   query {
@@ -33,19 +44,25 @@ export interface LocationTypeWithRating extends LocationType {
 // Initialise Apollo Client
 const client = new ApolloClient({
   uri: `${Constants.manifest?.extra?.serverAddress}/graphql`, // Server URL (must be absolute)
-  cache: new InMemoryCache() // Cache
+  cache: new InMemoryCache(), // Cache
 })
+
+const width = Dimensions.get('window').width
 
 export type RootStackParams = {
   MapView : undefined
   AccountView : undefined
+  PasswordView : undefined
+  PPView : undefined
+  ToSView : undefined
+  HelpView : undefined
+  BusinessView : { businessToDisplay : DisplayableBusiness }
 }
 
 // Initialise Stack Navigator
 const Stack = createStackNavigator<RootStackParams>()
 
 type Props = StackScreenProps<RootStackParams>
-
 
 export const FeedScreen = ({ navigation } : Props) => {
 
@@ -55,16 +72,18 @@ export const FeedScreen = ({ navigation } : Props) => {
       <View style={styles.container}>
         <MapComponent />
         <SafeAreaView>
-          <TouchableOpacity onPress={() => navigation.push('AccountView')}>
+          <TouchableOpacity
+            onPress={() => navigation.push('AccountView')}
+            style={styles.button}
+          >
             <AccountButton />
           </TouchableOpacity>
         </SafeAreaView>
-        <MapSlideUpSheet parentData={navigation} />
+        <MapSlideUpSheet navigationProp={navigation} />
       </View>
     </ApolloProvider>
   )
 }
-
 
 export const AppNavigator = () => {
   return (
@@ -78,6 +97,31 @@ export const AppNavigator = () => {
         name='AccountView'
         component={AccountView}
         options={{ title: 'Account Settings' }}
+      />
+      <Stack.Screen
+        name='PasswordView'
+        component={PasswordView}
+        options={{ title: 'Change Password' }}
+      />
+      <Stack.Screen
+        name='PPView'
+        component={PPView}
+        options={{ title: 'Privacy Policy' }}
+      />
+      <Stack.Screen
+        name='ToSView'
+        component={ToSView}
+        options={{ title: 'Terms of Service' }}
+      />
+      <Stack.Screen
+        name='HelpView'
+        component={HelpView}
+        options={{ title: 'Help' }}
+      />
+      <Stack.Screen
+        name='BusinessView'
+        component={BusinessView}
+        options={{ title: '', headerTransparent: true }}
       />
     </Stack.Navigator>
   )
@@ -109,6 +153,15 @@ const App = () => {
 
 const styles = StyleSheet.create({
   button: {
+    marginLeft: width - 80,
+    ...Platform.select({
+      ios: {
+        marginTop: 80,
+      },
+      android: {
+        marginTop: 70,
+      },
+    }),
     alignItems: 'center',
     backgroundColor: '#1ea853',
     borderColor: '#188441',

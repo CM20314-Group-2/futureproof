@@ -44,7 +44,7 @@ const ResultSorter = ({ buttonStyle, buttonTextStyle } : ComponentProps) => {
       <OptionSelector
         options={OPTIONS_LIST}
         initial={INITIAL_OPTION_INDEX}
-        selectorTitle={'Choose Sorting Method'}
+        selectorTitle={''}
         buttonTextPrefix={'Sorting By - '}
         onButtonPress={ (selectedOption : Option) => {
           setSortOption(selectedOption)

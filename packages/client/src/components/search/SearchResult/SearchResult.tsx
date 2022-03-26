@@ -5,7 +5,8 @@ import React from 'react'
 import {
   GestureResponderEvent,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  View
 } from 'react-native'
 
 interface ComponentProps {
@@ -14,19 +15,21 @@ interface ComponentProps {
 }
 
 const SearchResult = ({ business, onPress } : ComponentProps) => (
-  <TouchableOpacity onPress={onPress} style={styles.searchItemStyle}>
-    {/* Don't use null check built in BusinessLogo to match design */}
-    {business.profilePicture ? (
-      <BusinessLogo profilePicture={business.profilePicture} />
-    ) : null}
-    <SearchItemStats {...business} />
+  <TouchableOpacity onPress={onPress}>
+    <View style={styles.searchItemStyle}>
+      {/* Don't use null check built in BusinessLogo to match design */}
+      {business.profilePicture ? (
+        <BusinessLogo profilePicture={business.profilePicture} />
+      ) : null}
+      <SearchItemStats {...business} />
+    </View>
   </TouchableOpacity>
 )
 
 const styles = StyleSheet.create({
   searchItemStyle: {
     alignItems: 'center',
-    backgroundColor: '#FAF9F9',
+    backgroundColor: '#E7E7E7',
     borderRadius: 10,
     flexDirection: 'row',
     marginHorizontal: 25,

@@ -64,15 +64,15 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     // needed so that there is a margin at the bottom on android phones
     marginBottom: Platform.OS === 'android' ? 35 : 0,
-    width: '100%'
+    width: '100%',
   },
   title: {
     fontSize: 25,
-    marginTop: 20
+    marginTop: 20,
   },
   view: {
-    marginTop: 'auto'
-  }
+    marginTop: 'auto',
+  },
 })
 
 export default OptionSelector

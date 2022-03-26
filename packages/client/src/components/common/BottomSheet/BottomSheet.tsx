@@ -4,7 +4,7 @@ import {
   Easing,
   Pressable,
   StyleSheet,
-  useWindowDimensions
+  useWindowDimensions,
 } from 'react-native'
 
 interface ComponentProps {
@@ -68,7 +68,7 @@ const BottomSheet = ({
           style={{
             ...styles.background,
             height: screenHeight,
-            top: -screenHeight,
+            top: -screenHeight / 2,
           }}
           testID='bottom-sheet-background'
         />

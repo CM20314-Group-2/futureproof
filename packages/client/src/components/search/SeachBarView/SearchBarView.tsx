@@ -17,8 +17,11 @@ const COMPANY_TILE_DATA = gql`
       customerScore
     }
   }
+
+ 
 `
 
+ 
 const SearchBarView = () => {
   const [searchText, onChangeText] = useState('')
 
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
     marginLeft: '5%',
   },
   searchBarView: {
-    marginBottom: '10%',
+    marginBottom: '3%',
     marginTop: 'auto',
   },
   searchInput: {
