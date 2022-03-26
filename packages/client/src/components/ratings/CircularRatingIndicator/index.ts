@@ -1,4 +1,4 @@
-import CircularRatingIndicator from "./CircularRatingIndicator";
+import CircularRatingIndicator from './CircularRatingIndicator'
 
-export * from './CircularRatingIndicator';
-export default CircularRatingIndicator;
+export * from './CircularRatingIndicator'
+export default CircularRatingIndicator

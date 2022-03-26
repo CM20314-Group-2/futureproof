@@ -5,6 +5,17 @@ import Svg, { Circle } from 'react-native-svg'
 
 const BACKGROUND_SECONDARY_COLOUR = '#FAF9F9'
 
+/**
+ * Creates a circular rating indictor.
+ * 
+ * @param {number} circleWidth The width of the circle to show in this view
+ * @param {number} circleHeight The height of the circle to show in this view
+ * @param {number} progressBarWidth The width of the progress bar that follows the circular shape
+ * @param {number} progressValue The progress level that should be represented by this view
+ * @param {string} ratingName The title of the rating (appears at centre of circle)
+ * @returns Circular rating indictor view
+ */
+
 const CircularRatingIndicator = ({ circleWidth, circleHeight, progressBarWidth, progressValue, ratingName } : { circleWidth : number, circleHeight : number, progressBarWidth : number, progressValue : number, ratingName : string }) => {
   return (
     <View style={styles.circularRatingIndicatorStyle}>

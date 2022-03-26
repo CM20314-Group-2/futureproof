@@ -3,8 +3,9 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 export const ratingToColour = (ratingValue : number) : string => {
-  if (ratingValue < 0 || ratingValue > 100)
+  if (ratingValue < 0 || ratingValue > 100) {
     throw new Error('ratingValue must be between 0 and 100')
+  }
 
   if (ratingValue >= 85) return '#1ea853'
   else if (ratingValue >= 70) return '#50a75c'
@@ -14,9 +15,10 @@ export const ratingToColour = (ratingValue : number) : string => {
 }
 
 export const ratingToText = (ratingValue : number) : string => {
-  if (ratingValue < 0 || ratingValue > 100)
+  if (ratingValue < 0 || ratingValue > 100) {
     throw new Error('ratingValue must be between 0 and 100')
-
+  }
+  
   if (ratingValue >= 85) return 'Great'
   else if (ratingValue >= 70) return 'Good'
   else if (ratingValue >= 50) return 'Okay'

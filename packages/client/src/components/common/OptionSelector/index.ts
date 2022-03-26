@@ -1,4 +1,4 @@
-import OptionSelector from "./OptionSelector";
+import OptionSelector from './OptionSelector'
 
-export * from './OptionSelector';
+export * from './OptionSelector'
 export default OptionSelector

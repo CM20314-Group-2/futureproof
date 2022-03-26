@@ -1,6 +1,14 @@
-import CertificateLabel, { BusinessCertificate } from '@components/ratings/CertificateLabel'
+import CertificateLabel from '@components/ratings/CertificateLabel'
+import { BusinessCertificate } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
+
+/**
+ * Creates a list of certificate views.
+ * 
+ * @param {BusinessCertificate[]} certificates An array of business certificates to show
+ * @returns A list of certificate views corresponding to the passed in certificates
+ */
 
 const CertificatesListItems = ({ certificates } : { certificates : BusinessCertificate[] }) => {
   return (
@@ -16,7 +24,7 @@ const CertificatesListItems = ({ certificates } : { certificates : BusinessCerti
   )
 }
 
-const CertificateList = ({ certificates } : { certificates : BusinessCertificate[] }) => {
+const CertificatesList = ({ certificates = [] } : { certificates ?: BusinessCertificate[] }) => {
   return (
     <View style={styles.certificatesListStyle}>
       <CertificatesListItems certificates={certificates}/>
@@ -33,4 +41,4 @@ export const styles = StyleSheet.create({
   }
 })
   
-export default CertificateList
+export default CertificatesList

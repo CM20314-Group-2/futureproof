@@ -1,4 +1,4 @@
-import CertificateList from "./CertificateList";
+import CertificateList from './CertificateList'
 
-export * from "./CertificateList";
-export default CertificateList;
+export * from './CertificateList'
+export default CertificateList

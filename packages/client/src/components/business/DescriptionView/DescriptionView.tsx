@@ -15,7 +15,7 @@ const DescriptionView = ({ profileText } : ViewProps) => (
           resizeMode='contain'
         />
         <Text style={styles.bodyText} testID='body-text'>
-          {profileText === null ? 'No description available.' : profileText}
+          {profileText ? profileText : 'No description available.'}
         </Text>
       </View>
     </View>

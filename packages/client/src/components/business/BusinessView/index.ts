@@ -1,4 +1,4 @@
-import BusinessView from './BusinessView';
+import BusinessView from './BusinessView'
 
-export * from './BusinessView';
-export default BusinessView;
+export * from './BusinessView'
+export default BusinessView

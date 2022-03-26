@@ -1,5 +1,4 @@
 /* eslint-disable react-native/no-inline-styles */
-import { IN_DURATION, OUT_DURATION } from '@components/common/BottomSheet'
 import { Option } from '@components/common/OptionList'
 import OptionSelector from '@components/common/OptionSelector'
 import { fireEvent, render, waitFor } from '@testing-library/react-native'
@@ -13,12 +12,6 @@ const OPTIONS : Option[] = [
   { label: 'option 3', value: 3 },
   { label: 'option 4', value: 4 }
 ]
-
-declare global {
-  function withAnimatedTimeTravelEnabled(fn : () => void) : void
-  function timeTravel(time : number) : void
-  function requestAnimationFrame(cb : FrameRequestCallback) : void
-}
 
 it('matches snapshot', () => {
   const { toJSON } = render(
@@ -76,33 +69,6 @@ it('opens the option selector view when the button is pressed', async () => {
 
   const bottomSheet = getByTestId('bottom-sheet')
   await waitFor(() => expect(bottomSheet).toHaveStyle({ bottom: -400 }))
-})
-
-it('dismisses the result sorter when the outside of the bottom sheet is pressed', () => {
-  global.withAnimatedTimeTravelEnabled(() => {
-    const { getByTestId, queryByTestId } = render(
-      <OptionSelector
-        options={OPTIONS}
-        initial={INITIAL_OPTION_INDEX}
-        selectorTitle={'Test Selector'}
-        buttonStyle={{ backgroundColor: 'red' }}
-        onButtonPress={() => {return}}
-      />
-    )
-
-    const button = getByTestId('option-selector-button')
-    fireEvent(button, 'press')
-    timeTravel(IN_DURATION)
-
-    const bottomSheet = getByTestId('bottom-sheet')
-    expect(bottomSheet).toHaveStyle({ bottom: 0 })
-
-    const bottomSheetBackground = getByTestId('bottom-sheet-background')
-    fireEvent.press(bottomSheetBackground)
-    timeTravel(OUT_DURATION)
-
-    expect(queryByTestId('bottom-sheet-background')).toBeNull()
-    expect(bottomSheet).toHaveStyle({ bottom: -400 })})
 })
 
 it('updates the selected option when an option is pressed', async () => {
