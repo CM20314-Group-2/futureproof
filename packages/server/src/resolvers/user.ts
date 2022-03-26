@@ -2,73 +2,74 @@ import { PrismaSelect } from '@paljs/plugins'
 import { Prisma } from '@prisma/client'
 import { GraphQLResolveInfo } from 'graphql'
 import { Context } from '../context'
+import { defaultFields } from './index'
 
 export default {
   Query: {
-    users: (_parent: any, _args: any, context: Context, info: GraphQLResolveInfo) => {
-      const select = new PrismaSelect(info).value
-      return context.prisma.user.findMany({
-        ...select
+    users: (
+      _parent: any,
+      _args: any,
+      { prisma }: Context,
+      info: GraphQLResolveInfo
+    ) => {
+      const select = new PrismaSelect(info, { defaultFields }).value
+      return prisma.user.findMany({
+        ...select,
       })
     },
-    user: (_parent: any, args: { id: number }, context: Context, info: GraphQLResolveInfo) => {
-      const select = new PrismaSelect(info).value
-      return context.prisma.user.findUnique({
-        where: { id: Number(args.id) || undefined },
-        ...select
+    user: (
+      _parent: any,
+      { id }: { id: number },
+      { prisma }: Context,
+      info: GraphQLResolveInfo
+    ) => {
+      const select = new PrismaSelect(info, { defaultFields }).value
+      return prisma.user.findUnique({
+        where: { id: Number(id) || undefined },
+        ...select,
       })
     },
-    userByEmail: (_parent: any, args: { emailInput: string }, context: Context, info: GraphQLResolveInfo) => {
-      const select = new PrismaSelect(info).value
-      return context.prisma.user.findFirst({
-        where: { email: args.emailInput || undefined },
-        ...select
+    userByEmail: (
+      _parent: any,
+      { email }: { email: string },
+      { prisma }: Context,
+      info: GraphQLResolveInfo
+    ) => {
+      const select = new PrismaSelect(info, { defaultFields }).value
+      return prisma.user.findFirst({
+        where: { email },
+        ...select,
       })
     },
   },
   Mutation: {
-    createUser: (_parent: any, args: { userInput: Prisma.UserCreateInput }, context: Context) => {
-      return context.prisma.user.create({
+    createUser: (
+      _parent: any,
+      { userInput }: { userInput: Prisma.UserCreateInput },
+      { prisma }: Context
+    ) => {
+      return prisma.user.create({
         data: {
-          firstName: args.userInput.firstName,
-          lastName: args.userInput.lastName,
-          email: args.userInput.email,
-          password: args.userInput.password,
-          Comment: {},
-          Review: {},
-
-          // Data assignment is split by a blank line into required and optional.
-          // The second block is optional data that does not need to be assigned in creation.
-          roles: args.userInput.roles,
-          profilePhoto: args.userInput.profilePhoto,
-          Business: args.userInput.Business
-        }
-      })
-    },
-
-    updateUser: (_parent: any, args: { id: number, userInput: Prisma.UserUpdateInput }, context: Context) => {
-      return context.prisma.user.update({
-        data: {
-          firstName: args.userInput.firstName,
-          lastName: args.userInput.lastName,
-          email: args.userInput.email,
-          password: args.userInput.password,
-          Comment: {},
-          Review: {},
-
-          roles: args.userInput.roles,
-          profilePhoto: args.userInput.profilePhoto,
-          Business: args.userInput.Business
+          ...userInput,
         },
-        where: { id: args.id }
       })
     },
-
-    deleteUser: (_parent : any, args : {id: number}, context: Context) => {
-      return context.prisma.user.delete({
-        where: { id: Number(args.id) }
+    updateUser: (
+      _parent: any,
+      { id, userInput }: { id: number; userInput: Prisma.UserUpdateInput },
+      { prisma }: Context
+    ) => {
+      return prisma.user.update({
+        data: {
+          ...userInput,
+        },
+        where: { id: Number(id) || undefined },
       })
     },
-    //End of Mutations
+    deleteUser: (_parent: any, { id }: { id: number }, { prisma }: Context) => {
+      return prisma.user.delete({
+        where: { id: Number(id) || undefined },
+      })
+    },
   },
 }

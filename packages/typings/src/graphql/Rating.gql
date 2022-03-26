@@ -1,0 +1,11 @@
+type Rating {
+  id: ID!
+  ratingName: String!
+  ratingValue: Int!
+}
+
+type BusinessCertificate {
+  id: ID!
+  certificateName: String!
+  businessHasCertificate: Int!
+}

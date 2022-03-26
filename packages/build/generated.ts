@@ -39,27 +39,44 @@ export type Scalars = {
 
 export type Business = {
   __typename?: 'Business'
+  carbonScore?: Maybe<Scalars['Float']>
+  certificateScore?: Maybe<Scalars['Float']>
+  charitableScore?: Maybe<Scalars['Float']>
   comments: Array<Comment>
   createdAt: Scalars['DateTime']
   customerScore?: Maybe<Scalars['Float']>
+  dataPrivacyScore?: Maybe<Scalars['Float']>
+  diversityScore?: Maybe<Scalars['Float']>
+  envProtectionScore?: Maybe<Scalars['Float']>
+  equalPayScore?: Maybe<Scalars['Float']>
+  humanRightsScore?: Maybe<Scalars['Float']>
   id: Scalars['ID']
   locations: Array<Location>
   name: Scalars['String']
   owner?: Maybe<User>
-  primaryLocation: Location
+  productSafetyScore?: Maybe<Scalars['Float']>
   profilePicture?: Maybe<Scalars['String']>
   profileText?: Maybe<Scalars['String']>
   reviews: Array<Review>
+  sustainabilityCertificates?: Maybe<Array<Maybe<BusinessCertificate>>>
+  sustainabilityRatings?: Maybe<Array<Maybe<Rating>>>
   sustainabilityScore?: Maybe<Scalars['Float']>
+  taxScore?: Maybe<Scalars['Float']>
   type: BusinessType
   updatedAt: Scalars['DateTime']
+}
+
+export type BusinessCertificate = {
+  __typename?: 'BusinessCertificate'
+  businessHasCertificate: Scalars['Int']
+  certificateName: Scalars['String']
+  id: Scalars['ID']
 }
 
 export type BusinessInput = {
   locations: Array<Scalars['ID']>
   name: Scalars['String']
   owner?: InputMaybe<Scalars['ID']>
-  primaryLocation: Scalars['ID']
   profilePicture?: InputMaybe<Scalars['String']>
   profileText?: InputMaybe<Scalars['String']>
   type?: InputMaybe<BusinessType>
@@ -94,9 +111,12 @@ export type DisplayableBusiness = {
   __typename?: 'DisplayableBusiness'
   customerScore?: Maybe<Scalars['Float']>
   id: Scalars['ID']
+  images: Array<Maybe<Scalars['String']>>
   name: Scalars['String']
   profilePicture?: Maybe<Scalars['String']>
   profileText?: Maybe<Scalars['String']>
+  sustainabilityCertificates?: Maybe<Array<Maybe<BusinessCertificate>>>
+  sustainabilityRatings?: Maybe<Array<Maybe<Rating>>>
   sustainabilityScore?: Maybe<Scalars['Float']>
   type: BusinessType
 }
@@ -249,6 +269,13 @@ export type QueryuserByEmailArgs = {
   email: Scalars['String']
 }
 
+export type Rating = {
+  __typename?: 'Rating'
+  id: Scalars['ID']
+  ratingName: Scalars['String']
+  ratingValue: Scalars['Int']
+}
+
 export type Review = {
   __typename?: 'Review'
   business: Business
@@ -396,6 +423,8 @@ export type ResolversTypes = {
   Float: ResolverTypeWrapper<Scalars['Float']>
   ID: ResolverTypeWrapper<Scalars['ID']>
   String: ResolverTypeWrapper<Scalars['String']>
+  BusinessCertificate: ResolverTypeWrapper<BusinessCertificate>
+  Int: ResolverTypeWrapper<Scalars['Int']>
   BusinessInput: BusinessInput
   BusinessType: BusinessType
   Comment: ResolverTypeWrapper<Comment>
@@ -406,8 +435,8 @@ export type ResolversTypes = {
   LocationInput: LocationInput
   Mutation: ResolverTypeWrapper<{}>
   Query: ResolverTypeWrapper<{}>
+  Rating: ResolverTypeWrapper<Rating>
   Review: ResolverTypeWrapper<Review>
-  Int: ResolverTypeWrapper<Scalars['Int']>
   ReviewInput: ReviewInput
   Role: Role
   User: ResolverTypeWrapper<User>
@@ -421,6 +450,8 @@ export type ResolversParentTypes = {
   Float: Scalars['Float']
   ID: Scalars['ID']
   String: Scalars['String']
+  BusinessCertificate: BusinessCertificate
+  Int: Scalars['Int']
   BusinessInput: BusinessInput
   Comment: Comment
   CommentInput: CommentInput
@@ -430,8 +461,8 @@ export type ResolversParentTypes = {
   LocationInput: LocationInput
   Mutation: {}
   Query: {}
+  Rating: Rating
   Review: Review
-  Int: Scalars['Int']
   ReviewInput: ReviewInput
   User: User
   UserInput: UserInput
@@ -442,9 +473,49 @@ export type BusinessResolvers<
   ContextType = MercuriusContext,
   ParentType extends ResolversParentTypes['Business'] = ResolversParentTypes['Business']
 > = {
+  carbonScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
+  certificateScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
+  charitableScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
   comments?: Resolver<Array<ResolversTypes['Comment']>, ParentType, ContextType>
   createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
   customerScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
+  dataPrivacyScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
+  diversityScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
+  envProtectionScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
+  equalPayScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
+    ParentType,
+    ContextType
+  >
+  humanRightsScore?: Resolver<
     Maybe<ResolversTypes['Float']>,
     ParentType,
     ContextType
@@ -457,8 +528,8 @@ export type BusinessResolvers<
   >
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   owner?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>
-  primaryLocation?: Resolver<
-    ResolversTypes['Location'],
+  productSafetyScore?: Resolver<
+    Maybe<ResolversTypes['Float']>,
     ParentType,
     ContextType
   >
@@ -473,13 +544,38 @@ export type BusinessResolvers<
     ContextType
   >
   reviews?: Resolver<Array<ResolversTypes['Review']>, ParentType, ContextType>
+  sustainabilityCertificates?: Resolver<
+    Maybe<Array<Maybe<ResolversTypes['BusinessCertificate']>>>,
+    ParentType,
+    ContextType
+  >
+  sustainabilityRatings?: Resolver<
+    Maybe<Array<Maybe<ResolversTypes['Rating']>>>,
+    ParentType,
+    ContextType
+  >
   sustainabilityScore?: Resolver<
     Maybe<ResolversTypes['Float']>,
     ParentType,
     ContextType
   >
+  taxScore?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>
   type?: Resolver<ResolversTypes['BusinessType'], ParentType, ContextType>
   updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>
+  isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
+}
+
+export type BusinessCertificateResolvers<
+  ContextType = MercuriusContext,
+  ParentType extends ResolversParentTypes['BusinessCertificate'] = ResolversParentTypes['BusinessCertificate']
+> = {
+  businessHasCertificate?: Resolver<
+    ResolversTypes['Int'],
+    ParentType,
+    ContextType
+  >
+  certificateName?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
@@ -516,6 +612,11 @@ export type DisplayableBusinessResolvers<
     ContextType
   >
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  images?: Resolver<
+    Array<Maybe<ResolversTypes['String']>>,
+    ParentType,
+    ContextType
+  >
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   profilePicture?: Resolver<
     Maybe<ResolversTypes['String']>,
@@ -524,6 +625,16 @@ export type DisplayableBusinessResolvers<
   >
   profileText?: Resolver<
     Maybe<ResolversTypes['String']>,
+    ParentType,
+    ContextType
+  >
+  sustainabilityCertificates?: Resolver<
+    Maybe<Array<Maybe<ResolversTypes['BusinessCertificate']>>>,
+    ParentType,
+    ContextType
+  >
+  sustainabilityRatings?: Resolver<
+    Maybe<Array<Maybe<ResolversTypes['Rating']>>>,
     ParentType,
     ContextType
   >
@@ -720,6 +831,16 @@ export type QueryResolvers<
   >
 }
 
+export type RatingResolvers<
+  ContextType = MercuriusContext,
+  ParentType extends ResolversParentTypes['Rating'] = ResolversParentTypes['Rating']
+> = {
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  ratingName?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  ratingValue?: Resolver<ResolversTypes['Int'], ParentType, ContextType>
+  isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
+}
+
 export type ReviewResolvers<
   ContextType = MercuriusContext,
   ParentType extends ResolversParentTypes['Review'] = ResolversParentTypes['Review']
@@ -768,12 +889,14 @@ export type UserResolvers<
 
 export type Resolvers<ContextType = MercuriusContext> = {
   Business?: BusinessResolvers<ContextType>
+  BusinessCertificate?: BusinessCertificateResolvers<ContextType>
   Comment?: CommentResolvers<ContextType>
   DateTime?: GraphQLScalarType
   DisplayableBusiness?: DisplayableBusinessResolvers<ContextType>
   Location?: LocationResolvers<ContextType>
   Mutation?: MutationResolvers<ContextType>
   Query?: QueryResolvers<ContextType>
+  Rating?: RatingResolvers<ContextType>
   Review?: ReviewResolvers<ContextType>
   User?: UserResolvers<ContextType>
 }
@@ -801,9 +924,57 @@ export interface Loaders<
   }
 > {
   Business?: {
+    carbonScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
+    certificateScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
+    charitableScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
     comments?: LoaderResolver<Array<Comment>, Business, {}, TContext>
     createdAt?: LoaderResolver<Scalars['DateTime'], Business, {}, TContext>
     customerScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
+    dataPrivacyScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
+    diversityScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
+    envProtectionScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
+    equalPayScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
+    humanRightsScore?: LoaderResolver<
       Maybe<Scalars['Float']>,
       Business,
       {},
@@ -813,7 +984,12 @@ export interface Loaders<
     locations?: LoaderResolver<Array<Location>, Business, {}, TContext>
     name?: LoaderResolver<Scalars['String'], Business, {}, TContext>
     owner?: LoaderResolver<Maybe<User>, Business, {}, TContext>
-    primaryLocation?: LoaderResolver<Location, Business, {}, TContext>
+    productSafetyScore?: LoaderResolver<
+      Maybe<Scalars['Float']>,
+      Business,
+      {},
+      TContext
+    >
     profilePicture?: LoaderResolver<
       Maybe<Scalars['String']>,
       Business,
@@ -827,14 +1003,43 @@ export interface Loaders<
       TContext
     >
     reviews?: LoaderResolver<Array<Review>, Business, {}, TContext>
+    sustainabilityCertificates?: LoaderResolver<
+      Maybe<Array<Maybe<BusinessCertificate>>>,
+      Business,
+      {},
+      TContext
+    >
+    sustainabilityRatings?: LoaderResolver<
+      Maybe<Array<Maybe<Rating>>>,
+      Business,
+      {},
+      TContext
+    >
     sustainabilityScore?: LoaderResolver<
       Maybe<Scalars['Float']>,
       Business,
       {},
       TContext
     >
+    taxScore?: LoaderResolver<Maybe<Scalars['Float']>, Business, {}, TContext>
     type?: LoaderResolver<BusinessType, Business, {}, TContext>
     updatedAt?: LoaderResolver<Scalars['DateTime'], Business, {}, TContext>
+  }
+
+  BusinessCertificate?: {
+    businessHasCertificate?: LoaderResolver<
+      Scalars['Int'],
+      BusinessCertificate,
+      {},
+      TContext
+    >
+    certificateName?: LoaderResolver<
+      Scalars['String'],
+      BusinessCertificate,
+      {},
+      TContext
+    >
+    id?: LoaderResolver<Scalars['ID'], BusinessCertificate, {}, TContext>
   }
 
   Comment?: {
@@ -855,6 +1060,12 @@ export interface Loaders<
       TContext
     >
     id?: LoaderResolver<Scalars['ID'], DisplayableBusiness, {}, TContext>
+    images?: LoaderResolver<
+      Array<Maybe<Scalars['String']>>,
+      DisplayableBusiness,
+      {},
+      TContext
+    >
     name?: LoaderResolver<Scalars['String'], DisplayableBusiness, {}, TContext>
     profilePicture?: LoaderResolver<
       Maybe<Scalars['String']>,
@@ -864,6 +1075,18 @@ export interface Loaders<
     >
     profileText?: LoaderResolver<
       Maybe<Scalars['String']>,
+      DisplayableBusiness,
+      {},
+      TContext
+    >
+    sustainabilityCertificates?: LoaderResolver<
+      Maybe<Array<Maybe<BusinessCertificate>>>,
+      DisplayableBusiness,
+      {},
+      TContext
+    >
+    sustainabilityRatings?: LoaderResolver<
+      Maybe<Array<Maybe<Rating>>>,
       DisplayableBusiness,
       {},
       TContext
@@ -886,6 +1109,12 @@ export interface Loaders<
     longitude?: LoaderResolver<Scalars['Float'], Location, {}, TContext>
     name?: LoaderResolver<Scalars['String'], Location, {}, TContext>
     updatedAt?: LoaderResolver<Scalars['DateTime'], Location, {}, TContext>
+  }
+
+  Rating?: {
+    id?: LoaderResolver<Scalars['ID'], Rating, {}, TContext>
+    ratingName?: LoaderResolver<Scalars['String'], Rating, {}, TContext>
+    ratingValue?: LoaderResolver<Scalars['Int'], Rating, {}, TContext>
   }
 
   Review?: {
