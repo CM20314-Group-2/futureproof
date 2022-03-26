@@ -1,12 +1,9 @@
+import LabelInput from '@components/account/LabelInput'
 import React, { useState } from 'react'
 import {
-  ScrollView,
-  StyleSheet,
-  Image,
-  Dimensions,
-  Button,
+  Button, Dimensions, Image, ScrollView,
+  StyleSheet
 } from 'react-native'
-import LabelInput from '@components/account/AccountSubViews/LabelInput'
 
 const width = Dimensions.get('window').width
 

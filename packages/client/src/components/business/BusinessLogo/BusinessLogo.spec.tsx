@@ -1,6 +1,11 @@
 import BusinessLogo, {
+<<<<<<< HEAD:packages/client/src/components/Search/BusinessLogo.spec.tsx
+  DEFAULT_PROFILE_PATH,
+} from '@components/Search/BusinessLogo'
+=======
   DEFAULT_PROFILE_PATH
 } from '@components/business/BusinessLogo'
+>>>>>>> sprint-3:packages/client/src/components/business/BusinessLogo/BusinessLogo.spec.tsx
 import { render } from '@testing-library/react-native'
 import React from 'react'
 

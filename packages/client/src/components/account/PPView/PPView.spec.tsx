@@ -1,4 +1,4 @@
-import PPView from '@components/account/AccountSubViews/PPView'
+import PPView from '@components/account/PPView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 

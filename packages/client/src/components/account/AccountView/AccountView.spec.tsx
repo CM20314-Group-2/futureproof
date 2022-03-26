@@ -1,12 +1,12 @@
-import AccountView from '@components/account/AccountView/AccountView'
-import { render, fireEvent } from '@testing-library/react-native'
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import AccountView from '@components/account/AccountView'
+import HelpView from '@components/account/HelpView'
+import PasswordView from '@components/account/PasswordView'
+import PPView from '@components/account/PPView'
+import ToSView from '@components/account/ToSView'
 import { NavigationContainer } from '@react-navigation/native'
-import HelpView from '@components/account/AccountSubViews/HelpView'
-import PasswordView from '@components/account/AccountSubViews/PasswordView'
-import PPView from '@components/account/AccountSubViews/PPView'
-import ToSView from '@components/account/AccountSubViews/ToSView'
+import { createStackNavigator } from '@react-navigation/stack'
+import { fireEvent, render } from '@testing-library/react-native'
+import React from 'react'
 
 type RootStackParamList = {
     AccountView : undefined

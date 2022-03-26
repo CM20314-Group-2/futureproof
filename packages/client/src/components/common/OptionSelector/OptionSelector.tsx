@@ -1,5 +1,5 @@
-import Button from '@components/common//Button'
 import BottomSheet from '@components/common/BottomSheet'
+import Button from '@components/common/Button'
 import OptionList, { Option } from '@components/common/OptionList'
 import React, { useState } from 'react'
 import { Platform, Pressable, SafeAreaView, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native'

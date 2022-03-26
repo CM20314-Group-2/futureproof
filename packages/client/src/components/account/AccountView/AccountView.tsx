@@ -1,14 +1,9 @@
+import LabelInput from '@components/account/LabelInput'
+import { StackScreenProps } from '@react-navigation/stack'
 import React, { useState } from 'react'
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  Dimensions,
-  Pressable,
+  Dimensions, Image, Pressable, StyleSheet, Text, View
 } from 'react-native'
-import { StackScreenProps } from '@react-navigation/stack'
-import LabelInput from '@components/account/AccountSubViews/LabelInput'
 
 const width = Dimensions.get('window').width
 

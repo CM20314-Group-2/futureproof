@@ -1,8 +1,9 @@
+import { useReactiveVar } from '@apollo/client'
+import { globalData } from '@components/search/SeachBarView'
 import SearchResult from '@components/search/SearchResult'
 import { BusinessType, DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { FlatList, ScrollView, StyleSheet } from 'react-native'
-import { StackScreenProps } from '@react-navigation/stack'
 
 
 const TEST_BUSINESSES_DATA : DisplayableBusiness[] = [
@@ -24,42 +25,31 @@ const TEST_BUSINESSES_DATA : DisplayableBusiness[] = [
   },
 ]
 
-type RootStackParamList = {
-  MapView : undefined
-  BusinessView :  { businessToDisplay : DisplayableBusiness }
-}
-
-type Props = StackScreenProps<RootStackParamList>
-
-const SearchView = ({ navigation } : Props) => {
+const SearchView = () => {
+  const results = useReactiveVar(globalData)
+  
 
   const renderSearchItem = ({ item } : { item : DisplayableBusiness }) => (
     <SearchResult
       business={item}
       onPress={() => {
         // Respond to business seletion tap here
-        navigation.push('BusinessView', { businessToDisplay: item })
       }}
     />
   )
+  
+  if (!results) return null
+
+  console.log(results)
+
   return (
     <React.Fragment>
-      <ScrollView
-        style={styles.searchList}
-        bounces={true}
-        persistentScrollbar={true}
-      >
+      <ScrollView style={styles.searchList}>
         <FlatList
-          data={TEST_BUSINESSES_DATA}
+          data={results}
           renderItem={renderSearchItem}
           keyExtractor={(item) => item.id}
         />
-        <FlatList
-          data={TEST_BUSINESSES_DATA}
-          renderItem={renderSearchItem}
-          keyExtractor={(item) => item.id}
-        />
-
       </ScrollView>
     </React.Fragment>
   )

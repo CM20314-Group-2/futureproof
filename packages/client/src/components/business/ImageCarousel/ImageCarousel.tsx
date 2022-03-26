@@ -1,3 +1,4 @@
+import Image from '@components/business/ImageCarousel/Image'
 import React, { useState } from 'react'
 import {
   ScrollView,
@@ -6,7 +7,6 @@ import {
   View
 } from 'react-native'
 import ImageView from 'react-native-image-viewing'
-import IndividualImage from '@components/business/ImageCarousel/IndividualImage'
 
 const ImagesCarousel = ({ Images } : { Images : string[] }) => {
   const [visible, setModalVisible] = useState(false)
@@ -18,7 +18,7 @@ const ImagesCarousel = ({ Images } : { Images : string[] }) => {
   for (let i = 0; i < Images.length; i++) {
     images.push({ uri: Images[i] })
     imageViews.push(
-      <IndividualImage
+      <Image
         key={i}
         onPressFunction={() => {
           setModalVisible(true), setModalImageIndex(i)

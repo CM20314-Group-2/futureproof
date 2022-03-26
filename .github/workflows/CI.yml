@@ -1,5 +1,7 @@
 name: CI
 on: push
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 jobs:
   build:
     runs-on: ubuntu-latest

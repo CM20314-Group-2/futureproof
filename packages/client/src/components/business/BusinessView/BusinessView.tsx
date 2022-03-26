@@ -4,6 +4,7 @@ import ImagesCarousel from '@components/business/ImageCarousel'
 import TitleView from '@components/business/TitleView'
 import RatingsView from '@components/ratings/RatingsView'
 import { DisplayableBusiness, Location } from '@futureproof/typings'
+import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
 import {
   SafeAreaView,
@@ -11,10 +12,9 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native'
 import openMap from 'react-native-open-maps'
-import { StackScreenProps } from '@react-navigation/stack'
 
 // PLACEHOLDER BUSINESS LOCATION -> Update to fetch graphQL
 export type ExampleLocationType = Pick<
@@ -62,7 +62,7 @@ const BusinessView = ({ route } : Props) => {
             }
           />
           <BusinessViewMap businessLocation={ExampleBusinessLocation} />
-          <ImagesCarousel Images={route.params.businessToDisplay.images} />
+          <ImagesCarousel Images={route.params.businessToDisplay.images as string[]} />
         </ScrollView>
       </SafeAreaView>
       <TouchableOpacity

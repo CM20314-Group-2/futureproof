@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, TouchableHighlight, Image } from 'react-native'
+import { Image as RNImage, StyleSheet, TouchableHighlight } from 'react-native'
 
 interface ComponentProps {
   onPressFunction : () => void
   ImageToDisplay : string
 }
 
-const IndividualImage = ({
+const Image = ({
   onPressFunction,
   ImageToDisplay,
 } : ComponentProps) => {
@@ -17,7 +17,7 @@ const IndividualImage = ({
         underlayColor='#efefef'
         onPress={onPressFunction}
       >
-        <Image
+        <RNImage
           blurRadius={0}
           style={styles.imageStyle}
           source={{
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default IndividualImage
+export default Image

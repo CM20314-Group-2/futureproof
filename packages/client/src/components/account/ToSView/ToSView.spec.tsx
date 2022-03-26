@@ -1,11 +1,11 @@
-import HelpView from '@components/account/AccountSubViews/HelpView'
+import ToSView from '@components/account/ToSView'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
 it('matches snapshot', () => {
 
   const { toJSON } = render(
-    <HelpView/>
+    <ToSView/>
   )
   expect(toJSON()).toMatchSnapshot()
 })

@@ -9,6 +9,7 @@ const business : DisplayableBusiness = {
   type: BusinessType.Cafe,
   customerScore: 50,
   sustainabilityScore: 70,
+  images: []
 }
 
 it('matches snapshot', () => {

@@ -1,3 +1,4 @@
+import RatingView from '@components/ratings/RatingView'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
@@ -14,6 +15,8 @@ const RatingsView = ({
   <View style={styles.compoundStyle}>
     <Text style={styles.headingText}>RATINGS</Text>
     <View style={styles.ratingsHorizontalStyle}>
+      <RatingView ratingName='Consumer' ratingValue={customerScore}/>
+      <RatingView ratingName='FutureProof' ratingValue={sustainabilityScore}/>
     </View>
   </View>
 )

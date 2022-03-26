@@ -12,5 +12,9 @@
   "workspaces": [
     "packages/*"
   ],
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.17.8",
+    "react-native-gesture-handler": "^2.3.2"
+  }
 }

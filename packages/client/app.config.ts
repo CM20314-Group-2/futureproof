@@ -31,7 +31,7 @@ export default {
       favicon: './assets/favicon.png'
     },
     extra: {
-      serverAddress: console.error('serverAddress must be specified.')
+      serverAddress: 'http://ca04-87-115-231-195.ngrok.io'
     }
   }
 }

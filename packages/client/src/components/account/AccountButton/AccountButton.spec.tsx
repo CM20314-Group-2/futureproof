@@ -1,4 +1,4 @@
-import AccountButton from '@components/account/AccountButton/AccountButton'
+import AccountButton from '@components/account/AccountButton'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 

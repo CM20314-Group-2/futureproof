@@ -1,44 +1,44 @@
-import { gql, useLazyQuery } from '@apollo/client'
+import { gql, makeVar, useLazyQuery } from '@apollo/client'
+import { DisplayableBusiness } from '@futureproof/typings'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Icon, Input } from 'react-native-elements'
 
-// GraphQL fragment
-const COMPANY_TILE_DATA = gql`
-  {
-    fragment
-    CompanyTile
-    on
-    Business {
+const GET_COMPANY_DATA = gql`
+  query getBussiness ($_value: String!) {
+    businessByName (name: $_value) {
       id
       name
-      profilePicture
-      sustainabilityScore
       customerScore
+      type
+      profileText
     }
   }
 
  
 `
 
- 
+export const globalData = makeVar<DisplayableBusiness[]>([])
+
 const SearchBarView = () => {
   const [searchText, onChangeText] = useState('')
 
-  const [executeSearch, { error }] = useLazyQuery(
-    // 'loading' and 'data' can also be returned (not just error)
-    COMPANY_TILE_DATA
+  const [executeSearch, { data, error }] = useLazyQuery<{
+    businessByName : DisplayableBusiness
+  }>(
+    GET_COMPANY_DATA, { variables: { _value: searchText } }
   )
 
   useEffect(() => {
-    // Debounce query
+    // Debounce query 
     const delayDebounceFn = setTimeout(() => {
-      executeSearch({
-        variables: { String: searchText },
-      }).then(
-        (data) => console.log(data),
-        () => console.error(error)
-      )
+      executeSearch().then(() => {
+        if (data !== undefined) {
+          console.log('data', data)
+          globalData([data.businessByName])
+        }
+      }, () => console.log(error))
+
     }, 300)
     return () => clearTimeout(delayDebounceFn)
   }, [searchText])
@@ -47,6 +47,7 @@ const SearchBarView = () => {
     <React.Fragment>
       <View style={styles.searchBarView}>
         <Input
+          testID='search-bar'
           inputContainerStyle={styles.searchInput}
           placeholder='Search here'
           onChangeText={(text) => onChangeText(text)}
