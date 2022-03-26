@@ -2,10 +2,10 @@
 node_modules/
 .expo/
 .expo-shared/
-.yarn/
-yarn.lock
+package-lock.json
 dist/
 npm-debug.*
+yarn-error.log
 *.jks
 *.p8
 *.p12
@@ -14,6 +14,8 @@ npm-debug.*
 *.orig.*
 web-build/
 coverage/
+packages/client/__generated__
+packages/build
 
 # macOS
 .DS_Store

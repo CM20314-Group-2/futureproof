@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<View
+  pointerEvents="none"
+  style={
+    Object {
+      "marginBottom": "8%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#A0A0A0",
+        "fontSize": 12,
+        "marginBottom": "1%",
+        "marginLeft": "1%",
+      }
+    }
+  >
+    LOCATION MAP
+  </Text>
+  <AIRMap
+    initialRegion={null}
+    onChange={[Function]}
+    onLayout={[Function]}
+    onMapReady={[Function]}
+    onMarkerPress={[Function]}
+    region={null}
+    style={
+      Object {
+        "borderRadius": 10,
+        "height": 300,
+      }
+    }
+  />
+</View>
+`;

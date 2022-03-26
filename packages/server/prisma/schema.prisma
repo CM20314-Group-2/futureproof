@@ -11,14 +11,26 @@ datasource db {
 }
 
 model Business {
-  id                  Int      @id @unique @default(autoincrement()) @map("BusinessID")
-  name                String
-  sustainabilityScore Float    @map("FutureproofRating")
-  customerScore       Float    @map("UserRating")
-  profileText         String?
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  profilePicture      Bytes?
+  id             Int      @id @unique @default(autoincrement()) @map("BusinessID")
+  name           String
+  customerScore  Float    @map("UserRating")
+  profileText    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  profilePicture String?
+  images         String[]
+
+  //Sustainability Data
+  humanRightsScore   Float @default(0)
+  carbonScore        Float @default(0)
+  certificateScore   Float @default(0)
+  envProtectionScore Float @default(0)
+  diversityScore     Float @default(0)
+  productSafetyScore Float @default(0)
+  equalPayScore      Float @default(0)
+  taxScore           Float @default(0)
+  dataPrivacyScore   Float @default(0)
+  charitableScore    Float @default(0)
 
   //Different Relations
   owner           User          @relation(fields: [userId], references: [id])
@@ -36,7 +48,7 @@ model Business {
 model Comment {
   id        Int      @id @unique @default(autoincrement())
   text      String   @map("CommentText")
-  createdAt DateTime @map("DateCreated") @default(now()) @db.Date
+  createdAt DateTime @default(now()) @map("DateCreated") @db.Date
 
   // Different Relations
   location Location  @relation(fields: [locationId], references: [id])
@@ -58,13 +70,13 @@ model Location {
   updatedAt DateTime @updatedAt
 
   // Different Relations
-  Business     Business? @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
-  BusinessList Business?  @relation(name: "Locations", fields: [businessesID], references: [id])
+  business     Business? @relation(name: "PrimaryLocation", fields: [businessId], references: [id])
+  BusinessList Business? @relation(name: "Locations", fields: [businessesID], references: [id])
   Comment      Comment[]
 
   // Keys for the join table
   businessesID Int?
-  businessId   Int?    
+  businessId   Int?    @unique
   businessName String?
 
 }
@@ -86,7 +98,7 @@ model User {
 
 model Review {
   id         Int      @id @default(autoincrement())
-  createdAt  DateTime @map("DateCreated") @default(now()) @db.Date
+  createdAt  DateTime @default(now()) @map("DateCreated") @db.Date
   reputation Int
   reviewData String
 

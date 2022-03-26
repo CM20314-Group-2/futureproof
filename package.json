@@ -7,13 +7,14 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "build": "lerna run build",
-    "setup": "npm install",
-    "postsetup": "npm run build"
+    "postinstall": "yarn run build && lerna run postinstall"
   },
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
   "dependencies": {
-    "@futureproof/client": "file:packages/client",
-    "@futureproof/server": "file:packages/server",
-    "@futureproof/typings": "file:packages/typings"
-  },
-  "private": true
+    "@babel/runtime": "^7.17.8",
+    "react-native-gesture-handler": "^2.3.2"
+  }
 }
