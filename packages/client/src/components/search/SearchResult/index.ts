@@ -1,4 +1,4 @@
-import SearchResult from "./SearchResult";
+import SearchResult from './SearchResult'
 
-export * from './SearchResult';
+export * from './SearchResult'
 export default SearchResult

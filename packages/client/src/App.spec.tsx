@@ -1,7 +1,7 @@
-import { render, fireEvent } from '@testing-library/react-native'
-import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import AppNavigator from './App'
+import { fireEvent, render } from '@testing-library/react-native'
+import React from 'react'
+import AppNavigator from '../App'
 
 it('matches snapshot', () => {
 

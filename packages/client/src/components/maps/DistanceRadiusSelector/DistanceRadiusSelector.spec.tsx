@@ -1,14 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import { IN_DURATION, OUT_DURATION } from '@components/common/BottomSheet'
 import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/maps/DistanceRadiusSelector'
 import { fireEvent, render, waitFor } from '@testing-library/react-native'
 import React from 'react'
-
-declare global {
-  function withAnimatedTimeTravelEnabled(fn : () => void) : void
-  function timeTravel(time : number) : void
-  function requestAnimationFrame(cb : FrameRequestCallback) : void
-}
 
 it('matches snapshot', () => {
   const { toJSON } = render(<DistanceRadiusSelector onButtonPress={() => {return}}/>)
@@ -39,26 +32,6 @@ it('opens the radius selector view when the button is pressed', async () => {
 
   const bottomSheet = getByTestId('bottom-sheet')
   await waitFor(() => expect(bottomSheet).toHaveStyle({ bottom: -400 }))
-})
-
-it('dismisses the radius selector when the outside of the bottom sheet is pressed', () => {
-  global.withAnimatedTimeTravelEnabled(() => {
-    const { getByTestId, queryByTestId } = render(<DistanceRadiusSelector onButtonPress={() => {return}}/>)
-
-    const button = getByTestId('option-selector-button')
-    fireEvent(button, 'press')
-    timeTravel(IN_DURATION)
-
-    const bottomSheet = getByTestId('bottom-sheet')
-    expect(bottomSheet).toHaveStyle({ bottom: 0 })
-
-    const bottomSheetBackground = getByTestId('bottom-sheet-background')
-    fireEvent.press(bottomSheetBackground)
-    timeTravel(OUT_DURATION)
-
-    expect(queryByTestId('bottom-sheet-background')).toBeNull()
-    expect(bottomSheet).toHaveStyle({ bottom: -400 })
-  })
 })
 
 it('updates the selected distance when an option is pressed', async () => {

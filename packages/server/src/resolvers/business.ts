@@ -44,21 +44,22 @@ const calculateSustainabilityScore = ({
   const dataPrivacyCmp = dataPrivacyScore * 0.061818
   const charitableCmp = charitableScore * 0.052448
   return (
-    (humanRightsCmp +
-      carbonCmp +
-      certificateCmp +
-      envProtectionCmp +
-      diversityCmp +
-      productSafetyCmp +
-      equalPayCmp +
-      taxCmp +
-      dataPrivacyCmp +
-      charitableCmp) *
-    100
+    humanRightsCmp +
+    carbonCmp +
+    certificateCmp +
+    envProtectionCmp +
+    diversityCmp +
+    productSafetyCmp +
+    equalPayCmp +
+    taxCmp +
+    dataPrivacyCmp +
+    charitableCmp
   )
 }
 
-const defaultFields: { Business: { [k in keyof Business]?: boolean } } = {
+export const defaultBusinessFields: {
+  Business: { [k in keyof Business]?: boolean }
+} = {
   Business: {
     humanRightsScore: true,
     carbonScore: true,
@@ -81,7 +82,9 @@ export default {
       { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
-      const select = new PrismaSelect(info, { defaultFields }).value
+      const select = new PrismaSelect(info, {
+        defaultFields: defaultBusinessFields,
+      }).value
       return prisma.business.findMany({
         ...select,
       })
@@ -92,7 +95,9 @@ export default {
       { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
-      const select = new PrismaSelect(info, { defaultFields }).value
+      const select = new PrismaSelect(info, {
+        defaultFields: defaultBusinessFields,
+      }).value
       return prisma.business.findUnique({
         where: { id: Number(id) },
         ...select,
@@ -104,7 +109,9 @@ export default {
       { prisma }: Context,
       info: GraphQLResolveInfo
     ) => {
-      const select = new PrismaSelect(info, { defaultFields }).value
+      const select = new PrismaSelect(info, {
+        defaultFields: defaultBusinessFields,
+      }).value
       return prisma.business.findFirst({
         where: {
           name: {

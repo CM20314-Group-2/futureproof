@@ -66,6 +66,7 @@ describe('ratingToText', () => {
     expect(ratingToText(29)).toBe('Avoid')
   })
 
+  
   it('throws an error when ratingValue is less than 0', () => {
     expect(() => ratingToText(-1)).toThrow()
   })
@@ -119,14 +120,6 @@ describe('RatingCapsule', () => {
     const text = getByTestId('rating-text')
     expect(capsule).toHaveStyle({ backgroundColor: 'brown' })
     expect(text).toHaveTextContent('Avoid')
-  })
-
-  it('throws an error when ratingValue is less than 0', () => {
-    expect(() => render(<RatingCapsule ratingValue={-1} />)).toThrow()
-  })
-
-  it('throws an error when ratingValue is greater than 100', () => {
-    expect(() => render(<RatingCapsule ratingValue={101} />)).toThrow()
   })
 
   it('defaults to a brown capsule with text "Avoid" if the rating value is null', () => {

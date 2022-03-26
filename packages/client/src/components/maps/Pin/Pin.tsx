@@ -35,7 +35,7 @@ const Pin = ({ onPress, rating, style } : ComponentProps) => {
           style={[styles.rating_circle, { backgroundColor: colour[1] }]}
           testID='rating-background'
         >
-          <Text style={styles.text}>{rating}</Text>
+          <Text style={styles.text}>{rating.toFixed(0)}</Text>
         </View>
       </View>
       <View style={[styles.triangle, { borderBottomColor: colour[0] }]}/>

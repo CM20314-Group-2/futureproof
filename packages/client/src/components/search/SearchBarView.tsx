@@ -50,15 +50,14 @@ const SearchBarView = () => {
           inputContainerStyle={styles.searchInput}
           placeholder='Search here'
           onChangeText={(text) => onChangeText(text)}
-          leftIcon={<Icon name='search' size={25} />}
+          leftIcon={<Icon name='search' size={25} tvParallaxProperties />}
           leftIconContainerStyle={styles.leftContainerIconStyle}
           rightIcon={
             <Icon
               name='options-outline'
               type='ionicon'
               size={25}
-              onPress={() => console.error('Not implemented.')}
-            />
+              onPress={() => console.error('Not implemented.')} tvParallaxProperties/>
           }
           value={searchText}
         />

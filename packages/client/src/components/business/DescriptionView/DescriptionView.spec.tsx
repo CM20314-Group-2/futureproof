@@ -12,12 +12,18 @@ it('renders expected text', () => {
   
   const text = getByTestId('body-text')
   expect(text).toHaveTextContent('TEST')
-  expect(text.props.children).toEqual('No description available.')
 })
 
 it('gives a default message when no text is provided', () => {
   const { getByTestId } = render(<DescriptionView profileText={null} />)
 
   const text = getByTestId('body-text')
-  expect(text.props.children).toEqual('No description available.')
+  expect(text).toHaveTextContent('No description available.')
+})
+
+it('gives a default message when text is undefined', () => {
+  const { getByTestId } = render(<DescriptionView profileText={undefined} />)
+
+  const text = getByTestId('body-text')
+  expect(text).toHaveTextContent('No description available.')
 })

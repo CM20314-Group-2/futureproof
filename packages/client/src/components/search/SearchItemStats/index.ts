@@ -1,4 +1,4 @@
-import SearchItemStats from "./SearchItemStats";
+import SearchItemStats from './SearchItemStats'
 
-export * from './SearchItemStats';
+export * from './SearchItemStats'
 export default SearchItemStats

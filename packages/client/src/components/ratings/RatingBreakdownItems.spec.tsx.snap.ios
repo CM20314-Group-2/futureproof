@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FAF9F9",
+          "borderRadius": 10,
+          "height": 85,
+          "justifyContent": "space-evenly",
+          "padding": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+        testID="rating-title-text"
+      >
+        Carbon Dioxide
+      </Text>
+      <RNSVGSvgView
+        bbHeight={10}
+        focusable={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "borderRadius": 5,
+              "height": 10,
+            },
+          ]
+        }
+      >
+        <RNSVGGroup>
+          <RNSVGRect
+            fill={4293980143}
+            height={10}
+            propList={
+              Array [
+                "fill",
+              ]
+            }
+            rx={5}
+            width="100%"
+            x={0}
+            y={0}
+          />
+          <RNSVGRect
+            fill={4283475804}
+            height={10}
+            propList={
+              Array [
+                "fill",
+              ]
+            }
+            rx={5}
+            width="78%"
+            x={0}
+            y={0}
+          />
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FAF9F9",
+          "borderRadius": 10,
+          "height": 85,
+          "justifyContent": "space-evenly",
+          "padding": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+        testID="rating-title-text"
+      >
+        Sea Pollution
+      </Text>
+      <RNSVGSvgView
+        bbHeight={10}
+        focusable={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "borderRadius": 5,
+              "height": 10,
+            },
+          ]
+        }
+      >
+        <RNSVGGroup>
+          <RNSVGRect
+            fill={4293980143}
+            height={10}
+            propList={
+              Array [
+                "fill",
+              ]
+            }
+            rx={5}
+            width="100%"
+            x={0}
+            y={0}
+          />
+          <RNSVGRect
+            fill={4280199251}
+            height={10}
+            propList={
+              Array [
+                "fill",
+              ]
+            }
+            rx={5}
+            width="89%"
+            x={0}
+            y={0}
+          />
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FAF9F9",
+          "borderRadius": 10,
+          "height": 85,
+          "justifyContent": "space-evenly",
+          "padding": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+        testID="rating-title-text"
+      >
+        Deforestation
+      </Text>
+      <RNSVGSvgView
+        bbHeight={10}
+        focusable={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "borderRadius": 5,
+              "height": 10,
+            },
+          ]
+        }
+      >
+        <RNSVGGroup>
+          <RNSVGRect
+            fill={4293980143}
+            height={10}
+            propList={
+              Array [
+                "fill",
+              ]
+            }
+            rx={5}
+            width="100%"
+            x={0}
+            y={0}
+          />
+          <RNSVGRect
+            fill={4290696750}
+            height={10}
+            propList={
+              Array [
+                "fill",
+              ]
+            }
+            rx={5}
+            width="65%"
+            x={0}
+            y={0}
+          />
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+  </View>,
+]
+`;

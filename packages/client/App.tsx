@@ -1,31 +1,27 @@
-import {
-  DisplayableBusiness,
-} from '@futureproof/typings'
-import Constants from 'expo-constants'
-import React, { useState } from 'react'
-import {
-  SafeAreaView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  Dimensions,
-  Platform,
-} from 'react-native'
+import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
 import AccountButton from '@components/account/AccountButton/AccountButton'
-import AccountView from '@components/account/AccountView/AccountView'
 import HelpView from '@components/account/AccountSubViews/HelpView'
 import PasswordView from '@components/account/AccountSubViews/PasswordView'
 import PPView from '@components/account/AccountSubViews/PPView'
 import ToSView from '@components/account/AccountSubViews/ToSView'
+import AccountView from '@components/account/AccountView/AccountView'
 import BusinessView from '@components/business/BusinessView/BusinessView'
-import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
 import { Option } from '@components/common/OptionList'
 import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/maps/DistanceRadiusSelector'
 import MapSlideUpSheet from '@components/maps/MapSlideUpSheet'
 import MapView from '@components/maps/MapView'
-import { Business, Location } from '@futureproof/typings'
+import { Business, DisplayableBusiness, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
+import Constants from 'expo-constants'
+import React, { useState } from 'react'
+import {
+  Dimensions,
+  Platform, SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native'
 
 const GET_COORDINATES = gql `
   query {
@@ -53,7 +49,7 @@ const client = new ApolloClient({
 
 const width = Dimensions.get('window').width
 
-type RootStackParamList = {
+export type RootStackParams = {
   MapView : undefined
   AccountView : undefined
   PasswordView : undefined
@@ -64,9 +60,9 @@ type RootStackParamList = {
 }
 
 // Initialise Stack Navigator
-const Stack = createStackNavigator<RootStackParamList>()
+const Stack = createStackNavigator<RootStackParams>()
 
-type Props = StackScreenProps<RootStackParamList>
+type Props = StackScreenProps<RootStackParams>
 
 export const FeedScreen = ({ navigation } : Props) => {
 

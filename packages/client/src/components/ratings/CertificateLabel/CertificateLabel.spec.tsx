@@ -1,19 +1,18 @@
-import CertificateLabel, {
-  BusinessCertificate,
-} from '@components/ratings/CertificateLabel'
+import CertificateLabel from '@components/ratings/CertificateLabel'
+import { BusinessCertificate } from '@futureproof/typings'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 
 const BCORP_EXAMPLE_CERTIFICATE : BusinessCertificate = {
-  id: 1234,
+  id: '1234',
   certificateName: 'BCorp',
-  businessHasCertificate: true,
+  businessHasCertificate: 1
 }
 
 const NO_CERTIFICATE_EXAMPLE : BusinessCertificate = {
-  id: 5678,
+  id: '5678',
   certificateName: 'Green Mark',
-  businessHasCertificate: false,
+  businessHasCertificate: 0
 }
 
 it('matches snapshot', () => {

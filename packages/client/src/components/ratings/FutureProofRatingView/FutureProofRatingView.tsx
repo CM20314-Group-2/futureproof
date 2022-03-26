@@ -1,53 +1,34 @@
-import { BusinessCertificate } from '@components/ratings/CertificateLabel'
 import CertificatesList from '@components/ratings/CertificateList'
 import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
-import RectangularRatingIndicator from '@components/ratings/RectangularRatingIndicator'
-import { DisplayableBusiness } from '@futureproof/typings'
+import RatingBreakdownItems from '@components/ratings/RatingBreakdownItems'
+import { BusinessCertificate, DisplayableBusiness, Rating } from '@futureproof/typings'
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 
-const BUSINESS_CERTIFICATES : BusinessCertificate[] = [
-  {
-    id: 1234,
-    certificateName: 'BCorp',
-    businessHasCertificate: true
-  },
-  {
-    id: 5678,
-    certificateName: 'GBB',
-    businessHasCertificate: false
-  },
-  {
-    id: 9012,
-    certificateName: 'Green Mark',
-    businessHasCertificate: false
-  }
-]
+type ComponentProps = Pick<
+  DisplayableBusiness,
+  'sustainabilityScore' | 'sustainabilityCertificates' | 'sustainabilityRatings'
+>
 
-const FutureProofRatingView = ({ businessToDisplay } : { businessToDisplay : DisplayableBusiness }) => {
+/**
+ * This view provides a break down of a given business' FutureProof rating, including certificates and listed individual ratings.
+ * 
+ * @param {Maybe<number> | undefined} sustainabilityScore The sustainability score
+ * @param {Maybe<Maybe<BusinessCertificate>[]> | undefined} sustainabilityCertificates An array of certificates for this business
+ * @param {Maybe<Maybe<Rating>[]> | undefined} sustainabilityRatings An array of ratings for this business
+ * @returns {View} The FutureProof Rating (breakdown) view
+ */
+
+const FutureProofRatingView = ({ sustainabilityScore, sustainabilityCertificates, sustainabilityRatings } : ComponentProps ) => {
   return (
     <SafeAreaView style={styles.futureProofRatingViewStyle}>
       <ScrollView>
         <View style={styles.futureProofRatingTitleView}>
-          <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={businessToDisplay.sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
-          <CertificatesList certificates={BUSINESS_CERTIFICATES}/>
+          <CircularRatingIndicator circleWidth={150} circleHeight={150} progressBarWidth={14} progressValue={sustainabilityScore ?? 0} ratingName={'FutureProof'}/>
+          <CertificatesList certificates={sustainabilityCertificates as BusinessCertificate[]}/>
         </View>
         <Text style={styles.headingText}>BREAKDOWN</Text>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={75} ratingName={'Carbon Emissions'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={20} ratingName={'Working Conditions'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={95} ratingName={'Ecosystem Impact'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={51} ratingName={'Pay distibution'}/>
-        </View>
-        <View style={styles.rectangularRatingStyle}>
-          <RectangularRatingIndicator progressValue={85} ratingName={'Discrimination and Diversity'}/>
-        </View>
+        <RatingBreakdownItems ratings={sustainabilityRatings as Rating[]}/>
       </ScrollView>
     </SafeAreaView>
   )
@@ -66,9 +47,6 @@ export const styles = StyleSheet.create({
     color: '#A0A0A0',
     fontSize: 12,
     paddingLeft: 20
-  },
-  rectangularRatingStyle: {
-    paddingVertical: 5
   }
 })
 

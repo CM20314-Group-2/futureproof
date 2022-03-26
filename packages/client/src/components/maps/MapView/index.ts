@@ -1,4 +1,4 @@
-import MapView from "./MapView";
+import MapView from './MapView'
 
-export * from './MapView';
-export default MapView;
+export * from './MapView'
+export default MapView
