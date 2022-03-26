@@ -1,4 +1,4 @@
-import ResultSorter from "./ResultSorter";
+import ResultSorter from './ResultSorter'
 
-export * from './ResultSorter';
-export default ResultSorter;
+export * from './ResultSorter'
+export default ResultSorter

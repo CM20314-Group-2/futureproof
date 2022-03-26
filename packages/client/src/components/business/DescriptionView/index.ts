@@ -1,4 +1,4 @@
-import DescriptionView from "./DescriptionView";
+import DescriptionView from './DescriptionView'
 
-export * from "./DescriptionView";
-export default DescriptionView;
+export * from './DescriptionView'
+export default DescriptionView

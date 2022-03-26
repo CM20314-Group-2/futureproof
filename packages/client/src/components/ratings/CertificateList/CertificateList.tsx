@@ -1,4 +1,5 @@
-import CertificateLabel, { BusinessCertificate } from '@components/ratings/CertificateLabel'
+import CertificateLabel from '@components/ratings/CertificateLabel'
+import { BusinessCertificate } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 

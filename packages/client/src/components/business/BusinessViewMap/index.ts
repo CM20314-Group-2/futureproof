@@ -1,4 +1,4 @@
-import BusinessViewMap from "./BusinessViewMap";
+import BusinessViewMap from './BusinessViewMap'
 
-export * from "./BusinessViewMap";
-export default BusinessViewMap;
+export * from './BusinessViewMap'
+export default BusinessViewMap

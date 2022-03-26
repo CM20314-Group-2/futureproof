@@ -1,7 +1,7 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
 import RectangularRatingIndicator from '@components/ratings/RectangularRatingIndicator'
 import { Rating } from '@futureproof/typings'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
 
 /**
  * Creates a list of business sub-rating views (horizontal/rectangular rating views)

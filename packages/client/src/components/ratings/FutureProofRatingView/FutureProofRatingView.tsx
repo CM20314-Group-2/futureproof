@@ -1,8 +1,7 @@
-import { BusinessCertificate } from '@components/ratings/CertificateLabel'
 import CertificatesList from '@components/ratings/CertificateList'
 import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
 import RatingBreakdownItems from '@components/ratings/RatingBreakdownItems'
-import { DisplayableBusiness } from '@futureproof/typings'
+import { BusinessCertificate, DisplayableBusiness, Rating } from '@futureproof/typings'
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 

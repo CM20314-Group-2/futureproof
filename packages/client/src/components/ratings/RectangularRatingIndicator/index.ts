@@ -1,4 +1,4 @@
-import RectangularRatingIndicator from "./RectangularRatingIndicator";
+import RectangularRatingIndicator from './RectangularRatingIndicator'
 
-export * from './RectangularRatingIndicator';
+export * from './RectangularRatingIndicator'
 export default RectangularRatingIndicator

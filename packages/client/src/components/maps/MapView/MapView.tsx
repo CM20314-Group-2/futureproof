@@ -1,9 +1,9 @@
 import Pin from '@components/maps/Pin'
-import { LocationTypeWithRating } from 'App'
 import * as CurrentLocation from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import Map, { Circle, Marker } from 'react-native-maps'
+import { LocationTypeWithRating } from '../../../../App'
 
 interface ComponentProps {
   showRadius : boolean,

@@ -1,6 +1,6 @@
+import { BusinessCertificate } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { BusinessCertificate } from '@futureproof/typings'
 
 const TRUE_CERTIFICATE_COLOUR = '#1EA853'
 const FALSE_CERTIFICATE_COLOUR = 'brown'
