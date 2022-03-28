@@ -4,15 +4,43 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import Map, { Circle, Marker } from 'react-native-maps'
 import { LocationTypeWithRating } from '../../../../App'
+import { gql, useLazyQuery } from '@apollo/client'
+import { DisplayableBusiness } from '@futureproof/typings'
+import { StackScreenProps } from '@react-navigation/stack'
+
+const findBusinessInfo = gql `
+  query getBusiness ($_id: ID!) {
+    business (id: $_id) {
+      id
+      name
+      customerScore
+      type
+      profileText
+      profilePicture
+      images
+
+    }
+  }
+
+`
+
+export type RootStackParams = {
+  MapView : undefined
+  BusinessView : { businessToDisplay : DisplayableBusiness }
+}
+
+type Props = StackScreenProps<RootStackParams>
 
 interface ComponentProps {
   showRadius : boolean,
   radiusSize ?: number,
-  businesses : { locations : LocationTypeWithRating[] } | undefined
+  locations : LocationTypeWithRating[] | undefined
+  navigation : Props
 }
 
-const MapView = ({ showRadius, radiusSize, businesses } : ComponentProps) => {
+const MapView = ({ showRadius, radiusSize, locations, navigation } : ComponentProps) => {
   const [location, setLocation] = useState<CurrentLocation.LocationObject | null>(null)
+  const [getBusiness, { loading, error, data }] = useLazyQuery<{ business : DisplayableBusiness }>(findBusinessInfo)
 
   useEffect(() => {
     (async () => {
@@ -52,12 +80,15 @@ const MapView = ({ showRadius, radiusSize, businesses } : ComponentProps) => {
               testID='circle'
             /> : null
           }
-          { businesses?.locations.map((marker) => (
+          { locations?.map((marker) => (
             <Marker
               key = {marker.id}
               coordinate = {marker}
             >
-              <Pin onPress = {() => {return}} rating = {marker.business.sustainabilityScore || 0}/>
+              <Pin onPress = {async () => { 
+                await getBusiness({ variables: { _id: marker.id } })
+                navigation.push('BusinessView', { businessToDisplay: data } ) 
+              }} rating = {marker.business.sustainabilityScore || 0}/>
             </Marker>
           ))}
         </Map> : <Text> Error: Could not find location </Text>

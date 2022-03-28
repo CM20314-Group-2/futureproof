@@ -15,6 +15,7 @@ import {
   View
 } from 'react-native'
 import openMap from 'react-native-open-maps'
+import { RotateOutDownRight } from 'react-native-reanimated'
 
 // PLACEHOLDER BUSINESS LOCATION -> Update to fetch graphQL
 export type ExampleLocationType = Pick<

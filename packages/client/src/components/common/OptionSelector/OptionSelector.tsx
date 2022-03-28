@@ -34,7 +34,7 @@ const OptionSelector = ({ options, initial, buttonStyle, buttonTextStyle, select
       </Pressable>
       <BottomSheet
         show={showBottomSheet}
-        height={400}
+        height={480}
         onOuterClick={() => setShowBottomSheet(false)}
       >
         <SafeAreaView style={styles.container}>

@@ -31,6 +31,7 @@ const GET_COORDINATES = gql `
       longitude
       business {
         sustainabilityScore
+        id
       }
     }
   }`
@@ -38,7 +39,7 @@ const GET_COORDINATES = gql `
 export type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>;
 
 export interface LocationTypeWithRating extends LocationType {
-  business : Pick<Business, 'sustainabilityScore'>
+  business : Pick<Business, 'sustainabilityScore' | 'id'>
 }
 
 // Initialise Apollo Client
@@ -65,21 +66,22 @@ const Stack = createStackNavigator<RootStackParams>()
 type Props = StackScreenProps<RootStackParams>
 
 export const FeedScreen = ({ navigation } : Props) => {
-
+  const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
+  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
 
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <MapComponent />
+        <MapView showRadius={true} radiusSize={distance.value as number} businesses={data} navigation={navigation}/>
         <SafeAreaView>
-          <TouchableOpacity
-            onPress={() => navigation.push('AccountView')}
-            style={styles.button}
-          >
-            <AccountButton />
-          </TouchableOpacity>
+
         </SafeAreaView>
         <MapSlideUpSheet navigationProp={navigation} />
+        <DistanceRadiusSelector
+          buttonStyle={styles.button}
+          buttonTextStyle={styles.buttonText}
+          onButtonPress={(selectedOption : Option) => setDistance(selectedOption)}
+        />
       </View>
     </ApolloProvider>
   )
@@ -127,22 +129,6 @@ export const AppNavigator = () => {
   )
 }
 
-export const MapComponent = () => {
-  const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
-  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
-
-  return (
-    <React.Fragment>
-      <MapView showRadius={true} radiusSize={distance.value as number} businesses={data}/>
-      <DistanceRadiusSelector
-        buttonStyle={styles.button}
-        buttonTextStyle={styles.buttonText}
-        onButtonPress={(selectedOption : Option) => setDistance(selectedOption)}
-      />
-    </React.Fragment>
-  )
-}
-
 const App = () => {
   return (
     <NavigationContainer>
@@ -152,26 +138,38 @@ const App = () => {
 }
 
 const styles = StyleSheet.create({
-  button: {
+  accountButton: {
     marginLeft: width - 80,
     ...Platform.select({
       ios: {
-        marginTop: 80,
+        marginTop: 55,
       },
       android: {
         marginTop: 70,
       },
     }),
-    alignItems: 'center',
+    backgroundColor: '#1ea853',
+    borderColor: '#188441',
+    borderRadius: 25,
+    borderWidth: 2,
+  },
+  button: {
+    ...Platform.select({
+      ios: {
+        marginTop: 90,
+      },
+      android: {
+        marginTop: 70,
+      },
+    }),
     backgroundColor: '#1ea853',
     borderColor: '#188441',
     borderRadius: 25,
     borderWidth: 2,
     height: 25,
-    justifyContent: 'center',
-    left: 15,
-    top: -Dimensions.get('screen').height + 85,
-    width: 80
+    left: 20,
+    top: -Dimensions.get('screen').height + 120,
+    width: 60
   },
   buttonText: {
     color: '#ffffff',

@@ -14,7 +14,7 @@ const ImagesCarousel = ({ Images } : { Images : string[] }) => {
 
   const images = []
   const imageViews = []
-
+  
   for (let i = 0; i < Images.length; i++) {
     images.push({ uri: Images[i] })
     imageViews.push(

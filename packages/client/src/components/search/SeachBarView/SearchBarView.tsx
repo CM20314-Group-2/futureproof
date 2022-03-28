@@ -12,6 +12,7 @@ const GET_COMPANY_DATA = gql`
       customerScore
       type
       profileText
+      profilePicture
     }
   }
 
