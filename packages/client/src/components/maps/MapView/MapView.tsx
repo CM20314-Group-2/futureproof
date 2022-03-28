@@ -7,6 +7,7 @@ import { LocationTypeWithRating } from '../../../../App'
 import { gql, useLazyQuery } from '@apollo/client'
 import { DisplayableBusiness } from '@futureproof/typings'
 import { StackScreenProps } from '@react-navigation/stack'
+import BusinessView from '@components/business/BusinessView'
 
 const findBusinessInfo = gql `
   query getBusiness ($_id: ID!) {
@@ -25,8 +26,8 @@ const findBusinessInfo = gql `
 `
 
 export type RootStackParams = {
-  MapView : undefined
-  BusinessView : { businessToDisplay : DisplayableBusiness }
+  MapView : Parameters<typeof MapView>[0]
+  BusinessView : Parameters<typeof BusinessView>[0]
 }
 
 type Props = StackScreenProps<RootStackParams>
@@ -86,8 +87,9 @@ const MapView = ({ showRadius, radiusSize, locations, navigation } : ComponentPr
               coordinate = {marker}
             >
               <Pin onPress = {async () => { 
-                await getBusiness({ variables: { _id: marker.id } })
-                navigation.push('BusinessView', { businessToDisplay: data } ) 
+                console.log('test')
+                //await getBusiness({ variables: { _id: marker.id } })
+                //navigation.push('BusinessView', { businessToDisplay: data } ) 
               }} rating = {marker.business.sustainabilityScore || 0}/>
             </Marker>
           ))}

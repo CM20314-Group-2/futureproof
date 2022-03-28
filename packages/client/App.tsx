@@ -51,13 +51,13 @@ const client = new ApolloClient({
 const width = Dimensions.get('window').width
 
 export type RootStackParams = {
-  MapView : undefined
-  AccountView : undefined
-  PasswordView : undefined
-  PPView : undefined
-  ToSView : undefined
-  HelpView : undefined
-  BusinessView : { businessToDisplay : DisplayableBusiness }
+  MapView : Parameters<typeof MapView>[0]
+  AccountView : Parameters<typeof AccountView>[0]
+  PasswordView : Parameters<typeof PasswordView>
+  PPView : Parameters<typeof PPView>
+  ToSView : Parameters<typeof ToSView>
+  HelpView : Parameters<typeof HelpView>
+  BusinessView : Parameters<typeof BusinessView>[0]
 }
 
 // Initialise Stack Navigator
@@ -66,22 +66,15 @@ const Stack = createStackNavigator<RootStackParams>()
 type Props = StackScreenProps<RootStackParams>
 
 export const FeedScreen = ({ navigation } : Props) => {
-  const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
-  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
 
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <MapView showRadius={true} radiusSize={distance.value as number} businesses={data} navigation={navigation}/>
+        <MapComponent navigationProp={navigation}/>
         <SafeAreaView>
 
         </SafeAreaView>
         <MapSlideUpSheet navigationProp={navigation} />
-        <DistanceRadiusSelector
-          buttonStyle={styles.button}
-          buttonTextStyle={styles.buttonText}
-          onButtonPress={(selectedOption : Option) => setDistance(selectedOption)}
-        />
       </View>
     </ApolloProvider>
   )
@@ -126,6 +119,22 @@ export const AppNavigator = () => {
         options={{ title: '', headerTransparent: true }}
       />
     </Stack.Navigator>
+  )
+}
+
+export const MapComponent = ({ navigationProp } : Props) => {
+  const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
+  const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
+
+  return (
+    <React.Fragment>
+      <MapView showRadius={true} radiusSize={distance.value as number} locations={data?.locations} navigation={navigationProp}/>
+      <DistanceRadiusSelector
+        buttonStyle={styles.button}
+        buttonTextStyle={styles.buttonText}
+        onButtonPress={(selectedOption : Option) => setDistance(selectedOption)}
+      />
+    </React.Fragment>
   )
 }
 
