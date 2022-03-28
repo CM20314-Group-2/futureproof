@@ -88,8 +88,8 @@ const MapView = ({ showRadius, radiusSize, locations, navigation } : ComponentPr
             >
               <Pin onPress = {async () => { 
                 console.log('test')
-                //await getBusiness({ variables: { _id: marker.id } })
-                //navigation.push('BusinessView', { businessToDisplay: data } ) 
+                await getBusiness({ variables: { _id: marker.id } })
+                navigation.push('BusinessView', { businessToDisplay: data } ) 
               }} rating = {marker.business.sustainabilityScore || 0}/>
             </Marker>
           ))}
