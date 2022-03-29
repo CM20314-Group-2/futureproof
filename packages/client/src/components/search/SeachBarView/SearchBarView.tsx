@@ -13,6 +13,7 @@ const GET_COMPANY_DATA = gql`
       type
       profileText
       profilePicture
+      images
     }
   }
 
@@ -35,7 +36,7 @@ const SearchBarView = () => {
     const delayDebounceFn = setTimeout(() => {
       executeSearch().then(() => {
         if (data !== undefined) {
-          console.log('data', data)
+          //console.log('data', data)
           globalData([data.businessByName])
         }
       }, () => console.log(error))

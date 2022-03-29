@@ -1,7 +1,8 @@
 import RatingView from '@components/ratings/RatingView'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
 
 type ComponentProps = Pick<
   DisplayableBusiness,
@@ -15,7 +16,9 @@ const RatingsView = ({
   <View style={styles.compoundStyle}>
     <Text style={styles.headingText}>RATINGS</Text>
     <View style={styles.ratingsHorizontalStyle}>
-      <RatingView ratingName='Consumer' ratingValue={customerScore}/>
+      <Pressable onPress={() => {return}}>
+        <RatingView ratingName='Consumer' ratingValue={customerScore}/>
+      </Pressable>
       <RatingView ratingName='FutureProof' ratingValue={sustainabilityScore}/>
     </View>
   </View>

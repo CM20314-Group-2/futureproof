@@ -51,6 +51,7 @@ export type Business = {
   equalPayScore?: Maybe<Scalars['Float']>
   humanRightsScore?: Maybe<Scalars['Float']>
   id: Scalars['ID']
+  images?: Maybe<Array<Scalars['String']>>
   locations: Array<Location>
   name: Scalars['String']
   owner?: Maybe<User>
@@ -521,6 +522,11 @@ export type BusinessResolvers<
     ContextType
   >
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  images?: Resolver<
+    Maybe<Array<ResolversTypes['String']>>,
+    ParentType,
+    ContextType
+  >
   locations?: Resolver<
     Array<ResolversTypes['Location']>,
     ParentType,
@@ -981,6 +987,12 @@ export interface Loaders<
       TContext
     >
     id?: LoaderResolver<Scalars['ID'], Business, {}, TContext>
+    images?: LoaderResolver<
+      Maybe<Array<Scalars['String']>>,
+      Business,
+      {},
+      TContext
+    >
     locations?: LoaderResolver<Array<Location>, Business, {}, TContext>
     name?: LoaderResolver<Scalars['String'], Business, {}, TContext>
     owner?: LoaderResolver<Maybe<User>, Business, {}, TContext>

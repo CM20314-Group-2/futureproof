@@ -2,7 +2,6 @@ import React from 'react'
 import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
 
 interface ComponentProps {
-  onPress : () => void,
   rating : number,
   style ?: ViewStyle
 }
@@ -16,7 +15,7 @@ interface ComponentProps {
  * @param style the styling for the pressable so it can be moved and scaled if needed
  * @returns a custom pin component
  */
-const Pin = ({ onPress, rating, style } : ComponentProps) => {
+const Pin = ({ rating, style } : ComponentProps) => {
 
   // if the rating is > 66 then the pin will be green, between 33 and 66 the pin will be yellow, and red if < 33
   const colour = rating >= 33 ? rating > 66 ? ['#1ea853', '#188441'] : ['#bed62e', '#a8bd29'] : ['#e2382d', '#842b18']
@@ -24,7 +23,6 @@ const Pin = ({ onPress, rating, style } : ComponentProps) => {
   return (
     <Pressable
       style={[style, styles.pressable]}
-      onPress={onPress}
       testID='pin-pressable'
     >
       <View

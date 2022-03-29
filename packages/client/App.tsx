@@ -32,6 +32,12 @@ const GET_COORDINATES = gql `
       business {
         sustainabilityScore
         id
+        name
+        customerScore
+        type
+        profileText
+        profilePicture
+        images
       }
     }
   }`
