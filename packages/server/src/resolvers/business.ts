@@ -112,7 +112,7 @@ export default {
       const select = new PrismaSelect(info, {
         defaultFields: defaultBusinessFields,
       }).value
-      return prisma.business.findFirst({
+      return prisma.business.findMany({
         where: {
           name: {
             mode: 'insensitive',
