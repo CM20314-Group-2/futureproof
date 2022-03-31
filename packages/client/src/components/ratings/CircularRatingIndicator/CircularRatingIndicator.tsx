@@ -45,7 +45,7 @@ const CircularRatingIndicator = ({ circleWidth, circleHeight, progressBarWidth, 
       <Text
         style={StyleSheet.flatten([styles.ratingValueStyle, { top: (circleHeight / 2) - ((progressBarWidth * 1.5) / 2) - 2, fontSize: progressBarWidth * 1.5, color: ratingToColour(progressValue) }])}
         testID={'rating-value-text'}>
-        { progressValue }
+        { Math.round(progressValue) }
       </Text>
       <Text
         style={StyleSheet.flatten([styles.ratingNameStyle, { top: (circleHeight / 2) + ((progressBarWidth * 1.5) / 2) + 2, fontSize: 9, color: ratingToColour(progressValue) }])}

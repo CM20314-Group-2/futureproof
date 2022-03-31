@@ -1,24 +1,14 @@
 import Pin from '@components/maps/Pin'
+import { LocationTypeWithRating, NavigationProps } from '@futureproof/client/App'
 import * as CurrentLocation from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import Map, { Circle, Marker } from 'react-native-maps'
-import { LocationTypeWithRating } from '../../../../App'
-import { DisplayableBusiness } from '@futureproof/typings'
-import { StackScreenProps } from '@react-navigation/stack'
 
-export type RootStackParams = {
-  MapView : Parameters<typeof MapView>[0]
-  BusinessView : { businessToDisplay : DisplayableBusiness }
-}
-
-type Props = StackScreenProps<RootStackParams>
-
-interface ComponentProps {
+interface ComponentProps extends NavigationProps {
   showRadius : boolean,
   radiusSize ?: number,
   locations : LocationTypeWithRating[] | undefined
-  navigation : Props
 }
 
 const MapView = ({ showRadius, radiusSize, locations, navigation } : ComponentProps) => {
@@ -62,18 +52,18 @@ const MapView = ({ showRadius, radiusSize, locations, navigation } : ComponentPr
               testID='circle'
             /> : null
           }
-          { locations?.map((marker) => (
-            <Marker
-              key = {marker.id}
-              coordinate = {marker}
-              onPress = {() => { 
-                navigation.push('BusinessView', { businessToDisplay: marker.business } ) 
-                
-              }}
-            >
-              <Pin rating = {marker.business.sustainabilityScore || 0}/>
-            </Marker>
-          ))}
+          { locations === undefined ? null :
+            locations.map((marker) => (
+              <Marker
+                key = {marker.id}
+                coordinate = {marker}
+                onPress = {() => { 
+                  navigation.push('BusinessView', { ...marker } ) 
+                }}
+              >
+                <Pin rating = {marker.business.sustainabilityScore || 0}/>
+              </Marker>
+            ))}
         </Map> : <Text> Error: Could not find location </Text>
       }
     </React.Fragment>

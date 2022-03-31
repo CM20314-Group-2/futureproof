@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import ResultSorter from '@components/search/ResultSorter'
-import SearchBarView from '@components/search/SeachBarView'
+import SearchBar from '@components/search/SeachBar'
 import SearchView from '@components/search/SearchView'
 import React from 'react'
 import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native'
@@ -23,7 +23,7 @@ class MapSlideUpSheet extends React.Component {
               <View aria-label='SearchPanel' style={styles.panelHeader}></View>
             </TouchableOpacity>
             <View style={styles.container}>
-              <SearchBarView />
+              <SearchBar />
               <ResultSorter />
               <SearchView navigation={this.props.navigationProp} />
             </View>

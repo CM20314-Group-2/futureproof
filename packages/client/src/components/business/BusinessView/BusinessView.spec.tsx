@@ -10,10 +10,11 @@ const ExampleBusiness : DisplayableBusiness =  {
   sustainabilityScore: 80,
   customerScore: 65,
   type: BusinessType.Cafe,
-  profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png'
+  profilePicture: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png',
+  images: []
 }
 
 it('matches snapshot', () => {
-  const { toJSON } = render(<BusinessView businessToDisplay={ExampleBusiness}/>)
+  const { toJSON } = render(<BusinessView route={{ params: { business: ExampleBusiness } }}/>)
   expect(toJSON()).toMatchSnapshot()
 })

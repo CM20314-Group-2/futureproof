@@ -1,11 +1,12 @@
 import { gql, makeVar, useLazyQuery } from '@apollo/client'
 import { DisplayableBusiness } from '@futureproof/typings'
-import React, { useEffect, useState } from 'react'
+import debounce from 'lodash.debounce'
+import React, { useCallback, useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Icon, Input } from 'react-native-elements'
 
 const GET_COMPANY_DATA = gql`
-  query getBussiness ($_value: String!) {
+  query getBusiness ($_value: String!) {
     businessByName (name: $_value) {
       id
       name
@@ -20,30 +21,33 @@ const GET_COMPANY_DATA = gql`
  
 `
 
-export const globalData = makeVar<DisplayableBusiness[]>([])
+export const searchResults = makeVar<DisplayableBusiness[]>([])
 
-const SearchBarView = () => {
+const SearchBar = () => {
   const [searchText, onChangeText] = useState('')
 
-  const [executeSearch, { data, error }] = useLazyQuery<{
-    businessByName : DisplayableBusiness
+  const [executeSearch] = useLazyQuery<{
+    businessByName : [DisplayableBusiness]
   }>(
     GET_COMPANY_DATA, { variables: { _value: searchText } }
   )
 
   useEffect(() => {
-    // Debounce query 
-    const delayDebounceFn = setTimeout(() => {
-      executeSearch().then(() => {
-        if (data !== undefined) {
-          //console.log('data', data)
-          globalData([data.businessByName])
-        }
-      }, () => console.log(error))
-
-    }, 300)
-    return () => clearTimeout(delayDebounceFn)
+    if (searchText.length > 0) {
+      debouncedSearch()
+    }
   }, [searchText])
+
+  const search = async () => {
+    const { data } = await executeSearch()
+    if (data !== undefined){
+      searchResults(data.businessByName)
+    } else {
+      searchResults([])
+    }
+  }
+
+  const debouncedSearch = useCallback(debounce(search, 700), [search])
 
   return (
     <React.Fragment>
@@ -88,4 +92,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default SearchBarView
+export default SearchBar

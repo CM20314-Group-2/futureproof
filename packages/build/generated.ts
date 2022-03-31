@@ -229,7 +229,7 @@ export type MutationupdateUserArgs = {
 export type Query = {
   __typename?: 'Query'
   business?: Maybe<Business>
-  businessByName?: Maybe<Business>
+  businessByName?: Maybe<Array<Maybe<Business>>>
   businesses?: Maybe<Array<Maybe<Business>>>
   comment?: Maybe<Comment>
   comments?: Maybe<Array<Maybe<Comment>>>
@@ -775,7 +775,7 @@ export type QueryResolvers<
     RequireFields<QuerybusinessArgs, 'id'>
   >
   businessByName?: Resolver<
-    Maybe<ResolversTypes['Business']>,
+    Maybe<Array<Maybe<ResolversTypes['Business']>>>,
     ParentType,
     ContextType,
     RequireFields<QuerybusinessByNameArgs, 'name'>
