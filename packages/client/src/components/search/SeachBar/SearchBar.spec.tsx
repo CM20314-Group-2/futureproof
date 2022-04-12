@@ -1,7 +1,7 @@
 import { MockedProvider } from '@apollo/client/testing'
-import SearchBarView from '@components/search/SeachBarView'
-import { render } from '@testing-library/react-native'
+import SearchBar from '@components/search/SeachBarView'
 import { screen } from '@testing-library/dom'
+import { render } from '@testing-library/react-native'
 import userEvent from '@testing-library/user-event'
 
 // TODO - Complete tests when the search bar is properly connected
@@ -9,7 +9,7 @@ import userEvent from '@testing-library/user-event'
 it('matches snapshot', () => {
   const { toJSON } = render(
     <MockedProvider>
-      <SearchBarView />
+      <SearchBar />
     </MockedProvider>
   )
   expect(toJSON()).toMatchSnapshot()

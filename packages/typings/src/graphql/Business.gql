@@ -12,6 +12,7 @@ type Business {
   name: String!
   owner: User
   type: BusinessType!
+  images: [String!]
   locations: [Location!]!
   customerScore: Float
   profilePicture: String

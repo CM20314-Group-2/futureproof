@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "paths": {
       "@components/*": ["components/*"],
+      "@futureproof/client": ["*"],
     },
   },
   "include": ["**/*.ts", "**/*.tsx"],

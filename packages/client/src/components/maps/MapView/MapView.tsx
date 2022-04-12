@@ -1,17 +1,17 @@
 import Pin from '@components/maps/Pin'
+import { LocationTypeWithRating, NavigationProps } from '@futureproof/client/App'
 import * as CurrentLocation from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import Map, { Circle, Marker } from 'react-native-maps'
-import { LocationTypeWithRating } from '../../../../App'
 
-interface ComponentProps {
+interface ComponentProps extends NavigationProps {
   showRadius : boolean,
   radiusSize ?: number,
-  businesses : { locations : LocationTypeWithRating[] } | undefined
+  locations : LocationTypeWithRating[] | undefined
 }
 
-const MapView = ({ showRadius, radiusSize, businesses } : ComponentProps) => {
+const MapView = ({ showRadius, radiusSize, locations, navigation } : ComponentProps) => {
   const [location, setLocation] = useState<CurrentLocation.LocationObject | null>(null)
 
   useEffect(() => {
@@ -52,14 +52,18 @@ const MapView = ({ showRadius, radiusSize, businesses } : ComponentProps) => {
               testID='circle'
             /> : null
           }
-          { businesses?.locations.map((marker) => (
-            <Marker
-              key = {marker.id}
-              coordinate = {marker}
-            >
-              <Pin onPress = {() => {return}} rating = {marker.business.sustainabilityScore || 0}/>
-            </Marker>
-          ))}
+          { locations === undefined ? null :
+            locations.map((marker) => (
+              <Marker
+                key = {marker.id}
+                coordinate = {marker}
+                onPress = {() => { 
+                  navigation.push('BusinessView', { ...marker } ) 
+                }}
+              >
+                <Pin rating = {marker.business.sustainabilityScore || 0}/>
+              </Marker>
+            ))}
         </Map> : <Text> Error: Could not find location </Text>
       }
     </React.Fragment>

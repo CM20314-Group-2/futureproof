@@ -6,7 +6,7 @@ type Query {
   userByEmail(email: String!): User
   businesses: [Business]
   business(id: ID!): Business
-  businessByName(name: String!): Business
+  businessByName(name: String!): [Business]
   reviews: [Review]
   review(id: ID!): Review
   comments: [Comment]

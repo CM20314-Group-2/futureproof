@@ -51,6 +51,7 @@ export type Business = {
   equalPayScore?: Maybe<Scalars['Float']>
   humanRightsScore?: Maybe<Scalars['Float']>
   id: Scalars['ID']
+  images?: Maybe<Array<Scalars['String']>>
   locations: Array<Location>
   name: Scalars['String']
   owner?: Maybe<User>
@@ -228,7 +229,7 @@ export type MutationupdateUserArgs = {
 export type Query = {
   __typename?: 'Query'
   business?: Maybe<Business>
-  businessByName?: Maybe<Business>
+  businessByName?: Maybe<Array<Maybe<Business>>>
   businesses?: Maybe<Array<Maybe<Business>>>
   comment?: Maybe<Comment>
   comments?: Maybe<Array<Maybe<Comment>>>
@@ -521,6 +522,11 @@ export type BusinessResolvers<
     ContextType
   >
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  images?: Resolver<
+    Maybe<Array<ResolversTypes['String']>>,
+    ParentType,
+    ContextType
+  >
   locations?: Resolver<
     Array<ResolversTypes['Location']>,
     ParentType,
@@ -769,7 +775,7 @@ export type QueryResolvers<
     RequireFields<QuerybusinessArgs, 'id'>
   >
   businessByName?: Resolver<
-    Maybe<ResolversTypes['Business']>,
+    Maybe<Array<Maybe<ResolversTypes['Business']>>>,
     ParentType,
     ContextType,
     RequireFields<QuerybusinessByNameArgs, 'name'>
@@ -981,6 +987,12 @@ export interface Loaders<
       TContext
     >
     id?: LoaderResolver<Scalars['ID'], Business, {}, TContext>
+    images?: LoaderResolver<
+      Maybe<Array<Scalars['String']>>,
+      Business,
+      {},
+      TContext
+    >
     locations?: LoaderResolver<Array<Location>, Business, {}, TContext>
     name?: LoaderResolver<Scalars['String'], Business, {}, TContext>
     owner?: LoaderResolver<Maybe<User>, Business, {}, TContext>

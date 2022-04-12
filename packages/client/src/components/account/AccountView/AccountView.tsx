@@ -1,5 +1,5 @@
 import LabelInput from '@components/account/LabelInput'
-import { StackScreenProps } from '@react-navigation/stack'
+import { NavigationProps } from '@futureproof/client/App'
 import React, { useState } from 'react'
 import {
   Dimensions, Image, Pressable, StyleSheet, Text, View
@@ -7,18 +7,9 @@ import {
 
 const width = Dimensions.get('window').width
 
-type RootStackParamList = {
-  MapView : undefined
-  AccountView : undefined
-  PasswordView : undefined
-  PPView : undefined
-  ToSView : undefined
-  HelpView : undefined
-}
+type ComponentProps = NavigationProps
 
-type Props = StackScreenProps<RootStackParamList>
-
-const AccountView = ({ navigation } : Props) => {
+const AccountView = ({ navigation } : ComponentProps) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
 
@@ -43,22 +34,22 @@ const AccountView = ({ navigation } : Props) => {
         secureText={false}
       />
       <Text style={styles.bodyText}>Profile Information</Text>
-      <Pressable onPress={() => navigation.push('PasswordView')}>
+      <Pressable onPress={() => navigation.push('PasswordView', [])}>
         <Text style={styles.bodyText}>
           {'Change Password                                          >'}
         </Text>
       </Pressable>
-      <Pressable onPress={() => navigation.push('PPView')}>
+      <Pressable onPress={() => navigation.push('PPView', [])}>
         <Text style={styles.bodyText}>
           {'Privacy Policy                                                 >'}
         </Text>
       </Pressable>
-      <Pressable onPress={() => navigation.push('ToSView')}>
+      <Pressable onPress={() => navigation.push('ToSView', [])}>
         <Text style={styles.bodyText}>
           {'Terms of Service                                            >'}
         </Text>
       </Pressable>
-      <Pressable onPress={() => navigation.push('HelpView')}>
+      <Pressable onPress={() => navigation.push('HelpView', [])}>
         <Text style={styles.bodyText}>
           {
             'Help                                                                  >'

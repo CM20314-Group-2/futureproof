@@ -1,16 +1,15 @@
 import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
-import AccountButton from '@components/account/AccountButton'
 import AccountView from '@components/account/AccountView'
 import HelpView from '@components/account/HelpView'
 import PasswordView from '@components/account/PasswordView'
 import PPView from '@components/account/PPView'
 import ToSView from '@components/account/ToSView'
-import BusinessView from '@components/business/BusinessView'
+import BusinessView, { ComponentProps as BusinessViewProps } from '@components/business/BusinessView'
 import { Option } from '@components/common/OptionList'
 import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/maps/DistanceRadiusSelector'
 import MapSlideUpSheet from '@components/maps/MapSlideUpSheet'
 import MapView from '@components/maps/MapView'
-import { Business, DisplayableBusiness, Location } from '@futureproof/typings'
+import { DisplayableBusiness, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import Constants from 'expo-constants'
@@ -18,9 +17,7 @@ import React, { useState } from 'react'
 import {
   Dimensions,
   Platform, SafeAreaView,
-  StyleSheet,
-  TouchableOpacity,
-  View
+  StyleSheet, View
 } from 'react-native'
 
 const GET_COORDINATES = gql `
@@ -31,6 +28,13 @@ const GET_COORDINATES = gql `
       longitude
       business {
         sustainabilityScore
+        id
+        name
+        customerScore
+        type
+        profileText
+        profilePicture
+        images
       }
     }
   }`
@@ -38,7 +42,7 @@ const GET_COORDINATES = gql `
 export type LocationType = Pick<Location, 'latitude' | 'longitude' | 'id'>;
 
 export interface LocationTypeWithRating extends LocationType {
-  business : Pick<Business, 'sustainabilityScore'>
+  business : DisplayableBusiness
 }
 
 // Initialise Apollo Client
@@ -47,37 +51,28 @@ const client = new ApolloClient({
   cache: new InMemoryCache(), // Cache
 })
 
-const width = Dimensions.get('window').width
-
-export type RootStackParams = {
-  MapView : undefined
-  AccountView : undefined
-  PasswordView : undefined
-  PPView : undefined
-  ToSView : undefined
-  HelpView : undefined
-  BusinessView : { businessToDisplay : DisplayableBusiness }
+export type RootStackParamList = {
+  MapView : Parameters<typeof MapView>[0]
+  AccountView : Parameters<typeof AccountView>[0]
+  PasswordView : Parameters<typeof PasswordView>
+  PPView : Parameters<typeof PPView>
+  ToSView : Parameters<typeof ToSView>
+  HelpView : Parameters<typeof HelpView>
+  BusinessView : BusinessViewProps
 }
 
 // Initialise Stack Navigator
-const Stack = createStackNavigator<RootStackParams>()
+const Stack = createStackNavigator<RootStackParamList>()
+export type NavigationProps = StackScreenProps<RootStackParamList>
 
-type Props = StackScreenProps<RootStackParams>
-
-export const FeedScreen = ({ navigation } : Props) => {
-
+export const FeedScreen = ({ navigation, route } : NavigationProps) => {
 
   return (
     <ApolloProvider client={client}>
       <View style={styles.container}>
-        <MapComponent />
+        <MapComponent navigation={navigation} route={route} />
         <SafeAreaView>
-          <TouchableOpacity
-            onPress={() => navigation.push('AccountView')}
-            style={styles.button}
-          >
-            <AccountButton />
-          </TouchableOpacity>
+
         </SafeAreaView>
         <MapSlideUpSheet navigationProp={navigation} />
       </View>
@@ -127,13 +122,19 @@ export const AppNavigator = () => {
   )
 }
 
-export const MapComponent = () => {
+export const MapComponent = ({ navigation, route } : NavigationProps) => {
   const [distance, setDistance] = useState<Option>(DISTANCES[INITIAL_DISTANCE_INDEX])
   const { data } = useQuery<{ locations : LocationTypeWithRating[]}>(GET_COORDINATES)
 
   return (
     <React.Fragment>
-      <MapView showRadius={true} radiusSize={distance.value as number} businesses={data}/>
+      <MapView
+        showRadius={true}
+        radiusSize={Number(distance.value)}
+        locations={data?.locations}
+        navigation={navigation}
+        route={route}
+      />
       <DistanceRadiusSelector
         buttonStyle={styles.button}
         buttonTextStyle={styles.buttonText}
@@ -153,25 +154,22 @@ const App = () => {
 
 const styles = StyleSheet.create({
   button: {
-    marginLeft: width - 80,
     ...Platform.select({
       ios: {
-        marginTop: 80,
+        marginTop: 90,
       },
       android: {
         marginTop: 70,
       },
     }),
-    alignItems: 'center',
     backgroundColor: '#1ea853',
     borderColor: '#188441',
     borderRadius: 25,
     borderWidth: 2,
     height: 25,
-    justifyContent: 'center',
-    left: 15,
-    top: -Dimensions.get('screen').height + 85,
-    width: 80
+    left: 20,
+    top: -Dimensions.get('screen').height + 120,
+    width: 60
   },
   buttonText: {
     color: '#ffffff',
