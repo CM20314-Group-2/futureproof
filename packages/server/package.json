@@ -18,8 +18,8 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.17.2",
-    "@paljs/plugins": "^4.0.16",
     "@futureproof/typings": "*",
+    "@paljs/plugins": "^4.0.16",
     "@prisma/client": "^3.9.1",
     "apollo-server": "^3.6.2",
     "fastify": "^3.27.1",

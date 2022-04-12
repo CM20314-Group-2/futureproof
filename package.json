@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "start": "lerna run start",
-    "test": "lerna run test",
-    "lint": "lerna run lint",
-    "build": "lerna run build",
-    "postinstall": "yarn run build && lerna run postinstall"
+    "start": "yarn workspaces foreach -p start",
+    "test": "yarn workspaces foreach -p test",
+    "lint": "yarn workspaces foreach -p lint",
+    "build": "yarn workspaces foreach -p run build",
+    "postinstall": "yarn run build && yarn workspaces foreach -p run postinstall"
   },
   "workspaces": [
     "packages/*"
@@ -16,5 +16,6 @@
   "dependencies": {
     "@babel/runtime": "^7.17.8",
     "react-native-gesture-handler": "^2.3.2"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
