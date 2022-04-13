@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "paths": {
       "@components/*": ["components/*"],
+      "@styles/*": ["styles/*"],
       "@futureproof/client": ["*"],
     },
   },
