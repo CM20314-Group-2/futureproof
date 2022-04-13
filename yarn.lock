@@ -1179,7 +1179,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-object-assign@npm:^7.0.0, @babel/plugin-transform-object-assign@npm:^7.16.7":
+"@babel/plugin-transform-object-assign@npm:^7.0.0, @babel/plugin-transform-object-assign@npm:^7.10.4":
   version: 7.16.7
   resolution: "@babel/plugin-transform-object-assign@npm:7.16.7"
   dependencies:
@@ -1967,6 +1967,7 @@ __metadata:
     "@react-navigation/stack": ^6.1.1
     "@testing-library/jest-native": ^4.0.4
     "@testing-library/react-native": ^9.0.0
+    "@types/color": ^3.0.3
     "@types/ip": ^1.1.0
     "@types/jest": ^27.4.0
     "@types/lodash.debounce": ^4.0.6
@@ -1978,6 +1979,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.12.0
     babel-jest: ^27.5.1
     babel-plugin-module-resolver: ^4.1.0
+    color: ^4.2.3
     eslint: ^8.9.0
     eslint-plugin-react: ^7.28.0
     eslint-plugin-react-native: ^4.0.0
@@ -1997,15 +1999,15 @@ __metadata:
     react-dom: 17.0.1
     react-native: 0.64.3
     react-native-elements: ^3.4.2
-    react-native-gesture-handler: ^2.2.0
+    react-native-gesture-handler: ~2.1.0
     react-native-image-viewing: ^0.2.1
     react-native-maps: ^0.29.4
     react-native-navigation: ^7.24.3-hotfix.1
     react-native-open-maps: ^0.4.0
-    react-native-reanimated: ^2.4.1
-    react-native-safe-area-context: ^3.4.1
-    react-native-screens: ^3.12.0
-    react-native-svg: ^12.1.1
+    react-native-reanimated: ~2.3.1
+    react-native-safe-area-context: 3.3.2
+    react-native-screens: ~3.10.1
+    react-native-svg: 12.1.1
     react-native-web: 0.17.1
     react-navigation: ^4.4.4
     react-test-renderer: ^17.0.2
@@ -3735,6 +3737,31 @@ __metadata:
     "@types/connect": "*"
     "@types/node": "*"
   checksum: e17840c7d747a549f00aebe72c89313d09fbc4b632b949b2470c5cb3b1cb73863901ae84d9335b567a79ec5efcfb8a28ff8e3f36bc8748a9686756b6d5681f40
+  languageName: node
+  linkType: hard
+
+"@types/color-convert@npm:*":
+  version: 2.0.0
+  resolution: "@types/color-convert@npm:2.0.0"
+  dependencies:
+    "@types/color-name": "*"
+  checksum: 027b68665dc2278cc2d83e796ada0a05a08aa5a11297e227c48c7f9f6eac518dec98578ab0072bd211963d3e4b431da70b20ea28d6c3136d0badfd3f9913baee
+  languageName: node
+  linkType: hard
+
+"@types/color-name@npm:*":
+  version: 1.1.1
+  resolution: "@types/color-name@npm:1.1.1"
+  checksum: b71fcad728cc68abcba1d405742134410c8f8eb3c2ef18113b047afca158ad23a4f2c229bcf71a38f4a818dead375c45b20db121d0e69259c2d81e97a740daa6
+  languageName: node
+  linkType: hard
+
+"@types/color@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@types/color@npm:3.0.3"
+  dependencies:
+    "@types/color-convert": "*"
+  checksum: 4a54a6eca687b1f19d393c6c44e292009e913fa2377b5b815d1cd04470131087d7a799718d9e66a970f43e6ba16e7056a5b40b49d2d0d1d0f1530aff23864528
   languageName: node
   linkType: hard
 
@@ -6748,7 +6775,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-string@npm:^1.6.0":
+"color-string@npm:^1.6.0, color-string@npm:^1.9.0":
   version: 1.9.0
   resolution: "color-string@npm:1.9.0"
   dependencies:
@@ -6774,6 +6801,16 @@ __metadata:
     color-convert: ^1.9.3
     color-string: ^1.6.0
   checksum: f81220e8b774d35865c2561be921f5652117638dcda7ca4029262046e37fc2444ac7bbfdd110cf1fd9c074a4ee5eda8f85944ffbdda26186b602dd9bb05f6400
+  languageName: node
+  linkType: hard
+
+"color@npm:^4.2.3":
+  version: 4.2.3
+  resolution: "color@npm:4.2.3"
+  dependencies:
+    color-convert: ^2.0.1
+    color-string: ^1.9.0
+  checksum: 0579629c02c631b426780038da929cca8e8d80a40158b09811a0112a107c62e10e4aad719843b791b1e658ab4e800558f2e87ca4522c8b32349d497ecb6adeb4
   languageName: node
   linkType: hard
 
@@ -7325,7 +7362,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-select@npm:^2.0.0":
+"css-select@npm:^2.0.0, css-select@npm:^2.1.0":
   version: 2.1.0
   resolution: "css-select@npm:2.1.0"
   dependencies:
@@ -7337,7 +7374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-select@npm:^4.1.3, css-select@npm:^4.2.1":
+"css-select@npm:^4.1.3":
   version: 4.2.1
   resolution: "css-select@npm:4.2.1"
   dependencies:
@@ -14565,7 +14602,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mockdate@npm:^3.0.5":
+"mockdate@npm:^3.0.2, mockdate@npm:^3.0.5":
   version: 3.0.5
   resolution: "mockdate@npm:3.0.5"
   checksum: 72b66786d9e072379693f80bf9fb82eb5153c9741030a4294184e3ccaf952d0713fae8966f77780580cf902f8ec7ccc95577b0ad47980d255e2ffb71fc7ca49c
@@ -16827,7 +16864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:^2.2.0, react-native-gesture-handler@npm:^2.3.2":
+"react-native-gesture-handler@npm:^2.3.2":
   version: 2.3.2
   resolution: "react-native-gesture-handler@npm:2.3.2"
   dependencies:
@@ -16840,6 +16877,19 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: d0d3cc4047036296dc3c2322fdba543a39cfa0662dd7bb5e334b2984ee342e6428c3c93521c22b16e74182ebfc39d1e89c0b8c9aff3caea47aa7af5fb7ba95a9
+  languageName: node
+  linkType: hard
+
+"react-native-gesture-handler@npm:~2.1.0":
+  version: 2.1.3
+  resolution: "react-native-gesture-handler@npm:2.1.3"
+  dependencies:
+    "@egjs/hammerjs": ^2.0.17
+    hoist-non-react-statics: ^3.3.0
+    invariant: ^2.2.4
+    lodash: ^4.17.21
+    prop-types: ^15.7.2
+  checksum: 479386ee9814f2e72ebc1cf9494f4a74f3652e87bd79ccf5d78c3dea455d924b3b41016dce3da466155304cd4c1dac019907ca2667e1d9da42ab3f28d4362e29
   languageName: node
   linkType: hard
 
@@ -16909,33 +16959,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-reanimated@npm:^2.4.1":
-  version: 2.5.0
-  resolution: "react-native-reanimated@npm:2.5.0"
+"react-native-reanimated@npm:~2.3.1":
+  version: 2.3.3
+  resolution: "react-native-reanimated@npm:2.3.3"
   dependencies:
-    "@babel/plugin-transform-object-assign": ^7.16.7
+    "@babel/plugin-transform-object-assign": ^7.10.4
     "@types/invariant": ^2.2.35
     invariant: ^2.2.4
     lodash.isequal: ^4.5.0
-    react-native-screens: ^3.11.1
-    setimmediate: ^1.0.5
+    mockdate: ^3.0.2
+    react-native-screens: ^3.4.0
     string-hash-64: ^1.0.3
   peerDependencies:
-    "@babel/preset-typescript": "*"
     react: "*"
     react-native: "*"
     react-native-gesture-handler: "*"
-  checksum: 39251ce1cd03f2398372a6e5c2e67d0fef7e3e04964ccac33419e34db687e88828751a602a020eaef34fd569eabba34bda994b4f8e2fc3f500f96063db941495
+  checksum: 3f5050a63b795bd60ece59d2f2fe7d604c16cb4212c437ec15fdef55ad16e163ab3f08465c8592e3237bf4492c48d11926801b06a20a497c56edaaf0d260a49a
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "react-native-safe-area-context@npm:3.4.1"
+"react-native-safe-area-context@npm:3.3.2":
+  version: 3.3.2
+  resolution: "react-native-safe-area-context@npm:3.3.2"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 86a0614c5bef60ff8e056cff3fd4200cc6d181653cb6c26992ab62061792474f4872d1f5d394234ec6da75ce8b2960c930f4d6a1b6af3b6579cf1c30b6d64bb5
+  checksum: 4feda1bbc9e18b3b279b972303f1866c46e37f331ef22cd2ff630599fdd8b2b8c7a84cc53420df595b89d95d0bce7496333fe28ea5c4b2330d9d1b7beab8f389
   languageName: node
   linkType: hard
 
@@ -16951,7 +17000,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:^3.11.1, react-native-screens@npm:^3.12.0":
+"react-native-screens@npm:^3.4.0":
   version: 3.13.1
   resolution: "react-native-screens@npm:3.13.1"
   dependencies:
@@ -16964,6 +17013,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-screens@npm:~3.10.1":
+  version: 3.10.2
+  resolution: "react-native-screens@npm:3.10.2"
+  dependencies:
+    react-freeze: ^1.0.0
+    warn-once: ^0.1.0
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 9b20b0c8ab6b9b03fb2bfdd9edbc5bdba93eec415095d121dd9444a930bc5c76774a4e169901f9fe3f3180cb7fb04fd9f66367f70e7a4397a1787bfd87b6e336
+  languageName: node
+  linkType: hard
+
 "react-native-size-matters@npm:^0.3.1":
   version: 0.3.1
   resolution: "react-native-size-matters@npm:0.3.1"
@@ -16973,16 +17035,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-svg@npm:^12.1.1":
-  version: 12.3.0
-  resolution: "react-native-svg@npm:12.3.0"
+"react-native-svg@npm:12.1.1":
+  version: 12.1.1
+  resolution: "react-native-svg@npm:12.1.1"
   dependencies:
-    css-select: ^4.2.1
+    css-select: ^2.1.0
     css-tree: ^1.0.0-alpha.39
   peerDependencies:
     react: "*"
     react-native: ">=0.50.0"
-  checksum: 9bed890d030819ed650fdc84ae8127f78f72a28d81a160dd574729b81f237c85be6a5ff4a0951b4dd28bd2836189f18afffef1fd6447fb3b6537c7ecd23f08c2
+  checksum: 20a9b2987bf5836821e51a0497fc2b598a859032fe168f80c6dcab3727bf26dc34bcb3197059e1e5775dfc91b6b20633502292d8c82e9aeb3e76807d03e0189d
   languageName: node
   linkType: hard
 
