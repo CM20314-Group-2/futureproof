@@ -1,5 +1,6 @@
+import { ratingToColour } from '@styles/index'
 import React from 'react'
-import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
+import { Pressable, StyleSheet, View, ViewStyle } from 'react-native'
 
 interface ComponentProps {
   rating : number,
@@ -17,8 +18,8 @@ interface ComponentProps {
  */
 const Pin = ({ rating, style } : ComponentProps) => {
 
-  // if the rating is > 66 then the pin will be green, between 33 and 66 the pin will be yellow, and red if < 33
-  const colour = rating >= 33 ? rating > 66 ? ['#1ea853', '#188441'] : ['#bed62e', '#a8bd29'] : ['#e2382d', '#842b18']
+  
+  const colour = ratingToColour(rating)
 
   return (
     <Pressable
@@ -26,17 +27,16 @@ const Pin = ({ rating, style } : ComponentProps) => {
       testID='pin-pressable'
     >
       <View
-        style={[styles.circle, { backgroundColor: colour[0] }]}
+        style={[styles.circle, { backgroundColor: colour.toString() }]}
         testID='pin'
       >
         <View
-          style={[styles.rating_circle, { backgroundColor: colour[1] }]}
+          style={[styles.rating_circle, { backgroundColor: colour.desaturate(0.25).toString() }]}
           testID='rating-background'
         >
-          <Text style={styles.text}>{rating.toFixed(0)}</Text>
         </View>
       </View>
-      <View style={[styles.triangle, { borderBottomColor: colour[0] }]}/>
+      <View style={[styles.triangle, { borderBottomColor: colour.toString() }]}/>
     </Pressable>
   )
 }

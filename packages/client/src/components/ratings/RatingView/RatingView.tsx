@@ -1,21 +1,21 @@
+import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
 import { Business } from '@futureproof/typings'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
 
 interface ComponentProps {
   ratingName : 'FutureProof' | 'Consumer'
-  ratingValue : Business['customerScore'] | Business['sustainabilityScore']
+  value : Business['customerScore'] | Business['sustainabilityScore']
 }
 
-const RatingView = ({ ratingName, ratingValue } : ComponentProps) => (
+const RatingView = ({ ratingName, value } : ComponentProps) => (
   <View style={styles.itemBackgroundStyle}>
     <View style={styles.ratingContainerStyle}>
       <CircularRatingIndicator
         circleWidth={150}
         circleHeight={150}
         progressBarWidth={14}
-        progressValue={ratingValue == null ? 0 : ratingValue}
+        progressValue={value == null ? 0 : value}
         ratingName={ratingName}
       />
       <Text style={styles.subtitleText}>Tap for Details</Text>
