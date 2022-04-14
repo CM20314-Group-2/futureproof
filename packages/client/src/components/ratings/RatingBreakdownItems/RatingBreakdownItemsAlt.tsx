@@ -9,7 +9,7 @@ interface Props {
 
 }
 
-const RatingBreakdownItems = ( {susRatings, susRatingsNames} : Props) => {
+const RatingBreakdownItems = ( { susRatings, susRatingsNames } : Props) => {
   
   const ratings = []
   
