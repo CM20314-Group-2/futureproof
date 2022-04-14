@@ -119,7 +119,6 @@ export type DisplayableBusiness = {
   sustainabilityCertificates?: Maybe<Array<Maybe<BusinessCertificate>>>
   sustainabilityRatings?: Maybe<Array<Maybe<Rating>>>
   sustainabilityScore?: Maybe<Scalars['Float']>
-  type: BusinessType
 }
 
 export type Location = {
@@ -649,7 +648,6 @@ export type DisplayableBusinessResolvers<
     ParentType,
     ContextType
   >
-  type?: Resolver<ResolversTypes['BusinessType'], ParentType, ContextType>
   isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
@@ -1109,7 +1107,6 @@ export interface Loaders<
       {},
       TContext
     >
-    type?: LoaderResolver<BusinessType, DisplayableBusiness, {}, TContext>
   }
 
   Location?: {

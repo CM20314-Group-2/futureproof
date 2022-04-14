@@ -3,23 +3,26 @@ import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
+import { NavigationProps } from '@futureproof/client/App'
 
-type ComponentProps = Pick<
-  DisplayableBusiness,
-  'customerScore' | 'sustainabilityScore'
->
+interface Props {
+  businessToDisplay : DisplayableBusiness
+  navigation : NavigationProps
+}
 
 const RatingsView = ({
-  customerScore,
-  sustainabilityScore,
-} : ComponentProps) => (
+  businessToDisplay,
+  navigation
+} : Props) => (
   <View style={styles.compoundStyle}>
     <Text style={styles.headingText}>RATINGS</Text>
     <View style={styles.ratingsHorizontalStyle}>
       <Pressable onPress={() => {return}}>
-        <RatingView ratingName='Consumer' ratingValue={customerScore}/>
+        <RatingView ratingName='Consumer' ratingValue={businessToDisplay.customerScore}/>
       </Pressable>
-      <RatingView ratingName='FutureProof' ratingValue={sustainabilityScore}/>
+      <Pressable onPress={() => {navigation.push('FutureProofRatingView', { businessToDisplay: businessToDisplay } )}}>
+        <RatingView ratingName='FutureProof' ratingValue={businessToDisplay.sustainabilityScore}/>
+      </Pressable>
     </View>
   </View>
 )

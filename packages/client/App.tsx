@@ -5,6 +5,7 @@ import PasswordView from '@components/account/PasswordView'
 import PPView from '@components/account/PPView'
 import ToSView from '@components/account/ToSView'
 import BusinessView, { ComponentProps as BusinessViewProps } from '@components/business/BusinessView'
+import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
 import { Option } from '@components/common/OptionList'
 import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/maps/DistanceRadiusSelector'
 import MapSlideUpSheet from '@components/maps/MapSlideUpSheet'
@@ -17,8 +18,9 @@ import React, { useState } from 'react'
 import {
   Dimensions,
   Platform, SafeAreaView,
-  StyleSheet, View
+  StyleSheet, TouchableOpacity, View
 } from 'react-native'
+import AccountButton from './src/components/account/AccountButton/AccountButton'
 
 const GET_COORDINATES = gql `
   query {
@@ -35,6 +37,16 @@ const GET_COORDINATES = gql `
         profileText
         profilePicture
         images
+        humanRightsScore
+        carbonScore
+        certificateScore
+        envProtectionScore
+        diversityScore
+        productSafetyScore
+        equalPayScore
+        taxScore
+        dataPrivacyScore
+        charitableScore
       }
     }
   }`
@@ -53,12 +65,13 @@ const client = new ApolloClient({
 
 export type RootStackParamList = {
   MapView : Parameters<typeof MapView>[0]
-  AccountView : Parameters<typeof AccountView>[0]
+  AccountView : undefined
   PasswordView : Parameters<typeof PasswordView>
   PPView : Parameters<typeof PPView>
   ToSView : Parameters<typeof ToSView>
   HelpView : Parameters<typeof HelpView>
   BusinessView : BusinessViewProps
+  FutureProofRatingView : BusinessViewProps
 }
 
 // Initialise Stack Navigator
@@ -72,10 +85,14 @@ export const FeedScreen = ({ navigation, route } : NavigationProps) => {
       <View style={styles.container}>
         <MapComponent navigation={navigation} route={route} />
         <SafeAreaView>
-
+          <TouchableOpacity
+            onPress={() => navigation.push('AccountView')}
+          >
+            <AccountButton />
+          </TouchableOpacity>
         </SafeAreaView>
         <MapSlideUpSheet navigationProp={navigation} />
-      </View>
+      </View> 
     </ApolloProvider>
   )
 }
@@ -117,6 +134,11 @@ export const AppNavigator = () => {
         name='BusinessView'
         component={BusinessView}
         options={{ title: '', headerTransparent: true }}
+      />
+      <Stack.Screen
+        name='FutureProofRatingView'
+        component={FutureProofRatingView}
+        options={{ title: 'Futureproof Ratings' }}
       />
     </Stack.Navigator>
   )
@@ -168,7 +190,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     height: 25,
     left: 20,
-    top: -Dimensions.get('screen').height + 120,
+    top: -Dimensions.get('screen').height + 180,
     width: 60
   },
   buttonText: {

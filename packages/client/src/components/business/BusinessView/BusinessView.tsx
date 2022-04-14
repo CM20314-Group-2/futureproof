@@ -35,7 +35,7 @@ interface Props {
   route : Pick<RouteProp<RootStackParamList, 'BusinessView'>, 'params'>
 } 
 
-const BusinessView = ({ route } : Props) => {
+const BusinessView = ({ navigation, route } : Props) => {
   return (
     <View>
       <SafeAreaView style={styles.businessViewStyle}>
@@ -56,10 +56,8 @@ const BusinessView = ({ route } : Props) => {
             profileText={route.params.business.profileText}
           />
           <RatingsView
-            customerScore={route.params.business.customerScore}
-            sustainabilityScore={
-              route.params.business.sustainabilityScore
-            }
+            businessToDisplay={route.params.business}
+            navigation={navigation}
           />
           <BusinessViewMap businessLocation={ExampleBusinessLocation} />
           <ImagesCarousel Images={route.params.business.images as string[]} />
