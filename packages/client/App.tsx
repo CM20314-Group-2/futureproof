@@ -20,7 +20,7 @@ import {
   Platform, SafeAreaView,
   StyleSheet, TouchableOpacity, View
 } from 'react-native'
-import AccountButton from './src/components/account/AccountButton/AccountButton'
+import AccountButton from '@components/account/AccountButton/AccountButton'
 
 const GET_COORDINATES = gql `
   query {
@@ -65,7 +65,7 @@ const client = new ApolloClient({
 
 export type RootStackParamList = {
   MapView : Parameters<typeof MapView>[0]
-  AccountView : undefined
+  AccountView : Parameters<typeof AccountView>[0] | undefined
   PasswordView : Parameters<typeof PasswordView>
   PPView : Parameters<typeof PPView>
   ToSView : Parameters<typeof ToSView>

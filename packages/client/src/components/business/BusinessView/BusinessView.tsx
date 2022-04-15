@@ -16,6 +16,8 @@ import {
   View
 } from 'react-native'
 import openMap from 'react-native-open-maps'
+import { NavigationProps } from '@futureproof/client/App'
+
 
 // PLACEHOLDER BUSINESS LOCATION -> Update to fetch graphQL
 export type ExampleLocationType = Pick<
@@ -32,6 +34,7 @@ const ExampleBusinessLocation : ExampleLocationType = {
 
 export interface ComponentProps {business : DisplayableBusiness}
 interface Props {
+  navigation : NavigationProps
   route : Pick<RouteProp<RootStackParamList, 'BusinessView'>, 'params'>
 } 
 

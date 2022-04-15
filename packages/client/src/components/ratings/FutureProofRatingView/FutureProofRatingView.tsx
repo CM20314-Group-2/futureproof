@@ -1,16 +1,10 @@
 import CertificatesList from '@components/ratings/CertificateList'
 import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
-import RatingBreakdownItems from '@components/ratings/RatingBreakdownItems'
 import RatingBreakdownItemsAlt from '@components/ratings/RatingBreakdownItems/RatingBreakdownItemsAlt'
-import { BusinessCertificate, DisplayableBusiness, Business, Rating } from '@futureproof/typings'
+import { BusinessCertificate, Business, Rating } from '@futureproof/typings'
 import React from 'react'
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, Dimensions } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Dimensions } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
-
-type ComponentProps = Pick<
-  DisplayableBusiness,
-  'sustainabilityScore' | 'sustainabilityCertificates' | 'sustainabilityRatings'
->
 
 type RootStackParamList = {
   FutureProofRatingView : { businessToDisplay : Business }
@@ -31,30 +25,60 @@ const width = Dimensions.get('window').width
 
 const FutureProofRatingView = ({ route } : Props ) => {
 
-  const ratings = []
-  const ratingsNames = []
+  const ratings : Rating[] = [
+    {
+      id : '1',
+      ratingName : 'Human Rights Score',
+      ratingValue : route.params.businessToDisplay.humanRightsScore as number
+    },
+    {
+      id : '2',
+      ratingName : 'Carbon Score',
+      ratingValue : route.params.businessToDisplay.carbonScore as number
+    },
+    {
+      id : '3',
+      ratingName : 'Certificate Score',
+      ratingValue : route.params.businessToDisplay.certificateScore as number
+    },
+    {
+      id : '4',
+      ratingName : 'ENV Protection Score',
+      ratingValue : route.params.businessToDisplay.envProtectionScore as number
+    },
+    {
+      id : '5',
+      ratingName : 'Diversity Score',
+      ratingValue : route.params.businessToDisplay.diversityScore as number
+    },
+    {
+      id : '6',
+      ratingName : 'Product Safety Score',
+      ratingValue : route.params.businessToDisplay.productSafetyScore as number
+    },
+    {
+      id : '7',
+      ratingName : 'Equal Pay Score',
+      ratingValue : route.params.businessToDisplay.equalPayScore as number
+    },
+    {
+      id : '8',
+      ratingName : 'Tax Score Score',
+      ratingValue : route.params.businessToDisplay.taxScore as number
+    },
+    {
+      id : '9',
+      ratingName : 'Data Privacy Score',
+      ratingValue : route.params.businessToDisplay.dataPrivacyScore as number
+    },
+    {
+      id : '10',
+      ratingName : 'Charitable Score',
+      ratingValue : route.params.businessToDisplay.charitableScore as number
+    },
 
-  ratings.push(route.params.businessToDisplay.humanRightsScore)
-  ratings.push(route.params.businessToDisplay.carbonScore)
-  ratings.push(route.params.businessToDisplay.certificateScore)
-  ratings.push(route.params.businessToDisplay.envProtectionScore)
-  ratings.push(route.params.businessToDisplay.diversityScore)
-  ratings.push(route.params.businessToDisplay.productSafetyScore)
-  ratings.push(route.params.businessToDisplay.equalPayScore)
-  ratings.push(route.params.businessToDisplay.taxScore)
-  ratings.push(route.params.businessToDisplay.dataPrivacyScore)
-  ratings.push(route.params.businessToDisplay.charitableScore)
-  
-  ratingsNames.push('Human Rights Score')
-  ratingsNames.push('Carbon Score')
-  ratingsNames.push('Certificate Score')
-  ratingsNames.push('ENV Protection Score')
-  ratingsNames.push('Diversity Score')
-  ratingsNames.push('Product Safety Score')
-  ratingsNames.push('Equal Pay Score')
-  ratingsNames.push('Tax Score')
-  ratingsNames.push('Data Privacy Score')
-  ratingsNames.push('Charitable Score')
+
+  ]
 
   return (
     <SafeAreaView style={styles.futureProofRatingViewStyle}>
@@ -64,7 +88,7 @@ const FutureProofRatingView = ({ route } : Props ) => {
           <CertificatesList certificates={route.params.businessToDisplay.sustainabilityCertificates as BusinessCertificate[]}/>
         </View>
         <Text style={styles.headingText}>BREAKDOWN</Text>
-        <RatingBreakdownItemsAlt susRatings={ratings} susRatingsNames={ratingsNames}/>
+        <RatingBreakdownItemsAlt ratingsToDisplay={ratings} />
       </ScrollView>
     </SafeAreaView>
   )
@@ -83,13 +107,6 @@ export const styles = StyleSheet.create({
     color: '#A0A0A0',
     fontSize: 12,
     paddingLeft: 20
-  },
-  ImageStyle: {
-    flex: 1,
-    resizeMode: 'contain',
-    width: width * 0.85,
-    height: width * 1.2
-
   }
 })
 

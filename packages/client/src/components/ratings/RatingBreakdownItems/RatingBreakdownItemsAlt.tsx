@@ -1,33 +1,19 @@
+import React from 'react'
 import RectangularRatingIndicator from '@components/ratings/RectangularRatingIndicator'
 import { Rating } from '@futureproof/typings'
-import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
-interface Props {
-  susRatings : number[]
-  susRatingsNames : string[]
-
-}
-
-const RatingBreakdownItems = ( { susRatings, susRatingsNames } : Props) => {
-  
-  const ratings = []
-  
-  for (let i = 0; i < susRatings.length; i++) {
-    ratings.push(
-      <RectangularRatingIndicator
-        key={i}
-        progressValue={susRatings[i]}
-        ratingName={susRatingsNames[i]}
-      />
-    )
-  }
+const RatingBreakdownItems = ({ ratingsToDisplay = [] } : { ratingsToDisplay ?: Rating[] }) => {
 
   return (
     <React.Fragment>
-      <View style={styles.rectangularRatingStyle}>
-        {ratings}
-      </View>
+      {ratingsToDisplay.map((rating) => {
+        return (
+          <View key={rating.id} style={styles.rectangularRatingStyle}>
+            <RectangularRatingIndicator progressValue={rating.ratingValue} ratingName={rating.ratingName}/>
+          </View>
+        )
+      })}
     </React.Fragment>
   )
 }

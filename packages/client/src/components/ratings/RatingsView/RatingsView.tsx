@@ -2,8 +2,9 @@ import RatingView from '@components/ratings/RatingView'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
-import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
 import { NavigationProps } from '@futureproof/client/App'
+
+
 
 interface Props {
   businessToDisplay : DisplayableBusiness

@@ -64,10 +64,6 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 10,
     width: '36%',
-  },
-  buttonStyle: {
-    marginBottom: 5
-
   }
 })
 
