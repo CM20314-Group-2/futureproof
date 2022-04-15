@@ -5,7 +5,6 @@ node_modules/
 package-lock.json
 dist/
 npm-debug.*
-yarn-error.log
 *.jks
 *.p8
 *.p12
@@ -16,6 +15,16 @@ web-build/
 coverage/
 packages/client/__generated__
 packages/build
+
+# Yarn
+yarn-error.log
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # macOS
 .DS_Store

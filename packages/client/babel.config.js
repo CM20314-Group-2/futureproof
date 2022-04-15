@@ -10,7 +10,9 @@ module.exports = function(api) {
         // root property does not seem to work
         alias: {
           '@components': './src/components',
-          '@typings': './src/typings/src/ts'
+          '@typings': './src/typings/src/ts',
+          '@styles': './src/styles',
+          '@futureproof/client': './src'
         },
         extensions: [
           '.ts',
