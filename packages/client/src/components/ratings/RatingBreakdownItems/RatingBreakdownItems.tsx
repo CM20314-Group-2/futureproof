@@ -3,6 +3,12 @@ import RectangularRatingIndicator from '@components/ratings/RectangularRatingInd
 import { Rating } from '@futureproof/typings'
 import { StyleSheet, View } from 'react-native'
 
+/**
+  * Creates a list of business sub-rating views (horizontal/rectangular rating views)
+  * 
+  * @param {Rating[]} ratings An array of a business' sub-ratings 
+  * @returns A list of views corresponding to the business sub-ratings passed in
+  */
 const RatingBreakdownItems = ({ ratingsToDisplay = [] } : { ratingsToDisplay ?: Rating[] }) => {
 
   return (
