@@ -17,5 +17,5 @@ export const ratingToColour = (rating : number | null) : Color => {
     throw new Error('ratingValue must be between 0 and 100')
   }
 
-  return new Color(BASE_COLOR).lightness(rating)
+  return new Color(BASE_COLOR).lightness(10 + ((rating) % 10) * 5)
 }
