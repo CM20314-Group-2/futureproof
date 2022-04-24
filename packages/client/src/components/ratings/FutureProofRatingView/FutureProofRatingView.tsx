@@ -21,6 +21,7 @@ const GET_SCORES = gql`
       equalPayScore
       humanRightsScore
       taxScore
+      productSafetyScore
     }
   }
 `
