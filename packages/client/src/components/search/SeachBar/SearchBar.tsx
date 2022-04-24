@@ -11,10 +11,21 @@ const GET_COMPANY_DATA = gql`
       id
       name
       customerScore
+      sustainabilityScore
       type
       profileText
       profilePicture
       images
+      humanRightsScore
+      carbonScore
+      certificateScore
+      envProtectionScore
+      diversityScore
+      productSafetyScore
+      equalPayScore
+      taxScore
+      dataPrivacyScore
+      charitableScore
     }
   }
 

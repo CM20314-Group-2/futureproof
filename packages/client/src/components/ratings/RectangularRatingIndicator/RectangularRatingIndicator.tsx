@@ -31,7 +31,8 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     height: 85,
     justifyContent: 'space-evenly',
-    padding: 10
+    padding: 10,
+    marginBottom: 15
   },
   indicatorStyle: {
     borderRadius: 5,

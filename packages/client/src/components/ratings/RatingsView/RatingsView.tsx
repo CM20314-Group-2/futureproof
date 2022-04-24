@@ -1,28 +1,31 @@
 import RatingView from '@components/ratings/RatingView'
+import { NavigationProps } from '@futureproof/client/App'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
-import FutureProofRatingView from '@components/ratings/FutureProofRatingView'
 
-type ComponentProps = Pick<
-  DisplayableBusiness,
-  'customerScore' | 'sustainabilityScore'
->
+
+
+interface Props {
+  business : DisplayableBusiness
+  navigation : NavigationProps
+}
 
 const RatingsView = ({
-  customerScore,
-  sustainabilityScore,
-} : ComponentProps) => (
-  <View style={styles.compoundStyle}>
-    <Text style={styles.headingText}>RATINGS</Text>
-    <View style={styles.ratingsHorizontalStyle}>
-      <Pressable onPress={() => {return}}>
-        <RatingView ratingName='Consumer' ratingValue={customerScore}/>
-      </Pressable>
-      <RatingView ratingName='FutureProof' ratingValue={sustainabilityScore}/>
+  business,
+  navigation,
+} : Props) => {
+  return (
+    <View style={styles.compoundStyle}>
+      <Text style={styles.headingText}>RATINGS</Text>
+      <View style={styles.ratingsHorizontalStyle}>
+        <Pressable onPress={() => {
+          navigation.navigation.push('FutureProofRatingView', { business } )}}>
+          <RatingView ratingName='FutureProof' ratingValue={business.sustainabilityScore}/>
+        </Pressable>
+      </View>
     </View>
-  </View>
-)
+  )}
 
 const styles = StyleSheet.create({
   compoundStyle: {
@@ -36,8 +39,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   ratingsHorizontalStyle: {
+    alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 })
 
