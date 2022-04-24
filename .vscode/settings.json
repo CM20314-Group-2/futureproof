@@ -9,6 +9,7 @@
     "**/*.snap.*": true
   },
   "cSpell.words": [
-    "futureproof"
+    "futureproof",
+    "Pressable"
   ]
 }
