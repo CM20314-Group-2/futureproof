@@ -1,7 +1,7 @@
 import Color from 'color'
 
 const BASE_COLOR = new Color('#080')
-const DEFAULT_COLOR = BASE_COLOR.darken(1)
+export const DEFAULT_COLOR = BASE_COLOR.darken(1)
 
 /**
  * Converts a numeric rating to a hex color string

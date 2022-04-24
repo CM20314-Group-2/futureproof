@@ -1,4 +1,5 @@
 import { ApolloClient, ApolloProvider, gql, InMemoryCache, useQuery } from '@apollo/client'
+import AccountButton from '@components/account/AccountButton/AccountButton'
 import AccountView from '@components/account/AccountView'
 import HelpView from '@components/account/HelpView'
 import PasswordView from '@components/account/PasswordView'
@@ -9,6 +10,7 @@ import { Option } from '@components/common/OptionList'
 import DistanceRadiusSelector, { DISTANCES, INITIAL_DISTANCE_INDEX } from '@components/maps/DistanceRadiusSelector'
 import MapSlideUpSheet from '@components/maps/MapSlideUpSheet'
 import MapView from '@components/maps/MapView'
+import FutureProofRatingView, { ComponentProps as FutureProofRatingViewProps } from '@components/ratings/FutureProofRatingView'
 import { DisplayableBusiness, Location } from '@futureproof/typings'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
@@ -17,7 +19,7 @@ import React, { useState } from 'react'
 import {
   Dimensions,
   Platform, SafeAreaView,
-  StyleSheet, View
+  StyleSheet, TouchableOpacity, View
 } from 'react-native'
 
 const GET_COORDINATES = gql `
@@ -35,6 +37,16 @@ const GET_COORDINATES = gql `
         profileText
         profilePicture
         images
+        humanRightsScore
+        carbonScore
+        certificateScore
+        envProtectionScore
+        diversityScore
+        productSafetyScore
+        equalPayScore
+        taxScore
+        dataPrivacyScore
+        charitableScore
       }
     }
   }`
@@ -53,12 +65,13 @@ const client = new ApolloClient({
 
 export type RootStackParamList = {
   MapView : Parameters<typeof MapView>[0]
-  AccountView : Parameters<typeof AccountView>[0]
+  AccountView : Parameters<typeof AccountView>[0] | undefined
   PasswordView : Parameters<typeof PasswordView>
   PPView : Parameters<typeof PPView>
   ToSView : Parameters<typeof ToSView>
   HelpView : Parameters<typeof HelpView>
   BusinessView : BusinessViewProps
+  FutureProofRatingView : FutureProofRatingViewProps
 }
 
 // Initialise Stack Navigator
@@ -68,57 +81,67 @@ export type NavigationProps = StackScreenProps<RootStackParamList>
 export const FeedScreen = ({ navigation, route } : NavigationProps) => {
 
   return (
-    <ApolloProvider client={client}>
-      <View style={styles.container}>
-        <MapComponent navigation={navigation} route={route} />
-        <SafeAreaView>
-
-        </SafeAreaView>
-        <MapSlideUpSheet navigationProp={navigation} />
-      </View>
-    </ApolloProvider>
+    <View style={styles.container}>
+      <MapComponent navigation={navigation} route={route} />
+      <SafeAreaView>
+        <TouchableOpacity
+          onPress={() => navigation.push('AccountView')}
+        >
+          <AccountButton />
+        </TouchableOpacity>
+      </SafeAreaView>
+      <MapSlideUpSheet navigationProp={navigation} />
+    </View> 
   )
 }
 
 export const AppNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name='MapView'
-        component={FeedScreen}
-        options={{ title: 'Map', headerShown: false }}
-      />
-      <Stack.Screen
-        name='AccountView'
-        component={AccountView}
-        options={{ title: 'Account Settings' }}
-      />
-      <Stack.Screen
-        name='PasswordView'
-        component={PasswordView}
-        options={{ title: 'Change Password' }}
-      />
-      <Stack.Screen
-        name='PPView'
-        component={PPView}
-        options={{ title: 'Privacy Policy' }}
-      />
-      <Stack.Screen
-        name='ToSView'
-        component={ToSView}
-        options={{ title: 'Terms of Service' }}
-      />
-      <Stack.Screen
-        name='HelpView'
-        component={HelpView}
-        options={{ title: 'Help' }}
-      />
-      <Stack.Screen
-        name='BusinessView'
-        component={BusinessView}
-        options={{ title: '', headerTransparent: true }}
-      />
-    </Stack.Navigator>
+    <ApolloProvider client={client}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='MapView'
+          component={FeedScreen}
+          options={{ title: 'Map', headerShown: false }}
+        />
+        <Stack.Screen
+          name='AccountView'
+          component={AccountView}
+          options={{ title: 'Account Settings' }}
+        />
+        <Stack.Screen
+          name='PasswordView'
+          component={PasswordView}
+          options={{ title: 'Change Password' }}
+        />
+        <Stack.Screen
+          name='PPView'
+          component={PPView}
+          options={{ title: 'Privacy Policy' }}
+        />
+        <Stack.Screen
+          name='ToSView'
+          component={ToSView}
+          options={{ title: 'Terms of Service' }}
+        />
+        <Stack.Screen
+          name='HelpView'
+          component={HelpView}
+          options={{ title: 'Help' }}
+        />
+        <Stack.Screen
+          name='BusinessView'
+          component={BusinessView}
+          options={{ title: '', headerTransparent: true }}
+        
+        />
+        <Stack.Screen
+          name='FutureProofRatingView'
+          component={FutureProofRatingView}
+          options={{ title: 'Futureproof Ratings' }}
+        />
+      </Stack.Navigator>
+    </ApolloProvider>
   )
 }
 
@@ -168,7 +191,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     height: 25,
     left: 20,
-    top: -Dimensions.get('screen').height + 120,
+    top: -Dimensions.get('screen').height + 180,
     width: 60
   },
   buttonText: {

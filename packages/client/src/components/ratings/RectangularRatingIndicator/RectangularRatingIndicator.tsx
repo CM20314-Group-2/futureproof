@@ -1,4 +1,4 @@
-import { ratingToColour } from '@components/ratings/RatingCapsule'
+import { DEFAULT_COLOR } from '@styles/index'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Svg, { Rect } from 'react-native-svg'
@@ -16,10 +16,10 @@ const PROGRESS_BACKGROUND_COLOUR = '#F0EFEF'
 const RectangularRatingIndicator = ({ progressValue, ratingName } : { progressValue : number, ratingName : string }) => {
   return (
     <View style={styles.indicatorBackgroundStyle}>
-      <Text style={styles.ratingTitleStyle} testID={'rating-title-text'}>{ratingName}</Text>
+      <Text style={styles.ratingTitleStyle} testID={'rating-title-text'}>{ratingName} - <Text style={styles.progressValueStyle}>{progressValue}</Text></Text>
       <Svg style={StyleSheet.flatten([styles.indicatorStyle])}>
         <Rect width={'100%'} height={10} rx={5} fill={PROGRESS_BACKGROUND_COLOUR}/>
-        <Rect width={`${progressValue}%`} height={10} rx={5} fill={ratingToColour(progressValue)}/>
+        <Rect width={`${progressValue}%`} height={10} rx={5} fill={DEFAULT_COLOR.toString()}/>
       </Svg>
     </View>
   )
@@ -31,11 +31,15 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     height: 85,
     justifyContent: 'space-evenly',
+    marginBottom: 15,
     padding: 10
   },
   indicatorStyle: {
     borderRadius: 5,
     height: 10
+  },
+  progressValueStyle: {
+    fontWeight: 'bold'
   },
   ratingTitleStyle: {
     fontSize: 12

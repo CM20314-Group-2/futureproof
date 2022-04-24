@@ -3,7 +3,7 @@ import DescriptionView from '@components/business/DescriptionView'
 import ImagesCarousel from '@components/business/ImageCarousel'
 import TitleView from '@components/business/TitleView'
 import RatingsView from '@components/ratings/RatingsView'
-import { RootStackParamList } from '@futureproof/client/App'
+import { NavigationProps, RootStackParamList } from '@futureproof/client/App'
 import { DisplayableBusiness, Location } from '@futureproof/typings'
 import { RouteProp } from '@react-navigation/native'
 import React from 'react'
@@ -16,6 +16,7 @@ import {
   View
 } from 'react-native'
 import openMap from 'react-native-open-maps'
+
 
 // PLACEHOLDER BUSINESS LOCATION -> Update to fetch graphQL
 export type ExampleLocationType = Pick<
@@ -31,11 +32,12 @@ const ExampleBusinessLocation : ExampleLocationType = {
 }
 
 export interface ComponentProps {business : DisplayableBusiness}
-interface Props {
-  route : Pick<RouteProp<RootStackParamList, 'BusinessView'>, 'params'>
+interface Props extends NavigationProps{
+  route : RouteProp<RootStackParamList, 'BusinessView'>
 } 
 
-const BusinessView = ({ route } : Props) => {
+const BusinessView = ({ navigation, route } : Props) => {
+  const { params : { business } } = route
   return (
     <View>
       <SafeAreaView style={styles.businessViewStyle}>
@@ -44,25 +46,23 @@ const BusinessView = ({ route } : Props) => {
           contentInsetAdjustmentBehavior='automatic'
         >
           <TitleView
-            name={route.params.business.name}
+            name={business.name}
             profilePicture={
-              route.params.business.profilePicture == null
+              business.profilePicture == null
                 ? ''
-                : route.params.business.profilePicture
+                : business.profilePicture
             }
             businessAddress={ExampleBusinessLocation.address}
           />
           <DescriptionView
-            profileText={route.params.business.profileText}
+            profileText={business.profileText}
           />
           <RatingsView
-            customerScore={route.params.business.customerScore}
-            sustainabilityScore={
-              route.params.business.sustainabilityScore
-            }
+            business={business}
+            navigation={{ navigation, route }}
           />
           <BusinessViewMap businessLocation={ExampleBusinessLocation} />
-          <ImagesCarousel Images={route.params.business.images as string[]} />
+          <ImagesCarousel Images={business.images as string[]} />
         </ScrollView>
       </SafeAreaView>
       <TouchableOpacity
