@@ -13,11 +13,11 @@ export const ratingToColour = (rating : number | null) : Color => {
   if (rating === null || isNaN(rating)) {
     return DEFAULT_COLOR
   }
-  if (rating < 0 || rating > 100) {
+  if (rating <= 0 || rating >= 100) {
     throw new Error('ratingValue must be between 0 and 100')
   }
 
-  switch (rating % 10) {
+  switch (Math.round(rating / 10)) {
   case 0:
     return new Color('#004B15')
   case 1:

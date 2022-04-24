@@ -4,7 +4,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 export const ratingToText = (ratingValue : number) : string => {
-  if (ratingValue < 0 || ratingValue > 100) {
+  if (ratingValue <= 0 || ratingValue >= 100) {
     throw new Error('ratingValue must be between 0 and 100')
   }
   
