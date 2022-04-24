@@ -3,6 +3,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Map from 'react-native-maps'
 
+
 const BusinessViewMap = ({ businessLocation } : { businessLocation : ExampleLocationType }) => (
   <View style={styles.compoundStyle} pointerEvents="none">
     <Text style={styles.headingText}>LOCATION MAP</Text>
@@ -11,8 +12,8 @@ const BusinessViewMap = ({ businessLocation } : { businessLocation : ExampleLoca
       region={{
         latitude: businessLocation.latitude,
         longitude: businessLocation.longitude,
-        latitudeDelta: 0.1,
-        longitudeDelta: 0.1
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.02
       }}
       showsUserLocation
       showsCompass

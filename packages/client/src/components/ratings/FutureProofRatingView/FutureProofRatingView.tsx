@@ -1,25 +1,106 @@
+import { gql, useQuery } from '@apollo/client'
 import CertificatesList from '@components/ratings/CertificateList'
 import CircularRatingIndicator from '@components/ratings/CircularRatingIndicator'
-import RatingBreakdownItems from '@components/ratings/RatingBreakdownItems'
-import { BusinessCertificate, DisplayableBusiness, Rating } from '@futureproof/typings'
+import RatingBreakdownItemsAlt from '@components/ratings/RatingBreakdownItems'
+import { RootStackParamList } from '@futureproof/client/App'
+import { Business, BusinessCertificate, DisplayableBusiness, Rating } from '@futureproof/typings'
+import { RouteProp } from '@react-navigation/native'
 import React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 
-type ComponentProps = Pick<
-  DisplayableBusiness,
-  'sustainabilityScore' | 'sustainabilityCertificates' | 'sustainabilityRatings'
->
+const GET_SCORES = gql`
+  query GetBusinessScores($id: ID!){
+    business(id: $id) {
+      carbonScore
+      certificateScore
+      charitableScore
+      customerScore
+      dataPrivacyScore
+      diversityScore
+      envProtectionScore
+      equalPayScore
+      humanRightsScore
+      taxScore
+    }
+  }
+`
+
+export interface ComponentProps {business : DisplayableBusiness}
+
+interface Props {
+  route : Pick<RouteProp<RootStackParamList, 'FutureProofRatingView'>, 'params'>
+}
 
 /**
  * This view provides a break down of a given business' FutureProof rating, including certificates and listed individual ratings.
- * 
- * @param {Maybe<number> | undefined} sustainabilityScore The sustainability score
- * @param {Maybe<Maybe<BusinessCertificate>[]> | undefined} sustainabilityCertificates An array of certificates for this business
- * @param {Maybe<Maybe<Rating>[]> | undefined} sustainabilityRatings An array of ratings for this business
- * @returns {View} The FutureProof Rating (breakdown) view
  */
+const FutureProofRatingView = ({ route: { params: { business : { id, sustainabilityScore, sustainabilityCertificates } }  } } : Props ) => {
+  const { loading, data  } = useQuery<{business : Pick<Business, 'carbonScore' | 'certificateScore' | 'charitableScore' | 'customerScore' | 'dataPrivacyScore' | 'diversityScore' | 'envProtectionScore' | 'equalPayScore' | 'humanRightsScore' | 'taxScore' | 'productSafetyScore'>}>(GET_SCORES, { variables: {
+    id 
+  } })
+  console.log('loading', loading)
+  console.log('data', data)
+  const { business } = data || {}
 
-const FutureProofRatingView = ({ sustainabilityScore, sustainabilityCertificates, sustainabilityRatings } : ComponentProps ) => {
+  if (loading || business === undefined) {
+    return <View/>
+  }
+
+  
+  const ratings : Rating[] = [
+    {
+      id : '1',
+      ratingName : 'Human Rights Score',
+      ratingValue : Number(business.humanRightsScore)
+    },
+    {
+      id : '2',
+      ratingName : 'Carbon Score',
+      ratingValue : Number(business.carbonScore)
+    },
+    {
+      id : '3',
+      ratingName : 'Certificate Score',
+      ratingValue : Number(business.certificateScore)
+    },
+    {
+      id : '4',
+      ratingName : 'Environment Protection Score',
+      ratingValue : Number(business.envProtectionScore)
+    },
+    {
+      id : '5',
+      ratingName : 'Diversity Score',
+      ratingValue : Number(business.diversityScore)
+    },
+    {
+      id : '6',
+      ratingName : 'Product Safety Score',
+      ratingValue : Number(business.productSafetyScore)
+    },
+    {
+      id : '7',
+      ratingName : 'Equal Pay Score',
+      ratingValue : Number(business.equalPayScore)
+    },
+    {
+      id : '8',
+      ratingName : 'Tax Score Score',
+      ratingValue : Number(business.taxScore)
+    },
+    {
+      id : '9',
+      ratingName : 'Data Privacy Score',
+      ratingValue : Number(business.dataPrivacyScore)
+    },
+    {
+      id : '10',
+      ratingName : 'Charitable Score',
+      ratingValue : Number(business.charitableScore)
+    },
+
+
+  ]
   return (
     <SafeAreaView style={styles.futureProofRatingViewStyle}>
       <ScrollView>
@@ -28,7 +109,7 @@ const FutureProofRatingView = ({ sustainabilityScore, sustainabilityCertificates
           <CertificatesList certificates={sustainabilityCertificates as BusinessCertificate[]}/>
         </View>
         <Text style={styles.headingText}>BREAKDOWN</Text>
-        <RatingBreakdownItems ratings={sustainabilityRatings as Rating[]}/>
+        <RatingBreakdownItemsAlt ratingsToDisplay={ratings} />
       </ScrollView>
     </SafeAreaView>
   )
@@ -37,7 +118,7 @@ const FutureProofRatingView = ({ sustainabilityScore, sustainabilityCertificates
 export const styles = StyleSheet.create({
   futureProofRatingTitleView: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
     paddingVertical: 20
   },
   futureProofRatingViewStyle: {

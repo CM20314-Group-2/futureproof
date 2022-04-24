@@ -4,7 +4,7 @@ import SearchResult from '@components/search/SearchResult'
 import { NavigationProps } from '@futureproof/client/App'
 import { DisplayableBusiness } from '@futureproof/typings'
 import React from 'react'
-import { FlatList, ScrollView, StyleSheet } from 'react-native'
+import { FlatList, View, StyleSheet } from 'react-native'
 
 type ComponentProps = NavigationProps
 
@@ -26,13 +26,14 @@ const SearchView = ({ navigation } : ComponentProps) => {
   
   return (
     <React.Fragment>
-      <ScrollView style={styles.searchList}>
+      <View style={styles.searchList}>
         <FlatList
           data={results}
           renderItem={renderSearchItem}
           keyExtractor={(item) => item.id}
+          
         />
-      </ScrollView>
+      </View>
     </React.Fragment>
   )
 }
@@ -40,8 +41,8 @@ const SearchView = ({ navigation } : ComponentProps) => {
 const styles = StyleSheet.create({
   searchList: {
     backgroundColor: '#f8f9fa',
-    flex: 1,
-    width: '90%',
+    flex: 0.82,
+    width: '97%',
   },
 })
 
