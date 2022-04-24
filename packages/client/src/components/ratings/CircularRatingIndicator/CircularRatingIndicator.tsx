@@ -43,7 +43,7 @@ const CircularRatingIndicator = ({ circleWidth, circleHeight, progressBarWidth, 
           translateX={progressBarWidth}
           translateY={progressBarWidth}
           strokeDasharray={2 * Math.PI * ((circleWidth - (progressBarWidth * 2)) / 2)}
-          // strokeDashoffset={(2 * Math.PI * ((circleWidth - (progressBarWidth * 2)) / 2)) * (1 - (progressValue / 100))}
+          strokeDashoffset={(2 * Math.PI * ((circleWidth - (progressBarWidth * 2)) / 2)) * (1 - (progressValue / 100))}
           strokeLinecap={'round'}
         />
       </Svg>
