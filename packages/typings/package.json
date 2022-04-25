@@ -12,7 +12,8 @@
   "scripts": {
     "prebuild": "tsc --project ./config/tsconfig.plugins.json",
     "build": "graphql-codegen --config ./config/codegen.yml",
-    "postbuild": "tsc --project ./config/tsconfig.build.json"
+    "postbuild": "tsc --project ./config/tsconfig.build.json",
+    "postinstall": "yarn run build"
   },
   "author": "bridgeswood",
   "license": "ISC",
