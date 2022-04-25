@@ -4,10 +4,6 @@
 ---
 
 ## Prerequisites
-- Ensure that you have lerna installed globally:
-```
-yarn add -g lerna
-```
 - Ensure that you have [ngrok](https://ngrok.com/) installed.
 
 ## Installation
@@ -21,9 +17,9 @@ yarn install
 ```
 
 ## Developing Locally
-- Run the development server:
+- Run the development server in the server directory:
 ```
-lerna run --stream dev
+yarn dev
 ```
 - In the `packages/server` subdirectory, open the ngrok tunnel:
 ```
@@ -39,11 +35,11 @@ extra: {
 ```
 
 ## Running Locally
-- Start the GraphQL server:
+- Start the server in the server directory:
 ```
-lerna run --stream dev
+yarn start
 ```
-- In a new terminal window start the client with:
+- In a new terminal window start the client (in the client directory) with:
 ```
 yarn start
 ```
